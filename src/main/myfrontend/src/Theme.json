@@ -1,0 +1,15 @@
+{
+  "color" :
+  {
+    "primary": "blue",
+    "secondary": "red",
+    "tertiary": "#788890"
+  },
+  "font":
+  {
+    "title": "large",
+    "text": "medium",
+    "description": "small"
+  }
+
+}
