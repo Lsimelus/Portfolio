@@ -1,9 +1,8 @@
 Button
     Highlight
     Downloadable
-    change link
+    change position
 Form
 Menu
     bottom and top
-Picture holder
 Page

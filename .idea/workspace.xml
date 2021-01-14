@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b72bd67-7089-4b0a-8c20-d9c5307f148b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Components/list.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Pagestyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Theme.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyPortfolio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyPortfolio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Theme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Components/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Components/list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Theme.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,7 @@
       <list>
         <option value="package.json" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -47,6 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -57,8 +63,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/src/main/myfrontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -68,6 +74,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyPortfolioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="MyPortfolio" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.MyPortfolio.MyPortfolioApplication" />
@@ -87,6 +106,7 @@
       <workItem from="1610476674382" duration="2609000" />
       <workItem from="1610485237999" duration="1676000" />
       <workItem from="1610487296944" duration="6780000" />
+      <workItem from="1610509533443" duration="21918000" />
     </task>
     <servers />
   </component>

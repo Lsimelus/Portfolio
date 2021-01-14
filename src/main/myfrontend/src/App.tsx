@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {PageComponent} from './Page'
+import { ButtonComponent} from "./Button";
+
+//<p>~~~~~~~</p>
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PageComponent color_={"blue"} background_={"red"} >
+          <p>
+              bukbjkbk
+          </p>
+      </PageComponent>
+        <PageComponent color_={"orange"} background_={"yellow"} height_={"50%"}>
+            <p>
+                bukbjkbk
+            </p>
+        </PageComponent>
+        <ButtonComponent color_={"red"} link_={""} >
+            knk,n,
+        </ButtonComponent>
+        <ButtonComponent color_={"blue"} link_={""} >
+            jb,bj,
+        </ButtonComponent>
+        <ButtonComponent color_={"green"} link_={""} >
+            m, ,
+        </ButtonComponent>
     </div>
   );
 }
