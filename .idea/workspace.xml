@@ -5,15 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b72bd67-7089-4b0a-8c20-d9c5307f148b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Theme.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Files/resume.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/browserconfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/TOC.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/css.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/extend.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/faq.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/html.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/js.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/misc.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/doc/usage.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/humans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/img/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/js/plugins.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/js/vendor/modernizr-3.11.2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/tile-wide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Theme/tile.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Components/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Components/list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Theme.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,20 +100,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Files" />
       <recent name="$PROJECT_DIR$/src/main/myfrontend/src" />
       <recent name="$PROJECT_DIR$/src/main/mybackend" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,7 +136,8 @@
       <workItem from="1610476674382" duration="2609000" />
       <workItem from="1610485237999" duration="1676000" />
       <workItem from="1610487296944" duration="6780000" />
-      <workItem from="1610509533443" duration="21918000" />
+      <workItem from="1610509533443" duration="28879000" />
+      <workItem from="1610735711199" duration="16228000" />
     </task>
     <servers />
   </component>
