@@ -19,7 +19,8 @@ const ButtonLayout = styled.div<{color: string, background: string}>`
   border-radius: 8px;
   
   :hover {
-    opacity: 1
+    opacity: 1;
+    transform: translateY(8px);
   }
   
   :active {

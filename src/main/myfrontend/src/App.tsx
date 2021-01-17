@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {PageComponent} from './Page'
 import { ButtonComponent} from "./Button";
+import {FormComponent} from "./Form";
 
 function App() {
   return (
@@ -29,6 +30,28 @@ function App() {
 
       </PageComponent>
 
+        <PageComponent href_={"#5"} color_={"yellow"} background_={"purple"} height_={"600px;"}>
+            <div className="context">
+                <h1>Pure Css Animated Background</h1>
+            </div>
+
+
+            <div className="area">
+                <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </PageComponent>
+
       <PageComponent href_={"#5"} color_={"yellow"} background_={"purple"} height_={"500px;"}>
 
       </PageComponent>
@@ -37,9 +60,13 @@ function App() {
 
       </PageComponent>
 
-      <PageComponent href_={"#7"} color_={"yellow"} background_={"pink"} height_={"100px;"}>
+      <PageComponent href_={"#7"} color_={"yellow"} background_={"pink"} height_={"1000px;"}>
+          <FormComponent>
+
+          </FormComponent>
 
       </PageComponent>
+
         <PageComponent href_={"#8"} color_={"orange"} background_={"yellow"} height_={"50%"} position_={"sticky"}>
 
         </PageComponent>

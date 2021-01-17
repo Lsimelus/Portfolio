@@ -1,4 +1,3 @@
-import React, {useRef} from "react";
 import  styled  from  'styled-components';
 
 const PageLayout = styled.div<{height: string, color: string, background: string , position: string}>`
