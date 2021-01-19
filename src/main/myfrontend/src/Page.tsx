@@ -9,12 +9,21 @@ const PageLayout = styled.div<{height: string, color: string, background: string
     border: 1px solid black;
     height:${props => props.height };
     position: ${props => props.position };
+    
+    
+    h1 {
+        color: red;
+    }
+    
+    p {
+    
+    }
     }`;
 
 
 
 export const PageComponent: React.FunctionComponent<{ href_: string, height_?: string, color_: string, background_: string , position_?: string}> = ({ href_, position_ , height_, color_, background_, children }) => (
-    <PageLayout position={ position_ == undefined ? "relative" : position_ } color = {color_}  background = { background_ } height = { height_ == undefined ? "50px;" : height_ }>
+    <PageLayout position={ position_ == undefined ? "relative" : position_ } color = {color_}  background = { background_ } height = { height_ == undefined ? "85vh" : height_ }>
         <div id={href_}  >{children}</div>
 
     </PageLayout>

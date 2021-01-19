@@ -1,8 +1,0 @@
-Button
-    Highlight
-    Downloadable
-    change position
-Form
-Menu
-    bottom and top
-Page

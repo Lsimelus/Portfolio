@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import  styled  from  'styled-components';
-import { ButtonComponent} from "./Button";
+import { FormButtonComponent} from "./Button";
 
 
 
@@ -52,12 +52,24 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
     const [phone, setPhone] = React.useState("");
     const [message, setMessage] = React.useState("");
 
+    const handleSubmit = async (event: any) => {
 
-    const emailValidator = () => (
-        new RegExp(/\S+@\S+\.\S+/).test(email) ? "" : "Please enter a valid email."
-    );
+        event.preventDefault();
+        try {
+            const body = {email, name, phone, message}
+            //console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX")
+            //console.log(JSON.stringify(body))
+            const response = await fetch("http://localhost:5000/todos",
+                {
+                    method: "POST",
+                    headers: { "Content-Type":
+                    "application/json" },
+                    body: JSON.stringify(body)
+                });
 
-    const handleSubmit = (event: any) => {
+        } catch (e) {
+            console.error(e.message)
+        }
         console.log(`
       Email: ${email}
       Name: ${name}
@@ -65,13 +77,15 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
       Message: ${message}
     `);
 
-        event.preventDefault();
+
     }
+
+
 
     return (
         <Container>
 
-        <FormLayout onSubmit={handleSubmit}>
+        <FormLayout id={"contact"} onSubmit={handleSubmit}>
             <h1>Get in Touch!</h1>
 
             <LabelLayout>
@@ -112,8 +126,7 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
                     required />
             </LabelLayout>
 
-            <ButtonComponent isDownload_={false} background_={"green"} color_={"purple"} link_={""} text_={"Submit"} >
-            </ButtonComponent>
+            <FormButtonComponent background_={"green"} color_={"purple"}  text_={"Submit"} />
         </FormLayout>
         </Container>
     );

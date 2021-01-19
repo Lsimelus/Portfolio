@@ -1,6 +1,9 @@
 CREATE DATABASE perntodo;
 
-CREATE TABLE todo(
+CREATE TABLE todo1(
     todo_id SERIAL PRIMARY KEY,
-    description VARCHAR(255)
+    email VARCHAR(50),
+    name VARCHAR(50),
+    phone VARCHAR(50),
+    message VARCHAR(2000)
 );
