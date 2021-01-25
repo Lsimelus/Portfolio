@@ -1,11 +1,8 @@
 import React from "react";
 import  styled  from  'styled-components';
 import {Link} from 'react-scroll'
+import Theme from "./Theme";
 
-/*
-display: flex;
-  margin-right: 1rem;
- */
 const ButtonLayout = styled.button<{color: string, background: string}>`
   background-color: ${props => props.background};
   border: none;
@@ -32,21 +29,19 @@ const ButtonLayout = styled.button<{color: string, background: string}>`
   
   }`;
 
-export const FormButtonComponent: React.FunctionComponent<{ text_: string, background_: string, color_: string }> = ({background_ , text_, color_, children }) => (
-    <ButtonLayout type={"submit"} form={"contact"} background={background_} color={color_} >
-            {text_}
+export const FormButtonComponent: React.FunctionComponent<{ text_: string, background_?: string, color_?: string }> = ({background_ , text_, color_, children }) => (
+    <ButtonLayout type={"submit"} form={"contact"} background={ background_ == undefined ? Theme.color.primary : background_ } color={ color_ == undefined ? Theme.color.secondary : color_ } >
+        {text_}
     </ButtonLayout>
 );
 
-
-export const ButtonComponent: React.FunctionComponent<{ isDownload_?: boolean, text_: string, background_: string, color_: string, link_: string, }> = ({ isDownload_,background_ , text_, color_, link_,  children }) => (
-        <ButtonLayout  background={background_} color={color_} >
+export const ButtonComponent: React.FunctionComponent<{ isDownload_?: boolean, text_: string, background_?: string, color_?: string, link_: string, }> = ({ isDownload_,background_ , text_, color_, link_,  children }) => (
+        <ButtonLayout  background={ background_ == undefined ? Theme.color.secondary : background_ } color={ color_ == undefined ? Theme.color.primary : color_ } >
             {isDownload_ ?
                 <a href={link_} download>
                         {text_}
                 </a>
                 :
-
                 <Link to={link_} spy={true} smooth={true}>
                 {text_}
             </Link>

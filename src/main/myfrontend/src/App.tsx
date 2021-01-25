@@ -4,12 +4,31 @@ import {PageComponent} from './Page'
 import { ButtonComponent} from "./Button";
 import {FormComponent} from "./Form";
 import {NavComponent} from "./Nav";
+import {FooterComponent} from "./Footer";
+import logo from './Files/Logo.png'
+import styled  from 'styled-components';
+import resume from './Files/resume.pdf'
+import profile from './Files/pic1.PNG'
+import Theme from "./Theme";
+import { ContactComponent } from './Contact'
+import timeline from './Files/timeline.jpg'
+import {ImageComponent} from "./ImageComponent";
+import {AboutComponent} from "./About";
 
 
-function App() {
+
+const ProfileLayout = styled.img<{}>`
+    height: 65vh;
+    padding-right: 90vh;
+    padding-top: 20vh;
+    border-radius: 60px;
+    text-align: left;
+    }`;
+
+const App: React.FunctionComponent = () =>{
   return (
     <div className="App" >
-        <div className="area">
+        <div id="#Home" className="area">
 
         <NavComponent>
             <ul className="circles">
@@ -25,143 +44,45 @@ function App() {
                 <li></li>
             </ul>
 
-            <ButtonComponent isDownload_={false} background_={"purple"} color_={"red"} link_={"mailto:lsimelus@gmail.com"} text_={"hjvhj"} />
-            <ButtonComponent isDownload_={false} background_={"blue"} color_={"pink"} link_={"#8"} text_={"~~~~~~~~"} />
-            <ButtonComponent isDownload_={true} background_={"green"} color_={"purple"} link_={"/Files/resume.pdf"} text_={"jbk,"} />
+
+            <ImageComponent position_={"fixed"} src_={logo} height_={"10vh"} radius_={"10px"} t_={"0"} l_={"0"}></ImageComponent>
+
+            <ButtonComponent  link_={"#Home"} text_={"Home"} />
+            <ButtonComponent link_={"#About Me"} text_={"About Me"} />
+            <ButtonComponent link_={"#Portfolio"} text_={"Portfolio"} />
+            <ButtonComponent  link_={"#Contact"} text_={"Contact"} />
+            <ButtonComponent isDownload_={true} background_={Theme.color.primary}  link_={resume} text_={"Resume"} />
+
         </NavComponent>
+
+            <ImageComponent  src_={profile} height_={"65vh"} radius_={"60px"} rp_={"90vh"} tp_={"20vh"} ></ImageComponent>
 
             <div className="homepage">
                 <h1>Lyndbergh Simelus</h1>
+                <hr/>
+                <p>Focused. Determined. Driven.</p>
+
             </div>
         </div>
 
 
-
-
-      <PageComponent href_={"#2"} color_={"yellow"} background_={"gray"} height_={"700px"} >
-
-
-
+      <PageComponent background_={Theme.color.background1} title_={"About Me"} height_={"120vh"}>
+          <AboutComponent>          </AboutComponent>
       </PageComponent>
-      <PageComponent href_={"#3"} color_={"gray"} background_={"purple"}  />
+
+      <PageComponent description_={"Here are descriptions, code, and media of some cool projects that I have done so far"}   background_={Theme.color.background1} title_={"Portfolio"}/>
 
 
-      <PageComponent href_={"#4"} color_={"yellow"} background_={"pink"} height_={"100px;"} />
-
-
-
-
-      <PageComponent href_={"#5"} color_={"yellow"} background_={"purple"} height_={"600px;"} />
-
-
-      <PageComponent href_={"#6"} color_={"yellow"} background_={"yellow"} height_={"100px;"} />
-
-
-      <PageComponent href_={"#7"} color_={"yellow"} background_={"pink"} height_={"1000px;"}>
+      <PageComponent description_={"Need anything built, want to work together or simply want to have a chat?\n" +
+      "Drop me an e-mail at lsimelus@gmail.com or simply fill out the form below and I will reply to you soon!"} background_={Theme.color.background2} title_={"Contact"} height_={"80vh"}>
           <FormComponent />
-
+          <ContactComponent></ContactComponent>
       </PageComponent>
 
-        <PageComponent href_={"#8"} color_={"orange"} background_={"yellow"} height_={"50%"} position_={"sticky"} />
+        <FooterComponent></FooterComponent>
 
     </div>
   );
 }
 
 export default App;
-
-
-
-/*
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--main-red);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-
-.nav-list {
-  display: flex;
-  margin-right: 2rem;
-}
-
-
-.contact-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 80vh;
-    padding: 0 2rem;
-    background: var(--main-gray);
-}
-
-.contact-section-header > h2 {
-    font-size: 6rem;
-}
-
-@media (max-width: 28.75em) {
-.contact-section-header > h2 {
-        font-size: 4rem;
-    }
-}
-
-.contact-section-header > p {
-    font-style: italic;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 980px;
-    margin-top: 4rem;
-    flex-wrap: wrap;
-}
-
-.contact-details {
-    font-size: 2.4rem;
-    text-shadow: 2px 2px 1px #1f1f1f;
-    transition: transform 0.3s ease-out;
-}
-
-.contact-details:hover {
-    transform: translateY(8px);
-}
-
-//Footer
-
-footer {
-    font-weight: 300;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 2rem;
-    background: var(--main-gray);
-    border-top: 4px solid var(--main-red);
-}
-
-footer > p {
-    margin: 2rem;
-}
-
-footer i {
-    vertical-align: middle;
-}
-
-@media (max-width: 28.75em) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-
-
-
- */

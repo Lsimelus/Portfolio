@@ -1,27 +1,22 @@
 import React, { Component } from "react";
 import  styled  from  'styled-components';
 import { FormButtonComponent} from "./Button";
-
-
-
-const Container = styled.div <{}>`
-    border-radius: 5px;
-    padding: 20px;
-    }`;
+import Theme from "./Theme";
 
 const FormLayout = styled.form <{}>`
-    
-    }`;
-
-const LabelLayout = styled.label <{}>`
-    display: block;
+    width: 42%;
+    float: right;
+    padding: 20px;
+    border: 2px solid ${Theme.color.primary};
+    top: 0;
+    height: 43vh;
+    background-color: ${Theme.color.secondary};
+    border-radius: 15px;
     }`;
 
 
 const InputLayout = styled.input <{}>`
-    color: palevioletred;
     font-size: 1em;
-    border: 2px solid palevioletred;
     border-radius: 3px;
     padding: 12px;
     box-sizing: border-box;
@@ -35,6 +30,7 @@ const InputLayout = styled.input <{}>`
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+    text-align: left;
     
     }`;
 
@@ -57,8 +53,6 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
         event.preventDefault();
         try {
             const body = {email, name, phone, message}
-            //console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX")
-            //console.log(JSON.stringify(body))
             const response = await fetch("http://localhost:5000/todos",
                 {
                     method: "POST",
@@ -66,6 +60,11 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
                     "application/json" },
                     body: JSON.stringify(body)
                 });
+            setPhone("");
+            setMessage("");
+            setEmail("");
+            setMessage("");
+            alert("Submitted! I will be in touch as soon as possible. ");
 
         } catch (e) {
             console.error(e.message)
@@ -83,51 +82,40 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
 
 
     return (
-        <Container>
 
         <FormLayout id={"contact"} onSubmit={handleSubmit}>
-            <h1>Get in Touch!</h1>
-
-            <LabelLayout>
-                Email:
                 <InputLayout
                     name="email"
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    placeholder={"Email*"}
                     required />
-            </LabelLayout>
-
-            <LabelLayout>
-                Name:
                 <InputLayout
                     name="name"
                     type="name"
                     value={name}
+                    placeholder={"Name"}
                     onChange={e => setName(e.target.value)}/>
-            </LabelLayout>
 
-            <LabelLayout>
-                Phone:
                 <InputLayout
                     name="tel"
                     type="tel"
                     value={phone}
+                    placeholder={"Phone #"}
                     onChange={e => setPhone(e.target.value)}/>
-            </LabelLayout>
 
-            <LabelLayout>
-                Message:
                 <MessageInputLayout
                     name="message"
                     type="message"
                     value={message}
+                    placeholder={"Message*"}
                     onChange={e => setMessage(e.target.value)}
                     required />
-            </LabelLayout>
 
-            <FormButtonComponent background_={"green"} color_={"purple"}  text_={"Submit"} />
+
+            <FormButtonComponent text_={"Submit contact info"} />
+
         </FormLayout>
-        </Container>
     );
 }

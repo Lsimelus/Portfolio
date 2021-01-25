@@ -9,7 +9,7 @@ const NavLayout = styled.nav<{}>`
     left: 0;
     width: 100%;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-    z-index: 10;
+    
     position: fixed;
     background: #4e54c8;
     }`;
