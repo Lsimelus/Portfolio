@@ -8,7 +8,7 @@ import location from "./Files/location3.png";
 import phone from "./Files/phone.png";
 import mail from "./Files/mail.png";
 
-const ImageLayout = styled.img<{ position?: string, l?: string, lp?: string, r?: string, rp?: string, t?: string, tp?: string, b?: string, bp?: string, height: string, background?: string, radius?: string}>`
+export const ImageLayout = styled.img<{ position?: string, l?: string, lp?: string, r?: string, rp?: string, t?: string, tp?: string, b?: string, bp?: string, height: string, background?: string, radius?: string}>`
     height: ${props => props.height};
    
     background: ${props => props.background};

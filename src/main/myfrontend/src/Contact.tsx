@@ -7,7 +7,7 @@ import insta from './Files/instagram.png'
 import mail from './Files/mail.png'
 import phone from './Files/phone.png'
 import location from './Files/location3.png'
-import {ImageComponent} from "./ImageComponent";
+import {ImageComponent, ImageLayout} from "./ImageComponent";
 import Theme from "./Theme";
 import {Link} from 'react-scroll'
 import resume from './Files/resume.pdf'
