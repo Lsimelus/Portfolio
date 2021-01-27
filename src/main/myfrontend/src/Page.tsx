@@ -1,6 +1,5 @@
 import  styled  from  'styled-components';
 
-
 const PageLayout = styled.div<{height: string, color: string, background: string}>`
     color: ${props => props.color};
     background-color:  ${props => props.background};

@@ -1,12 +1,5 @@
 import React, { Component } from "react";
 import  styled  from  'styled-components';
-import logo from "./Files/Logo.png";
-import github from "./Files/github.png";
-import linkedin from "./Files/LinkedIn.png";
-import insta from "./Files/instagram.png";
-import location from "./Files/location3.png";
-import phone from "./Files/phone.png";
-import mail from "./Files/mail.png";
 
 export const ImageLayout = styled.img<{ position?: string, l?: string, lp?: string, r?: string, rp?: string, t?: string, tp?: string, b?: string, bp?: string, height: string, background?: string, radius?: string}>`
     height: ${props => props.height};

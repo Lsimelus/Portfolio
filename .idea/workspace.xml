@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b72bd67-7089-4b0a-8c20-d9c5307f148b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Portfolio.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Data.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Contact.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Files/location2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Files/location3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Files/pic2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Files/pic3.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/ImageComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/ImageComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/Portfolio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/Portfolio.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/myfrontend/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/myfrontend/src/react-app-env.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,17 +80,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyPortfolioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="MyPortfolio" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.MyPortfolio.MyPortfolioApplication" />
@@ -112,7 +100,8 @@
       <workItem from="1610485237999" duration="1676000" />
       <workItem from="1610487296944" duration="6780000" />
       <workItem from="1610509533443" duration="28879000" />
-      <workItem from="1610735711199" duration="141318000" />
+      <workItem from="1610735711199" duration="154044000" />
+      <workItem from="1611728694624" duration="851000" />
     </task>
     <servers />
   </component>

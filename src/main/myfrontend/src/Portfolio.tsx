@@ -1,72 +1,74 @@
 import Theme from "./Theme";
-import React, { Component } from "react";
+import React, {Component, useState} from "react";
 import  styled  from  'styled-components';
 import profile from './Files/pic1.PNG'
 import {ImageComponent } from "./ImageComponent";
+import Modal from "react-modal";
+import {ModalComponent} from "./Modal";
+import Data from './Data'
+
 
 const PortfolioLayout = styled.div <{}>`
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-  border-radius: 15px;
-}
 
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
     }`;
 
-
-
+/*
+let Data = [
+    {
+        "name": "1",
+        "url": "1",
+        "collaboration": "1",
+        "details": "1",
+        "technologies":"1",
+        "vidurl": "1"
+    },
+    {
+        "name": "2",
+        "url": "2",
+        "collaboration": "2",
+        "details": "2",
+        "technologies":"2",
+        "vidurl": "2"
+    },
+    {
+        "name": "sadsa",
+        "url": "adsa",
+        "collaboration": "asdsa",
+        "details": "asda",
+        "technologies":"sadsad",
+        "vidurl": "asdsa"
+    },
+    {
+        "name": "",
+        "url": "",
+        "collaboration": "",
+        "details": "",
+        "technologies":"",
+        "vidurl": ""
+    }
+];*/
 
 export const PortfolioComponent: React.FunctionComponent = ({  children }) => {
-    const [email, setEmail] = React.useState("");
+    const numbers = [1, 2, 3, 4, 5];
+
+
+    function ModalList() {
+
+        const data = Object.entries(Data)
+        const listItems = data.map((project: any, index: number) =>
+            <li key={index.toString()}>
+                <ModalComponent key={index} name_={project.name} technologies_={project.technologies} details_={project.details} collaboration_={project.collaboration} url_={project.url} vidurl_={project.vidurl}/>
+            </li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
+    }
 
     return (
         <PortfolioLayout>
-            <div className="card">
-                <ImageComponent src_={profile} height_={"30vh"}></ImageComponent>
-                    <p className="title">Royal Fitness</p>
-                    <p>Swift, Googlr Console Firebase</p>
-                    <div >
-                        <a href="#"><i className="fa fa-dribbble">Swift</i></a>
-                        <a href="#"><i className="fa fa-twitter">Google Console Firebase</i></a>
-                        <a href="#"><i className="fa fa-linkedin">nk</i></a>
-                        <a href="#"><i className="fa fa-facebook"> k nk</i></a>
-                    </div>
-                    <p>
-                        <button>Contact</button>
-                    </p>
-            </div>
-
-
+            <ModalList />
+            {children}
         </PortfolioLayout>
     );
 }
