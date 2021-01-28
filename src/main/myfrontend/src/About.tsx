@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import  styled  from  'styled-components';
-import logo from "./Files/Logo.png";
 import github from "./Files/github.png"
 import linkedin from "./Files/LinkedIn.png"
 import insta from './Files/instagram.png'
-import mail from './Files/mail.png'
-import phone from './Files/phone.png'
-import location from './Files/location3.png'
 import {ImageComponent} from "./ImageComponent";
 import Theme from "./Theme";
 import {Link} from 'react-scroll'
-import resume from './Files/resume.pdf'
 import hbo from './Files/HarvardBusiness School certificate.pdf'
 import { Bar } from './Contact'
 
@@ -19,8 +14,9 @@ const Container = styled.form <{}>`
     width: 90%;
     padding: 20px;
     border: 2px solid ${Theme.color.primary};
-    height: 130vh;
+    min-height: 130vh;
     border-radius: 15px;
+    height: auto;
     
     h3 {
     padding-bottom: 15px;
@@ -32,6 +28,7 @@ const Left = styled.div <{}>`
     float: left;
     width: 40vh;
     padding-left: 7vh;
+    height: auto;
     p {
         text-align: left;
     }
@@ -55,6 +52,7 @@ const Left2 = styled(Left)`
 
 const Right = styled.div <{}>`
     width: 40vh;
+    height: auto;
     float: right;
     padding-right: 7vh;
     ul li {
@@ -72,7 +70,7 @@ const Bottom = styled.div <{}>`
     }`;
 
 const Bottom2 = styled(Bottom)`
-    padding-top: 65vh;
+    padding-top: 85vh;
     li {
         list-style-type: none;
     }

@@ -9,7 +9,7 @@ const FormLayout = styled.form <{}>`
     padding: 20px;
     border: 2px solid ${Theme.color.primary};
     top: 0;
-    height: 43vh;
+    min-height: 43vh;
     background-color: ${Theme.color.secondary};
     border-radius: 15px;
     }`;
@@ -31,15 +31,14 @@ const InputLayout = styled.input <{}>`
     margin-top: 6px;
     margin-bottom: 16px;
     text-align: left;
+    height: 3.5vh;
     
     }`;
 
 const MessageInputLayout = styled(InputLayout) <{}>`
-    height: 100px;
+    height: 10vh;
     }`;
 
-
-//^[\S\s]{1,35}$
 
 export const FormComponent: React.FunctionComponent = ({  children }) => {
 
@@ -64,7 +63,7 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
             setMessage("");
             setEmail("");
             setMessage("");
-            alert("Submitted! I will be in touch as soon as possible. ");
+            alert("Submitted! I will be in touch as soon as possible.");
 
         } catch (e) {
             console.error(e.message)
@@ -76,9 +75,7 @@ export const FormComponent: React.FunctionComponent = ({  children }) => {
       Message: ${message}
     `);
 
-
     }
-
 
 
     return (

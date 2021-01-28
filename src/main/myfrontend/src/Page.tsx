@@ -5,7 +5,8 @@ const PageLayout = styled.div<{height: string, color: string, background: string
     background-color:  ${props => props.background};
     width: 100%;
     border: .5px solid black;
-    height:${props => props.height };
+    min-height:${props => props.height };
+    height: auto;
     
     
     h1 {

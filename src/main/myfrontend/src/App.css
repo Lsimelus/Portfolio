@@ -4,14 +4,28 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
-  font-size: 2v
+  font-size: 2vh;
+  height: auto;
 }
 
 body{
   font-family: 'Exo', sans-serif;
 }
+h1 {
+  font-size: 6vh;
+}
+h3 {
+  font-size: 3vh;
+}
 
+Link {
+  cursor: pointer;
+}
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
 .mymodal {
   position: fixed;
   top: 50%;
@@ -25,7 +39,6 @@ body{
   outline: none;
   padding: 20px;
 }
-
 .myoverlay {
   position: fixed;
   top: 0;
@@ -33,10 +46,6 @@ body{
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
-}
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 500ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
@@ -58,14 +67,14 @@ body{
 
 hr {
   width: 40%;
-  padding-top: 4px;
+  padding-top: 1vh;
   margin: auto;
   background: aqua;
 }
 
 .homepage h1{
   color: #fff;
-  font-size: 50px;
+  font-size: 7vh;
 }
 
 .area{

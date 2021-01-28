@@ -10,7 +10,7 @@ import resume from './Files/resume.pdf'
 import profile from './Files/pic1.PNG'
 import Theme from "./Theme";
 import { ContactComponent } from './Contact'
-import {ImageComponent, ImageLayout} from "./ImageComponent";
+import {ImageComponent } from "./ImageComponent";
 import {AboutComponent} from "./About";
 import { PortfolioComponent} from "./Portfolio";
 
@@ -58,7 +58,7 @@ const App: React.FunctionComponent = () =>{
       </PageComponent>
 
       <PageComponent description_={"Here are descriptions, code, and media of some cool projects that I have done so far"}   background_={Theme.color.background1} title_={"Portfolio"}>
-          <PortfolioComponent></PortfolioComponent>
+          <PortfolioComponent />
       </PageComponent>
 
 

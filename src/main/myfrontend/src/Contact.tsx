@@ -19,7 +19,7 @@ const Container = styled.form <{}>`
     float: left;
     padding: 20px;
     border: 2px solid ${Theme.color.primary};
-    height: 43vh;
+    min-height: 43vh;
     background-color: ${Theme.color.secondary};
     border-radius: 15px;
     li {

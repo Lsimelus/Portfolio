@@ -1,65 +1,48 @@
 import Theme from "./Theme";
-import React, {Component, useState} from "react";
+import React, {} from "react";
 import  styled  from  'styled-components';
-import profile from './Files/pic1.PNG'
-import {ImageComponent } from "./ImageComponent";
-import Modal from "react-modal";
-import {ModalComponent} from "./Modal";
+import {CardComponent} from "./Modal";
 import Data from './Data'
 
-
 const PortfolioLayout = styled.div <{}>`
+    width: 90vh;
+    border: 2px solid ${Theme.color.primary};
+    margin: auto;
+    border-radius: 25px;
 
-    }`;
-
-/*
-let Data = [
-    {
-        "name": "1",
-        "url": "1",
-        "collaboration": "1",
-        "details": "1",
-        "technologies":"1",
-        "vidurl": "1"
-    },
-    {
-        "name": "2",
-        "url": "2",
-        "collaboration": "2",
-        "details": "2",
-        "technologies":"2",
-        "vidurl": "2"
-    },
-    {
-        "name": "sadsa",
-        "url": "adsa",
-        "collaboration": "asdsa",
-        "details": "asda",
-        "technologies":"sadsad",
-        "vidurl": "asdsa"
-    },
-    {
-        "name": "",
-        "url": "",
-        "collaboration": "",
-        "details": "",
-        "technologies":"",
-        "vidurl": ""
+    ul {
+        width: 90vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
-];*/
+    .btn {
+        border: none;
+        outline: none;
+        padding: 10px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        font-size: 18px;
+        
+        :hover {
+            background-color: #666;
+            color: white;
+        }
+        :active {
+            background-color: #666;
+            color: white;
+       
+        }
+        
+    }
+    `;
+
 
 export const PortfolioComponent: React.FunctionComponent = ({  children }) => {
-    const numbers = [1, 2, 3, 4, 5];
-
-
     function ModalList() {
-
-        const data = Object.entries(Data)
-        const listItems = data.map((project: any, index: number) =>
-            <li key={index.toString()}>
-                <ModalComponent key={index} name_={project.name} technologies_={project.technologies} details_={project.details} collaboration_={project.collaboration} url_={project.url} vidurl_={project.vidurl}/>
-            </li>
-        );
+        const listItems = Data.map((project, index: number) => (
+            <CardComponent key={index.toString()} name_={project.name} technologies_={project.technologies} details_={project.details} collaboration_={project.collaboration} url_={project.url} media_={project.media} done_={project.done}/>
+        ));
         return (
             <ul>{listItems}</ul>
         );
@@ -67,6 +50,13 @@ export const PortfolioComponent: React.FunctionComponent = ({  children }) => {
 
     return (
         <PortfolioLayout>
+            <div id="myDIV">
+                <button className="btn">1</button>
+                <button className="btn active">2</button>
+                <button className="btn">3</button>
+                <button className="btn">4</button>
+                <button className="btn">5</button>
+            </div>
             <ModalList />
             {children}
         </PortfolioLayout>
