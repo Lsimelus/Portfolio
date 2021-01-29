@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {PageComponent} from './Page'
+import {ContactPageComponent, PageComponent} from './Page'
 import { ButtonComponent} from "./Button";
 import {FormComponent} from "./Form";
 import {NavComponent} from "./Nav";
 import {FooterComponent} from "./Footer";
 import logo from './Files/Logo.png'
 import resume from './Files/resume.pdf'
-import profile from './Files/pic1.PNG'
+import profile from './Files/pic1.jpg'
 import Theme from "./Theme";
 import { ContactComponent } from './Contact'
 import {ImageComponent } from "./ImageComponent";
@@ -39,15 +39,16 @@ const App: React.FunctionComponent = () =>{
             <ButtonComponent link_={"#About Me"} text_={"About Me"} />
             <ButtonComponent link_={"#Portfolio"} text_={"Portfolio"} />
             <ButtonComponent  link_={"#Contact"} text_={"Contact"} />
-            <ButtonComponent isDownload_={true} background_={Theme.color.primary}  link_={resume} text_={"Resume"} />
+            <ButtonComponent isDownload_={true} background_={Theme.color.aqua}  link_={resume} text_={"Resume"} />
 
         </NavComponent>
 
-            <ImageComponent  src_={profile} height_={"65vh"} radius_={"60px"} rp_={"90vh"} tp_={"20vh"} />
+            <ImageComponent border_={"5px solid #00008b"} src_={profile} height_={"65vh"} radius_={"90%"} rp_={"90vh"} tp_={"20vh"} />
 
             <div className="homepage">
                 <h1>Lyndbergh Simelus</h1>
                 <hr/>
+                <h3>-Software Engineer-</h3>
                 <p>Focused. Determined. Driven.</p>
             </div>
         </div>
@@ -57,16 +58,10 @@ const App: React.FunctionComponent = () =>{
           <AboutComponent />
       </PageComponent>
 
-      <PageComponent description_={"Here are descriptions, code, and media of some cool projects that I have done so far"}   background_={Theme.color.background1} title_={"Portfolio"}>
+      <PageComponent description_={"Here are descriptions, code, and media of some cool projects that I have done so far"}  background_={Theme.color.background2} title_={"Portfolio"}>
           <PortfolioComponent />
       </PageComponent>
-
-
-      <PageComponent description_={"Need anything built, want to work together or simply want to have a chat?\n" +
-      "Drop me an e-mail at lsimelus@gmail.com or simply fill out the form below and I will reply to you soon!"} background_={Theme.color.background2} title_={"Contact"} height_={"80vh"}>
-          <FormComponent />
-          <ContactComponent/>
-      </PageComponent>
+        <ContactPageComponent></ContactPageComponent>
 
         <FooterComponent/>
 

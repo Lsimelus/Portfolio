@@ -13,7 +13,7 @@ import { Bar } from './Contact'
 const Container = styled.form <{}>`
     width: 90%;
     padding: 20px;
-    border: 2px solid ${Theme.color.primary};
+    border: 2px solid ${Theme.color.aqua};
     min-height: 130vh;
     border-radius: 15px;
     height: auto;
@@ -29,17 +29,19 @@ const Left = styled.div <{}>`
     width: 40vh;
     padding-left: 7vh;
     height: auto;
+    
     p {
         text-align: left;
     }
     dd {
-    text-align: left;
+        text-align: left;
     }
     
     dt {
-    text-align: left;
+        text-align: left;
     }
     
+
     }`;
 
 
@@ -62,11 +64,12 @@ const Right = styled.div <{}>`
 
 const Right2 = styled(Right)`
     width: 23vh;
+    padding-right: 5vw;
     }`;
 
 const Bottom = styled.div <{}>`
     width: 90%;
-    padding-top: 30vh;
+    padding-top: 35vh;
     }`;
 
 const Bottom2 = styled(Bottom)`
@@ -107,7 +110,7 @@ export const AboutComponent: React.FunctionComponent = ({  children }) => {
                 </ul>
             </Right>
             <Bottom>
-                <h1>Education</h1>
+                <h2>Education</h2>
                 <Bar></Bar>
                 <h3>Bowdoin College (2017-2021)</h3>
                 <Left2>
@@ -123,8 +126,7 @@ export const AboutComponent: React.FunctionComponent = ({  children }) => {
                         <dd>- Developed and debugged action buttons on company websites using various technologies</dd>
                         <dd>- Utilized ticketing system, navigated larger repositories, and refined SQL queries in company apps</dd>
                         <dt>Baldwin Mentor Tutoring - Baldwin Tutor</dt>
-                        <dd>- Lead course study group and exam review sessions for Computer Science and Biology classes
-                        </dd>
+                        <dd>- Lead course study group and exam review sessions for Computer Science and Biology classes</dd>
                         <dd>- Provide strategies and occasionally tutor workshop sessions problem solving and studying</dd>
                         <dt>Information Technology - Service Desk </dt>
                         <dd>- Troubleshoot, manage and utilize software and hardware to assist peers and faculty computer</dd>
@@ -147,7 +149,7 @@ export const AboutComponent: React.FunctionComponent = ({  children }) => {
                     <h3>Harvard Business School Online (2020)</h3>
                     <ul>
                         <li>150+ hours of coursework in Financial Accounting, Business Analytics, and Managerial.</li>
-                        <a href={hbo}><li> HBX CORe (Credential of Readiness) Certificate</li></a>
+                        <a href={hbo} download><li> HBX CORe (Credential of Readiness) Certificate</li></a>
                     </ul>
                 </Bottom2>
 

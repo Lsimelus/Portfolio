@@ -18,15 +18,17 @@ const Container = styled.form <{}>`
     width: 42%;
     float: left;
     padding: 20px;
-    border: 2px solid ${Theme.color.primary};
-    min-height: 43vh;
-    background-color: ${Theme.color.secondary};
+    border: 2px solid ${Theme.color.aqua};
+    min-height: 38vh;
+    background-color: ${Theme.color.darkblue};
+    
     border-radius: 15px;
+    
     li {
         display: inline;
     }
     p {
-        color: ${Theme.color.primary}
+        color: ${Theme.color.aqua}
     }
     }`;
 
@@ -39,7 +41,8 @@ const Right = styled.div <{}>`
     }`;
 
 export const Bar = styled.hr<{}>`
-    width: 95%;
+    width: 90%;
+    background-color: ${Theme.color.aqua};
     }`;
 
 export const ContactComponent: React.FunctionComponent = ({  children }) => {
@@ -48,7 +51,7 @@ export const ContactComponent: React.FunctionComponent = ({  children }) => {
             <div>
             <Left>
                 <Link to={"#Home"} spy={true} smooth={true}>
-                    <ImageComponent background_={Theme.color.primary} src_={logo} height_={"14vh"} ></ImageComponent>
+                    <ImageComponent background_={Theme.color.aqua} src_={logo} height_={"10vh"} ></ImageComponent>
                 </Link>
 
             </Left>

@@ -31,13 +31,13 @@ const ButtonLayout = styled.button<{color: string, background: string}>`
   }`;
 
 export const FormButtonComponent: React.FunctionComponent<{text_: string, background_?: string, color_?: string }> = ({ background_ , text_, color_, children }) => (
-    <ButtonLayout type={"submit"} form={"contact"} background={ background_ == undefined ? Theme.color.primary : background_ } color={ color_ == undefined ? Theme.color.secondary : color_ } >
+    <ButtonLayout type={"submit"} form={"contact"} background={ background_ == undefined ? Theme.color.aqua : background_ } color={ color_ == undefined ? Theme.color.darkblue : color_ } >
         {text_}
     </ButtonLayout>
 );
 
 export const ButtonComponent: React.FunctionComponent<{ isDownload_?: boolean, text_: string, background_?: string, color_?: string, link_: string, }> = ({ isDownload_,background_ , text_, color_, link_,  children }) => (
-        <ButtonLayout background={ background_ == undefined ? Theme.color.secondary : background_ } color={ color_ == undefined ? Theme.color.primary : color_ } >
+        <ButtonLayout background={ background_ == undefined ? Theme.color.darkblue : background_ } color={ color_ == undefined ? Theme.color.aqua : color_ } >
             {isDownload_ ?
                 <a href={link_} download>
                         {text_}

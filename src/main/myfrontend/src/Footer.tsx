@@ -3,17 +3,17 @@ import React from "react";
 import Theme from "./Theme";
 
 const FooterLayout = styled.nav<{}>`
-    height: 4vh;
+    height: 20px;
     display: flex;
     top: 0;
     left: 0;
     width: 100%;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
     z-index: 10;
-    background: ${Theme.color.blue1};
+    background: ${Theme.color.darkblue};
     
     p {
-        color: ${Theme.color.blue2};
+        color: ${Theme.color.lightblue};
         bottom: 0;
         right: 0;
     }

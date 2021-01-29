@@ -7,10 +7,10 @@ const FormLayout = styled.form <{}>`
     width: 42%;
     float: right;
     padding: 20px;
-    border: 2px solid ${Theme.color.primary};
+    border: 2px solid ${Theme.color.aqua};
     top: 0;
-    min-height: 43vh;
-    background-color: ${Theme.color.secondary};
+    min-height: 38vh;
+    background-color: ${Theme.color.darkblue};
     border-radius: 15px;
     }`;
 

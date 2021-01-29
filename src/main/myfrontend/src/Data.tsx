@@ -35,7 +35,7 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "details": "A system that successfully creates rhyming and reasonably coherent poems by reading a sample of poems. The poems can be themed after a certain poet if selected.",
         "technologies":"Pyhton",
         "media": "",
-        "done": false,
+        "done": true,
     },
     {
         "name": "Cookie Recipe Generator",
@@ -44,7 +44,7 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "details": "Using flavorDB, I along with two of my classmates created a system that successfully generates novel and unique cookie recipes by looking at their molecular similarities. The molecular makeup of these molecules was found via. https://cosylab.iiitd.edu.in/flavordb/. ",
         "technologies":"Python",
         "media": "",
-        "done": false,
+        "done": true,
     },
     {
         "name": "Fake news generator",
@@ -56,7 +56,7 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "done": true,
     },
     {
-        "name": "Ruby beat",
+        "name": "Ruby Beat",
         "url": "https://github.com/Lsimelus/RubyBeat",
         "collaboration": "none",
         "details": "A beat I made using ruby",
@@ -89,7 +89,7 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "details": "See how neural networks reform with varying sample sizes perform",
         "technologies":"Java",
         "media": "",
-        "done": false,
+        "done": true,
     },
     {
         "name": "Genetic Algorithm",
@@ -98,7 +98,7 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "details": "Using Genetic Algorithm find a key string from a string of random characters. Various Genetic Algorithm methods implemented and can be used with minor edits in the code.",
         "technologies":"Java",
         "media": "",
-        "done": false,
+        "done": true,
     },
     {
         "name": "Markov Decision Process",

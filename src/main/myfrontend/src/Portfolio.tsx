@@ -6,9 +6,10 @@ import Data from './Data'
 
 const PortfolioLayout = styled.div <{}>`
     width: 90vh;
-    border: 2px solid ${Theme.color.primary};
+    border: 2px solid ${Theme.color.aqua};
     margin: auto;
     border-radius: 25px;
+    
 
     ul {
         width: 90vh;
@@ -49,16 +50,19 @@ export const PortfolioComponent: React.FunctionComponent = ({  children }) => {
     }
 
     return (
-        <PortfolioLayout>
-            <div id="myDIV">
-                <button className="btn">1</button>
-                <button className="btn active">2</button>
-                <button className="btn">3</button>
-                <button className="btn">4</button>
-                <button className="btn">5</button>
-            </div>
-            <ModalList />
-            {children}
-        </PortfolioLayout>
+        <div>
+            <PortfolioLayout>
+                <div id="myDIV">
+                    <button className="btn">1</button>
+                    <button className="btn active">2</button>
+                    <button className="btn">3</button>
+                    <button className="btn">4</button>
+                    <button className="btn">5</button>
+                </div>
+                <ModalList />
+                {children}
+            </PortfolioLayout>
+        </div>
+
     );
 }
