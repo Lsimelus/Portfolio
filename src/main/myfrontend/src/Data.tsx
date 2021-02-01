@@ -14,10 +14,10 @@ export let Data: ({ technologies: string; collaboration: string; name: string; d
         "name": "RoyalFitness",
         "url": "https://github.com/Lsimelus/RoyalFitness",
         "collaboration": "Partner(s)",
-        "details": "sadsad",
+        "details": "",
         "technologies":"Swift, Google Console Firebase",
-        "media": "",
-        "done": false,
+        "media": "https://drive.google.com/drive/folders/1RX-g0FURJXKTKXENXjPkosI_Ka6f3n8I?usp=sharing",
+        "done": true,
     },
     {
         "name": "Casual Creator",

@@ -9,7 +9,6 @@ import logo from './Files/Logo.png'
 import resume from './Files/resume.pdf'
 import profile from './Files/pic1.jpg'
 import Theme from "./Theme";
-import { ContactComponent } from './Contact'
 import {ImageComponent } from "./ImageComponent";
 import {AboutComponent} from "./About";
 import { PortfolioComponent} from "./Portfolio";

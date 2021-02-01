@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-amplify-react": "^4.2.19",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.5.1"

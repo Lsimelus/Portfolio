@@ -33,15 +33,7 @@ const Left = styled.div <{}>`
     p {
         text-align: left;
     }
-    dd {
-        text-align: left;
-    }
-    
-    dt {
-        text-align: left;
-    }
-    
-
+   
     }`;
 
 
@@ -57,6 +49,7 @@ const Right = styled.div <{}>`
     height: auto;
     float: right;
     padding-right: 7vh;
+    
     ul li {
     text-align: left;
     }
