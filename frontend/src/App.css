@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000524;
+    z-index:10;
+    transition: background-color 1.0s ease-out;
+}
+
+
+.work-pic{
+  flex: 1;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  transition: border-radius 1.0s ease-out;
+}
+.work-dyn:hover > .work-pic { 
+  border-radius: 25px  25px  5px  5px;
+}
+
+.work-desc {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 25px 25px;
+  margin-top: 0px;
+  background-color: #EBEEEE;
+  translate: 0px -140px;
+  opacity:0;
+  transition:opacity 1.5s ease-in, translate 1.0s ease-out;
+  position: fixed;
+  padding: 5px 15px 15px 15px
+  
+}
+
+.work-dyn:hover > .work-desc { 
+  translate: 0px 0px;
+  opacity:1;
+  position: static;
+}
+
+.nav{
+    list-style-type: none;
+    margin: 5;
+    overflow: hidden;
+}
+
+.nav li {
+ display: inline;
+
+}
+.nav li a {
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  transition:font .4s ease-in, color .75s ease-out;
+}
+
+.nav li a:hover {
+  color: orange;
+  font-size: 1.4em;
+  
+}
+
+.visible{
+  color: orange;
+  font-size: 1.4em;
+}
+
+.about-pic{
+    border-radius: 35px;
+    border-width: 3;
+}
+
+.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(150px);
+  transition:  all 1000ms;
+}
+
+h1.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-150px);
+  transition:  all 1000ms;
+}
+
+
+h1.show{
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0px);
+}
+
+.show{
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0px);
+}
+

@@ -1,0 +1,169 @@
+{
+    "header":{
+        "name":"I am Lyndbergh Simelus"
+    },
+    "about":{
+        "description":"I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
+    },
+    "resume":{
+        "education": [{ 
+            "location" : "Bowdoin College",
+            "title" : "Bachelor of Arts, Computer Science major and Biology minor",
+            "info": ["Independent Study: With a partner, created a iOS mobile fitness application in Swift", "Worked at IT for all of the 4 years. Trouble shoot issues and helpedout customers"],
+            "time": "20213"
+        },
+        { 
+            "location" : "Harvard Business School Online",
+            "info": ["HBX CORe (Credential of Readiness) Certificate"]
+        }],
+        "work": [{ 
+                "location" : "Recorded Future Inc",
+                "title" : "Software Engineer",
+                "time" : "May 2021 - Present",
+                "info" : [
+                    "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
+                    "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being an ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
+                    "Utilized Amazon S3 to store and retrieve data",
+                    "Contributed to Agile ceremonies, led demos and presentations, and helped new engineers learn established norms",
+                    "Conducted rounds of UX design prototyping and user observation/testing",
+                    "Revamped an API-Centric JavaScript internal web application through the research, user data and metrics. Ultimately increasing the applications capabilities and overall efficiency"
+            ]
+            },{ 
+                "location" : "Tamr, Inc",
+                "title" : "Software Engineer Intern",
+                "desc" : "Researched, presented, and implemented telemetry into company’s UI framework. Created react components that are used throughout the company and its customers. Practiced Agile programming methodology. Gained familiarity with various Azure services",
+                "time":"Summer of 2020",
+                "info": [
+                    "Researched, presented, and implemented telemetry into company’s UI framework",
+                    "Created react components that are used throughout the company and its customers",
+                    "Practiced Agile programming methodology",
+                    "Gained familiarity with various Azure services"
+                ]
+            },
+            { 
+            "location" : "MEMIC",
+            "title" : "Software Engineer Intern",
+            "time" : "Summer of 2019",
+            "info" : [
+                "Created a rest API in C#/.NET that was implemented into company web applications",
+                "Developed & debugged action buttons on company websites using various technologies",
+                "Utilized ticketing system, navigated larger repositories, and refined SQL queries in company apps"
+        ]
+            
+        }],
+        "skills": { "React" : 9, "Python": 8, "HTML/CSS": 7, "JavaScript": 8, "Java": 5, "MongoDb": 7, "AWS":5}
+    },
+    "portfolio":{
+        "tech" : ["React", "Python", "HTML/CSS", "Other", "JavaScript", "Java", "MongoDb"],
+        "projects" : [
+            { "name": "Client- Informative Postpartum Resource",
+            "stack": [0, 1, 2, 6, 4],
+            "link": "",
+            "blurb": "This a freelance project that is for a client. It is a static website that will provide information for mothers, newborns, and family members in the postpartum space.",
+            "date": "TBD",
+            "image" : 11
+            },
+            { "name": "Task Management Mobile Application",
+            "stack": [0, 1,2,3],
+            "link": "",
+            "blurb": "A mobile application, written in React Native that allows users to organized daily tasks and check them off as the day goes on. Simple UI. The task will be saved within MongoDB. The backend stack has not been determined yet.",
+            "date": "TBD",
+            "image" : 11
+            },
+            { "name": "Web Portfolio",
+            "stack": [0, 1, 2, 4, 3, 6],
+            "link": "https://github.com/Lsimelus/fullstack-portfolio",
+            "blurb": "A portfolio web application created with React TypeScript version 18. The backend is a nodeJs application that saves the user info in a MongoDB. The backend is hosted using render.com and the frontend is hosted on github pages.",
+            "date": "Feb 2023",
+            "image" : 7
+            
+            },
+            { "name": "Cookie Recipe Generator",
+            "stack": [1],
+            "link": "https://github.com/Lsimelus/Basic-Web-Scrape",
+            "blurb": "Using flavorDB, I along with two of my classmates created a system that successfully generates novel and unique cookie recipes by looking at their molecular similarities. The molecular makeup of these molecules was found via https://cosylab.iiitd.edu.in/flavordb/. ",
+            "date": "FEB 2021",
+            "image" : 2
+            },
+            { "name": "Basic Static HTML site 2",
+            "stack": [2, 4],
+            "link": "https://github.com/Lsimelus/Non-InteractiveWebsite2",
+            "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-InteractiveWebsite2/",
+            "date": "MAY 2020",
+            "image" : 10
+            },
+            { "name": "Basic Static HTML site",
+            "stack": [2],
+            "link": "https://github.com/Lsimelus/Non-interactiveWebsite",
+            "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-interactiveWebsite/",
+            "date": "JUL 2020",
+            "image" : 9
+            },
+            { "name": "Neural Networks with Java",
+            "stack": [5],
+            "link": "https://github.com/Lsimelus/NeuralNetworks2",
+            "blurb": "Demonstrates how neural networks behave with varying sample sizes",
+            "date": "FEB 2021",
+            "image" : 5
+            },
+            { "name": "Poetry Generator",
+            "stack": [1],
+            "link": "https://github.com/Lsimelus/Poetry-Generator",
+            "blurb": "A system that successfully creates rhyming and reasonably coherent poems by reading a sample of poems. The poems can be themed after a certain poet if selected.",
+            "date": "MAY 2021",
+            "image" : 6
+            },
+            { "name": "Casual Creator",
+            "stack": [3],
+            "link": "https://github.com/Lsimelus/CasualCreator",
+            "blurb": "A interactive creation app created with processing.Colored blocks enables the user to enjoy the dearly missed satisfaction of playing with blocks without the mess. To run the code all the user has to do is click the mouse and shapes appear wherever the mouse is clicked. By pressing any of the 4 arrow keys, shift, enter, and alt, change the blocks.",
+            "date": "FEB 2021",
+            "image" : 0
+            },
+            { "name": "Royal Fitness",
+            "stack": [3],
+            "link": "https://github.com/Lsimelus/RoyalFitness",
+            "blurb": "In undergrad, I created an iOS mobile fitness application with Swift. The application had user login and authentication and could track the user's movement while running and returning mph and average mile speed. Also, has built-in suggested workouts and videos.",
+            "date": "FEB 2021",
+            "image" : 8
+            },
+            { "name": "Genetic Algorithm",
+            "stack": [5],
+            "link": "https://github.com/Lsimelus/GeneticAlgorithm",
+            "blurb": "Using Genetic Algorithm find a key string from a string of random characters. Various Genetic Algorithm methods implemented and can be used with minor edits in the code.",
+            "date": "MAY 2021",
+            "image" : 3
+            },
+            { "name": "Markov Decision",
+            "stack": [5],
+            "link": "https://github.com/Lsimelus/MarkovDecisionProcess",
+            "blurb": "Demonstrates the effectiveness of the Markov decision precess.",
+            "date": "MAY 2021",
+            "image" : 4
+            },
+            { "name": "Neural Networks Python",
+            "stack": [1],
+            "link": "https://github.com/Lsimelus/Neural_Networks",
+            "blurb": "Demonstrates how neural networks python",
+            "date": "JAN 2020",
+            "image" : 5
+            },
+            { "name": "Recreational Ruby Beat",
+            "stack": [3],
+            "link": "https://github.com/Lsimelus/Socket-Programming-ChatClient",
+            "blurb": "A recreational beat I created using ruby for a college CS class",
+            "date": "DEC 2019",
+            "image" : 12
+            }
+        ]
+    },
+    "links" :{
+        "main" : "https://github.com/Lsimelus",
+        "site" : "https://github.com/Lsimelus/fullstack-portfolio",
+        "mail" :"lsimelus@gmail.com",
+        "mailto": "mailto:lsimelus@gmail.com",
+        "linkedin" : "https://www.linkedin.com/in/lyndbergh-simelus/",
+        "phone" : "7813508711",
+        "tel": "tel:+7813508711"
+    }
+}  

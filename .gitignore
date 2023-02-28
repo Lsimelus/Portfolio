@@ -1,0 +1,36 @@
+frontend/node_modules
+frontend/.pnp
+frontend/package-lock.json
+
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+
+frontend/.idea/
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+frontend/build/Release
+
+# Distribution directories
+frontend/dist/
+
+# Optional npm cache directory
+frontend/.npm
+
+# Optional eslint cache
+frontend/.eslintcache
+
+frontend/.vscode/
+frontend/node_modules/
+frontend/build
+frontend/.DS_Store
+frontend/template/src/__tests__/__snapshots__/
+frontend/npm-debug.log*
+
+frontend/.npm/
+frontend/yarn.lock
+
+server/node_modules/
+server/.env
+frontend/src/components/.DS_Store
+server/package-lock.json
