@@ -1,6 +1,9 @@
+html {scroll-snap-type: y proximity}
+
 .App {
   text-align: center;
 }
+
 
 nav{
     position: fixed;
@@ -9,6 +12,11 @@ nav{
     background-color: #000524;
     z-index:10;
     transition: background-color 1.0s ease-out;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 
