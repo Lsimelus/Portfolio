@@ -4,7 +4,15 @@ html {scroll-snap-type: y proximity}
   text-align: center;
 }
 
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 
+
+/*
+Header Section
+*/
 nav{
     position: fixed;
     top: 0;
@@ -13,13 +21,81 @@ nav{
     z-index:10;
     transition: background-color 1.0s ease-out;
 }
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+.nav{
+  list-style-type: none;
+  margin: 5;
+  overflow: hidden;
 }
 
 
+.nav li {
+  display: inline;
+ 
+ }
+ .nav li a {
+   padding: 20px;
+   text-decoration: none;
+   color: white;
+   font-size: 1em;
+   transition:font .4s ease-in, color .75s ease-out;
+ }
+ 
+ .nav li a:hover {
+   color: orange;
+   font-size: 1.4em;
+   
+ }
+
+ /*
+ About Section
+ */
+ .about-pic{
+  border-radius: 35px;
+  border-width: 3;
+}
+
+/*
+Resume Section
+*/
+
+.visible{
+  color: orange;
+  font-size: 1.4em;
+}
+
+
+.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(150px);
+  transition:  all 1000ms;
+}
+
+h1.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-150px);
+  transition:  all 1000ms;
+}
+
+
+h1.show{
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0px);
+}
+
+.show{
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0px);
+}
+
+
+
+ /*
+ Works Section
+ */
 .work-pic{
   flex: 1;
   width: 100%;
@@ -49,65 +125,3 @@ section {
   opacity:1;
   position: static;
 }
-
-.nav{
-    list-style-type: none;
-    margin: 5;
-    overflow: hidden;
-}
-
-.nav li {
- display: inline;
-
-}
-.nav li a {
-  padding: 20px;
-  text-decoration: none;
-  color: white;
-  font-size: 1em;
-  transition:font .4s ease-in, color .75s ease-out;
-}
-
-.nav li a:hover {
-  color: orange;
-  font-size: 1.4em;
-  
-}
-
-.visible{
-  color: orange;
-  font-size: 1.4em;
-}
-
-.about-pic{
-    border-radius: 35px;
-    border-width: 3;
-}
-
-.hidden{
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(150px);
-  transition:  all 1000ms;
-}
-
-h1.hidden{
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-150px);
-  transition:  all 1000ms;
-}
-
-
-h1.show{
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateX(0px);
-}
-
-.show{
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateX(0px);
-}
-

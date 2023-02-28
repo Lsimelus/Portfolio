@@ -72,7 +72,7 @@
             },
             { "name": "Web Portfolio",
             "stack": [0, 1, 2, 4, 3, 6],
-            "link": "https://github.com/Lsimelus/fullstack-portfolio",
+            "link": "https://github.com/Lsimelus/portfolio",
             "blurb": "A portfolio web application created with React TypeScript version 18. The backend is a nodeJs application that saves the user info in a MongoDB. The backend is hosted using render.com and the frontend is hosted on github pages.",
             "date": "Feb 2023",
             "image" : 7
@@ -159,7 +159,7 @@
     },
     "links" :{
         "main" : "https://github.com/Lsimelus",
-        "site" : "https://github.com/Lsimelus/fullstack-portfolio",
+        "site" : "https://portfolio.lyndbergh.com",
         "mail" :"lsimelus@gmail.com",
         "mailto": "mailto:lsimelus@gmail.com",
         "linkedin" : "https://www.linkedin.com/in/lyndbergh-simelus/",
