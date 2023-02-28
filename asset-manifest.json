@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.e8d2ca3a.css",
-    "main.js": "/Portfolio/static/js/main.e1ddc7c1.js",
-    "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
-    "static/media/static1.png": "/Portfolio/static/media/static1.ba35d0c904d52f74e1bd.png",
-    "static/media/markov.png": "/Portfolio/static/media/markov.9cc18281c02fc9ac685b.png",
-    "static/media/static2.png": "/Portfolio/static/media/static2.5dd6b8dc2248c1d24480.png",
-    "static/media/poetry.png": "/Portfolio/static/media/poetry.b6817221765b6e5220de.png",
-    "static/media/genes.png": "/Portfolio/static/media/genes.f4bb334309d677cfa0bd.png",
-    "static/media/profile.jpg": "/Portfolio/static/media/profile.a1760defa39d569d2d56.jpg",
-    "static/media/portfolio.png": "/Portfolio/static/media/portfolio.6ff7b51f8837ea9450ea.png",
-    "static/media/cookie.png": "/Portfolio/static/media/cookie.a689013d213456685d9f.png",
-    "static/media/tbd.png": "/Portfolio/static/media/tbd.61dc2f85a8095991462c.png",
-    "static/media/neural.png": "/Portfolio/static/media/neural.9ca000db0bbad5f74353.png",
-    "static/media/music.png": "/Portfolio/static/media/music.f5298299511e73b13fd9.png",
-    "static/media/royal.png": "/Portfolio/static/media/royal.d0ffff4cb19cfcebe966.png",
-    "static/media/casual.png": "/Portfolio/static/media/casual.74036a6097366d2ee9ac.png",
-    "static/media/code.png": "/Portfolio/static/media/code.d1026a48f9c8ea060f07.png",
-    "static/media/resume.pdf": "/Portfolio/static/media/resume.98e6fc68922336eabd4f.pdf",
-    "index.html": "/Portfolio/index.html",
-    "main.e8d2ca3a.css.map": "/Portfolio/static/css/main.e8d2ca3a.css.map",
-    "main.e1ddc7c1.js.map": "/Portfolio/static/js/main.e1ddc7c1.js.map",
-    "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
+    "main.css": "/static/css/main.e8d2ca3a.css",
+    "main.js": "/static/js/main.34bc8a11.js",
+    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/static1.png": "/static/media/static1.ba35d0c904d52f74e1bd.png",
+    "static/media/markov.png": "/static/media/markov.9cc18281c02fc9ac685b.png",
+    "static/media/static2.png": "/static/media/static2.5dd6b8dc2248c1d24480.png",
+    "static/media/poetry.png": "/static/media/poetry.b6817221765b6e5220de.png",
+    "static/media/genes.png": "/static/media/genes.f4bb334309d677cfa0bd.png",
+    "static/media/profile.jpg": "/static/media/profile.a1760defa39d569d2d56.jpg",
+    "static/media/portfolio.png": "/static/media/portfolio.6ff7b51f8837ea9450ea.png",
+    "static/media/cookie.png": "/static/media/cookie.a689013d213456685d9f.png",
+    "static/media/tbd.png": "/static/media/tbd.61dc2f85a8095991462c.png",
+    "static/media/neural.png": "/static/media/neural.9ca000db0bbad5f74353.png",
+    "static/media/music.png": "/static/media/music.f5298299511e73b13fd9.png",
+    "static/media/royal.png": "/static/media/royal.d0ffff4cb19cfcebe966.png",
+    "static/media/casual.png": "/static/media/casual.74036a6097366d2ee9ac.png",
+    "static/media/code.png": "/static/media/code.d1026a48f9c8ea060f07.png",
+    "static/media/resume.pdf": "/static/media/resume.98e6fc68922336eabd4f.pdf",
+    "index.html": "/index.html",
+    "main.e8d2ca3a.css.map": "/static/css/main.e8d2ca3a.css.map",
+    "main.34bc8a11.js.map": "/static/js/main.34bc8a11.js.map",
+    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8d2ca3a.css",
-    "static/js/main.e1ddc7c1.js"
+    "static/js/main.34bc8a11.js"
   ]
 }
