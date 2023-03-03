@@ -5,7 +5,9 @@ import About from "./components/section/About";
 import Resume from "./components/section/Resume";
 import Contact from "./components/section/Contact";
 import Portfolio from "./components/section/Portfolio";
+import Service from "./components/section/Service";
 import {AlertDiv, alertType } from "./components/Alert"
+import { handleClickScroll} from "./utils/common"
 
 
 
@@ -24,10 +26,18 @@ const App = () => {
   //Section ref for header
   const aboutRef = React.useRef<HTMLElement>(null);
   const resumeRef = React.useRef<HTMLElement>(null);
+  const servicesRef = React.useRef<HTMLElement>(null);
   const portfolioRef = React.useRef<HTMLElement>(null);
   const contactRef = React.useRef<HTMLElement>(null);
 
-  
+  const [subjectText, setSubjectText] = React.useState("");
+
+  function contactFormReset(subjectContent: string){
+    console.log("sdsfsfsf", subjectContent)
+    handleClickScroll("contact")
+    setSubjectText(subjectContent)
+
+  }
 
   return (
     <div className="App">
@@ -37,17 +47,18 @@ const App = () => {
         alertText={alertText}
         parentCallback={setAlertOpen}
       />
-      
       <Header 
       aboutRef={aboutRef} 
       resumeRef={resumeRef}
+      serviceRef={servicesRef}
       portfolioRef={portfolioRef}
       contactRef={contactRef}
       ></Header>
       <About ref={aboutRef} />
       <Resume ref={resumeRef}/>
+      <Service ref={servicesRef} contactFormReset={contactFormReset}/>
       <Portfolio ref={portfolioRef}/>
-      <Contact alertCallback={openAlert} ref={contactRef}/>
+      <Contact alertCallback={openAlert} ref={contactRef} subjectFilled={subjectText}/>
     </div>
   );
 

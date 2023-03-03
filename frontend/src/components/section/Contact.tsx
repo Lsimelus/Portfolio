@@ -16,18 +16,30 @@ import data from "../../data/data.json"
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 
+
+
 export interface ContactProps {
-  alertCallback: Function
+  alertCallback: Function,
+  subjectFilled: String
 }
 
 const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
-  const { alertCallback } = props;
+  const { alertCallback, subjectFilled = "" } = props;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [subject, setSubject] = React.useState("");
+  const [subject, setSubject] = React.useState<String>("");
   const [message, setMessage] = React.useState("");
   const [formDone, setFormDone] = React.useState(false);
   const [buffering, setBuffering] = React.useState(false);
+
+  React.useEffect(() => {
+    setSubject(subjectFilled)
+    setName("")
+    setEmail("")
+    setMessage("")
+    setFormDone(false)
+
+  }, [subjectFilled]);
 
   function processForm() {
     if (name === "" || email === "" || message === "") {
@@ -53,7 +65,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
           alertCallback("Something went wrong. Sorry for the inconvenience", "error")
           setBuffering(false)
         });
-      
+
     }
   }
 

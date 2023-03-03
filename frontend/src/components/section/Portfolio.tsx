@@ -11,7 +11,7 @@ const techstacks = data.portfolio.tech
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
   const [techFilter, setTechFilter] = React.useState(-1);
-  
+
   const filterButtons = techstacks.map(function (tech, index) {
     return (
       <StyledButton
@@ -32,10 +32,9 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
         container
         direction="row"
         maxWidth="xl"
-        p={10}
-        m={2}
-        spacing={3}
-        alignItems="stretch"
+        justifyContent="flex-start"
+        spacing={5}
+        p={4}
       >
         <Grid item xs={12} >
           <h1 >Check Out Some of My Works</h1>
@@ -51,7 +50,8 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
             <RestartAltIcon />
           </StyledButton>
         </Grid>
-        <PortfolioProjects filter={techFilter}/>
+
+        <PortfolioProjects filter={techFilter} />
       </Grid>
     </section>
   );

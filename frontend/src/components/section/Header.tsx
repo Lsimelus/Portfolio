@@ -18,12 +18,13 @@ import ResumeModal from "../sectionHelperUI/ResumeModal"
 export interface HeaderProps {
   aboutRef: any
   resumeRef: any,
+  serviceRef: any,
   portfolioRef: any,
   contactRef: any
 }
 
 const Header = (props: HeaderProps) => {
-  const { aboutRef, resumeRef , portfolioRef, contactRef} = props;
+  const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef} = props;
 
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -32,7 +33,7 @@ const Header = (props: HeaderProps) => {
   return (
     <header ref={headerRef} style={{ height: "100vh", overflow: "hidden" }} id="home">
       <ParticlesBg type="circle" bg={true} />
-      <Nabvar aboutRef={aboutRef} resumeRef={resumeRef} portfolioRef={portfolioRef} contactRef={contactRef} headerRef={headerRef}/>
+      <Nabvar aboutRef={aboutRef} resumeRef={resumeRef} serviceRef={serviceRef} portfolioRef={portfolioRef} contactRef={contactRef} headerRef={headerRef}/>
       <ResumeModal getModal={modalOpen} setModal={setModalOpen}/>
 
 

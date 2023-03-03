@@ -10,7 +10,7 @@
             "location" : "Bowdoin College",
             "title" : "Bachelor of Arts, Computer Science major and Biology minor",
             "info": ["Independent Study: With a partner, created a iOS mobile fitness application in Swift", "Worked at IT for all of the 4 years. Trouble shoot issues and helpedout customers"],
-            "time": "20213"
+            "time": "2021"
         },
         { 
             "location" : "Harvard Business School Online",
@@ -53,23 +53,26 @@
         }],
         "skills": { "React" : 9, "Python": 8, "HTML/CSS": 7, "JavaScript": 8, "Java": 5, "MongoDb": 7, "AWS":5}
     },
+    "service" : [
+        {"title": "Explore Plan",
+        "price": "$250",
+        "desc" : ["Custom coded website or platform", "3 page layout website", "Responsive design for mobile", "1 round of revision website"],
+        "color" : "#2DC85D"
+        },
+        {"title": "Premium Plan",
+        "price": "$499",
+        "desc" : ["Custom coded website or platform", "5 page Responsive website", "Up to 5 revisions", "Social media Integration"],
+        "color": "#3380FF"
+        },
+        {"title": "Immersive Plan",
+        "price": "$749",
+        "desc" : ["Unlimited pages", "Unlimited revisions", "Social Media Campaigns", "Brand messages and logos"],
+        "color" : "#BE33FF"
+        }
+    ],
     "portfolio":{
-        "tech" : ["React", "Python", "HTML/CSS", "Other", "JavaScript", "Java", "MongoDb"],
+        "tech" : ["React", "Python", "HTML/CSS", "MongoDb", "JavaScript", "Java", "Other"],
         "projects" : [
-            { "name": "Client- Informative Postpartum Resource",
-            "stack": [0, 1, 2, 6, 4],
-            "link": "",
-            "blurb": "This a freelance project that is for a client. It is a static website that will provide information for mothers, newborns, and family members in the postpartum space.",
-            "date": "TBD",
-            "image" : 11
-            },
-            { "name": "Task Management Mobile Application",
-            "stack": [0, 1,2,3],
-            "link": "",
-            "blurb": "A mobile application, written in React Native that allows users to organized daily tasks and check them off as the day goes on. Simple UI. The task will be saved within MongoDB. The backend stack has not been determined yet.",
-            "date": "TBD",
-            "image" : 11
-            },
             { "name": "Web Portfolio",
             "stack": [0, 1, 2, 4, 3, 6],
             "link": "https://github.com/Lsimelus/portfolio",
@@ -114,14 +117,14 @@
             "image" : 6
             },
             { "name": "Casual Creator",
-            "stack": [3],
+            "stack": [6],
             "link": "https://github.com/Lsimelus/CasualCreator",
             "blurb": "A interactive creation app created with processing.Colored blocks enables the user to enjoy the dearly missed satisfaction of playing with blocks without the mess. To run the code all the user has to do is click the mouse and shapes appear wherever the mouse is clicked. By pressing any of the 4 arrow keys, shift, enter, and alt, change the blocks.",
             "date": "FEB 2021",
             "image" : 0
             },
             { "name": "Royal Fitness",
-            "stack": [3],
+            "stack": [6],
             "link": "https://github.com/Lsimelus/RoyalFitness",
             "blurb": "In undergrad, I created an iOS mobile fitness application with Swift. The application had user login and authentication and could track the user's movement while running and returning mph and average mile speed. Also, has built-in suggested workouts and videos.",
             "date": "FEB 2021",
@@ -149,11 +152,25 @@
             "image" : 5
             },
             { "name": "Recreational Ruby Beat",
-            "stack": [3],
+            "stack": [6],
             "link": "https://github.com/Lsimelus/Socket-Programming-ChatClient",
             "blurb": "A recreational beat I created using ruby for a college CS class",
             "date": "DEC 2019",
             "image" : 12
+            },
+            { "name": "Client- Informative Postpartum Resource",
+            "stack": [0, 1, 2, 6, 4],
+            "link": "",
+            "blurb": "This a freelance project that is for a client. It is a static website that will provide information for mothers, newborns, and family members in the postpartum space.",
+            "date": "TBD",
+            "image" : 11
+            },
+            { "name": "Task Management Mobile Application",
+            "stack": [0, 1,2,3],
+            "link": "",
+            "blurb": "A mobile application, written in React Native that allows users to organized daily tasks and check them off as the day goes on. Simple UI. The task will be saved within MongoDB. The backend stack has not been determined yet.",
+            "date": "TBD",
+            "image" : 11
             }
         ]
     },

@@ -1,9 +1,10 @@
+import React from "react";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { Item } from "../commonUI/Item"
 import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
-import AttachmentIcon from '@mui/icons-material/Attachment';
+import CodeIcon from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
 import { getWorkImage } from "../../utils/portfolioImages";
 
@@ -24,16 +25,31 @@ export interface PortfolioProjectsProps {
 
 const PortfolioProjects = (props: PortfolioProjectsProps) => {
   const { filter } = props;
+  var sortedProjects = []
+
+  if (filter> -1){
+    sortedProjects = portfolioProjects.filter((data: { stack: number[]; }) => data.stack.includes(filter))
+    sortedProjects = sortedProjects.concat(portfolioProjects.filter((data: { stack: number[]; }) => !data.stack.includes(filter)))
+
+  }else{
+    sortedProjects = portfolioProjects
+  }
 
   return (
     <>
-      {portfolioProjects.map(function (projects, index) {
+      {sortedProjects.map(function (projects:any, index:number) {
         const opacityFull = (filter === -1 || (projects["stack"]).includes(filter))
-
         return (
-          <Grid key={index} item xs={6} md={4} lg={3} >
-            <Item elevation={10} style={{ opacity: opacityFull ? 1.0 : .3 }}>
-              <div style={{ position: "relative" }}>
+          <Grid  key={index} item xs={6} md={4} lg={3} >
+            <Grid
+                container
+                direction="column"
+                justifyContent="space-between"
+                alignItems="center"
+            >
+            <Item  elevation={10} style={{ opacity: opacityFull ? 1.0 : .3 }}>
+              
+              <div >
                 <Grid
                   container
                   direction="row"
@@ -51,13 +67,13 @@ const PortfolioProjects = (props: PortfolioProjectsProps) => {
                       target="_blank"
                       href={projects["link"]}
                     >
-                      <AttachmentIcon sx={{
+                      <CodeIcon sx={{
                         color: "gray",
-                        transition: "transform 1s",
+                        transition: "transform .5s",
                         opacity: projects["link"] === "" ? ".3" : "1",
                         "&:hover": {
                           color: "#7241C8",
-                          transform: "scale(1.75)"
+                          transform: "scale(1.25)"
                         }
                       }} />
                     </Button>
@@ -67,12 +83,11 @@ const PortfolioProjects = (props: PortfolioProjectsProps) => {
 
 
                 <Grid item xs={12}>
-                  <div className="work-dyn">
-                    <img src={getWorkImage(projects["image"])} className="work-pic" /
-                    ><p className="work-desc">{projects["blurb"]} </p>
+                  <div className={opacityFull ? "work-dyn" : ""}>
+                    <img src={getWorkImage(projects["image"])} className="work-pic" />
+                    <p className="work-desc">{projects["blurb"]} </p>
                   </div>
                 </Grid>
-
 
                 <footer>
                   <Grid item xs={12}><Divider /></Grid><Box
@@ -87,7 +102,10 @@ const PortfolioProjects = (props: PortfolioProjectsProps) => {
                   </Box>
                 </footer>
               </div>
+                    
             </Item>
+                    
+            </Grid>
           </Grid>)
       })}
     </>

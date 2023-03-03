@@ -7,14 +7,15 @@ export interface NabvarProps {
     aboutRef: any
     resumeRef: any,
     portfolioRef: any,
+    serviceRef: any,
     contactRef: any,
     headerRef: any
 }
 
 const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
-    const { aboutRef, resumeRef, portfolioRef, contactRef, headerRef } = props;
+    const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef, headerRef } = props;
     const [page, setPage] = React.useState(0);
-    var currPage = [useOnScreen(headerRef), useOnScreen(aboutRef), useOnScreen(resumeRef), useOnScreen(portfolioRef), useOnScreen(contactRef)]
+    var currPage = [useOnScreen(headerRef), useOnScreen(aboutRef), useOnScreen(resumeRef), useOnScreen(serviceRef), useOnScreen(portfolioRef), useOnScreen(contactRef)]
 
 
     React.useEffect(() => {
@@ -56,9 +57,18 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                         <b>RESUME</b>
                     </a>
                 </li>
-
                 <li>
                     <a style={{ color: page == 3 ? "orange" : "" }} onClick={() => {
+                        handleClickScroll("service");
+                        setPage(5);
+                    }
+                    }>
+                        <b>SERVICES</b>
+                    </a>
+                </li>
+
+                <li>
+                    <a style={{ color: page == 4 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("portfolio");
                         setPage(3);
                     }
@@ -69,7 +79,7 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 </li>
 
                 <li>
-                    <a style={{ color: page == 4 ? "orange" : "" }} onClick={() => {
+                    <a style={{ color: page == 5 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("contact");
                         setPage(4)
                     }

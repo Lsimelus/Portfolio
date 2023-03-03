@@ -1,10 +1,14 @@
-html {scroll-snap-type: y proximity}
+html {
+  scroll-snap-type: y proximity; 
+  
+}
 
 .App {
-  text-align: center;
+  text-align: center; 
 }
 
 section {
+  overflow-x: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -112,16 +116,14 @@ h1.show{
   border-radius: 0px 0px 25px 25px;
   margin-top: 0px;
   background-color: #EBEEEE;
-  translate: 0px -140px;
   opacity:0;
-  transition:opacity 1.5s ease-in, translate 1.0s ease-out;
-  position: fixed;
-  padding: 5px 15px 15px 15px
-  
+  transition:opacity 0.5s ease-in, max-height 1.5s ease-out ;
+  padding: 5px 15px 15px 15px;
+  overflow: hidden;
+  max-height: 0px;
 }
 
 .work-dyn:hover > .work-desc { 
-  translate: 0px 0px;
-  opacity:1;
-  position: static;
+  opacity: 1;
+  max-height: 1000px;
 }
