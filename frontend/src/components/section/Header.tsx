@@ -13,6 +13,7 @@ import data from "../../data/data.json"
 import { downloadResume, handleClickScroll } from "../../utils/common";
 import Nabvar from "../sectionHelperUI/Navbar";
 import ResumeModal from "../sectionHelperUI/ResumeModal"
+import WorkIcon from '@mui/icons-material/Work';
 
 
 export interface HeaderProps {
@@ -59,7 +60,6 @@ const Header = (props: HeaderProps) => {
                 variant="contained" startIcon={<CodeIcon />}>
                 Site Code
               </StyledButton>
-              
               <ButtonGroup  >
                 <StyledButton
                   onClick={() => setModalOpen(true)}
@@ -72,7 +72,19 @@ const Header = (props: HeaderProps) => {
                   <DownloadIcon />
                 </StyledButton>
               </ButtonGroup>
+              <StyledButton
+              style={{ background: "linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)" }}
+           
+                onClick={() => handleClickScroll("service")}
+                variant="contained" startIcon={<WorkIcon />}>
+                  <b>
+                    Hire Me
+               
+                </b>
+              </StyledButton>
+              
             </Stack>
+
             <StyledButton
               onClick={() => handleClickScroll("about")}
               style={{ marginTop: "10vmin" }} variant="contained"

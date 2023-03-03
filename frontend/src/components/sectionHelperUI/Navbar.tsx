@@ -1,7 +1,6 @@
 import React from "react";
 import { handleClickScroll, useOnScreen } from "../../utils/common"
-
-
+import Button from '@mui/material/Button';
 
 export interface NabvarProps {
     aboutRef: any
@@ -32,7 +31,6 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 <li >
                     <a style={{ color: page === 0 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("home");
-                        setPage(0)
                     }}>
                         <b>HOME</b>
                     </a>
@@ -41,7 +39,6 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 <li>
                     <a style={{ color: page == 1 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("about");
-                        setPage(1)
                     }
                     }>
                         <b>ABOUT</b>
@@ -51,7 +48,6 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 <li>
                     <a style={{ color: page == 2 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("resume");
-                        setPage(2);
                     }
                     }>
                         <b>RESUME</b>
@@ -60,7 +56,6 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 <li>
                     <a style={{ color: page == 3 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("service");
-                        setPage(5);
                     }
                     }>
                         <b>SERVICES</b>
@@ -70,24 +65,32 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
                 <li>
                     <a style={{ color: page == 4 ? "orange" : "" }} onClick={() => {
                         handleClickScroll("portfolio");
-                        setPage(3);
                     }
-
                     }>
                         <b>PORTFOLIO</b>
                     </a>
                 </li>
 
-                <li>
-                    <a style={{ color: page == 5 ? "orange" : "" }} onClick={() => {
-                        handleClickScroll("contact");
-                        setPage(4)
-                    }
-                    }>
-                        <b>CONTACT</b>
+                <li style={{ float: "right" }}>
+                    <a>
+                        <Button
+                            style={{ backgroundColor: page == 5 ? "white" : "",
+                             color: page == 5 ? "orange" : "",
+                             transition: "all 1s ease-out"
+
+                             }}
+                            variant="contained"
+                            onClick={() => {
+                                handleClickScroll("contact");
+                            }}>
+                            <b>CONTACT</b></Button>
+
                     </a>
                 </li>
+
+
             </ul>
+
         </nav>
     );
 });

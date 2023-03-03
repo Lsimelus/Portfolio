@@ -33,10 +33,8 @@ const App = () => {
   const [subjectText, setSubjectText] = React.useState("");
 
   function contactFormReset(subjectContent: string){
-    console.log("sdsfsfsf", subjectContent)
     handleClickScroll("contact")
     setSubjectText(subjectContent)
-
   }
 
   return (

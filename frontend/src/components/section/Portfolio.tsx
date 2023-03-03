@@ -37,7 +37,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
         p={4}
       >
         <Grid item xs={12} >
-          <h1 >Check Out Some of My Works</h1>
+          <h1 style={{margin: 40}}>Check Out Some of My Works</h1>
           <Divider />
         </Grid>
         <Grid item xs={12} >
