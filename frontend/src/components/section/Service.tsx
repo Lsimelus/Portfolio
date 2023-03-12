@@ -46,7 +46,7 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
             )
         })
         return (
-            <Grid style={{ display: "flex", minHeight: "100%" }} item xs={12} sm={6} md={4}>
+            <Grid style={{ display: "flex", minHeight: "100%" }} item xs={12}  md={6} lg={4}>
                 <Grid
                     container
                     direction="column"
@@ -89,6 +89,7 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
                 container
                 direction="row"
                 maxWidth="xl"
+                justifyContent="center"
                 m={0}
                 p={0}
             >
@@ -103,7 +104,7 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
                         <b>Looking for a fulltime hire?</b>
                     </StyledButton>
                 </Grid>
-                {portfolioServices.map(function (service: any, index: number) {
+                {portfolioServices.map(function (service: object, index: number) {
                     return (
                         card(service, index)
                     )

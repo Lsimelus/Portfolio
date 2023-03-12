@@ -1,14 +1,13 @@
-import React from "react";
+import React, {RefObject} from "react";
 import { handleClickScroll, useOnScreen } from "../../utils/common"
-import Button from '@mui/material/Button';
 
 export interface NabvarProps {
-    aboutRef: any
-    resumeRef: any,
-    portfolioRef: any,
-    serviceRef: any,
-    contactRef: any,
-    headerRef: any
+    aboutRef: RefObject<HTMLElement>
+    resumeRef:RefObject<HTMLElement>,
+    portfolioRef:RefObject<HTMLElement>,
+    serviceRef: RefObject<HTMLElement>,
+    contactRef: RefObject<HTMLElement>,
+    headerRef: RefObject<HTMLElement>
 }
 
 const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
@@ -16,7 +15,7 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
     const [page, setPage] = React.useState(0);
     var currPage = [useOnScreen(headerRef), useOnScreen(aboutRef), useOnScreen(resumeRef), useOnScreen(serviceRef), useOnScreen(portfolioRef), useOnScreen(contactRef)]
 
-
+    
     React.useEffect(() => {
         var idx = currPage.indexOf("1")
         if (idx > -1) {
@@ -29,62 +28,54 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
         <nav style={{ backgroundColor: page === 0 ? "transparent" : "" }}>
             <ul className="nav">
                 <li >
-                    <a style={{ color: page === 0 ? "orange" : "" }} onClick={() => {
+                    <a className={page === 0 ? "nav-active" : ""} onClick={() => {
                         handleClickScroll("home");
                     }}>
-                        <b>HOME</b>
+                        HOME
                     </a>
                 </li>
 
                 <li>
-                    <a style={{ color: page == 1 ? "orange" : "" }} onClick={() => {
+                    <a className={page === 1 ? "nav-active" : ""} onClick={() => {
                         handleClickScroll("about");
                     }
                     }>
-                        <b>ABOUT</b>
+                        ABOUT
                     </a>
                 </li>
 
                 <li>
-                    <a style={{ color: page == 2 ? "orange" : "" }} onClick={() => {
+                    <a className={page === 2 ? "nav-active" : ""} onClick={() => {
                         handleClickScroll("resume");
                     }
                     }>
-                        <b>RESUME</b>
+                        RESUME
                     </a>
                 </li>
                 <li>
-                    <a style={{ color: page == 3 ? "orange" : "" }} onClick={() => {
+                    <a className={page === 3 ? "nav-active" : ""} onClick={() => {
                         handleClickScroll("service");
                     }
                     }>
-                        <b>SERVICES</b>
+                        SERVICES
                     </a>
                 </li>
 
                 <li>
-                    <a style={{ color: page == 4 ? "orange" : "" }} onClick={() => {
+                    <a className={page === 4 ? "nav-active" : ""} onClick={() => {
                         handleClickScroll("portfolio");
                     }
                     }>
-                        <b>PORTFOLIO</b>
+                        PORTFOLIO
                     </a>
                 </li>
 
-                <li style={{ float: "right" }}>
-                    <a>
-                        <Button
-                            style={{ backgroundColor: page == 5 ? "white" : "",
-                             color: page == 5 ? "orange" : "",
-                             transition: "all 1s ease-out"
-
-                             }}
-                            variant="contained"
-                            onClick={() => {
-                                handleClickScroll("contact");
-                            }}>
-                            <b>CONTACT</b></Button>
-
+                <li >
+                    <a className={page === 5 ? "nav-active" : ""} onClick={() => {
+                        handleClickScroll("contact");
+                    }
+                    }>
+                        CONTACT
                     </a>
                 </li>
 

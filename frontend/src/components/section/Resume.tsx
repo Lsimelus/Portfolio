@@ -1,12 +1,15 @@
-import React from "react";
+import React, {RefObject} from "react";
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
+import { skillSections, skillSection} from "../sectionHelperUI/ResumeHelper"
+import { formatTechSection } from "../../utils/common"
+import LaptopWindowsIcon from '@mui/icons-material/LaptopWindows';
+import BuildIcon from '@mui/icons-material/Build';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
 
-const resumeSkills: { [key: string]: number } = data.resume.skills
+
 const resumeWork: object[] = data.resume.work
 const resumeEducation: object[] = data.resume.education
 
@@ -38,54 +41,9 @@ function useOnScreen(ref: any) {
   return isIntersecting
 }
 
-export interface SkillActivityProps {
-  skill: string
-}
-
-const SkillActivity = (props: SkillActivityProps) => {
-  const { skill } = props;
-  const skillTitleRef = React.useRef<HTMLElement>(null);
-  useOnScreen(skillTitleRef)
-  var currSkillVal = resumeSkills[skill] * 10
-
-  function getRandomColor() {
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 40,
-    borderRadius: 5,
-    overflow: "hidden",
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      backgroundColor: getRandomColor(),
-      transition: "all 1000ms",
-    },
-  }));
-
-
-
-  return (
-    <>
-      <Grid item xs={12}>
-        <h2 className="hidden" ref={skillTitleRef as any} style={{ textAlign: "left" }}>{skill}</h2>
-      </Grid>
-      <Grid item xs={12}>
-        <div>
-          <BorderLinearProgress variant="determinate" value={currSkillVal} />
-        </div>
-      </Grid>
-    </>
-  )
-}
 
 export interface ResumeActivityProps {
-  activity: any
+  activity: {location: string, title:string, time: string, info:object[]}
 }
 
 const ResumeActivity = (props: ResumeActivityProps) => {
@@ -100,9 +58,9 @@ const ResumeActivity = (props: ResumeActivityProps) => {
   return (
     <>
       <Grid item xs={12}>
-        <h2 className="hidden" ref={resumeTitleRef as any} style={{ textAlign: "left" }}>{activity.location}</h2>
+        <h2 className="hidden" ref={resumeTitleRef as RefObject<HTMLHeadingElement>} style={{ textAlign: "left" }}>{activity.location}</h2>
       </Grid>
-      <div className="hidden" ref={resumeDateRef as any}>
+      <div className="hidden" ref={resumeDateRef as RefObject<HTMLHeadingElement>}>
         {activity.title &&
           <Grid item xs={12}>
             <p style={{ textAlign: "left", margin: "0px" }}><b>{activity.title}</b> ~ <em>{activity.time}</em></p>
@@ -110,7 +68,7 @@ const ResumeActivity = (props: ResumeActivityProps) => {
         }
       </div>
       <Grid item xs={12}>
-        <ul className="hidden" ref={resumeInfoRef as any} style={{ textAlign: "left" }}>
+        <ul className="hidden" ref={resumeInfoRef as RefObject<HTMLUListElement>} style={{ textAlign: "left" }}>
           {(activity.info).map(function (act: any, index: number) {
             return (
               <li key={activity.location + String(index)}>{(act)}</li>
@@ -122,16 +80,19 @@ const ResumeActivity = (props: ResumeActivityProps) => {
   )
 }
 
+
 const Resume = React.forwardRef<HTMLElement>((props, ref) => {
 
-  const workRef = React.useRef<HTMLElement>(null);
-  const educationRef = React.useRef<HTMLElement>(null);
-  const skillRef = React.useRef<HTMLElement>(null);
-  const skillTitleRef = React.useRef<HTMLElement>(null);
+  const workRef = React.useRef<RefObject<HTMLElement>>(null);
+  const educationRef = React.useRef<RefObject<HTMLElement>>(null);
+  const skillRef = React.useRef<RefObject<HTMLElement>>(null);
+  const skillTitleRef = React.useRef<RefObject<HTMLElement>>(null);
   useOnScreen(skillTitleRef)
   useOnScreen(workRef)
   useOnScreen(educationRef)
   useOnScreen(skillRef)
+
+  const [skillHover, setSkillHover] = React.useState(-1)
 
 
 
@@ -168,7 +129,6 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         <Grid item xs={12}>
 
 
-
         </Grid>
 
         <Grid item xs={12} md={2}>
@@ -190,25 +150,50 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={2}>
+
+
+
+
+      </Grid>
+      <Grid item xs={12}>
           <h1 className="hidden" ref={skillRef as any}>SKILLS</h1>
           <Divider />
         </Grid>
-        <Grid item xs={12} md={10}>
-          <Grid
-            container
-            direction="row"
-            maxWidth="xl"
-          >
-            {Object.keys(resumeSkills).map(function (skill: string, index) {
-              return (
+      <Grid
+        container
+        direction="row"
+        maxWidth="xl"
+        justifyContent="center"
+        spacing={4}
+        p={8}
+        onMouseLeave={() => setSkillHover(-1)}
+        
+        
+      >
+        {formatTechSection().map(function (tech: any, idx:number) {
+          if (idx == 0) {
+            var currIcon = <LaptopWindowsIcon></LaptopWindowsIcon>
+        } else if (idx == 1) {
+            var currIcon = <PsychologyIcon></PsychologyIcon>
 
-                <SkillActivity skill={skill} />
+        } else {
+            var currIcon = <BuildIcon></BuildIcon>
+        }
 
-              )
-            })}
-          </Grid>
+          return (
+            <Grid 
+            item 
+            xs={12} sm={idx == 2 ? 8 :6} lg={4}
+            onMouseEnter={() => setSkillHover(idx)}
+            onMouseLeave={() => setSkillHover(-1)}
+            className={"skill-section"}
+            style={{boxShadow: skillHover == idx ? "0 0 5px #ccc" : "", borderRadius: "35px"}}
+             >{skillSection(skillHover == idx, tech, currIcon)}
         </Grid>
+          );
+        })}
+
+
       </Grid>
     </section>
   );

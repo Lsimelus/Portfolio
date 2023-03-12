@@ -1,5 +1,6 @@
 import React from "react";
 import resume from "../assets/resume.pdf"
+import data from "../data/data.json"
 
 
 export function useOnScreen(ref: any) {
@@ -38,3 +39,16 @@ export const downloadResume = () => {
     })
   }
   
+
+
+export const formatTechSection= () => {
+  let mapper = data.tech as any
+  var formattedData: any[] = [[], [], []]
+  
+  for (const [key, value] of Object.entries(mapper)) {
+    let data: any = value
+    data["name"] = key
+    formattedData[data["cat"]].push(data)
+  }
+  return formattedData
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import ParticlesBg from "particles-bg";
 import Stack from '@mui/material/Stack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -17,18 +17,20 @@ import WorkIcon from '@mui/icons-material/Work';
 
 
 export interface HeaderProps {
-  aboutRef: any
-  resumeRef: any,
-  serviceRef: any,
-  portfolioRef: any,
-  contactRef: any
+  aboutRef: RefObject<HTMLElement>,
+  resumeRef: RefObject<HTMLElement>,
+  serviceRef: RefObject<HTMLElement>,
+  portfolioRef: RefObject<HTMLElement>,
+  contactRef: RefObject<HTMLElement>
 }
 
 const Header = (props: HeaderProps) => {
   const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef} = props;
+  console.log(typeof aboutRef)
 
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
+  var temp = "< Fullstack Engineer/>"
   
 
   return (
@@ -40,8 +42,8 @@ const Header = (props: HeaderProps) => {
 
       <div style={{ paddingTop: "100px" }}>
         <div>
-          <h1 style={{ fontSize: "12vmin" }}>{data.header.name}</h1>
-          <h3 style={{ fontSize: "6vmin", marginRight: "20vw", marginLeft: "20vw" }}>Driven ~ Innovative ~ Adaptable</h3>
+          <h1 style={{ fontSize: "11vmin" }}>Hi, I'm <span style={{color: "orange", textShadow: "2px 2px 0px black"}}>Lyndbergh</span></h1>
+          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>{temp}</h3>
           <Grid
             container
             spacing={0}
@@ -74,7 +76,6 @@ const Header = (props: HeaderProps) => {
               </ButtonGroup>
               <StyledButton
               style={{ background: "linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)" }}
-           
                 onClick={() => handleClickScroll("service")}
                 variant="contained" startIcon={<WorkIcon />}>
                   <b>
