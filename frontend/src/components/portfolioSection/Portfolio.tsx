@@ -5,11 +5,11 @@ import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { PortfolioProjects } from "./PortfolioHelper"
+import { ButtonComponent } from "../commonUIComponents/Button";
 
 
 const portfolioProjects = data.portfolio.projects
 const techstacks = data.portfolio.tech
-
 
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
@@ -31,20 +31,18 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
 
   const filterButtons = techstacks.map(function (tech, index) {
     return (
-      <StyledButton
-        style={{ margin: 2 }}
+      <ButtonComponent
         key={index}
         variant={techFilter === index ? "contained" : "outlined"}
         onClick={() => setTechFilter((techFilter === index ? -1 : index))}
-      >
-        {tech}
-      </StyledButton>
+        text={tech}
+      />
     );
   });
 
 
   return (
-    <section ref={ref} style={{ backgroundColor: "#EBEEEE" }} id="portfolio">
+    <section ref={ref} style={{ backgroundColor: "#EBEEEE" }} id="Portfolio">
       <Grid
         container
         direction="row"
@@ -62,13 +60,11 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
 
         <Grid item xs={12} >
           {filterButtons}
-          <StyledButton
-            style={{ margin: 2 }}
-            variant={"contained"}
+          <ButtonComponent
             onClick={() => { setTechFilter(-1); setVideoIndex(-1) }}
           >
             <RestartAltIcon />
-          </StyledButton>
+          </ButtonComponent>
         </Grid>
 
         {sortedProjects.map(function (projects: any, index: number) {

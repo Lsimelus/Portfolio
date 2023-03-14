@@ -39,6 +39,7 @@ export const SkillSection = (hovered: boolean, data: { "cat": number }[], icon: 
         </>
     )
 }
+
 export const formatTechSection= () => {
     let mapper = data.tech as any
     var formattedData: any[] = [[], [], []]

@@ -96,7 +96,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
 
 
   return (
-    <section ref={ref} id="resume">
+    <section ref={ref} id="Resume">
       <Grid
         container
         direction="row"
@@ -148,10 +148,6 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
 
           </Grid>
         </Grid>
-
-
-
-
 
       </Grid>
       <Grid item xs={12}>

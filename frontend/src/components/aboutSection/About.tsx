@@ -6,7 +6,7 @@ import data from "../../data/data.json"
 
 const About = React.forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section ref={ref} style={{ backgroundColor: "#000524", padding: "50px" }} id="about">
+    <section ref={ref} style={{ backgroundColor: "#000524", padding: "50px" }} id="About">
       <Grid
         container
         direction="row"

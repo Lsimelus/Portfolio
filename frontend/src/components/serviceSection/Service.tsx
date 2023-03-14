@@ -6,6 +6,7 @@ import { Item } from "../commonUIComponents/Item"
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import LockIcon from '@mui/icons-material/Lock';
 import ShieldIcon from '@mui/icons-material/Shield';
+import { ButtonComponent } from "../commonUIComponents/Button";
 
 
 const portfolioServices = data.service
@@ -46,7 +47,7 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
             )
         })
         return (
-            <Grid style={{ display: "flex", minHeight: "100%" }} item xs={12}  md={6} lg={4}>
+            <Grid style={{ display: "flex", minHeight: "100%" }} item xs={12} md={6} lg={4}>
                 <Grid
                     container
                     direction="column"
@@ -68,13 +69,13 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
                         </Grid>
 
                         <footer style={{ margin: 5 }}>
-                            <StyledButton
-                                style={{ backgroundColor: data.color }}
-                                size="large" variant="contained"
-                                onClick={() => contactFormReset(data.title)}
-                            >
-                                <b>Get Started</b>
-                            </StyledButton>
+                        <ButtonComponent
+                        onClick={() => contactFormReset(data.title)}
+                        background={data.color}
+                                                text={"Get Started"}
+
+                    />
+
                         </footer>
                     </Item>
                 </Grid>
@@ -84,25 +85,23 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
 
 
     return (
-        <section ref={ref} style={{ backgroundColor: "#000524", padding: "50px" }} id="service">
+        <section ref={ref} style={{ backgroundColor: "#000524", padding: "50px" }} id="Service">
             <Grid
                 container
                 direction="row"
                 maxWidth="xl"
                 justifyContent="center"
-                m={0}
-                p={0}
             >
                 <Grid item xs={12}>
                     <h1 style={{ color: "white", margin: 30 }}>Service Plans</h1>
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledButton
-                        style={{ background: "linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)" }}
+                    <ButtonComponent
                         onClick={() => contactFormReset("Fulltime opportunity")}
-                        size="large" variant="contained">
-                        <b>Looking for a fulltime hire?</b>
-                    </StyledButton>
+                        background={"linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)"}
+                        text={"Looking for a fulltime hire?"}
+
+                    />
                 </Grid>
                 {portfolioServices.map(function (service: object, index: number) {
                     return (

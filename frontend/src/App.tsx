@@ -5,7 +5,7 @@ import About from "./components/aboutSection/About";
 import Resume from "./components/resumeSection/Resume";
 import Contact from "./components/contactSection/Contact";
 import Portfolio from "./components/portfolioSection/Portfolio";
-import Service from "./components/sectionComponents/Service";
+import Service from "./components/serviceSection/Service";
 import {AlertDiv, alertType } from "./components/Alert"
 import { handleClickScroll} from "./utils/reusableFunctions"
 
@@ -33,7 +33,7 @@ const App = () => {
   const [subjectText, setSubjectText] = React.useState("");
 
   function contactFormReset(subjectContent: string){
-    handleClickScroll("contact")
+    handleClickScroll("Contact")
     setSubjectText(subjectContent)
   }
 

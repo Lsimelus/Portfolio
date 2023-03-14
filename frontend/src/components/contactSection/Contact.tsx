@@ -15,6 +15,7 @@ import { handleClickScroll } from "../../utils/reusableFunctions"
 import data from "../../data/data.json"
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
+import { ButtonComponent } from "../commonUIComponents/Button";
 
 
 
@@ -31,6 +32,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
   const [message, setMessage] = React.useState("");
   const [formDone, setFormDone] = React.useState(false);
   const [buffering, setBuffering] = React.useState(false);
+  const [formEmpty, setFormEmpty] = React.useState(false);
 
   React.useEffect(() => {
     setSubject(subjectFilled)
@@ -42,7 +44,9 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
   }, [subjectFilled]);
 
   function processForm() {
+    setFormEmpty(false)
     if (name === "" || email === "" || message === "") {
+      setFormEmpty(true)
       alertCallback("The required field must be filled in.", "warning")
     } else if (email.indexOf("@") === -1) {
       alertCallback("Improper email format", "warning")
@@ -71,7 +75,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
 
   return (
     <>
-      <section ref={ref} style={{ backgroundColor: "#000524" }} id="contact">
+      <section ref={ref} style={{ backgroundColor: "#000524" }} id="Contact">
         <Grid
           container
           direction="row"
@@ -88,11 +92,12 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
             <h1 style={{ color: "white" }} >Let's Connect!</h1>
           </Grid>
 
-          <Grid item xs={2} >          </Grid>
+          <Grid item xs={2} ></Grid>
           <Grid item xs={12} md={8}>
             <Item>
               <Grid item xs={12} >
                 <TextField margin={"dense"} fullWidth label="Name*" variant="filled"
+                  error={formEmpty && name===""}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   disabled={formDone}
@@ -100,6 +105,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
               </Grid>
               <Grid item xs={12} >
                 <TextField
+                error={formEmpty && email===""}
                   value={email}
                   disabled={formDone}
                   onChange={(e) => setEmail(e.target.value)}
@@ -113,6 +119,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
               </Grid>
               <Grid item xs={12} >
                 <TextField margin={"dense"} value={message}
+                error={formEmpty && message===""}
                   disabled={formDone}
                   onChange={(e) => setMessage(e.target.value)}
                   fullWidth multiline rows={8} label="Message*" variant="filled" />
@@ -132,9 +139,10 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                   }} />
 
                   :
-                  <StyledButton size="large" variant="contained"
+                  <ButtonComponent
                     onClick={() => processForm()}
-                  >Submit</StyledButton>
+                    text={"Submit"}
+                  />
                 }
                 {buffering &&
                   < CircularProgress />
@@ -205,17 +213,16 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
               textAlign="center"
               justifyContent="center"
             >
-              <StyledButton onClick={() => handleClickScroll("home")} variant="contained"
-              >
+              <ButtonComponent onClick={() => handleClickScroll("Home")}>
                 <KeyboardArrowUpIcon />
-              </StyledButton>
+                </ButtonComponent>
             </Box>
           </Grid>
         </Grid>
       </section>
 
       <footer >
-        <p> &copy; Copyright 2023 Lyndbergh George Simelus</p>
+        <p> &copy; Copyright 2023 Lyndbergh George Simelus. Built with React.</p>
       </footer>
     </>
   );

@@ -14,6 +14,7 @@ import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions
 import Nabvar from "./Navbar";
 import ResumeModal from "./ResumeModal"
 import WorkIcon from '@mui/icons-material/Work';
+import { ButtonComponent } from "../commonUIComponents/Button";
 
 
 export interface HeaderProps {
@@ -26,15 +27,14 @@ export interface HeaderProps {
 
 const Header = (props: HeaderProps) => {
   const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef} = props;
-  console.log(typeof aboutRef)
 
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
-  var temp = "< Fullstack Engineer/>"
+  var desc = "< Fullstack Engineer/>"
   
 
   return (
-    <header ref={headerRef} style={{ height: "100vh", overflow: "hidden" }} id="home">
+    <header ref={headerRef} style={{ height: "100vh", overflow: "hidden" }} id="Home">
       <ParticlesBg type="circle" bg={true} />
       <Nabvar aboutRef={aboutRef} resumeRef={resumeRef} serviceRef={serviceRef} portfolioRef={portfolioRef} contactRef={contactRef} headerRef={headerRef}/>
       <ResumeModal getModal={modalOpen} setModal={setModalOpen}/>
@@ -43,7 +43,7 @@ const Header = (props: HeaderProps) => {
       <div style={{ paddingTop: "100px" }}>
         <div>
           <h1 style={{ fontSize: "11vmin" }}>Hi, I'm <span style={{color: "orange", textShadow: "2px 2px 0px black"}}>Lyndbergh</span></h1>
-          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>{temp}</h3>
+          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>{desc}</h3>
           <Grid
             container
             spacing={0}
@@ -51,47 +51,41 @@ const Header = (props: HeaderProps) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Stack direction="row" spacing={2}>
-              <StyledButton size="large" variant="contained" startIcon={<GitHubIcon />}
-                onClick={() => window.open(data.links.main, "_blank")}
-              >
-                Github
-              </StyledButton>
-              <StyledButton
-                onClick={() => window.open(data.links.site, "_blank")}
-                variant="contained" startIcon={<CodeIcon />}>
-                Site Code
-              </StyledButton>
-              <ButtonGroup  >
-                <StyledButton
-                  onClick={() => setModalOpen(true)}
-                  size="large" variant="contained" startIcon={<ReceiptIcon />}>
-                  Resume
-                </StyledButton>
-                <StyledButton
-                  onClick={() => downloadResume()}
-                  size="medium" variant="contained">
-                  <DownloadIcon />
-                </StyledButton>
-              </ButtonGroup>
-              <StyledButton
-              style={{ background: "linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)" }}
-                onClick={() => handleClickScroll("service")}
-                variant="contained" startIcon={<WorkIcon />}>
-                  <b>
-                    Hire Me
-               
-                </b>
-              </StyledButton>
+            <Stack direction="row" spacing={2} style={{marginBottom: "10vmin"}}>
               
+              <ButtonComponent 
+              onClick={() => window.open(data.links.main, "_blank")}
+              text={"Github"} 
+              startIcon={<GitHubIcon />}/>
+
+            <ButtonComponent 
+              onClick={() => window.open(data.links.site, "_blank")}
+              startIcon={<CodeIcon />}     
+              text={"Site Code"}/>
+
+              <ButtonGroup  >
+              <ButtonComponent 
+              onClick={() => setModalOpen(true)} 
+              text={"Resume"}/>
+
+              <ButtonComponent 
+              onClick={() => downloadResume()}
+              >
+                <DownloadIcon />
+              </ButtonComponent>
+              </ButtonGroup>
+
+              <ButtonComponent 
+              background={"linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)"}
+              onClick={() => handleClickScroll("Service")}
+              text={"Hire Me"} 
+              startIcon={<WorkIcon />}/>
             </Stack>
 
-            <StyledButton
-              onClick={() => handleClickScroll("about")}
-              style={{ marginTop: "10vmin" }} variant="contained"
-            >
-              <KeyboardArrowDownIcon />
-            </StyledButton>
+            <ButtonComponent 
+              onClick={() => handleClickScroll("About")}
+              ><KeyboardArrowDownIcon /></ButtonComponent>
+
           </Grid>
         </div>
       </div>
