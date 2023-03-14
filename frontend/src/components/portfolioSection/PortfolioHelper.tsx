@@ -1,15 +1,14 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Item } from "../commonUI/Item"
+import { Item } from "../commonUIComponents/Item"
 import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
 import CodeIcon from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
-import { getWorkMedia } from "../../utils/portfolioMedia";
+import { getWorkMedia } from "./getPortfolioMedia";
 import ReactPlayer from 'react-player'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-
 import CloseIcon from "@mui/icons-material/Close";
 
 
@@ -49,18 +48,18 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
           >
             <Item elevation={20} style={{ opacity: opacity ? 1.0 : .3 }}>
               <div >
-              <Box style={{ textAlign: "right" }}>
-        <CloseIcon
-        sx={{
-          color: "gray",
-          transition: "transform .5s",
-          "&:hover": {
-            color: "red",
-            transform: "scale(1.25)"
-          }
-        }}
-          onClick={() => { setVideoMode(true) }} />
-      </Box>
+                <Box style={{ textAlign: "right" }}>
+                  <CloseIcon
+                    sx={{
+                      color: "gray",
+                      transition: "transform .5s",
+                      "&:hover": {
+                        color: "red",
+                        transform: "scale(1.25)"
+                      }
+                    }}
+                    onClick={() => { setVideoMode(true) }} />
+                </Box>
                 <Grid
                   container
                   direction="row"
@@ -91,7 +90,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                   <Grid item xs={1}></Grid>
 
                   <Grid item xs={9} lg={8}>
-                    
+
                     <ReactPlayer
                       className='react-player fixed-bottom'
                       url={vid}
@@ -108,8 +107,8 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                     <footer>
                       <Grid item xs={12}>
                         <Divider />
-                        </Grid>
-                        <Box
+                      </Grid>
+                      <Box
                         component="span"
                         m={1}
                         display="flex"
@@ -160,70 +159,54 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                     <p><b>{projectData["name"]}</b></p>
                   </Grid>
                   <Grid item xs={3}  >
-                  <Box
-                        component="span"
-                        m={1}
-                        display="flex"
-                        justifyContent="space-around"
-                        alignItems="center"
+                    <Box
+                      component="span"
+                      m={1}
+                      display="flex"
+                      justifyContent="space-around"
+                      alignItems="center"
+                    >
+
+                      {vid &&
+
+                        <Button disabled={!opacity || projectData["link"] === ""}
+                          onClick={() => setVideoMode()}
+                        >
+                          <PlayCircleIcon sx={{
+                            color: "gray",
+                            transition: "transform .5s",
+                            opacity: projectData["link"] === "" ? ".3" : "1",
+                            "&:hover": {
+                              color: "#7241C8",
+                              transform: "scale(1.25)"
+                            }
+                          }} />
+                        </Button>
+                      }
+
+                      <Button disabled={!opacity || projectData["link"] === ""}
+                        target="_blank"
+                        href={projectData["link"]}
                       >
-
-                    {vid &&
-
-                  <Button disabled={!opacity || projectData["link"] === ""}
-                      onClick={() => setVideoMode()}
-                    >
-                      <PlayCircleIcon sx={{
-                        color: "gray",
-                        transition: "transform .5s",
-                        opacity: projectData["link"] === "" ? ".3" : "1",
-                        "&:hover": {
-                          color: "#7241C8",
-                          transform: "scale(1.25)"
-                        }
-                      }} />
-                    </Button>
-                    }
-
-                    <Button disabled={!opacity || projectData["link"] === ""}
-                      target="_blank"
-                      href={projectData["link"]}
-                    >
-                      <CodeIcon sx={{
-                        color: "gray",
-                        transition: "transform .5s",
-                        opacity: projectData["link"] === "" ? ".3" : "1",
-                        "&:hover": {
-                          color: "#7241C8",
-                          transform: "scale(1.25)"
-                        }
-                      }} />
-                    </Button>
+                        <CodeIcon sx={{
+                          color: "gray",
+                          transition: "transform .5s",
+                          opacity: projectData["link"] === "" ? ".3" : "1",
+                          "&:hover": {
+                            color: "#7241C8",
+                            transform: "scale(1.25)"
+                          }
+                        }} />
+                      </Button>
                     </Box>
                   </Grid>
 
                 </Grid>
 
                 <Grid item xs={12}>
-                  <div  className={opacity ? "work-dyn" : ""}>
+                  <div className={opacity ? "work-dyn" : ""}>
                     <div className="media-frame">
-                    <img src={image} className="work-pic" />
-
-
-                    
-                    {/*{mediaIsVideo() && opacity?
-                      <ReactPlayer
-                        className="work-pic"
-                        url={vid}
-                        width='100%'
-                        height='100%'
-                        controls={true}
-                        onPlay={() => setVideoMode()}
-                      />
-                      :
                       <img src={image} className="work-pic" />
-
-                    }*/}
                     </div>
                     <p>{mediaIsVideo()}</p>
                     <p className="work-desc">{projectData["blurb"]} </p>
@@ -258,14 +241,14 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
 
 let mapper = data.tech as any
 export const techValuesMap = (stack: any) => {
-  
-  return ( <>
-      {stack.map(function (techType: any) {
-        let currColor = mapper[techType]["color"] ?? ""
-              return (
-                <span  style={{color: currColor}}><b>{techType}</b> </span>
-              )
-            })}
+
+  return (<>
+    {stack.map(function (techType: any) {
+      let currColor = mapper[techType]["color"] ?? ""
+      return (
+        <span style={{ color: currColor }}><b>{techType}</b> </span>
+      )
+    })}
   </>)
 }
 

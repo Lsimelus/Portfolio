@@ -1,13 +1,13 @@
 import React from 'react';
 import "./App.css";
-import Header from "./components/section/Header"
-import About from "./components/section/About";
-import Resume from "./components/section/Resume";
-import Contact from "./components/section/Contact";
-import Portfolio from "./components/section/Portfolio";
-import Service from "./components/section/Service";
+import Header from "./components/headerSection/Header"
+import About from "./components/aboutSection/About";
+import Resume from "./components/resumeSection/Resume";
+import Contact from "./components/contactSection/Contact";
+import Portfolio from "./components/portfolioSection/Portfolio";
+import Service from "./components/sectionComponents/Service";
 import {AlertDiv, alertType } from "./components/Alert"
-import { handleClickScroll} from "./utils/common"
+import { handleClickScroll} from "./utils/reusableFunctions"
 
 
 

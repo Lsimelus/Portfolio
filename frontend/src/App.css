@@ -1,6 +1,7 @@
 
 html {
   scroll-snap-type: y proximity; 
+  scroll-padding-top: clamp(65px, 1.1vw, 100px);
 }
 
 .App {
@@ -36,7 +37,7 @@ nav{
 .nav li {
   list-style: none;
   justify-content: center;
-  padding: 15px;
+  padding: clamp(10px, 1.5vw, 40px);
  
  }
 
@@ -46,7 +47,7 @@ nav{
   position: relative;
   text-decoration: none;
   color: orange;
-  font-size: 1.5vw;
+  font-size: clamp(10px, 1.5vw, 20px);
   transition:font .4s ease-in, color .75s ease-out;
   padding-top: 15vw;
   font-weight: bold;
@@ -158,8 +159,13 @@ h1.show{
   transition: border-radius 1.0s ease-out;
   margin-bottom: 0px;
 }
-.work-dyn:hover > .work-pic { 
-  border-radius: 25px  25px  5px  5px;
+.media-frame{
+  max-height: 200px;
+  overflow: hidden;
+  transition: all .5s ease-out;
+}
+.work-dyn:hover > .media-frame{ 
+  max-height: 500px;
 }
 
 .work-desc {
@@ -181,9 +187,7 @@ h1.show{
 
 
 
-.media-frame{
-  height: "17vw"
-}
+
 .work-dyn:hover > .media-frame { 
-  height: ""
+  width: ""
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
-import { StyledButton } from "../commonUI/Button"
+import { StyledButton } from "../commonUIComponents/Button"
 import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { PortfolioProjects } from "../sectionHelperUI/PortfolioHelper"
+import { PortfolioProjects } from "./PortfolioHelper"
 
 
 const portfolioProjects = data.portfolio.projects

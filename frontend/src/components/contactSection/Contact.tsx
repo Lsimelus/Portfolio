@@ -7,11 +7,11 @@ import PeopleIcon from '@mui/icons-material/People';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Item } from "../commonUI/Item"
-import { StyledButton } from "../commonUI/Button"
+import { Item } from "../commonUIComponents/Item"
+import { StyledButton } from "../commonUIComponents/Button"
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { handleClickScroll } from "../../utils/common"
+import { handleClickScroll } from "../../utils/reusableFunctions"
 import data from "../../data/data.json"
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';

@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import data from "../../data/data.json"
-import { StyledButton } from "../commonUI/Button"
-import { Item } from "../commonUI/Item"
+import { StyledButton } from "../commonUIComponents/Button"
+import { Item } from "../commonUIComponents/Item"
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import LockIcon from '@mui/icons-material/Lock';
 import ShieldIcon from '@mui/icons-material/Shield';

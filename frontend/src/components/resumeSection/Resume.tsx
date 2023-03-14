@@ -2,8 +2,7 @@ import React, {RefObject} from "react";
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import data from "../../data/data.json"
-import { skillSections, skillSection} from "../sectionHelperUI/ResumeHelper"
-import { formatTechSection } from "../../utils/common"
+import { SkillSection, formatTechSection} from "./SkillSectionComponent"
 import LaptopWindowsIcon from '@mui/icons-material/LaptopWindows';
 import BuildIcon from '@mui/icons-material/Build';
 import PsychologyIcon from '@mui/icons-material/Psychology';
@@ -188,7 +187,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
             onMouseLeave={() => setSkillHover(-1)}
             className={"skill-section"}
             style={{boxShadow: skillHover == idx ? "0 0 5px #ccc" : "", borderRadius: "35px"}}
-             >{skillSection(skillHover == idx, tech, currIcon)}
+             >{SkillSection(skillHover == idx, tech, currIcon)}
         </Grid>
           );
         })}

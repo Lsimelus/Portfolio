@@ -1,5 +1,5 @@
 import React, {RefObject} from "react";
-import { handleClickScroll, useOnScreen } from "../../utils/common"
+import { handleClickScroll, useOnScreen } from "../../utils/reusableFunctions"
 
 export interface NabvarProps {
     aboutRef: RefObject<HTMLElement>
