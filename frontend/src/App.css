@@ -18,97 +18,8 @@ section {
 
 
 /*
-Header Section
-*/
-nav{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #000524;
-    z-index:10;
-    transition: background-color 1.0s ease-out;
-}
-.nav{
-  margin: 5;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
-
-.nav li {
-  list-style: none;
-  justify-content: center;
-  padding: clamp(10px, 1.5vw, 40px);
- 
- }
-
-
- .nav li a {
-  padding: 2vw;
-  position: relative;
-  text-decoration: none;
-  color: orange;
-  font-size: clamp(10px, 1.5vw, 20px);
-  transition:font .4s ease-in, color .75s ease-out;
-  padding-top: 15vw;
-  font-weight: bold;
-  text-shadow: "2px 2px 0px black";
-  text-shadow: 1px 1px #000000;
-}
-
-.nav li a.nav-active, .nav li a:hover{
-  background-color: orange;
-  color: white;
-  outline: none;
-  padding: 14px 16px;
-  transition: 0.3s;
-  border-radius: 25px;
-
- }
- /*
- 
- .nav li a:hover {
-   color: orange;
-   
- }
- .nav li a:after{
-  transition: all .5s ease-in-out;
-  width: 0%;
-  right: 0;
-}
-.nav li a:before  {
-  transition: all .5s ease-in-out;
-  width: 0%;
-  left: 0;
-}
- .nav li a:hover:after,  .nav li a:hover:before  {
-  content: "";
-  height: 5px;
-  position: -10px;
-  width: 100%;
-  background-color: orange;
-  position: absolute;
-  display: block;
-}
-*/
- 
- /*
- About Section
- */
- .about-pic{
-  border-radius: 35px;
-  border-width: 3;
-}
-
-/*
 Resume Section
 */
-
-.visible{
-  color: orange;
-  font-size: 1.4em;
-}
 
 
 .hidden{
@@ -137,19 +48,6 @@ h1.show{
   filter: blur(0px);
   transform: translateX(0px);
 }
-
-.skill-tag{
-  background-color: gray;
-  float: left;
-  outline: none;
-  padding: 14px 16px;
-  transition: 0.3s;
-  color: black;
-  border-radius: 25px;
-  margin: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
 
  /*
  Works Section

@@ -1,87 +1,20 @@
 import React, {RefObject} from "react";
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
-import data from "../../data/data.json"
+import {resume} from "../../data/data"
 import { SkillSection, formatTechSection} from "./SkillSectionComponent"
 import LaptopWindowsIcon from '@mui/icons-material/LaptopWindows';
 import BuildIcon from '@mui/icons-material/Build';
 import PsychologyIcon from '@mui/icons-material/Psychology';
+import {useOnScreen} from "./ResumeOnScreenFunction"
+import {ResumeActivity} from "./ResumeActivityComponent"
 
 
-
-const resumeWork: object[] = data.resume.work
-const resumeEducation: object[] = data.resume.education
-
-
-function useOnScreen(ref: any) {
-  const [isIntersecting, setIntersecting] = React.useState(false)
-
-  const observer = React.useMemo(() => new IntersectionObserver(
-    ([entry]) => setIntersecting(entry.isIntersecting)
-    , {
-      rootMargin: "200px 0px -100px 0px"
-    }), [ref])
-
-  React.useEffect(() => {
-    if (ref.current) {
-
-      observer.observe(ref.current)
-      return () => observer.disconnect()
-    }
-  }, [])
-
-  if (ref.current && ref.current.classList.contains("hidden")) {
-    if (isIntersecting) {
-      ref.current.classList.add("show")
-    } else {
-      ref.current.classList.remove("show")
-    }
-  }
-  return isIntersecting
-}
-
-
-export interface ResumeActivityProps {
-  activity: {location: string, title:string, time: string, info:object[]}
-}
-
-const ResumeActivity = (props: ResumeActivityProps) => {
-  const { activity } = props;
-  const resumeInfoRef = React.useRef<HTMLElement>(null);
-  const resumeTitleRef = React.useRef<HTMLElement>(null);
-  const resumeDateRef = React.useRef<HTMLElement>(null);
-  useOnScreen(resumeInfoRef)
-  useOnScreen(resumeTitleRef)
-  useOnScreen(resumeDateRef)
-
-  return (
-    <>
-      <Grid item xs={12}>
-        <h2 className="hidden" ref={resumeTitleRef as RefObject<HTMLHeadingElement>} style={{ textAlign: "left" }}>{activity.location}</h2>
-      </Grid>
-      <div className="hidden" ref={resumeDateRef as RefObject<HTMLHeadingElement>}>
-        {activity.title &&
-          <Grid item xs={12}>
-            <p style={{ textAlign: "left", margin: "0px" }}><b>{activity.title}</b> ~ <em>{activity.time}</em></p>
-          </Grid>
-        }
-      </div>
-      <Grid item xs={12}>
-        <ul className="hidden" ref={resumeInfoRef as RefObject<HTMLUListElement>} style={{ textAlign: "left" }}>
-          {(activity.info).map(function (act: any, index: number) {
-            return (
-              <li key={activity.location + String(index)}>{(act)}</li>
-            )
-          })}
-        </ul>
-      </Grid>
-    </>
-  )
-}
-
+const resumeWork: object[] = resume.work
+const resumeEducation: object[] = resume.education
+const currIcons: JSX.Element[] = [<LaptopWindowsIcon></LaptopWindowsIcon>, <PsychologyIcon></PsychologyIcon>, <BuildIcon></BuildIcon>]
 
 const Resume = React.forwardRef<HTMLElement>((props, ref) => {
-
   const workRef = React.useRef<RefObject<HTMLElement>>(null);
   const educationRef = React.useRef<RefObject<HTMLElement>>(null);
   const skillRef = React.useRef<RefObject<HTMLElement>>(null);
@@ -92,8 +25,6 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
   useOnScreen(skillRef)
 
   const [skillHover, setSkillHover] = React.useState(-1)
-
-
 
   return (
     <section ref={ref} id="Resume">
@@ -120,16 +51,12 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
             {resumeWork.map(function (job: any, index) {
               return (
                 <ResumeActivity activity={job} />
-
               )
             })}
           </Grid>
         </Grid>
         <Grid item xs={12}>
-
-
         </Grid>
-
         <Grid item xs={12} md={2}>
           <h1 className="hidden" ref={educationRef as any}>EDUCATION</h1>
           <Divider />
@@ -162,28 +89,18 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         spacing={4}
         p={8}
         onMouseLeave={() => setSkillHover(-1)}
-        
-        
       >
         {formatTechSection().map(function (tech: any, idx:number) {
-          if (idx == 0) {
-            var currIcon = <LaptopWindowsIcon></LaptopWindowsIcon>
-        } else if (idx == 1) {
-            var currIcon = <PsychologyIcon></PsychologyIcon>
-
-        } else {
-            var currIcon = <BuildIcon></BuildIcon>
-        }
 
           return (
             <Grid 
             item 
-            xs={12} sm={idx == 2 ? 8 :6} lg={4}
+            xs={12} sm={idx === 2 ? 8 :6} lg={4}
             onMouseEnter={() => setSkillHover(idx)}
             onMouseLeave={() => setSkillHover(-1)}
             className={"skill-section"}
-            style={{boxShadow: skillHover == idx ? "0 0 5px #ccc" : "", borderRadius: "35px"}}
-             >{SkillSection(skillHover == idx, tech, currIcon)}
+            style={{boxShadow: skillHover === idx ? "0 0 5px #ccc" : "", borderRadius: "35px"}}
+             >{SkillSection(skillHover === idx, tech, currIcons[idx])}
         </Grid>
           );
         })}

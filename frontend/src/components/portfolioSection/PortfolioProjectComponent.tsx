@@ -1,16 +1,15 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { Item } from "../commonUIComponents/Item"
+import { Item } from "../../styles/commonUIComponents/ItemStyled"
 import Divider from '@mui/material/Divider';
-import data from "../../data/data.json"
+import { tech } from "../../data/data"
 import CodeIcon from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
 import { getWorkMedia } from "./getPortfolioMedia";
 import ReactPlayer from 'react-player'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import CloseIcon from "@mui/icons-material/Close";
-
+import { ButtonComponent } from "../commonUIComponents/Button";
 
 export interface PortfolioProjectsProps {
   opacity: boolean,
@@ -49,16 +48,18 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
             <Item elevation={20} style={{ opacity: opacity ? 1.0 : .3 }}>
               <div >
                 <Box style={{ textAlign: "right" }}>
-                  <CloseIcon
+                  <ButtonComponent
+                  variant="text"
+                  
+                  onClick={() => { setVideoMode(true) }}>
+                    <CloseIcon
                     sx={{
-                      color: "gray",
-                      transition: "transform .5s",
-                      "&:hover": {
-                        color: "red",
-                        transform: "scale(1.25)"
-                      }
+                      color: "red"
                     }}
-                    onClick={() => { setVideoMode(true) }} />
+                     />
+
+                  </ButtonComponent>
+
                 </Box>
                 <Grid
                   container
@@ -71,21 +72,15 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                     <p><b>{projectData["name"]}</b></p>
                   </Grid>
                   <Grid item xs={2}  >
-
-                    <Button disabled={!opacity || projectData["link"] === ""}
-                      target="_blank"
-                      href={projectData["link"]}
+                    <ButtonComponent
+                      onClick={() => window.open(projectData["link"], "_blank")}
+                      variant="outlined"
                     >
-                      <CodeIcon sx={{
-                        color: "gray",
-                        transition: "transform .5s",
-                        opacity: projectData["link"] === "" ? ".3" : "1",
-                        "&:hover": {
-                          color: "#7241C8",
-                          transform: "scale(1.25)"
-                        }
-                      }} />
-                    </Button>
+                      <CodeIcon />
+
+                    </ButtonComponent>
+
+
                   </Grid>
                   <Grid item xs={1}></Grid>
 
@@ -132,7 +127,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
 
         :
 
-        <Grid item xs={12} md={6} lg={4} >
+        <Grid item xs={12} sm={6} lg={4} >
           <Grid
             container
             direction="column"
@@ -142,7 +137,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
             <Item
               elevation={10}
               style={{ opacity: opacity ? 1.0 : .3 }}
-              onClick={() => videoMode == false && videoIndex !== -1 && setVideoIndex(-1)}
+              onClick={() => videoMode === false && videoIndex !== -1 && setVideoIndex(-1)}
               onMouseEnter={() => vid && setCurrMedia(vid)}
               onMouseLeave={() => image && setCurrMedia(image)}
             >
@@ -155,7 +150,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                   alignItems="stretch"
                 >
 
-                  <Grid item xs={9}>
+                  <Grid item xs={8}>
                     <p><b>{projectData["name"]}</b></p>
                   </Grid>
                   <Grid item xs={3}  >
@@ -166,39 +161,31 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
                       justifyContent="space-around"
                       alignItems="center"
                     >
-
                       {vid &&
-
-                        <Button disabled={!opacity || projectData["link"] === ""}
+                          <ButtonComponent
+                          disabled={!opacity}
                           onClick={() => setVideoMode()}
-                        >
-                          <PlayCircleIcon sx={{
-                            color: "gray",
-                            transition: "transform .5s",
-                            opacity: projectData["link"] === "" ? ".3" : "1",
-                            "&:hover": {
-                              color: "#7241C8",
-                              transform: "scale(1.25)"
-                            }
-                          }} />
-                        </Button>
-                      }
+                          variant="text"
+                          >
+                            <PlayCircleIcon sx={{
+                                opacity: projectData["link"] === "" ? ".3" : "1",
 
-                      <Button disabled={!opacity || projectData["link"] === ""}
-                        target="_blank"
-                        href={projectData["link"]}
-                      >
-                        <CodeIcon sx={{
-                          color: "gray",
-                          transition: "transform .5s",
-                          opacity: projectData["link"] === "" ? ".3" : "1",
-                          "&:hover": {
-                            color: "#7241C8",
-                            transform: "scale(1.25)"
-                          }
+                              }} />
+                          </ButtonComponent>
+                      }
+                      <ButtonComponent
+                          disabled={!opacity || projectData["link"] === "" }
+                          onClick={() => window.open(projectData["link"], "_blank")}
+                          variant="text"
+                          >
+                            <CodeIcon sx={{
+                          opacity: projectData["link"] === "" ? ".3" : "1"
                         }} />
-                      </Button>
+                          </ButtonComponent>
                     </Box>
+                  </Grid>
+                  <Grid item xs={1}>
+
                   </Grid>
 
                 </Grid>
@@ -239,7 +226,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
 }
 
 
-let mapper = data.tech as any
+let mapper = tech as any
 export const techValuesMap = (stack: any) => {
 
   return (<>

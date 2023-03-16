@@ -5,11 +5,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CodeIcon from '@mui/icons-material/Code';
-import ReceiptIcon from '@mui/icons-material/Receipt';
-import { StyledButton } from "../commonUIComponents/Button"
 import ButtonGroup from '@mui/material/ButtonGroup';
 import DownloadIcon from '@mui/icons-material/Download';
-import data from "../../data/data.json"
+import {links} from "../../data/data"
 import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions";
 import Nabvar from "./Navbar";
 import ResumeModal from "./ResumeModal"
@@ -54,12 +52,12 @@ const Header = (props: HeaderProps) => {
             <Stack direction="row" spacing={2} style={{marginBottom: "10vmin"}}>
               
               <ButtonComponent 
-              onClick={() => window.open(data.links.main, "_blank")}
+              onClick={() => window.open(links.main, "_blank")}
               text={"Github"} 
               startIcon={<GitHubIcon />}/>
 
             <ButtonComponent 
-              onClick={() => window.open(data.links.site, "_blank")}
+              onClick={() => window.open(links.site, "_blank")}
               startIcon={<CodeIcon />}     
               text={"Site Code"}/>
 

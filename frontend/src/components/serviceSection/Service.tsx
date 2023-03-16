@@ -1,15 +1,10 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
-import data from "../../data/data.json"
-import { StyledButton } from "../commonUIComponents/Button"
-import { Item } from "../commonUIComponents/Item"
-import HandshakeIcon from '@mui/icons-material/Handshake';
-import LockIcon from '@mui/icons-material/Lock';
-import ShieldIcon from '@mui/icons-material/Shield';
+import { service } from "../../data/data"
 import { ButtonComponent } from "../commonUIComponents/Button";
+import { ServiceCard } from "./ServiceCard";
 
-
-const portfolioServices = data.service
+const portfolioServices = service
 
 export interface ServiceProps {
     contactFormReset: Function
@@ -17,71 +12,6 @@ export interface ServiceProps {
 
 const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
     const { contactFormReset } = props;
-
-
-    const getIcon = (index: number) => {
-        if (index == 0) {
-            var icon = <HandshakeIcon sx={{
-                fontSize: 80,
-                margin: 3
-            }} />
-        } else if (index == 1) {
-            var icon = <LockIcon sx={{
-                fontSize: 80,
-                margin: 3
-            }} />
-        } else {
-            var icon = <ShieldIcon sx={{
-                fontSize: 80,
-                margin: 3
-            }} />
-        }
-        return icon
-
-    }
-    const card = (data: any, index: number) => {
-
-        const info = data.desc.map(function (line: any, index: number) {
-            return (
-                <li>{line}</li>
-            )
-        })
-        return (
-            <Grid style={{ display: "flex", minHeight: "100%" }} item xs={12} md={6} lg={4}>
-                <Grid
-                    container
-                    direction="column"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    m={5}
-                >
-                    <Item style={{ minHeight: "100%", minWidth: "100%", padding: "0px" }}>
-                        <Grid item xs={12} >
-                            <div style={{ backgroundColor: data.color, color: "white", marginBottom: "0px" }}>
-                                {getIcon(index)}
-                                <h1 >{data.title}</h1>
-                                <h2>{data.price}</h2>
-                            </div>
-
-                            <ul style={{ textAlign: "left" }}>
-                                {info}
-                            </ul>
-                        </Grid>
-
-                        <footer style={{ margin: 5 }}>
-                        <ButtonComponent
-                        onClick={() => contactFormReset(data.title)}
-                        background={data.color}
-                                                text={"Get Started"}
-
-                    />
-
-                        </footer>
-                    </Item>
-                </Grid>
-            </Grid>)
-
-    }
 
 
     return (
@@ -105,7 +35,7 @@ const Service = React.forwardRef<HTMLElement, ServiceProps>((props, ref) => {
                 </Grid>
                 {portfolioServices.map(function (service: object, index: number) {
                     return (
-                        card(service, index)
+                        ServiceCard(contactFormReset, service, index)
                     )
                 })}
             </Grid>

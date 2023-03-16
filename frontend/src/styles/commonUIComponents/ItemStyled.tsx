@@ -10,6 +10,7 @@ export const Item = styled(Paper)(({ theme }) => ({
     margin: "5px",
     color: theme.palette.text.secondary,
     position: "relative",
+    hidden: "hidden",
     display:'flex', justiyContent:'space-between', flexDirection:'column',
   }));
   

@@ -1,7 +1,8 @@
 import React from "react";
 import profilepic from "../../assets/profile.jpg"
 import Grid from '@mui/material/Grid';
-import data from "../../data/data.json"
+import {about} from "../../data/data"
+import {AboutImageStyled} from "../../styles/aboutSection/AboutStyled"
 
 
 const About = React.forwardRef<HTMLElement>((props, ref) => {
@@ -17,14 +18,16 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
         overflow="hidden"
       >
         <Grid item xs={12} lg={5}>
-          <img className="about-pic" src={profilepic} width={407} height={265}   alt="Image is not available. Sorry!"/>
+          <AboutImageStyled src={profilepic} width={407} height={265} alt="Image is not available. Sorry!"/>
         </Grid>
         <Grid item xs={12} lg={7}>
           <Grid
             container
-            direction="row">
-            <h1 style={{ color: "white" }}>Hello/Greetings! </h1>
-            <p style={{ color: "white", textAlign: "left" }}>{data.about.description}            
+            direction="row"
+            color="white"
+            textAlign={"left"}>
+            <h1 >Hello/Greetings! </h1>
+            <p >{about.description}            
             </p>
           </Grid>
         </Grid>

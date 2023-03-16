@@ -6,7 +6,7 @@ import Resume from "./components/resumeSection/Resume";
 import Contact from "./components/contactSection/Contact";
 import Portfolio from "./components/portfolioSection/Portfolio";
 import Service from "./components/serviceSection/Service";
-import {AlertDiv, alertType } from "./components/Alert"
+import {AlertDiv, alertType } from "./components/commonUIComponents/Alert"
 import { handleClickScroll} from "./utils/reusableFunctions"
 
 

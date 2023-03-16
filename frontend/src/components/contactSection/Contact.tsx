@@ -7,12 +7,12 @@ import PeopleIcon from '@mui/icons-material/People';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Item } from "../commonUIComponents/Item"
-import { StyledButton } from "../commonUIComponents/Button"
+import { Item } from "../../styles/commonUIComponents/ItemStyled"
+import { TranslateButton} from "../../styles/commonUIComponents/ButtonStyled"
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { handleClickScroll } from "../../utils/reusableFunctions"
-import data from "../../data/data.json"
+import {links} from "../../data/data"
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ButtonComponent } from "../commonUIComponents/Button";
@@ -119,7 +119,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
               </Grid>
               <Grid item xs={12} >
                 <TextField margin={"dense"} value={message}
-                error={formEmpty && message===""}
+                  error={formEmpty && message===""}
                   disabled={formDone}
                   onChange={(e) => setMessage(e.target.value)}
                   fullWidth multiline rows={8} label="Message*" variant="filled" />
@@ -160,11 +160,11 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                 <p ><b>lsimelus@gmail.com</b></p>
               </Grid>
 
-              <div color="green">
+              <div>
 
-                <StyledButton>
+                <TranslateButton>
                   <EmailIcon
-                    onClick={() => window.open(data["links"]["mailto"], "_blank")}
+                    onClick={() => window.open(links.mailto, "_blank")}
                     sx={{
                       fontSize: 100,
                       color: "gray",
@@ -172,9 +172,9 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                         color: "#EA4336"
                       },
                     }} />
-                </StyledButton>
+                </TranslateButton>
 
-                <StyledButton onClick={() => window.open(data.links.main, "_blank")}>
+                <TranslateButton onClick={() => window.open(links.main, "_blank")}>
                   <GitHubIcon sx={{
                     fontSize: 100,
                     color: "gray",
@@ -182,9 +182,9 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                       color: "#7241C8"
                     },
                   }} />
-                </StyledButton>
-                <StyledButton
-                  onClick={() => window.open(data.links.tel, "_blank")}
+                </TranslateButton>
+                <TranslateButton
+                  onClick={() => window.open(links.tel, "_blank")}
                 >
                   <LocalPhoneIcon sx={{
                     fontSize: 100,
@@ -193,9 +193,9 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                       color: "#1CC838"
                     },
                   }} />
-                </StyledButton>
-                <StyledButton
-                  onClick={() => window.open(data.links.linkedin, "_blank")}>
+                </TranslateButton>
+                <TranslateButton
+                  onClick={() => window.open(links.linkedin, "_blank")}>
                   <LinkedInIcon sx={{
                     fontSize: 100,
                     color: "gray",
@@ -203,7 +203,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
                       color: "#0077B5"
                     },
                   }} />
-                </StyledButton>
+                </TranslateButton>
               </div>
             </Item>
 

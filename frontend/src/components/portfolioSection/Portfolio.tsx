@@ -1,15 +1,14 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
-import { StyledButton } from "../commonUIComponents/Button"
 import Divider from '@mui/material/Divider';
-import data from "../../data/data.json"
+import {portfolio} from "../../data/data"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { PortfolioProjects } from "./PortfolioHelper"
+import { PortfolioProjects } from "./PortfolioProjectComponent"
 import { ButtonComponent } from "../commonUIComponents/Button";
 
 
-const portfolioProjects = data.portfolio.projects
-const techstacks = data.portfolio.tech
+const portfolioProjects = portfolio.projects
+const techstacks = portfolio.tech
 
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
@@ -69,7 +68,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
 
         {sortedProjects.map(function (projects: any, index: number) {
           const opacityFull = (techFilter === -1 || (projects["end"]).includes(techFilter))
-          const videoMode = videoIndex == index
+          const videoMode = videoIndex === index
 
           const setVideoMode = (reset: boolean = false) => {
             if (reset) {

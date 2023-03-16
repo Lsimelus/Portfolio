@@ -1,14 +1,4 @@
-import { styled } from '@mui/material/styles';
-import Button from "@mui/material/Button"
-
-export const StyledButton = styled(Button)(({ theme, color = 'primary' }) => ({
-  transition: "transform 1s",
-  ':hover': {
-    backgroundColor: 'white',
-    color: "orange",
-    transform: "translate(0px, -20px)"
-  },
-}));
+import {TranslateButton} from "../../styles/commonUIComponents/ButtonStyled"
 
 
 type ButtonComponentProps = {
@@ -21,15 +11,16 @@ type ButtonComponentProps = {
   text?: string,
   background?: string,
   key?: number,
-  variant?: "contained" | "outlined"
+  variant?: "contained" | "outlined" | "text",
+  disabled?: boolean
 }
 
 export const ButtonComponent = (props: ButtonComponentProps) => {
-  const { startIcon, onClick, text, children, background, key, variant = "contained" } = props;
+  const { disabled=false, startIcon, onClick, text, children, background, key, variant = "contained" } = props;
 
   return (
-    <StyledButton
-    key={key}
+    <TranslateButton
+      key={key}
       style={{
         background: background
       }}
@@ -37,9 +28,11 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
       startIcon={startIcon}
       onClick={() => onClick()}
       size="large"
+      disabled={disabled}
     >
       {children}
       <b>{text}</b>
-    </StyledButton>
+    </TranslateButton>
+
   );
 };

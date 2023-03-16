@@ -1,5 +1,6 @@
 import React, {RefObject} from "react";
 import { handleClickScroll, useOnScreen } from "../../utils/reusableFunctions"
+import { NavStyled, NavListStyled, NavListItemStyled, NavPages } from "../../styles/headerSection/NavbarStyled";
 
 export interface NabvarProps {
     aboutRef: RefObject<HTMLElement>
@@ -26,20 +27,20 @@ const Nabvar = React.forwardRef<HTMLElement, NabvarProps>((props, ref) => {
 
 
     return (
-        <nav style={{ backgroundColor: page === 0 ? "transparent" : "" }}>
-            <ul className="nav">
+        <NavStyled color={page === 0 ? "transparent" : "#000524"}>
+            <NavListStyled >
                 {navPages.map(function(pageName: string, idx:number){
-                    return(<li >
-                        <a className={page === idx ? "nav-active" : ""} onClick={() => {
+                    return(<NavListItemStyled >
+                        <NavPages className={page === idx ? "nav-active" : ""} onClick={() => {
                             handleClickScroll(pageName);
                         }}>
                             {pageName}
-                        </a>
-                    </li>)
+                        </NavPages>
+                    </NavListItemStyled>)
                 })}
-            </ul>
+            </NavListStyled >
 
-        </nav>
+        </NavStyled>
     );
 });
 
