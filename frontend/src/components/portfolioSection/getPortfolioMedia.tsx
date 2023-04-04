@@ -17,6 +17,7 @@ import markovVid from "../../assets/workVids/markovVid.mp4"
 import neuralVid from "../../assets/workVids/neuralVid.mp4"
 import poetryVid from "../../assets/workVids/poetryVid.mp4"
 import royalVid from "../../assets/workVids/royalVid.mp4"
+import marhabanVid from "../../assets/workVids/marhabanVid.mp4"
 
 
 const workMediaMapper: Record<number, {image?: any, vid?: any}> = {
@@ -50,7 +51,8 @@ const workMediaMapper: Record<number, {image?: any, vid?: any}> = {
   },
   9: { "image": static1 },
   10: { "image": static2 },
-  11: { "image": tbd }
+  11: { "image": tbd },
+  12: { "image": tbd , "vid":  marhabanVid}
 }
 
 

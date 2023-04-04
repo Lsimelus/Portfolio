@@ -41,7 +41,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
 
 
   return (
-    <section ref={ref} style={{ backgroundColor: "#EBEEEE" }} id="Portfolio">
+    <section ref={ref} style={{ backgroundColor: "#EBEEEE", marginBottom: 50 }} id="Portfolio">
       <Grid
         container
         direction="row"

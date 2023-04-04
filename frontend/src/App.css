@@ -1,15 +1,14 @@
-
-html {
-  scroll-snap-type: y proximity; 
-  scroll-padding-top: clamp(25px, 1.1vw, 80px);
+body {
+  scroll-snap-type: none; 
+  scroll-padding: clamp(25px, 1.1vw, 80px);
 }
 
 .App {
   text-align: center;
   align-items: "center";
   justify-content: "center";
-  
 }
+
 
 section {
   scroll-snap-align: start;

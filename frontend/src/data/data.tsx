@@ -299,6 +299,24 @@ export const portfolio = {
             "media": 7
         },
         {
+            "name": "Marhaban",
+            "stack": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Render.com",
+                "TypeScript"
+            ],
+            "end": [
+                0,
+                1
+            ],
+            "link": "https://github.com/Lsimelus/Marhaban",
+            "blurb": "Marhaban is a non-profit organization whose primary focus is expanding the beautiful religion of Islam. The frontend is Typescript, the backend is NodeJs, and the contact form response is saved in MongoDB. The news articles are produced using newsapi. The backend is in a different branch for security purposes. Purchases are not allowed yet.",
+            "date": "April 2023",
+            "media": 12
+        },
+        {
             "name": "Cookie Recipe Generator",
             "stack": [
                 "Python"
@@ -419,22 +437,6 @@ export const portfolio = {
             "blurb": "This project is a Neural Network that digests a movie script between 2 actors. Then uses the knowledge base to classify actor dialogue and predict who is speaking. Run the project by running main() in dialogue_classifier.py",
             "date": "JAN 2020",
             "media": 5
-        },
-        {
-            "name": "Client- Informative Postpartum Resource",
-            "stack": [
-                "React",
-                "Node.js",
-                "Python"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "",
-            "blurb": "This a freelance project that is for a client. It is a static website that will provide information for mothers, newborns, and family members in the postpartum space.",
-            "date": "TBD",
-            "media": 11
         },
         {
             "name": "Task Management Mobile Application",
