@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import { service } from "../../data/data"
-import { ButtonComponent } from "../commonUIComponents/Button";
-import { ServiceCard } from "./ServiceCard";
+import { ButtonComponent } from "../Button";
+import { ServiceCard } from "../ServiceCard";
 
 const portfolioServices = service
 

@@ -1,6 +1,6 @@
 import React, { RefObject } from "react";
 import Grid from '@mui/material/Grid';
-import { useOnScreen } from "./ResumeOnScreenFunction"
+import { useOnScreen } from "../../utils/reusableFunctions"
 
 interface ResumeActivityProps {
     activity: { location: string, title: string, time: string, info: object[] }
@@ -11,9 +11,9 @@ export const ResumeActivity = (props: ResumeActivityProps) => {
     const resumeInfoRef = React.useRef<HTMLElement>(null);
     const resumeTitleRef = React.useRef<HTMLElement>(null);
     const resumeDateRef = React.useRef<HTMLElement>(null);
-    useOnScreen(resumeInfoRef)
-    useOnScreen(resumeTitleRef)
-    useOnScreen(resumeDateRef)
+    useOnScreen(resumeInfoRef, true)
+    useOnScreen(resumeTitleRef, true)
+    useOnScreen(resumeDateRef, true)
 
     return (
         <>

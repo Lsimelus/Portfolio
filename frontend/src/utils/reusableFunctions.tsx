@@ -2,7 +2,7 @@ import React from "react";
 import resume from "../assets/resume.pdf"
 
 
-export function useOnScreen(ref: any) {
+export function useOnScreen(ref: any, resumeSection: boolean=false) {
     const [isIntersecting, setIntersecting] = React.useState(false)
   
     const observer = React.useMemo(() => new IntersectionObserver(
@@ -15,8 +15,21 @@ export function useOnScreen(ref: any) {
       observer.observe(ref.current)
       return () => observer.disconnect()
     }, [])
+    if (resumeSection){
+      if (ref.current && ref.current.classList.contains("hidden")) {
+        if (isIntersecting) {
+          ref.current.classList.add("show")
+        } else {
+          ref.current.classList.remove("show")
+        }
+      }
+      return isIntersecting
+
+    }else{
+      return isIntersecting ? "1" : "0"
+    }
   
-    return isIntersecting ? "1" : "0"
+    
   }
 
 export const handleClickScroll = (elementId: string) => {

@@ -15,7 +15,7 @@ import { handleClickScroll } from "../../utils/reusableFunctions"
 import {links} from "../../data/data"
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
-import { ButtonComponent } from "../commonUIComponents/Button";
+import { ButtonComponent } from "../Button";
 
 
 

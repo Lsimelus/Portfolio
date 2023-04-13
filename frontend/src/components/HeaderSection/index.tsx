@@ -9,10 +9,10 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import DownloadIcon from '@mui/icons-material/Download';
 import {links} from "../../data/data"
 import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions";
-import Nabvar from "./Navbar";
-import ResumeModal from "./ResumeModal"
+import Nabvar from "../Navbar";
+import ResumeModal from "../ResumeModal"
 import WorkIcon from '@mui/icons-material/Work';
-import { ButtonComponent } from "../commonUIComponents/Button";
+import { ButtonComponent } from "../Button";
 
 
 export interface HeaderProps {

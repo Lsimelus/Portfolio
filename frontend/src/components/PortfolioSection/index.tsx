@@ -3,8 +3,8 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import {portfolio} from "../../data/data"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { PortfolioProjects } from "./PortfolioProjectComponent"
-import { ButtonComponent } from "../commonUIComponents/Button";
+import { PortfolioProjects } from "../PortfolioCard"
+import { ButtonComponent } from "../Button";
 
 
 const portfolioProjects = portfolio.projects

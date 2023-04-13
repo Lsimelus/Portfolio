@@ -1,12 +1,12 @@
 import React from 'react';
 import "./App.css";
-import Header from "./components/headerSection/Header"
-import About from "./components/aboutSection/About";
-import Resume from "./components/resumeSection/Resume";
-import Contact from "./components/contactSection/Contact";
-import Portfolio from "./components/portfolioSection/Portfolio";
-import Service from "./components/serviceSection/Service";
-import {AlertDiv, alertType } from "./components/commonUIComponents/Alert"
+import Header from "./components/HeaderSection"
+import About from "./components/AboutSection";
+import Resume from "./components/ResumeSection";
+import Contact from "./components/ContactSection";
+import Portfolio from "./components/PortfolioSection";
+import Service from "./components/ServiceSection";
+import {AlertDiv, alertType } from "./components/Alert"
 import { handleClickScroll} from "./utils/reusableFunctions"
 
 

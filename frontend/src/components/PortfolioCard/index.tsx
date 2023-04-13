@@ -5,11 +5,23 @@ import Divider from '@mui/material/Divider';
 import { tech } from "../../data/data"
 import CodeIcon from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
-import { getWorkMedia } from "./getPortfolioMedia";
 import ReactPlayer from 'react-player'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import CloseIcon from "@mui/icons-material/Close";
-import { ButtonComponent } from "../commonUIComponents/Button";
+import { ButtonComponent } from "../Button";
+
+let mapper = tech as any
+export const techValuesMap = (stack: any) => {
+  return (
+  <>
+    {stack.map(function (techType: any) {
+      let currColor = mapper[techType]["color"] ?? ""
+      return (
+        <span style={{ color: currColor }}><b>{techType}</b> </span>
+      )
+    })}
+  </>)
+}
 
 export interface PortfolioProjectsProps {
   opacity: boolean,
@@ -23,7 +35,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
   const [videoIndex, setVideoIndex] = React.useState(-1);
 
 
-  const media = getWorkMedia(projectData["media"])
+  const media = projectData["media"]
   const image = media["image"] ?? null
   const vid = media["vid"] ?? null
 
@@ -38,7 +50,7 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
   return (
     <>
       {videoMode ?
-        <Grid item xs={12} md={12} lg={8} >
+        <Grid item xs={12} md={12} lg={8} id="curr" >
           <Grid
             container
             direction="column"
@@ -226,17 +238,6 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
 }
 
 
-let mapper = tech as any
-export const techValuesMap = (stack: any) => {
 
-  return (<>
-    {stack.map(function (techType: any) {
-      let currColor = mapper[techType]["color"] ?? ""
-      return (
-        <span style={{ color: currColor }}><b>{techType}</b> </span>
-      )
-    })}
-  </>)
-}
 
 

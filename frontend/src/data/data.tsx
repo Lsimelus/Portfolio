@@ -1,3 +1,24 @@
+import code from "../assets/workImages/code.png"
+import cookie from "../assets/workImages/cookie.png"
+import genes from "../assets/workImages/genes.png"
+import markov from "../assets/workImages/markov.png"
+import neural from "../assets/workImages/neural.png"
+import poetry from "../assets/workImages/poetry.png"
+import port from "../assets/workImages/portfolio.png"
+import royal from "../assets/workImages/royal.png"
+import static1 from "../assets/workImages/static1.png"
+import static2 from "../assets/workImages/static2.png"
+import tbd from "../assets/workImages/tbd.png"
+import casual from "../assets/workImages/casual.png"
+import casualVid from "../assets/workVids/casualVid.mp4"
+import cookieVid from "../assets/workVids/cookieVid.mp4"
+import geneticVid from "../assets/workVids/geneticVid.mp4"
+import markovVid from "../assets/workVids/markovVid.mp4"
+import neuralVid from "../assets/workVids/neuralVid.mp4"
+import poetryVid from "../assets/workVids/poetryVid.mp4"
+import royalVid from "../assets/workVids/royalVid.mp4"
+import marhabanVid from "../assets/workVids/marhabanVid.mp4"
+
 export const about = {
     "description": "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
 }
@@ -296,7 +317,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/portfolio",
             "blurb": "A portfolio web application created with React TypeScript version 18. The backend is a nodeJs application that saves the user info in a MongoDB. The backend is hosted using render.com and the frontend is hosted on github pages.",
             "date": "Feb 2023",
-            "media": 7
+            "media": {
+            "image": port}
         },
         {
             "name": "Marhaban",
@@ -314,7 +336,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Marhaban",
             "blurb": "Marhaban is a non-profit organization whose primary focus is expanding the beautiful religion of Islam. The frontend is Typescript, the backend is NodeJs, and the contact form response is saved in MongoDB. The news articles are produced using newsapi. The backend is in a different branch for security purposes. Purchases are not allowed yet.",
             "date": "April 2023",
-            "media": 12
+            "media": { "vid": marhabanVid,
+            "image": tbd}
         },
         {
             "name": "Cookie Recipe Generator",
@@ -327,7 +350,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Genetic-Algorithm-Cookie-recipe-builder",
             "blurb": "The service creates a system that successfully generates unique cookie recipes by looking at their molecular similarities, combining different recipes for numerous generations, and allowing mutations. The molecular makeup of these molecules was found via https://cosylab.iiitd.edu.in/flavordb/. Running the main() inside foodscraper.py to run.",
             "date": "FEB 2021",
-            "media": 2
+            "media": { "vid": cookieVid,
+            "image": cookie}
         },
         {
             "name": "Basic Static HTML site 2",
@@ -342,7 +366,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Non-InteractiveWebsite2",
             "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-InteractiveWebsite2/",
             "date": "MAY 2020",
-            "media": 10
+            "media": {
+            "image": static2}
         },
         {
             "name": "Basic Static HTML site",
@@ -356,7 +381,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Non-interactiveWebsite",
             "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-interactiveWebsite/",
             "date": "JUL 2020",
-            "media": 9
+            "media": {
+            "image": static1}
         },
         {
             "name": "Poetry Generator",
@@ -369,7 +395,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Poetry-Generator",
             "blurb": "A system that successfully creates rhyming and reasonably coherent poems by reading a sample of poems. The poems can be themed after a certain poet if selected. The system reads the poem outload.",
             "date": "MAY 2021",
-            "media": 6
+            "media": { "vid": poetryVid,
+            "image": poetry}
         },
         {
             "name": "Casual Creator",
@@ -382,7 +409,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/CasualCreator",
             "blurb": "An interactive creation app created with processing.Colored blocks enables the user to enjoy the dearly missed satisfaction of playing with blocks without the mess. To run the code all the user has to do is click the mouse and shapes appear wherever the mouse is clicked. By pressing any of the 4 arrow keys, shift, enter, and alt, change the blocks.",
             "date": "FEB 2021",
-            "media": 0
+            "media": { "vid": casualVid,
+            "image": casual}
         },
         {
             "name": "Royal Fitness",
@@ -397,7 +425,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/RoyalFitness",
             "blurb": "This project is an IOS mobile fitness application with Swift. The application had user login and authentication and could track the user's movement while running and returning mph and average mile speed. Also, has built-in suggested workouts and videos.",
             "date": "FEB 2021",
-            "media": 8
+            "media": { "vid": royalVid,
+            "image": royal}
         },
         {
             "name": "Genetic Algorithm",
@@ -410,7 +439,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/GeneticAlgorithm",
             "blurb": "Using Genetic Algorithm find a key string from a string of random characters. Various Genetic Algorithm methods implemented and can be used with minor edits in the code.",
             "date": "MAY 2021",
-            "media": 3
+            "media": { "vid": geneticVid,
+            "image": genes}
         },
         {
             "name": "Markov Decision",
@@ -423,7 +453,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/MarkovDecisionProcess",
             "blurb": "A Markov decision process (MDP) is defined as a stochastic decision-making process that uses a mathematical framework to model the decision-making of a dynamic system in scenarios where the results are either random or controlled by a decision maker, which makes sequential decisions over time.",
             "date": "MAY 2021",
-            "media": 4
+            "media": { "vid": markovVid,
+            "image": markov}
         },
         {
             "name": "Neural Networks Python",
@@ -436,7 +467,8 @@ export const portfolio = {
             "link": "https://github.com/Lsimelus/Neural_Networks",
             "blurb": "This project is a Neural Network that digests a movie script between 2 actors. Then uses the knowledge base to classify actor dialogue and predict who is speaking. Run the project by running main() in dialogue_classifier.py",
             "date": "JAN 2020",
-            "media": 5
+            "media": { "vid": neuralVid,
+            "image": neural}
         },
         {
             "name": "Task Management Mobile Application",
@@ -452,7 +484,8 @@ export const portfolio = {
             "link": "",
             "blurb": "A mobile application, written in React Native that allows users to organized daily tasks and check them off as the day goes on. Simple UI. The task will be saved within MongoDB. The backend stack has not been determined yet.",
             "date": "TBD",
-            "media": 11
+            "media": {
+            "image": tbd}
         }
     ]
 }

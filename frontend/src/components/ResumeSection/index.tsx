@@ -1,13 +1,12 @@
-import React, {RefObject} from "react";
+import React from "react";
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import {resume} from "../../data/data"
-import { SkillSection, formatTechSection} from "./SkillSectionComponent"
+import { SkillSection, formatTechSection} from "../ResumeSkills"
 import LaptopWindowsIcon from '@mui/icons-material/LaptopWindows';
 import BuildIcon from '@mui/icons-material/Build';
 import PsychologyIcon from '@mui/icons-material/Psychology';
-import {useOnScreen} from "./ResumeOnScreenFunction"
-import {ResumeActivity} from "./ResumeActivityComponent"
+import {ResumeActivity} from "../ResumeActivity"
 
 
 const resumeWork: object[] = resume.work
@@ -15,15 +14,6 @@ const resumeEducation: object[] = resume.education
 const currIcons: JSX.Element[] = [<LaptopWindowsIcon></LaptopWindowsIcon>, <PsychologyIcon></PsychologyIcon>, <BuildIcon></BuildIcon>]
 
 const Resume = React.forwardRef<HTMLElement>((props, ref) => {
-  const workRef = React.useRef<RefObject<HTMLElement>>(null);
-  const educationRef = React.useRef<RefObject<HTMLElement>>(null);
-  const skillRef = React.useRef<RefObject<HTMLElement>>(null);
-  const skillTitleRef = React.useRef<RefObject<HTMLElement>>(null);
-  useOnScreen(skillTitleRef)
-  useOnScreen(workRef)
-  useOnScreen(educationRef)
-  useOnScreen(skillRef)
-
   const [skillHover, setSkillHover] = React.useState(-1)
 
   return (
@@ -39,7 +29,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         p={10}
       >
         <Grid item xs={12} md={2}>
-          <h1 className="hidden" ref={workRef as any} >WORK</h1>
+          <h1>WORK</h1>
           <Divider />
         </Grid>
         <Grid item xs={12} md={10}>
@@ -58,7 +48,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         <Grid item xs={12}>
         </Grid>
         <Grid item xs={12} md={2}>
-          <h1 className="hidden" ref={educationRef as any}>EDUCATION</h1>
+          <h1>EDUCATION</h1>
           <Divider />
         </Grid>
         <Grid item xs={12} md={10}>
@@ -78,7 +68,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
 
       </Grid>
       <Grid item xs={12}>
-          <h1 className="hidden" ref={skillRef as any}>SKILLS</h1>
+          <h1>SKILLS</h1>
           <Divider />
         </Grid>
       <Grid

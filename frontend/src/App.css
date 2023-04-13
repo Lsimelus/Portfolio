@@ -28,19 +28,6 @@ Resume Section
   transition:  all 1000ms;
 }
 
-h1.hidden{
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-150px);
-  transition:  all 1000ms;
-}
-
-
-h1.show{
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateX(0px);
-}
 
 .show{
   opacity: 1;

@@ -4,7 +4,7 @@ import { Item } from "../../styles/commonUIComponents/ItemStyled"
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import LockIcon from '@mui/icons-material/Lock';
 import ShieldIcon from '@mui/icons-material/Shield';
-import { ButtonComponent } from "../commonUIComponents/Button";
+import { ButtonComponent } from "../Button";
 
 
 const getIcon = [<HandshakeIcon sx={{
