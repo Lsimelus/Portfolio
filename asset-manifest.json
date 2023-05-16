@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fa96ba42.css",
-    "main.js": "/static/js/main.f4f97a52.js",
+    "main.css": "/static/css/main.3eda4582.css",
+    "main.js": "/static/js/main.8b49861e.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/marhabanVid.mp4": "/static/media/marhabanVid.4da5facf1fdcf09944f1.mp4",
     "static/media/geneticVid.mp4": "/static/media/geneticVid.2131f7132efb5d05aff4.mp4",
@@ -23,15 +23,14 @@
     "static/media/neural.png": "/static/media/neural.9ca000db0bbad5f74353.png",
     "static/media/royal.png": "/static/media/royal.d0ffff4cb19cfcebe966.png",
     "static/media/casual.png": "/static/media/casual.74036a6097366d2ee9ac.png",
-    "static/media/code.png": "/static/media/code.d1026a48f9c8ea060f07.png",
     "static/media/resume.pdf": "/static/media/resume.32b971fb66d076aeff24.pdf",
     "index.html": "/index.html",
-    "main.fa96ba42.css.map": "/static/css/main.fa96ba42.css.map",
-    "main.f4f97a52.js.map": "/static/js/main.f4f97a52.js.map",
+    "main.3eda4582.css.map": "/static/css/main.3eda4582.css.map",
+    "main.8b49861e.js.map": "/static/js/main.8b49861e.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa96ba42.css",
-    "static/js/main.f4f97a52.js"
+    "static/css/main.3eda4582.css",
+    "static/js/main.8b49861e.js"
   ]
 }
