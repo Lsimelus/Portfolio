@@ -13,6 +13,8 @@ import Nabvar from "../Navbar";
 import ResumeModal from "../ResumeModal"
 import WorkIcon from '@mui/icons-material/Work';
 import { ButtonComponent } from "../Button";
+import axios from 'axios';
+import { AnimationWrapper } from "../../styles/Animation";
 
 
 export interface HeaderProps {
@@ -29,6 +31,17 @@ const Header = (props: HeaderProps) => {
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
   var desc = "< Fullstack Engineer/>"
+
+  React.useEffect(() => {
+    //Wake up API listener so other API calls are more quicker
+    axios.get(`https://personal-api-lwmg.onrender.com/api`)
+        .then(res => {
+            console.log(res)
+        }).catch(function (error) {
+            console.log(error)
+        });
+
+}, []);
   
 
   return (
@@ -41,7 +54,13 @@ const Header = (props: HeaderProps) => {
       <div style={{ paddingTop: "100px" }}>
         <div>
           <h1 style={{ fontSize: "11vmin" }}>Hi, I'm <span style={{color: "orange", textShadow: "2px 2px 0px black"}}>Lyndbergh</span></h1>
-          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>{desc}</h3>
+          <AnimationWrapper>
+
+         
+          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>
+            {desc}
+            </h3>
+            </AnimationWrapper>
           <Grid
             container
             spacing={0}
