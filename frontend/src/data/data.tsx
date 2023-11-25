@@ -18,6 +18,9 @@ import neuralVid from "../assets/workVids/neuralVid.mp4"
 import poetryVid from "../assets/workVids/poetryVid.mp4"
 import royalVid from "../assets/workVids/royalVid.mp4"
 import marhabanVid from "../assets/workVids/marhabanVid.mp4"
+import marhaban from "../assets/workImages/marhaban.png"
+import techVid from "../assets/workVids/techVid.mp4"
+import techPic from "../assets/workImages/tech.png"
 
 export const about = {
     "description": "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
@@ -43,9 +46,22 @@ export const resume = {
     ],
     "work": [
         {
+            "location": "Simply Business",
+            "title": "Mid Level Software Engineer",
+            "time": "2023 - Present",
+            "info": [
+                "Collaborate with cross-functional teams to understand business requirements and design efficient and scalable solutions for integrating third-party APIs to generate and confirm insurance quotes, adhering to PCI compliance standards",
+                "Implement robust tokenization processes for secure handling of credit card information during transactions, using IP white listing for secure communication of sensitive data with partner companies",
+                "Work closely with security teams to ensure the highest standards of data protection and privacy are maintained",
+                "Troubleshoot and resolve integration issues, collaborating with partners and internal teams as needed",
+                "Stay abreast of industry best practices and emerging technologies related to API integrations, PCI compliance, and tokenization",
+                "Developed using Ruby, React, and AWS"
+            ]
+        },
+        {
             "location": "Recorded Future Inc",
             "title": "Software Engineer",
-            "time": "May 2021 - Present",
+            "time": "2021 - 2022",
             "info": [
                 "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
                 "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being an ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
@@ -237,7 +253,7 @@ export const tech = {
         "color": "#2F71BB",
         "color2": "white",
         "cat": 
-            2
+            1
     },
     "Yarn": {
         "color": "#2987B2",
@@ -256,12 +272,6 @@ export const tech = {
         "color2": "white",
         "cat": 
             0
-    },
-    "Ruby": {
-        "color": "#CC0100",
-        "color2": "white",
-        "cat": 
-            1
     },
     "Visual Studio Code": {
         "color": "#249FE6",
@@ -290,6 +300,30 @@ export const tech = {
     "Render.com": {
         "color": "#44DCB0",
         "color2": "#3F4358",
+        "cat": 
+            2
+    },
+    "Ruby on Rails": {
+        "color": "#D30002",
+        "color2": "#FFFFFF",
+        "cat": 
+            1
+    },
+    "AirBrake": {
+        "color": "#F3991D",
+        "color2": "#FFFFFF",
+        "cat": 
+            2
+    },
+    "New Relic": {
+        "color": "#1EE783",
+        "color2": "#1D252C",
+        "cat": 
+            2
+    },
+    "Figma": {
+        "color": "#EB4B1D",
+        "color2": "#19B6F6",
         "cat": 
             2
     }
@@ -321,6 +355,23 @@ export const portfolio = {
             "image": port}
         },
         {
+            "name": "Tech Assesment",
+            "stack": [
+                "HTML",
+                "CSS"
+            ],
+            "end": [
+                0
+            ],
+            "link": "https://github.com/Lsimelus/TechAssessment",
+            "blurb": "Technical assesment for lendEDU job application",
+            "date": "March 2023",
+            "media": {
+            "image": techPic,
+            "vid": techVid,
+        }
+        },
+        {
             "name": "Marhaban",
             "stack": [
                 "React",
@@ -337,7 +388,7 @@ export const portfolio = {
             "blurb": "Marhaban is a non-profit organization whose primary focus is expanding the beautiful religion of Islam. The frontend is Typescript, the backend is NodeJs, and the contact form response is saved in MongoDB. The news articles are produced using newsapi. The backend is in a different branch for security purposes. Purchases are not allowed yet.",
             "date": "April 2023",
             "media": { "vid": marhabanVid,
-            "image": tbd}
+            "image": marhaban}
         },
         {
             "name": "Cookie Recipe Generator",
