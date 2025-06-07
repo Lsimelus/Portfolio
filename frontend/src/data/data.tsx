@@ -21,6 +21,7 @@ import marhabanVid from "../assets/workVids/marhabanVid.mp4"
 import marhaban from "../assets/workImages/marhaban.png"
 import techVid from "../assets/workVids/techVid.mp4"
 import techPic from "../assets/workImages/tech.png"
+import realEstateVid from "../assets/workVids/realEstateVid.mp4"
 
 export const about = {
     "description": "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
@@ -44,17 +45,19 @@ export const resume = {
             ]
         }
     ],
+
+
     "work": [
         {
             "location": "Simply Business",
             "title": "Mid Level Software Engineer",
             "time": "2023 - Present",
             "info": [
-                "Collaborate with cross-functional teams to understand business requirements and design efficient and scalable solutions for integrating third-party APIs to generate and confirm insurance quotes, adhering to PCI compliance standards",
-                "Implement robust tokenization processes for secure handling of credit card information during transactions, using IP white listing for secure communication of sensitive data with partner companies",
-                "Work closely with security teams to ensure the highest standards of data protection and privacy are maintained",
-                "Troubleshoot and resolve integration issues, collaborating with partners and internal teams as needed",
-                "Stay abreast of industry best practices and emerging technologies related to API integrations, PCI compliance, and tokenization",
+                "Improved Workers' Compensation application process by implementing a pre-quote FEIN/SSN bypass. This change allows ~65% of applicants to view a quote indication before entering sensitive information, addressing a key customer pain point that previously caused a ~10% drop-off. A/B testing demonstrated significant improvements: 12% increase in sales conversion, 20% increase in quote requests, and 25% increase in users reaching the legal agreements stage.",
+                "Collaborated with cross-functional teams to design and implement secure, scalable solutions for integrating third-party APIs for insurance quote generation and purchase, adhering to PCI compliance standards. This included robust tokenization of credit card information and IP whitelisting for secure partner communication.",
+                "Ensured data protection and privacy by working closely with security teams.",
+                "Troubleshot and resolved integration issues with partners and internal teams.",
+                "Maintained current knowledge of industry best practices and emerging technologies in API integration, PCI compliance, and tokenization.",
                 "Developed using Ruby, React, and AWS"
             ]
         },
@@ -335,6 +338,24 @@ export const portfolio = {
         "BackEnd"
     ],
     "projects": [
+        {
+            "name": "REAL estate",
+            "stack": [
+                "React",
+                "TypeScript",
+                "Python"
+            ],
+            "end": [
+                0,
+                1
+            ],
+            "link": "https://github.com/Lsimelus/real-calc-client",
+            "blurb": "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
+            "date": "2025",
+            "media": {
+            "image": tbd,
+        "vid": realEstateVid}
+        },
         {
             "name": "Web Portfolio",
             "stack": [
