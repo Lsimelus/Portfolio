@@ -43,7 +43,6 @@ export const PortfolioProjects = (props: PortfolioProjectsProps) => {
   const projectStack = techValuesMap(projectData["stack"])
 
   const mediaIsVideo = () => {
-    console.log(currMedia)
     return (currMedia.split(".").pop() === "mp4")
   }
 
