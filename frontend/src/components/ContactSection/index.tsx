@@ -43,7 +43,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
 
   }, [subjectFilled]);
 
-  function processForm() {
+  async function processForm() {
     setFormEmpty(false)
     if (name === "" || email === "" || message === "") {
       setFormEmpty(true)
@@ -55,7 +55,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
       alertCallback("Connecting to API. This may take a second.", "info")
 
 
-      axios.post(`https://personal-api-lwmg.onrender.com/processform`, {
+      axios.post(`http://localhost:3001/processform`, {
         name: name,
         email: email,
         subject: subject,
@@ -67,6 +67,7 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
           alertCallback("Form successfully processed. I will respond ASAP.", "success")
           setBuffering(false)
         }).catch(function (error) {
+          console.log(error)
           alertCallback("Something went wrong. Sorry for the inconvenience", "error")
           setBuffering(false)
         });
