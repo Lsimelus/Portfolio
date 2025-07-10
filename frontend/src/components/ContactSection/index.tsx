@@ -55,7 +55,8 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
       alertCallback("Connecting to API. This may take a second.", "info")
 
 
-      axios.post(`http://localhost:3001/processform`, {
+
+      axios.post(`https://flask-backend-inky.vercel.app/processform`, {
         name: name,
         email: email,
         subject: subject,
