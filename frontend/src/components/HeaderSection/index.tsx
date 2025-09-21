@@ -25,6 +25,8 @@ export interface HeaderProps {
   contactRef: RefObject<HTMLElement>
 }
 
+const newestProjectLink = "https://real-calc-client-blush.vercel.app/"
+
 const Header = (props: HeaderProps) => {
   const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef} = props;
 
@@ -76,9 +78,10 @@ const Header = (props: HeaderProps) => {
               startIcon={<GitHubIcon />}/>
 
             <ButtonComponent 
-              onClick={() => window.open(links.site, "_blank")}
+              background={"linear-gradient(to right, red 0%, #BE33FF 100%)"}
+              onClick={() => window.open(newestProjectLink, "_blank")}
               startIcon={<CodeIcon />}     
-              text={"Site Code"}/>
+              text={"Newest project"}/>
 
               <ButtonGroup  >
               <ButtonComponent 

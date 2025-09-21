@@ -22,6 +22,7 @@ import marhaban from "../assets/workImages/marhaban.png"
 import techVid from "../assets/workVids/techVid.mp4"
 import techPic from "../assets/workImages/tech.png"
 import realEstateVid from "../assets/workVids/realEstateVid.mp4"
+import realEstate from "../assets/workImages/realEstate.png"
 
 export const about = {
     "description": "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
@@ -353,7 +354,7 @@ export const portfolio = {
             "blurb": "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
             "date": "2025",
             "media": {
-            "image": tbd,
+            "image": realEstate,
         "vid": realEstateVid}
         },
         {
