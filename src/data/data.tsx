@@ -1,35 +1,20 @@
 import cookie from "../assets/workImages/cookie.png"
-import genes from "../assets/workImages/genes.png"
-import markov from "../assets/workImages/markov.png"
 import neural from "../assets/workImages/neural.png"
-import poetry from "../assets/workImages/poetry.png"
 import port from "../assets/workImages/portfolio.png"
 import royal from "../assets/workImages/royal.png"
-import static1 from "../assets/workImages/static1.png"
-import static2 from "../assets/workImages/static2.png"
-import tbd from "../assets/workImages/tbd.png"
-import casual from "../assets/workImages/casual.png"
-import casualVid from "../assets/workVids/casualVid.mp4"
 import cookieVid from "../assets/workVids/cookieVid.mp4"
-import geneticVid from "../assets/workVids/geneticVid.mp4"
-import markovVid from "../assets/workVids/markovVid.mp4"
 import neuralVid from "../assets/workVids/neuralVid.mp4"
-import poetryVid from "../assets/workVids/poetryVid.mp4"
 import royalVid from "../assets/workVids/royalVid.mp4"
 import marhabanVid from "../assets/workVids/marhabanVid.mp4"
 import marhaban from "../assets/workImages/marhaban.png"
-import techVid from "../assets/workVids/techVid.mp4"
 import techPic from "../assets/workImages/tech.png"
 import realEstateVid from "../assets/workVids/realEstateVid.mp4"
 import realEstate from "../assets/workImages/realEstate.png"
 import {
   AboutData,
-  EducationItem,
-  WorkExperience,
   ServicePlan,
   Technology,
   TechCategory,
-  PortfolioProject,
   ProjectType,
   ContactLinks,
   ResumeData,
@@ -222,7 +207,9 @@ export const technologies: Technology[] = [
   { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.TOOLS },
   { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLS },
   { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLS }
+  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLS },
+  { name: "Jira", primaryColor: "#0052CC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.TOOLS },
+  {name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLS }
 ]
 
 // For backwards compatibility - map to old format
@@ -254,9 +241,19 @@ export const portfolioData: PortfolioData = {
       featured: true
     },
     {
+      title: "Tech Interview Prep",
+      description: "A technical assignment for a software engineering position. This is front-end application.",
+      technologies: ["JavaScript", "JavaScript", "HTML", "CSS"],
+      type: [ProjectType.FRONTEND],
+      githubUrl: "https://github.com/Lsimelus/TechAssessment",
+      date: "Feb 2023",
+      media: { image: techPic },
+      featured: true
+    },
+    {
       title: "Web Portfolio",
       description: "A portfolio web application created with React TypeScript version 18. The backend is a Node.js application that saves user info in MongoDB. The backend is hosted using render.com and the frontend is hosted on Vercel.",
-      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript"],
+      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript", "Vercel"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/portfolio",
       date: "Feb 2023",
