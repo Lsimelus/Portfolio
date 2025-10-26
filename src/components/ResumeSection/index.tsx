@@ -23,7 +23,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         <Box sx={{ mb: 10 }}>
           <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 5 }}>
             <WorkIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />
-            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+            <Typography variant="h2" sx={{ fontWeight: 700, textAlign: 'left' }}>
               Work Experience
             </Typography>
           </Stack>
@@ -41,10 +41,10 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
                 <CardContent sx={{ p: 4 }}>
                   <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" sx={{ mb: 2 }}>
                     <Box>
-                      <Typography variant="h4" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      <Typography variant="h4" sx={{ fontWeight: 600, mb: 0.5, textAlign: 'left' }}>
                         {job.position}
                       </Typography>
-                      <Typography variant="h6" color="primary" sx={{ fontWeight: 500 }}>
+                      <Typography variant="h6" color="primary" sx={{ fontWeight: 500, textAlign: 'left' }}>
                         {job.company}
                       </Typography>
                     </Box>
@@ -54,19 +54,20 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
                         color: theme.palette.text.secondary,
                         fontWeight: 500,
                         whiteSpace: 'nowrap',
+                        textAlign: 'left',
                       }}
                     >
                       {job.period}
                     </Typography>
                   </Stack>
 
-                  <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1.5 } }}>
+                  <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1.5, textAlign: 'left' } }}>
                     {job.achievements.map((achievement, idx) => (
                       <Typography
                         component="li"
                         key={idx}
                         variant="body1"
-                        sx={{ color: theme.palette.text.secondary }}
+                        sx={{ color: theme.palette.text.secondary, textAlign: 'left' }}
                       >
                         {achievement}
                       </Typography>
@@ -82,7 +83,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
         <Box sx={{ mb: 10 }}>
           <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 5 }}>
             <SchoolIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />
-            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+            <Typography variant="h2" sx={{ fontWeight: 700, textAlign: 'left' }}>
               Education
             </Typography>
           </Stack>
@@ -99,10 +100,10 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
                 <CardContent sx={{ p: 4 }}>
                   <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" sx={{ mb: 2 }}>
                     <Box>
-                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 0.5, textAlign: 'left' }}>
                         {edu.institution}
                       </Typography>
-                      <Typography variant="body1" color="text.secondary">
+                      <Typography variant="body1" color="text.secondary" sx={{ textAlign: 'left' }}>
                         {edu.degree}
                       </Typography>
                     </Box>
@@ -112,6 +113,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
                         sx={{
                           color: theme.palette.text.secondary,
                           fontWeight: 500,
+                          textAlign: 'left',
                         }}
                       >
                         {edu.year}
@@ -120,13 +122,13 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
                   </Stack>
 
                   {edu.details.length > 0 && (
-                    <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1 } }}>
+                    <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1, textAlign: 'left' } }}>
                       {edu.details.map((detail, idx) => (
                         <Typography
                           component="li"
                           key={idx}
                           variant="body2"
-                          sx={{ color: theme.palette.text.secondary }}
+                          sx={{ color: theme.palette.text.secondary, textAlign: 'left' }}
                         >
                           {detail}
                         </Typography>
@@ -141,7 +143,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
 
         {/* Skills Section */}
         <Box>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 5 }}>
+          <Typography variant="h2" sx={{ fontWeight: 700, mb: 5, textAlign: 'left' }}>
             Technical Skills
           </Typography>
 
@@ -149,7 +151,7 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
             const categoryTechs = technologies.filter(t => t.category === category);
             return (
               <Box key={category} sx={{ mb: 5 }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
+                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3, textAlign: 'left' }}>
                   {category}
                 </Typography>
                 <Divider sx={{ mb: 3 }} />

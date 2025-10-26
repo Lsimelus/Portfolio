@@ -11,24 +11,14 @@ import {
   Chip,
   Stack,
   Grid,
-  ToggleButton,
-  ToggleButtonGroup,
   useTheme,
-  IconButton,
 } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
-import { portfolioData, ProjectType } from "../../data/data"
+import { portfolioData } from "../../data/data"
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
   const theme = useTheme();
-  const [filter, setFilter] = React.useState<string>('all');
-
-  const filteredProjects = filter === 'all'
-    ? portfolioData.projects
-    : portfolioData.projects.filter(p =>
-      p.type.some(t => t === filter)
-    );
 
   return (
     <Box
@@ -52,24 +42,9 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
           Explore some of my recent work
         </Typography>
 
-        {/* Filter Buttons */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-          <ToggleButtonGroup
-            value={filter}
-            exclusive
-            onChange={(e, value) => value && setFilter(value)}
-            sx={{ flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}
-          >
-            <ToggleButton value="all">All</ToggleButton>
-            <ToggleButton value="Frontend">Frontend</ToggleButton>
-            <ToggleButton value="Backend">Backend</ToggleButton>
-            <ToggleButton value="Full Stack">Full Stack</ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
-
         {/* Projects Grid */}
         <Grid container spacing={4}>
-          {filteredProjects.map((project, index) => (
+          {portfolioData.projects.map((project, index) => (
             <Grid item xs={12} md={6} key={index}>
               <Card
                 className="hover-lift"
@@ -108,14 +83,14 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
                 />
 
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, textAlign: 'left' }}>
                     {project.title}
                   </Typography>
 
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ mb: 2, lineHeight: 1.7 }}
+                    sx={{ mb: 2, lineHeight: 1.7, textAlign: 'left' }}
                   >
                     {project.description}
                   </Typography>
@@ -140,7 +115,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
                     )}
                   </Stack>
 
-                  <Typography variant="caption" color="text.secondary">
+                  <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'left' }}>
                     {project.date}
                   </Typography>
                 </CardContent>
