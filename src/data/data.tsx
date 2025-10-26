@@ -44,7 +44,7 @@ export { TechCategory, ProjectType }
 // ============================================================================
 
 export const about: AboutData = {
-  description: "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
+  description: "I am a full-stack Software Engineer based in Boston, Massachusetts  with a deep specialization in secure, high-value systems like payments and enterprise data platforms. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. At Simply Business, I directly supported $1.4 Million in average monthly policy premium sold by engineering the full-stack, PCI-compliant checkout architecture from the ground up. My expertise includes leveraging frameworks like React for user interfaces, and Ruby on Rails and Python for scalable backends. \n In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
 }
 
 // ============================================================================
@@ -270,8 +270,7 @@ export const portfolioData: PortfolioData = {
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/Marhaban",
       date: "April 2023",
-      media: { image: marhaban, video: marhabanVid },
-      featured: true
+      media: { image: marhaban, video: marhabanVid }
     },
     {
       title: "Royal Fitness",
