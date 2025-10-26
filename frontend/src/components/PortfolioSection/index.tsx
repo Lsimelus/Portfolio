@@ -1,93 +1,175 @@
 import React from "react";
-import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import {portfolio} from "../../data/data"
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { PortfolioProjects } from "../PortfolioCard"
-import { ButtonComponent } from "../Button";
-
-
-const portfolioProjects = portfolio.projects
-const techstacks = portfolio.tech
-
+import {
+  Box,
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Button,
+  Chip,
+  Stack,
+  Grid,
+  ToggleButton,
+  ToggleButtonGroup,
+  useTheme,
+  IconButton,
+} from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
+import { portfolioData, ProjectType } from "../../data/data"
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
-  const [techFilter, setTechFilter] = React.useState(-1);
-  const [videoIndex, setVideoIndex] = React.useState(-1);
+  const theme = useTheme();
+  const [filter, setFilter] = React.useState<string>('all');
 
-  var sortedProjects = []
-
-  if (techFilter > -1) {
-    sortedProjects = portfolioProjects.filter((data: { end: number[]; }) => data.end.includes(techFilter))
-    sortedProjects = sortedProjects.concat(portfolioProjects.filter((data: { end: number[]; }) => !data.end.includes(techFilter)))
-  } else {
-    sortedProjects = portfolioProjects
-  }
-
-  React.useEffect(() => {
-    setVideoIndex(-1)
-  }, [techFilter])
-
-  const filterButtons = techstacks.map(function (tech, index) {
-    return (
-      <ButtonComponent
-        key={index}
-        variant={techFilter === index ? "contained" : "outlined"}
-        onClick={() => setTechFilter((techFilter === index ? -1 : index))}
-        text={tech}
-      />
+  const filteredProjects = filter === 'all'
+    ? portfolioData.projects
+    : portfolioData.projects.filter(p =>
+      p.type.some(t => t === filter)
     );
-  });
-
 
   return (
-    <section ref={ref} style={{ backgroundColor: "#EBEEEE", marginBottom: 50 }} id="Portfolio">
-      <Grid
-        container
-        direction="row"
-        maxWidth="xl"
-        justifyContent="center"
-        spacing={5}
-        p={4}
-      >
+    <Box
+      component="section"
+      ref={ref}
+      id="Portfolio"
+      sx={{
+        minHeight: '100vh',
+        py: 12,
+        bgcolor: theme.palette.background.default,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
+          Featured Projects
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ textAlign: 'center', color: theme.palette.text.secondary, mb: 6 }}
+        >
+          Explore some of my recent work
+        </Typography>
 
-        <Grid item xs={12} >
-          <h1 style={{ margin: 40 }}>Check Out Some of My Works</h1>
-          <Divider />
-        </Grid>
-
-
-        <Grid item xs={12} >
-          {filterButtons}
-          <ButtonComponent
-            onClick={() => { setTechFilter(-1); setVideoIndex(-1) }}
+        {/* Filter Buttons */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
+          <ToggleButtonGroup
+            value={filter}
+            exclusive
+            onChange={(e, value) => value && setFilter(value)}
+            sx={{ flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}
           >
-            <RestartAltIcon />
-          </ButtonComponent>
+            <ToggleButton value="all">All</ToggleButton>
+            <ToggleButton value="Frontend">Frontend</ToggleButton>
+            <ToggleButton value="Backend">Backend</ToggleButton>
+            <ToggleButton value="Full Stack">Full Stack</ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
+
+        {/* Projects Grid */}
+        <Grid container spacing={4}>
+          {filteredProjects.map((project, index) => (
+            <Grid item xs={12} md={6} key={index}>
+              <Card
+                className="hover-lift"
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                }}
+              >
+                {project.featured && (
+                  <Chip
+                    label="Featured"
+                    size="small"
+                    sx={{
+                      position: 'absolute',
+                      top: 16,
+                      right: 16,
+                      zIndex: 1,
+                      bgcolor: theme.palette.primary.main,
+                      color: '#fff',
+                      fontWeight: 600,
+                    }}
+                  />
+                )}
+
+                <CardMedia
+                  component="img"
+                  height="240"
+                  image={project.media.image}
+                  alt={project.title}
+                  sx={{
+                    objectFit: 'cover',
+                    bgcolor: theme.palette.grey[100],
+                  }}
+                />
+
+                <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+                    {project.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 2, lineHeight: 1.7 }}
+                  >
+                    {project.description}
+                  </Typography>
+
+                  <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 2 }}>
+                    {project.technologies.slice(0, 4).map((tech, idx) => (
+                      <Chip
+                        key={idx}
+                        label={tech}
+                        size="small"
+                        variant="outlined"
+                        sx={{ fontSize: '0.75rem' }}
+                      />
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <Chip
+                        label={`+${project.technologies.length - 4}`}
+                        size="small"
+                        variant="outlined"
+                        sx={{ fontSize: '0.75rem' }}
+                      />
+                    )}
+                  </Stack>
+
+                  <Typography variant="caption" color="text.secondary">
+                    {project.date}
+                  </Typography>
+                </CardContent>
+
+                <CardActions sx={{ p: 3, pt: 0 }}>
+                  <Button
+                    size="small"
+                    startIcon={<GitHubIcon />}
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
+                    Code
+                  </Button>
+                  {project.liveUrl && (
+                    <Button
+                      size="small"
+                      startIcon={<LaunchIcon />}
+                      onClick={() => window.open(project.liveUrl, '_blank')}
+                      variant="contained"
+                    >
+                      Live Demo
+                    </Button>
+                  )}
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
-
-        {sortedProjects.map(function (projects: any, index: number) {
-          const opacityFull = (techFilter === -1 || (projects["end"]).includes(techFilter))
-          const videoMode = videoIndex === index
-
-          const setVideoMode = (reset: boolean = false) => {
-            if (reset) {
-              setVideoIndex(-1)
-            } else {
-              setVideoIndex(index)
-            }
-          }
-          return (
-            <PortfolioProjects
-              opacity={opacityFull}
-              projectData={projects}
-              setVideoMode={setVideoMode}
-              videoMode={videoMode}
-            />
-          )
-        })}
-      </Grid>
-    </section>
+      </Container>
+    </Box>
   );
 });
 

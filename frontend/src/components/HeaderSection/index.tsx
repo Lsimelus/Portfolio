@@ -1,21 +1,14 @@
 import React, { RefObject } from "react";
-import ParticlesBg from "particles-bg";
-import Stack from '@mui/material/Stack';
+import { Box, Container, Typography, Stack, Button, IconButton, useTheme } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CodeIcon from '@mui/icons-material/Code';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import DownloadIcon from '@mui/icons-material/Download';
-import {links} from "../../data/data"
-import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions";
-import Nabvar from "../Navbar";
-import ResumeModal from "../ResumeModal"
+import DescriptionIcon from '@mui/icons-material/Description';
 import WorkIcon from '@mui/icons-material/Work';
-import { ButtonComponent } from "../Button";
-import axios from 'axios';
-import { AnimationWrapper } from "../../styles/Animation";
-
+import { contactLinks } from "../../data/data";
+import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions";
+import Navbar from "../Navbar";
+import ResumeModal from "../ResumeModal";
 
 export interface HeaderProps {
   aboutRef: RefObject<HTMLElement>,
@@ -28,91 +21,161 @@ export interface HeaderProps {
 const newestProjectLink = "https://real-calc-client-blush.vercel.app/"
 
 const Header = (props: HeaderProps) => {
-  const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef} = props;
-
+  const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef } = props;
+  const theme = useTheme();
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
-  var desc = "< Fullstack Engineer/>"
-
-  React.useEffect(() => {
-    //Wake up API listener so other API calls are more quicker
-    axios.get(`https://personal-api-lwmg.onrender.com/api`)
-        .then(res => {
-            console.log(res)
-        }).catch(function (error) {
-            console.log(error)
-        });
-
-}, []);
-  
 
   return (
-    <header ref={headerRef} style={{ height: "100vh", overflow: "hidden" }} id="Home">
-      <ParticlesBg type="circle" bg={true} />
-      <Nabvar aboutRef={aboutRef} resumeRef={resumeRef} serviceRef={serviceRef} portfolioRef={portfolioRef} contactRef={contactRef} headerRef={headerRef}/>
-      <ResumeModal getModal={modalOpen} setModal={setModalOpen}/>
+    <Box
+      component="header"
+      ref={headerRef}
+      id="Home"
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        overflow: 'hidden',
+        background: `linear-gradient(135deg, ${theme.palette.background.default} 0%, ${theme.palette.background.paper} 100%)`,
+      }}
+    >
+      {/* Modern gradient mesh background */}
+      <Box className="gradient-mesh-bg" />
 
+      <Navbar
+        aboutRef={aboutRef}
+        resumeRef={resumeRef}
+        serviceRef={serviceRef}
+        portfolioRef={portfolioRef}
+        contactRef={contactRef}
+        headerRef={headerRef}
+      />
 
-      <div style={{ paddingTop: "100px" }}>
-        <div>
-          <h1 style={{ fontSize: "11vmin" }}>Hi, I'm <span style={{color: "orange", textShadow: "2px 2px 0px black"}}>Lyndbergh</span></h1>
-          <AnimationWrapper>
+      <ResumeModal getModal={modalOpen} setModal={setModalOpen} />
 
-         
-          <h3 style={{ fontSize: "5vmin", marginRight: "20vw", marginLeft: "20vw", color: "orange", textShadow: "2px 2px 0px black" }}>
-            {desc}
-            </h3>
-            </AnimationWrapper>
-          <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
+      <Container
+        maxWidth="lg"
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+          zIndex: 1,
+          textAlign: 'center',
+          py: { xs: 8, md: 12 },
+        }}
+      >
+        <Box className="fade-in">
+          <Typography
+            variant="h1"
+            sx={{
+              mb: 2,
+              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontWeight: 800,
+            }}
           >
-            <Stack direction="row" spacing={2} style={{marginBottom: "10vmin"}}>
-              
-              <ButtonComponent 
-              onClick={() => window.open(links.main, "_blank")}
-              text={"Github"} 
-              startIcon={<GitHubIcon />}/>
+            Hi, I'm Lyndbergh
+          </Typography>
 
-            <ButtonComponent 
-              background={"linear-gradient(to right, red 0%, #BE33FF 100%)"}
+          <Typography
+            variant="h3"
+            className="fade-in-delay-1"
+            sx={{
+              mb: 6,
+              color: theme.palette.text.secondary,
+              fontWeight: 500,
+            }}
+          >
+            Full-Stack Software Engineer
+          </Typography>
+
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={2}
+            className="fade-in-delay-2"
+            sx={{
+              mb: 4,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<GitHubIcon />}
+              onClick={() => window.open(contactLinks.github, "_blank")}
+            >
+              GitHub
+            </Button>
+
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<CodeIcon />}
               onClick={() => window.open(newestProjectLink, "_blank")}
-              startIcon={<CodeIcon />}     
-              text={"Newest project"}/>
+              sx={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5568d3 0%, #64408a 100%)',
+                },
+              }}
+            >
+              Latest Project
+            </Button>
 
-              <ButtonGroup  >
-              <ButtonComponent 
-              onClick={() => setModalOpen(true)} 
-              text={"Resume"}/>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<DescriptionIcon />}
+              onClick={() => setModalOpen(true)}
+            >
+              View Resume
+            </Button>
 
-              <ButtonComponent 
-              onClick={() => downloadResume()}
-              >
-                <DownloadIcon />
-              </ButtonComponent>
-              </ButtonGroup>
-
-              <ButtonComponent 
-              background={"linear-gradient(to right, #2DC85D 0%, #BE33FF 100%)"}
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<WorkIcon />}
               onClick={() => handleClickScroll("Service")}
-              text={"Hire Me"} 
-              startIcon={<WorkIcon />}/>
-            </Stack>
+              sx={{
+                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #3d8fd3 0%, #00c9d4 100%)',
+                },
+              }}
+            >
+              Hire Me
+            </Button>
+          </Stack>
 
-            <ButtonComponent 
-              onClick={() => handleClickScroll("About")}
-              ><KeyboardArrowDownIcon /></ButtonComponent>
-
-          </Grid>
-        </div>
-      </div>
-
-    </header >
+          <IconButton
+            className="fade-in-delay-3"
+            onClick={() => handleClickScroll("About")}
+            sx={{
+              mt: 4,
+              animation: 'bounce 2s infinite',
+              '@keyframes bounce': {
+                '0%, 100%': {
+                  transform: 'translateY(0)',
+                },
+                '50%': {
+                  transform: 'translateY(-10px)',
+                },
+              },
+            }}
+          >
+            <KeyboardArrowDownIcon fontSize="large" />
+          </IconButton>
+        </Box>
+      </Container>
+    </Box>
   );
-
 };
 
 export default Header;

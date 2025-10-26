@@ -1,4 +1,3 @@
-import code from "../assets/workImages/code.png"
 import cookie from "../assets/workImages/cookie.png"
 import genes from "../assets/workImages/genes.png"
 import markov from "../assets/workImages/markov.png"
@@ -23,552 +22,323 @@ import techVid from "../assets/workVids/techVid.mp4"
 import techPic from "../assets/workImages/tech.png"
 import realEstateVid from "../assets/workVids/realEstateVid.mp4"
 import realEstate from "../assets/workImages/realEstate.png"
+import {
+  AboutData,
+  EducationItem,
+  WorkExperience,
+  ServicePlan,
+  Technology,
+  TechCategory,
+  PortfolioProject,
+  ProjectType,
+  ContactLinks,
+  ResumeData,
+  PortfolioData
+} from "../types"
 
-export const about = {
-    "description": "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
+// Re-export types and enums for easy access
+export { TechCategory, ProjectType }
+
+// ============================================================================
+// ABOUT SECTION
+// ============================================================================
+
+export const about: AboutData = {
+  description: "I am a full-stack Software Engineer based in Boston, Massachusetts. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
 }
 
-export const resume = {
-    "education": [
-        {
-            "location": "Bowdoin College",
-            "title": "Bachelor of Arts, Computer Science major and Biology minor",
-            "info": [
-                "Independent Study: With a partner, created a iOS mobile fitness application in Swift",
-                "Worked at IT for all of the 4 years. Trouble shoot issues and helpedout customers"
-            ],
-            "time": "2021"
-        },
-        {
-            "location": "Harvard Business School Online",
-            "info": [
-                "HBX CORe (Credential of Readiness) Certificate"
-            ]
-        }
-    ],
+// ============================================================================
+// RESUME SECTION
+// ============================================================================
 
-
-    "work": [
-        {
-            "location": "Simply Business",
-            "title": "Mid Level Software Engineer",
-            "time": "2023 - Present",
-            "info": [
-                "Improved Workers' Compensation application process by implementing a pre-quote FEIN/SSN bypass. This change allows ~65% of applicants to view a quote indication before entering sensitive information, addressing a key customer pain point that previously caused a ~10% drop-off. A/B testing demonstrated significant improvements: 12% increase in sales conversion, 20% increase in quote requests, and 25% increase in users reaching the legal agreements stage.",
-                "Collaborated with cross-functional teams to design and implement secure, scalable solutions for integrating third-party APIs for insurance quote generation and purchase, adhering to PCI compliance standards. This included robust tokenization of credit card information and IP whitelisting for secure partner communication.",
-                "Ensured data protection and privacy by working closely with security teams.",
-                "Troubleshot and resolved integration issues with partners and internal teams.",
-                "Maintained current knowledge of industry best practices and emerging technologies in API integration, PCI compliance, and tokenization.",
-                "Developed using Ruby, React, and AWS"
-            ]
-        },
-        {
-            "location": "Recorded Future Inc",
-            "title": "Software Engineer",
-            "time": "2021 - 2022",
-            "info": [
-                "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
-                "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being an ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
-                "Utilized Amazon S3 to store and retrieve data",
-                "Contributed to Agile ceremonies, led demos and presentations, and helped new engineers learn established norms",
-                "Conducted rounds of UX design prototyping and user observation/testing",
-                "Revamped an API-Centric JavaScript internal web application through the research, user data and metrics. Ultimately increasing the applications capabilities and overall efficiency"
-            ]
-        },
-        {
-            "location": "Tamr, Inc",
-            "title": "Software Engineer Intern",
-            "desc": "Researched, presented, and implemented telemetry into company’s UI framework. Created react components that are used throughout the company and its customers. Practiced Agile programming methodology. Gained familiarity with various Azure services",
-            "time": "Summer of 2020",
-            "info": [
-                "Researched, presented, and implemented telemetry into company’s UI framework",
-                "Created react components that are used throughout the company and its customers",
-                "Practiced Agile programming methodology",
-                "Gained familiarity with various Azure services"
-            ]
-        },
-        {
-            "location": "MEMIC",
-            "title": "Software Engineer Intern",
-            "time": "Summer of 2019",
-            "info": [
-                "Created a rest API in C#/.NET that was implemented into company web applications",
-                "Developed & debugged action buttons on company websites using various technologies",
-                "Utilized ticketing system, navigated larger repositories, and refined SQL queries in company apps"
-            ]
-        }
-    ]
-}
-
-export const service = [
+export const resumeData: ResumeData = {
+  education: [
     {
-        "title": "Explore Plan",
-        "price": "$499",
-        "desc": [
-            "Custom coded website or platform",
-            "3 page layout website",
-            "Responsive design for mobile",
-            "1 round of revision website"
-        ],
-        "color": "#2DC85D"
+      institution: "Bowdoin College",
+      degree: "Bachelor of Arts, Computer Science major and Biology minor",
+      details: [
+        "Independent Study: With a partner, created an iOS mobile fitness application in Swift",
+        "Worked in IT for all 4 years, troubleshooting issues and helping customers"
+      ],
+      year: "2021"
     },
     {
-        "title": "Premium Plan",
-        "price": "$999",
-        "desc": [
-            "Custom coded website or platform",
-            "5 page Responsive website",
-            "Up to 5 revisions",
-            "Social media Integration"
-        ],
-        "color": "#3380FF"
-    },
-    {
-        "title": "Immersive Plan",
-        "price": "$1999",
-        "desc": [
-            "Unlimited pages",
-            "Unlimited revisions",
-            "Social Media Campaigns",
-            "Brand messages and logos"
-        ],
-        "color": "#BE33FF"
+      institution: "Harvard Business School Online",
+      degree: "HBX CORe (Credential of Readiness) Certificate",
+      details: [],
+      year: ""
     }
+  ],
+
+  work: [
+    {
+      company: "Simply Business",
+      position: "Mid Level Software Engineer",
+      period: "2023 - Present",
+      achievements: [
+        "Improved Workers' Compensation application process by implementing a pre-quote FEIN/SSN bypass. This change allows ~65% of applicants to view a quote indication before entering sensitive information, addressing a key customer pain point that previously caused a ~10% drop-off. A/B testing demonstrated significant improvements: 12% increase in sales conversion, 20% increase in quote requests, and 25% increase in users reaching the legal agreements stage.",
+        "Collaborated with cross-functional teams to design and implement secure, scalable solutions for integrating third-party APIs for insurance quote generation and purchase, adhering to PCI compliance standards. This included robust tokenization of credit card information and IP whitelisting for secure partner communication.",
+        "Ensured data protection and privacy by working closely with security teams.",
+        "Troubleshot and resolved integration issues with partners and internal teams.",
+        "Maintained current knowledge of industry best practices and emerging technologies in API integration, PCI compliance, and tokenization.",
+        "Developed using Ruby, React, and AWS"
+      ]
+    },
+    {
+      company: "Recorded Future Inc",
+      position: "Software Engineer",
+      period: "2021 - 2022",
+      achievements: [
+        "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
+        "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
+        "Utilized Amazon S3 to store and retrieve data",
+        "Contributed to Agile ceremonies, led demos and presentations, and helped new engineers learn established norms",
+        "Conducted rounds of UX design prototyping and user observation/testing",
+        "Revamped an API-Centric JavaScript internal web application through research, user data and metrics. Ultimately increasing the application's capabilities and overall efficiency"
+      ]
+    },
+    {
+      company: "Tamr, Inc",
+      position: "Software Engineer Intern",
+      period: "Summer 2020",
+      achievements: [
+        "Researched, presented, and implemented telemetry into company's UI framework",
+        "Created React components that are used throughout the company and its customers",
+        "Practiced Agile programming methodology",
+        "Gained familiarity with various Azure services"
+      ]
+    },
+    {
+      company: "MEMIC",
+      position: "Software Engineer Intern",
+      period: "Summer 2019",
+      achievements: [
+        "Created a REST API in C#/.NET that was implemented into company web applications",
+        "Developed & debugged action buttons on company websites using various technologies",
+        "Utilized ticketing system, navigated larger repositories, and refined SQL queries in company apps"
+      ]
+    }
+  ]
+}
+
+// For backwards compatibility - map to old property names
+export const resume = {
+  education: resumeData.education.map(edu => ({
+    location: edu.institution,
+    title: edu.degree,
+    time: edu.year,
+    info: edu.details
+  })),
+  work: resumeData.work.map(job => ({
+    location: job.company,
+    title: job.position,
+    time: job.period,
+    info: job.achievements
+  }))
+}
+
+// ============================================================================
+// SERVICE SECTION
+// ============================================================================
+
+export const servicesData: ServicePlan[] = [
+  {
+    title: "Explore Plan",
+    price: "$499",
+    features: [
+      "Custom coded website or platform",
+      "3 page layout website",
+      "Responsive design for mobile",
+      "1 round of revision"
+    ],
+    accentColor: "#2DC85D"
+  },
+  {
+    title: "Premium Plan",
+    price: "$999",
+    features: [
+      "Custom coded website or platform",
+      "5 page responsive website",
+      "Up to 5 revisions",
+      "Social media integration"
+    ],
+    accentColor: "#3380FF"
+  },
+  {
+    title: "Immersive Plan",
+    price: "$1999",
+    features: [
+      "Unlimited pages",
+      "Unlimited revisions",
+      "Social media campaigns",
+      "Brand messaging and logos"
+    ],
+    accentColor: "#BE33FF"
+  }
 ]
 
-export const tech = {
-    "React": {
-        "color": "#61DAFB",
-        "color2": "#222222",
-        "skill": 9,
-        "cat": 
-            0
-        
+// For backwards compatibility - map to old property names
+export const services = servicesData.map(s => ({
+  title: s.title,
+  price: s.price,
+  desc: s.features,
+  color: s.accentColor
+}))
+
+export const service = services
+
+// ============================================================================
+// TECHNOLOGIES / SKILLS SECTION
+// ============================================================================
+
+export const technologies: Technology[] = [
+  { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "JavaScript", primaryColor: "#F99D28", secondaryColor: "#FFCA3F", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "HTML", primaryColor: "#FF3337", secondaryColor: "#FD7A63", proficiencyLevel: 10, category: TechCategory.FRONTEND },
+  { name: "CSS", primaryColor: "#047CB6", secondaryColor: "#0399E7", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "Bootstrap", primaryColor: "#8411F5", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.FRONTEND },
+  { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+
+  { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Java", primaryColor: "#f89820", secondaryColor: "#5382a1", proficiencyLevel: 6, category: TechCategory.BACKEND },
+  { name: "GraphQL", primaryColor: "#DE33A6", secondaryColor: "white", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
+  { name: "Processing", primaryColor: "#1E30A2", secondaryColor: "#7EA5F2", proficiencyLevel: 5, category: TechCategory.BACKEND },
+
+  { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.TOOLS },
+  { name: "Azure", primaryColor: "#0B58A1", secondaryColor: "#3AC2F1", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "Github", primaryColor: "#7241C8", secondaryColor: "", proficiencyLevel: 9, category: TechCategory.TOOLS },
+  { name: "Postman", primaryColor: "#FC6C35", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.TOOLS },
+  { name: "Yarn", primaryColor: "#2987B2", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.TOOLS },
+  { name: "Visual Studio Code", primaryColor: "#249FE6", secondaryColor: "#0569AA", proficiencyLevel: 9, category: TechCategory.TOOLS },
+  { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.TOOLS },
+  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLS }
+]
+
+// For backwards compatibility - map to old format
+export const tech: Record<string, any> = {}
+technologies.forEach(t => {
+  tech[t.name] = {
+    color: t.primaryColor,
+    color2: t.secondaryColor,
+    skill: t.proficiencyLevel,
+    cat: t.category === TechCategory.FRONTEND ? 0 : t.category === TechCategory.BACKEND ? 1 : 2
+  }
+})
+
+// ============================================================================
+// PORTFOLIO SECTION
+// ============================================================================
+
+export const portfolioData: PortfolioData = {
+  projects: [
+    {
+      title: "REAL Estate Calculator",
+      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
+      technologies: ["React", "TypeScript", "Python"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/real-calc-client",
+      liveUrl: "https://real-calc-client-blush.vercel.app/",
+      date: "2025",
+      media: { image: realEstate, video: realEstateVid },
+      featured: true
     },
-    "Python": {
-        "color": "#336998",
-        "color2": "#F1D55B",
-        "skill": 7,
-        "cat": 
-            1
-        
+    {
+      title: "Web Portfolio",
+      description: "A portfolio web application created with React TypeScript version 18. The backend is a Node.js application that saves user info in MongoDB. The backend is hosted using render.com and the frontend is hosted on Vercel.",
+      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/portfolio",
+      date: "Feb 2023",
+      media: { image: port },
+      featured: true
     },
-    "HTML": {
-        "color": "#FF3337",
-        "color2": "#FD7A63",
-        "cat": 
-            0
-        
+    {
+      title: "Marhaban",
+      description: "Marhaban is a non-profit organization website focused on expanding the beautiful religion of Islam. The frontend is TypeScript, the backend is Node.js, and contact form responses are saved in MongoDB. News articles are integrated using NewsAPI.",
+      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/Marhaban",
+      date: "April 2023",
+      media: { image: marhaban, video: marhabanVid },
+      featured: true
     },
-    "CSS": {
-        "color": "#047CB6",
-        "color2": "#0399E7",
-        "cat": 
-            0
-        
+    {
+      title: "Royal Fitness",
+      description: "An iOS mobile fitness application built with Swift. Features user login and authentication, tracks user movement while running (returning mph and average mile speed), and includes built-in suggested workouts and videos.",
+      technologies: ["Firebase", "Swift"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/RoyalFitness",
+      date: "Feb 2021",
+      media: { image: royal, video: royalVid }
     },
-    "Javascript": {
-        "color": "#F99D28",
-        "color2": "#FFCA3F",
-        "skill": 9,
-        "cat": 
-            0
-        
+    {
+      title: "Cookie Recipe Generator",
+      description: "A system that successfully generates unique cookie recipes by analyzing molecular similarities, combining different recipes for numerous generations, and allowing mutations. Molecular data sourced from FlavorDB.",
+      technologies: ["Python"],
+      type: [ProjectType.BACKEND],
+      githubUrl: "https://github.com/Lsimelus/Genetic-Algorithm-Cookie-recipe-builder",
+      date: "Feb 2021",
+      media: { image: cookie, video: cookieVid }
     },
-    "Java": {
-        "color": "#f89820",
-        "color2": "#5382a1",
-        "skill": 6,
-        "cat": 
-            1
-        
-    },
-    "Node.js": {
-        "color": "#83CD29",
-        "color2": "#404137",
-        "skill": 8,
-        "cat": 
-            1
-        
-    },
-    "MongoDB": {
-        "color": "#01EC64",
-        "color2": "#000000",
-        "skill": 9,
-        "cat": 
-            0
-        
-    },
-    "Firebase": {
-        "color": "#E87B09",
-        "color2": "#0393DA",
-        "cat": 
-            2
-        
-    },
-    "Processing": {
-        "color": "#1E30A2",
-        "color2": "#7EA5F2",
-        "cat": 
-            1
-        
-    },
-    "Swift": {
-        "color": "#FD6330",
-        "color2": "#FFFFFF",
-        "cat": 
-            1
-        
-    },
-    "Tailwind CSS": {
-        "color": "#3ABDF7",
-        "color2": "",
-        "cat": 
-            0
-        
-    },
-    "Azure": {
-        "color": "#0B58A1",
-        "color2": "#3AC2F1",
-        "cat": 
-            2
-        
-    },
-    "Postman": {
-        "color": "#FC6C35",
-        "color2": "#FFFFFF",
-        "cat": 
-            2
-        
-    },
-    "Github": {
-        "color": "#7241C8",
-        "color2": "",
-        "cat": 
-            2
-    },
-    "GraphQL": {
-        "color": "#DE33A6",
-        "color2": "white",
-        "cat": 
-            1
-    },
-    "TypeScript": {
-        "color": "#2F71BB",
-        "color2": "white",
-        "cat": 
-            1
-    },
-    "Yarn": {
-        "color": "#2987B2",
-        "color2": "white",
-        "cat": 
-            2
-    },
-    "Bootstrap": {
-        "color": "#8411F5",
-        "color2": "",
-        "cat": 
-            0
-    },
-    "Redux": {
-        "color": "#764ABC",
-        "color2": "white",
-        "cat": 
-            0
-    },
-    "Visual Studio Code": {
-        "color": "#249FE6",
-        "color2": "#0569AA",
-        "cat": 
-            2
-    },
-    "Docker": {
-        "color": "#218FE0",
-        "color2": "",
-        "cat": 
-            2
-    },
-    "SQL": {
-        "color": "#0072CB",
-        "color2": "white",
-        "cat": 
-            1
-    },
-    "AWS": {
-        "color": "#FF9900",
-        "color2": "#146EB4",
-        "cat": 
-            2
-    },
-    "Render.com": {
-        "color": "#44DCB0",
-        "color2": "#3F4358",
-        "cat": 
-            2
-    },
-    "Ruby on Rails": {
-        "color": "#D30002",
-        "color2": "#FFFFFF",
-        "cat": 
-            1
-    },
-    "AirBrake": {
-        "color": "#F3991D",
-        "color2": "#FFFFFF",
-        "cat": 
-            2
-    },
-    "New Relic": {
-        "color": "#1EE783",
-        "color2": "#1D252C",
-        "cat": 
-            2
-    },
-    "Figma": {
-        "color": "#EB4B1D",
-        "color2": "#19B6F6",
-        "cat": 
-            2
+    {
+      title: "Neural Networks Python",
+      description: "A Neural Network that processes movie scripts between 2 actors, then uses the knowledge base to classify actor dialogue and predict who is speaking.",
+      technologies: ["Python"],
+      type: [ProjectType.BACKEND],
+      githubUrl: "https://github.com/Lsimelus/Neural_Networks",
+      date: "Jan 2020",
+      media: { image: neural, video: neuralVid }
     }
+  ]
 }
 
+// For backwards compatibility
 export const portfolio = {
-    "tech": [
-        "FrontEnd",
-        "BackEnd"
-    ],
-    "projects": [
-        {
-            "name": "REAL estate",
-            "stack": [
-                "React",
-                "TypeScript",
-                "Python"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "https://github.com/Lsimelus/real-calc-client",
-            "blurb": "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
-            "date": "2025",
-            "media": {
-            "image": realEstate,
-        "vid": realEstateVid}
-        },
-        {
-            "name": "Web Portfolio",
-            "stack": [
-                "React",
-                "Node.js",
-                "MongoDB",
-                "Render.com",
-                "TypeScript"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "https://github.com/Lsimelus/portfolio",
-            "blurb": "A portfolio web application created with React TypeScript version 18. The backend is a nodeJs application that saves the user info in a MongoDB. The backend is hosted using render.com and the frontend is hosted on github pages.",
-            "date": "Feb 2023",
-            "media": {
-            "image": port}
-        },
-        {
-            "name": "Tech Assesment",
-            "stack": [
-                "HTML",
-                "CSS"
-            ],
-            "end": [
-                0
-            ],
-            "link": "https://github.com/Lsimelus/TechAssessment",
-            "blurb": "Technical assesment for lendEDU job application",
-            "date": "March 2023",
-            "media": {
-            "image": techPic,
-            "vid": techVid,
-        }
-        },
-        {
-            "name": "Marhaban",
-            "stack": [
-                "React",
-                "Node.js",
-                "MongoDB",
-                "Render.com",
-                "TypeScript"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "https://github.com/Lsimelus/Marhaban",
-            "blurb": "Marhaban is a non-profit organization whose primary focus is expanding the beautiful religion of Islam. The frontend is Typescript, the backend is NodeJs, and the contact form response is saved in MongoDB. The news articles are produced using newsapi. The backend is in a different branch for security purposes. Purchases are not allowed yet.",
-            "date": "April 2023",
-            "media": { "vid": marhabanVid,
-            "image": marhaban}
-        },
-        {
-            "name": "Cookie Recipe Generator",
-            "stack": [
-                "Python"
-            ],
-            "end": [
-                1
-            ],
-            "link": "https://github.com/Lsimelus/Genetic-Algorithm-Cookie-recipe-builder",
-            "blurb": "The service creates a system that successfully generates unique cookie recipes by looking at their molecular similarities, combining different recipes for numerous generations, and allowing mutations. The molecular makeup of these molecules was found via https://cosylab.iiitd.edu.in/flavordb/. Running the main() inside foodscraper.py to run.",
-            "date": "FEB 2021",
-            "media": { "vid": cookieVid,
-            "image": cookie}
-        },
-        {
-            "name": "Basic Static HTML site 2",
-            "stack": [
-                "HTML",
-                "CSS",
-                "Javascript"
-            ],
-            "end": [
-                0
-            ],
-            "link": "https://github.com/Lsimelus/Non-InteractiveWebsite2",
-            "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-InteractiveWebsite2/",
-            "date": "MAY 2020",
-            "media": {
-            "image": static2}
-        },
-        {
-            "name": "Basic Static HTML site",
-            "stack": [
-                "HTML",
-                "CSS"
-            ],
-            "end": [
-                0
-            ],
-            "link": "https://github.com/Lsimelus/Non-interactiveWebsite",
-            "blurb": "Static website that demonstrates basic front end skills. Can be viewed at https://lsimelus.github.io/Non-interactiveWebsite/",
-            "date": "JUL 2020",
-            "media": {
-            "image": static1}
-        },
-        {
-            "name": "Poetry Generator",
-            "stack": [
-                "Python"
-            ],
-            "end": [
-                1
-            ],
-            "link": "https://github.com/Lsimelus/Poetry-Generator",
-            "blurb": "A system that successfully creates rhyming and reasonably coherent poems by reading a sample of poems. The poems can be themed after a certain poet if selected. The system reads the poem outload.",
-            "date": "MAY 2021",
-            "media": { "vid": poetryVid,
-            "image": poetry}
-        },
-        {
-            "name": "Casual Creator",
-            "stack": [
-                "Processing"
-            ],
-            "end": [
-                0
-            ],
-            "link": "https://github.com/Lsimelus/CasualCreator",
-            "blurb": "An interactive creation app created with processing.Colored blocks enables the user to enjoy the dearly missed satisfaction of playing with blocks without the mess. To run the code all the user has to do is click the mouse and shapes appear wherever the mouse is clicked. By pressing any of the 4 arrow keys, shift, enter, and alt, change the blocks.",
-            "date": "FEB 2021",
-            "media": { "vid": casualVid,
-            "image": casual}
-        },
-        {
-            "name": "Royal Fitness",
-            "stack": [
-                "Firebase",
-                "Swift"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "https://github.com/Lsimelus/RoyalFitness",
-            "blurb": "This project is an IOS mobile fitness application with Swift. The application had user login and authentication and could track the user's movement while running and returning mph and average mile speed. Also, has built-in suggested workouts and videos.",
-            "date": "FEB 2021",
-            "media": { "vid": royalVid,
-            "image": royal}
-        },
-        {
-            "name": "Genetic Algorithm",
-            "stack": [
-                "Python"
-            ],
-            "end": [
-                1
-            ],
-            "link": "https://github.com/Lsimelus/GeneticAlgorithm",
-            "blurb": "Using Genetic Algorithm find a key string from a string of random characters. Various Genetic Algorithm methods implemented and can be used with minor edits in the code.",
-            "date": "MAY 2021",
-            "media": { "vid": geneticVid,
-            "image": genes}
-        },
-        {
-            "name": "Markov Decision",
-            "stack": [
-                "Python"
-            ],
-            "end": [
-                1
-            ],
-            "link": "https://github.com/Lsimelus/MarkovDecisionProcess",
-            "blurb": "A Markov decision process (MDP) is defined as a stochastic decision-making process that uses a mathematical framework to model the decision-making of a dynamic system in scenarios where the results are either random or controlled by a decision maker, which makes sequential decisions over time.",
-            "date": "MAY 2021",
-            "media": { "vid": markovVid,
-            "image": markov}
-        },
-        {
-            "name": "Neural Networks Python",
-            "stack": [
-                "Python"
-            ],
-            "end": [
-                1
-            ],
-            "link": "https://github.com/Lsimelus/Neural_Networks",
-            "blurb": "This project is a Neural Network that digests a movie script between 2 actors. Then uses the knowledge base to classify actor dialogue and predict who is speaking. Run the project by running main() in dialogue_classifier.py",
-            "date": "JAN 2020",
-            "media": { "vid": neuralVid,
-            "image": neural}
-        },
-        {
-            "name": "Task Management Mobile Application",
-            "stack": [
-                "React",
-                "Node.js",
-                "Python"
-            ],
-            "end": [
-                0,
-                1
-            ],
-            "link": "",
-            "blurb": "A mobile application, written in React Native that allows users to organized daily tasks and check them off as the day goes on. Simple UI. The task will be saved within MongoDB. The backend stack has not been determined yet.",
-            "date": "TBD",
-            "media": {
-            "image": tbd}
-        }
-    ]
+  tech: ["FrontEnd", "BackEnd"],
+  projects: portfolioData.projects.map(p => ({
+    name: p.title,
+    stack: p.technologies,
+    end: p.type.includes(ProjectType.FULLSTACK) ? [0, 1] :
+         p.type.includes(ProjectType.FRONTEND) ? [0] : [1],
+    link: p.githubUrl,
+    blurb: p.description,
+    date: p.date,
+    media: p.media
+  }))
 }
 
+// ============================================================================
+// CONTACT LINKS
+// ============================================================================
+
+export const contactLinks: ContactLinks = {
+  github: "https://github.com/Lsimelus",
+  githubRepo: "https://github.com/Lsimelus/Portfolio",
+  email: "lsimelus@gmail.com",
+  emailLink: "mailto:lsimelus@gmail.com",
+  linkedin: "https://www.linkedin.com/in/lyndbergh-simelus/",
+  phone: "7813508711",
+  phoneLink: "tel:+7813508711"
+}
+
+// For backwards compatibility
 export const links = {
-    "main": "https://github.com/Lsimelus",
-    "site": "https://github.com/Lsimelus/Portfolio",
-    "mail": "lsimelus@gmail.com",
-    "mailto": "mailto:lsimelus@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/lyndbergh-simelus/",
-    "phone": "7813508711",
-    "tel": "tel:+7813508711"
+  main: contactLinks.github,
+  site: contactLinks.githubRepo,
+  mail: contactLinks.email,
+  mailto: contactLinks.emailLink,
+  linkedin: contactLinks.linkedin,
+  phone: contactLinks.phone,
+  tel: contactLinks.phoneLink
 }

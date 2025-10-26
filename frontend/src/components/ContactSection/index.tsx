@@ -1,21 +1,25 @@
 import React from "react";
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import {
+  Box,
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Stack,
+  IconButton,
+  CircularProgress,
+  useTheme,
+} from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
-import PeopleIcon from '@mui/icons-material/People';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Item } from "../../styles/commonUIComponents/ItemStyled"
-import { TranslateButton} from "../../styles/commonUIComponents/ButtonStyled"
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { handleClickScroll } from "../../utils/reusableFunctions"
-import {links} from "../../data/data"
+import SendIcon from '@mui/icons-material/Send';
+import { contactLinks } from "../../data/data"
 import axios from 'axios';
-import CircularProgress from '@mui/material/CircularProgress';
-import { ButtonComponent } from "../Button";
 
 
 
@@ -26,13 +30,13 @@ export interface ContactProps {
 
 const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
   const { alertCallback, subjectFilled = "" } = props;
+  const theme = useTheme();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [subject, setSubject] = React.useState<String>("");
   const [message, setMessage] = React.useState("");
   const [formDone, setFormDone] = React.useState(false);
-  const [buffering, setBuffering] = React.useState(false);
-  const [formEmpty, setFormEmpty] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setSubject(subjectFilled)
@@ -40,194 +44,225 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
     setEmail("")
     setMessage("")
     setFormDone(false)
-
   }, [subjectFilled]);
 
-  async function processForm() {
-    setFormEmpty(false)
-    if (name === "" || email === "" || message === "") {
-      setFormEmpty(true)
-      alertCallback("The required field must be filled in.", "warning")
-    } else if (email.indexOf("@") === -1) {
-      alertCallback("Improper email format", "warning")
-    } else {
-      setBuffering(true)
-      alertCallback("Connecting to API. This may take a second.", "info")
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
 
+    if (!name || !email || !message) {
+      alertCallback("Please fill in all required fields.", "warning")
+      return;
+    }
 
+    if (!email.includes("@")) {
+      alertCallback("Please enter a valid email address.", "warning")
+      return;
+    }
 
-      axios.post(`https://flask-backend-inky.vercel.app/processform`, {
-        name: name,
-        email: email,
-        subject: subject,
-        message: message,
+    setLoading(true)
+    alertCallback("Sending message...", "info")
+
+    try {
+      await axios.post(`https://flask-backend-inky.vercel.app/processform`, {
+        name,
+        email,
+        subject,
+        message,
         app: "portfolio"
-      })
-        .then(res => {
-          setFormDone(true)
-          alertCallback("Form successfully processed. I will respond ASAP.", "success")
-          setBuffering(false)
-        }).catch(function (error) {
-          console.log(error)
-          alertCallback("Something went wrong. Sorry for the inconvenience", "error")
-          setBuffering(false)
-        });
+      });
 
+      setFormDone(true)
+      alertCallback("Message sent successfully! I'll get back to you soon.", "success")
+      setName("")
+      setEmail("")
+      setSubject("")
+      setMessage("")
+    } catch (error) {
+      console.error(error)
+      alertCallback("Something went wrong. Please try again.", "error")
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
-    <>
-      <section ref={ref} style={{ backgroundColor: "#000524" }} id="Contact">
-        <Grid
-          container
-          direction="row"
-          maxWidth="xl"
-          spacing={5}
-          p={8}
-          alignItems="stretch"
+    <Box
+      component="section"
+      ref={ref}
+      id="Contact"
+      sx={{
+        py: 12,
+        bgcolor: theme.palette.background.paper,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
+          Get In Touch
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ textAlign: 'center', color: theme.palette.text.secondary, mb: 8 }}
         >
-          <Grid item xs={2} >
-            <PeopleIcon style={{ fontSize: 80 }} color="primary"> </PeopleIcon>
+          Let's work together on your next project
+        </Typography>
+
+        <Grid container spacing={6}>
+          {/* Contact Form */}
+          <Grid item xs={12} md={7}>
+            <Card>
+              <CardContent sx={{ p: 4 }}>
+                <Box component="form" onSubmit={handleSubmit}>
+                  <Stack spacing={3}>
+                    <TextField
+                      fullWidth
+                      label="Name"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      disabled={loading}
+                    />
+
+                    <TextField
+                      fullWidth
+                      label="Email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={loading}
+                    />
+
+                    <TextField
+                      fullWidth
+                      label="Subject"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      disabled={loading}
+                    />
+
+                    <TextField
+                      fullWidth
+                      label="Message"
+                      required
+                      multiline
+                      rows={6}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      disabled={loading}
+                    />
+
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="large"
+                      endIcon={loading ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
+                      disabled={loading}
+                      sx={{ alignSelf: 'flex-start' }}
+                    >
+                      {loading ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </Stack>
+                </Box>
+              </CardContent>
+            </Card>
           </Grid>
 
-          <Grid item xs={8} >
-            <h1 style={{ color: "white" }} >Let's Connect!</h1>
-          </Grid>
+          {/* Contact Info */}
+          <Grid item xs={12} md={5}>
+            <Card sx={{ height: '100%' }}>
+              <CardContent sx={{ p: 4 }}>
+                <Typography variant="h5" sx={{ fontWeight: 600, mb: 4 }}>
+                  Contact Information
+                </Typography>
 
-          <Grid item xs={2} ></Grid>
-          <Grid item xs={12} md={8}>
-            <Item>
-              <Grid item xs={12} >
-                <TextField margin={"dense"} fullWidth label="Name*" variant="filled"
-                  error={formEmpty && name===""}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  disabled={formDone}
-                />
-              </Grid>
-              <Grid item xs={12} >
-                <TextField
-                error={formEmpty && email===""}
-                  value={email}
-                  disabled={formDone}
-                  onChange={(e) => setEmail(e.target.value)}
-                  margin={"dense"} fullWidth label="Email*" variant="filled" />
-              </Grid>
-              <Grid item xs={12} >
-                <TextField value={subject}
-                  disabled={formDone}
-                  onChange={(e) => setSubject(e.target.value)}
-                  margin={"dense"} fullWidth label="Subject" variant="filled" />
-              </Grid>
-              <Grid item xs={12} >
-                <TextField margin={"dense"} value={message}
-                  error={formEmpty && message===""}
-                  disabled={formDone}
-                  onChange={(e) => setMessage(e.target.value)}
-                  fullWidth multiline rows={8} label="Message*" variant="filled" />
-              </Grid>
+                <Stack spacing={3} sx={{ mb: 4 }}>
+                  <Stack direction="row" spacing={2} alignItems="center">
+                    <EmailIcon color="primary" />
+                    <Box>
+                      <Typography variant="body2" color="text.secondary">
+                        Email
+                      </Typography>
+                      <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                        {contactLinks.email}
+                      </Typography>
+                    </Box>
+                  </Stack>
 
+                  <Stack direction="row" spacing={2} alignItems="center">
+                    <LocalPhoneIcon color="primary" />
+                    <Box>
+                      <Typography variant="body2" color="text.secondary">
+                        Phone
+                      </Typography>
+                      <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                        {contactLinks.phone}
+                      </Typography>
+                    </Box>
+                  </Stack>
+                </Stack>
 
-              <Box
-                m={3}
-                display="flex"
-                justifyContent="space-between"
-              >
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+                  Connect With Me
+                </Typography>
 
-                {formDone ?
-                  <CheckCircleIcon sx={{
-                    fontSize: 60,
-                    color: "green"
-                  }} />
-
-                  :
-                  <ButtonComponent
-                    onClick={() => processForm()}
-                    text={"Submit"}
-                  />
-                }
-                {buffering &&
-                  < CircularProgress />
-                }
-
-              </Box>
-            </Item>
-          </Grid>
-
-          <Grid item xs={12} md={4} >
-            <Item elevation={16}>
-              <Grid item xs={12} >
-                <h1 >Contact</h1>
-                <p><b>781-350-8711</b></p>
-                <p ><b>lsimelus@gmail.com</b></p>
-              </Grid>
-
-              <div>
-
-                <TranslateButton>
-                  <EmailIcon
-                    onClick={() => window.open(links.mailto, "_blank")}
+                <Stack direction="row" spacing={1}>
+                  <IconButton
+                    color="primary"
+                    onClick={() => window.open(contactLinks.emailLink, "_blank")}
                     sx={{
-                      fontSize: 100,
-                      color: "gray",
-                      "&:hover": {
-                        color: "#EA4336"
-                      },
-                    }} />
-                </TranslateButton>
+                      bgcolor: `${theme.palette.primary.main}15`,
+                      '&:hover': { bgcolor: theme.palette.primary.main, color: '#fff' }
+                    }}
+                  >
+                    <EmailIcon />
+                  </IconButton>
 
-                <TranslateButton onClick={() => window.open(links.main, "_blank")}>
-                  <GitHubIcon sx={{
-                    fontSize: 100,
-                    color: "gray",
-                    "&:hover": {
-                      color: "#7241C8"
-                    },
-                  }} />
-                </TranslateButton>
-                <TranslateButton
-                  onClick={() => window.open(links.tel, "_blank")}
-                >
-                  <LocalPhoneIcon sx={{
-                    fontSize: 100,
-                    color: "gray",
-                    "&:hover": {
-                      color: "#1CC838"
-                    },
-                  }} />
-                </TranslateButton>
-                <TranslateButton
-                  onClick={() => window.open(links.linkedin, "_blank")}>
-                  <LinkedInIcon sx={{
-                    fontSize: 100,
-                    color: "gray",
-                    "&:hover": {
-                      color: "#0077B5"
-                    },
-                  }} />
-                </TranslateButton>
-              </div>
-            </Item>
+                  <IconButton
+                    color="primary"
+                    onClick={() => window.open(contactLinks.github, "_blank")}
+                    sx={{
+                      bgcolor: `${theme.palette.primary.main}15`,
+                      '&:hover': { bgcolor: theme.palette.primary.main, color: '#fff' }
+                    }}
+                  >
+                    <GitHubIcon />
+                  </IconButton>
 
-          </Grid>
-          <Grid item xs={12}  >
-            <Box
-              textAlign="center"
-              justifyContent="center"
-            >
-              <ButtonComponent onClick={() => handleClickScroll("Home")}>
-                <KeyboardArrowUpIcon />
-                </ButtonComponent>
-            </Box>
+                  <IconButton
+                    color="primary"
+                    onClick={() => window.open(contactLinks.phoneLink, "_blank")}
+                    sx={{
+                      bgcolor: `${theme.palette.primary.main}15`,
+                      '&:hover': { bgcolor: theme.palette.primary.main, color: '#fff' }
+                    }}
+                  >
+                    <LocalPhoneIcon />
+                  </IconButton>
+
+                  <IconButton
+                    color="primary"
+                    onClick={() => window.open(contactLinks.linkedin, "_blank")}
+                    sx={{
+                      bgcolor: `${theme.palette.primary.main}15`,
+                      '&:hover': { bgcolor: theme.palette.primary.main, color: '#fff' }
+                    }}
+                  >
+                    <LinkedInIcon />
+                  </IconButton>
+                </Stack>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
-      </section>
 
-      <footer >
-        <p> &copy; Copyright 2023 Lyndbergh George Simelus. Built with React.</p>
-      </footer>
-    </>
+        {/* Footer */}
+        <Box sx={{ mt: 8, textAlign: 'center', pb: 4 }}>
+          <Typography variant="body2" color="text.secondary">
+            © {new Date().getFullYear()} Lyndbergh Simelus. All rights reserved.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 });
 

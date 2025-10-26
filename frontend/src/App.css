@@ -1,21 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  scroll-snap-type: none; 
-  scroll-padding: clamp(25px, 1.1vw, 80px);
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 .App {
   text-align: center;
-  align-items: "center";
-  justify-content: "center";
+  min-height: 100vh;
 }
-
 
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
 }
 
-@keyframes gradientAnimation {
+/* Modern gradient mesh background */
+.gradient-mesh-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(at 40% 20%, hsla(220, 95%, 60%, 0.15) 0px, transparent 50%),
+              radial-gradient(at 80% 0%, hsla(190, 90%, 60%, 0.15) 0px, transparent 50%),
+              radial-gradient(at 0% 50%, hsla(250, 90%, 65%, 0.1) 0px, transparent 50%),
+              radial-gradient(at 80% 80%, hsla(340, 90%, 65%, 0.1) 0px, transparent 50%);
+  animation: meshMove 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes meshMove {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Animated gradient background */
+.gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
@@ -27,62 +73,57 @@ section {
   }
 }
 
-/*
-Resume Section
-*/
-
-
-.hidden{
+/* Fade in animations */
+.fade-in {
   opacity: 0;
-  filter: blur(5px);
-  transform: translateX(150px);
-  transition:  all 1000ms;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-.show{
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* Scroll reveal animations */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show {
   opacity: 1;
   filter: blur(0px);
   transform: translateX(0px);
 }
 
- /*
- Works Section
- */
-.work-pic{
-  flex: 1;
-  width: 100%;
-  border-radius: 5px;
-  transition: border-radius 1.0s ease-out;
-  margin-bottom: 0px;
-}
-.media-frame{
-  max-height: 200px;
-  overflow: hidden;
-  transition: all .5s ease-out;
-}
-.work-dyn:hover > .media-frame{ 
-  max-height: 500px;
+/* Card hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work-desc {
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 0px 0px 25px 25px;
-  margin-top: 0px;
-  background-color: #EBEEEE;
-  opacity:0;
-  transition:opacity 0.5s ease-in, max-height 1.5s ease-out ;
-  padding: 5px 15px 15px 15px;
-  overflow: hidden;
-  max-height: 0px;
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-.work-dyn:hover > .work-desc { 
-  opacity: 1;
-  max-height: 1000px;
-}
-
-
-.work-dyn:hover > .media-frame { 
-  width: ""
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

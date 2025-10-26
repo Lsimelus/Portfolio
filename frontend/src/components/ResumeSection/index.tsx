@@ -1,103 +1,189 @@
 import React from "react";
-import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import {resume} from "../../data/data"
-import { SkillSection, formatTechSection} from "../ResumeSkills"
-import LaptopWindowsIcon from '@mui/icons-material/LaptopWindows';
-import BuildIcon from '@mui/icons-material/Build';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import {ResumeActivity} from "../ResumeActivity"
-
-
-const resumeWork: object[] = resume.work
-const resumeEducation: object[] = resume.education
-const currIcons: JSX.Element[] = [<LaptopWindowsIcon></LaptopWindowsIcon>, <PsychologyIcon></PsychologyIcon>, <BuildIcon></BuildIcon>]
+import { Box, Container, Typography, Card, CardContent, Chip, Stack, useTheme, Divider } from '@mui/material';
+import WorkIcon from '@mui/icons-material/Work';
+import SchoolIcon from '@mui/icons-material/School';
+import { resumeData, technologies, TechCategory } from "../../data/data"
 
 const Resume = React.forwardRef<HTMLElement>((props, ref) => {
-  const [skillHover, setSkillHover] = React.useState(-1)
+  const theme = useTheme();
 
   return (
-    <section ref={ref} id="Resume">
-      <Grid
-        container
-        direction="row"
-        maxWidth="xl"
-        spacing={4}
-        alignItems="stretch"
-        justifyContent="center"
-        overflow="hidden"
-        p={10}
-      >
-        <Grid item xs={12} md={2}>
-          <h1>WORK</h1>
-          <Divider />
-        </Grid>
-        <Grid item xs={12} md={10}>
-          <Grid
-            container
-            direction="row"
-            maxWidth="xl"
-          >
-            {resumeWork.map(function (job: any, index) {
-              return (
-                <ResumeActivity activity={job} />
-              )
-            })}
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-        </Grid>
-        <Grid item xs={12} md={2}>
-          <h1>EDUCATION</h1>
-          <Divider />
-        </Grid>
-        <Grid item xs={12} md={10}>
-          <Grid
-            container
-            direction="row"
-            maxWidth="xl"
-          >
-            {resumeEducation.map(function (school: any, index) {
-              return (
-                <ResumeActivity activity={school} />
-              )
-            })}
+    <Box
+      component="section"
+      ref={ref}
+      id="Resume"
+      sx={{
+        minHeight: '100vh',
+        py: 12,
+        bgcolor: theme.palette.background.paper,
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Work Experience Section */}
+        <Box sx={{ mb: 10 }}>
+          <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 5 }}>
+            <WorkIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />
+            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+              Work Experience
+            </Typography>
+          </Stack>
 
-          </Grid>
-        </Grid>
+          <Stack spacing={4}>
+            {resumeData.work.map((job, index) => (
+              <Card
+                key={index}
+                className="hover-lift"
+                sx={{
+                  borderLeft: `4px solid ${theme.palette.primary.main}`,
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <CardContent sx={{ p: 4 }}>
+                  <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" sx={{ mb: 2 }}>
+                    <Box>
+                      <Typography variant="h4" sx={{ fontWeight: 600, mb: 0.5 }}>
+                        {job.position}
+                      </Typography>
+                      <Typography variant="h6" color="primary" sx={{ fontWeight: 500 }}>
+                        {job.company}
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        color: theme.palette.text.secondary,
+                        fontWeight: 500,
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {job.period}
+                    </Typography>
+                  </Stack>
 
-      </Grid>
-      <Grid item xs={12}>
-          <h1>SKILLS</h1>
-          <Divider />
-        </Grid>
-      <Grid
-        container
-        direction="row"
-        maxWidth="xl"
-        justifyContent="center"
-        spacing={4}
-        p={8}
-        onMouseLeave={() => setSkillHover(-1)}
-      >
-        {formatTechSection().map(function (tech: any, idx:number) {
+                  <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1.5 } }}>
+                    {job.achievements.map((achievement, idx) => (
+                      <Typography
+                        component="li"
+                        key={idx}
+                        variant="body1"
+                        sx={{ color: theme.palette.text.secondary }}
+                      >
+                        {achievement}
+                      </Typography>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            ))}
+          </Stack>
+        </Box>
 
-          return (
-            <Grid 
-            item 
-            xs={12} sm={idx === 2 ? 8 :6} lg={4}
-            onMouseEnter={() => setSkillHover(idx)}
-            onMouseLeave={() => setSkillHover(-1)}
-            className={"skill-section"}
-            style={{boxShadow: skillHover === idx ? "0 0 5px #ccc" : "", borderRadius: "35px"}}
-             >{SkillSection(skillHover === idx, tech, currIcons[idx])}
-        </Grid>
-          );
-        })}
+        {/* Education Section */}
+        <Box sx={{ mb: 10 }}>
+          <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 5 }}>
+            <SchoolIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />
+            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+              Education
+            </Typography>
+          </Stack>
 
+          <Stack spacing={4}>
+            {resumeData.education.map((edu, index) => (
+              <Card
+                key={index}
+                className="hover-lift"
+                sx={{
+                  borderLeft: `4px solid ${theme.palette.secondary.main}`,
+                }}
+              >
+                <CardContent sx={{ p: 4 }}>
+                  <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" sx={{ mb: 2 }}>
+                    <Box>
+                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 0.5 }}>
+                        {edu.institution}
+                      </Typography>
+                      <Typography variant="body1" color="text.secondary">
+                        {edu.degree}
+                      </Typography>
+                    </Box>
+                    {edu.year && (
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          color: theme.palette.text.secondary,
+                          fontWeight: 500,
+                        }}
+                      >
+                        {edu.year}
+                      </Typography>
+                    )}
+                  </Stack>
 
-      </Grid>
-    </section>
+                  {edu.details.length > 0 && (
+                    <Box component="ul" sx={{ mt: 2, pl: 3, '& li': { mb: 1 } }}>
+                      {edu.details.map((detail, idx) => (
+                        <Typography
+                          component="li"
+                          key={idx}
+                          variant="body2"
+                          sx={{ color: theme.palette.text.secondary }}
+                        >
+                          {detail}
+                        </Typography>
+                      ))}
+                    </Box>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </Stack>
+        </Box>
+
+        {/* Skills Section */}
+        <Box>
+          <Typography variant="h2" sx={{ fontWeight: 700, mb: 5 }}>
+            Technical Skills
+          </Typography>
+
+          {Object.values(TechCategory).map((category) => {
+            const categoryTechs = technologies.filter(t => t.category === category);
+            return (
+              <Box key={category} sx={{ mb: 5 }}>
+                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
+                  {category}
+                </Typography>
+                <Divider sx={{ mb: 3 }} />
+                <Stack direction="row" flexWrap="wrap" gap={1.5}>
+                  {categoryTechs.map((tech) => (
+                    <Chip
+                      key={tech.name}
+                      label={tech.name}
+                      sx={{
+                        bgcolor: `${tech.primaryColor}15`,
+                        color: tech.primaryColor,
+                        borderColor: tech.primaryColor,
+                        border: `1.5px solid`,
+                        fontWeight: 500,
+                        fontSize: '0.9rem',
+                        py: 2.5,
+                        px: 1,
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          bgcolor: tech.primaryColor,
+                          color: '#fff',
+                          transform: 'translateY(-2px)',
+                          boxShadow: theme.shadows[3],
+                        }
+                      }}
+                    />
+                  ))}
+                </Stack>
+              </Box>
+            );
+          })}
+        </Box>
+      </Container>
+    </Box>
   );
 });
 
