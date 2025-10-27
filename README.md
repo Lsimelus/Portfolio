@@ -1,6 +1,1 @@
-A portfolio web application created with React TypeScript version 18. The backend is a python flask application that saves the user info in a MongoDB https://github.com/Lsimelus/flask-backend . The back and front end is hosted using vercel and can be hosted at https://www.lyndbergh.net/
-
-The next steps for this project
-- Update technologies used for repositories
-- Add tests
-- Remove some old projects from College
+The system is built on a modern, full-stack architecture: the interactive frontend uses React and TypeScript, while the robust backend is powered by Python FastAPI. All user input is securely managed in a PostgreSQL database, and the entire application is seamlessly hosted on Vercel.
