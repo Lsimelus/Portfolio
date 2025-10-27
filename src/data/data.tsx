@@ -252,7 +252,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Web Portfolio",
-      description: "A portfolio web application created with React TypeScript version 18. The backend is a Node.js application that saves user info in MongoDB. The backend is hosted using render.com and the frontend is hosted on Vercel.",
+      description: "The system is built on a modern, full-stack architecture: the interactive frontend uses React and TypeScript, while the robust backend is powered by Python FastAPI. All user input is securely managed in a PostgreSQL database, and the entire application is seamlessly hosted on Vercel.",
       technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript", "Vercel"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/portfolio",
