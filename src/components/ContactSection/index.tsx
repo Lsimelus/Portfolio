@@ -63,12 +63,12 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
     alertCallback("Sending message...", "info")
 
     try {
-      await axios.post(`https://flask-backend-inky.vercel.app/processform`, {
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://fastapi-postgres-gamma.vercel.app';
+      await axios.post(`${apiUrl}/api/contact-form`, {
         name,
         email,
         subject,
-        message,
-        app: "portfolio"
+        message
       });
 
       setFormDone(true)
