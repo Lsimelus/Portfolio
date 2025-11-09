@@ -4,17 +4,17 @@ import resume from "../assets/resume.pdf"
 
 export function useOnScreen(ref: any, resumeSection: boolean=false) {
     const [isIntersecting, setIntersecting] = React.useState(false)
-  
+
     const observer = React.useMemo(() => new IntersectionObserver(
       ([entry]) => setIntersecting(entry.isIntersecting)
     , {
       rootMargin: "-100px 0px 0px 0px"
-    }), [ref])
+    }), [])
 
     React.useEffect(() => {
       observer.observe(ref.current)
       return () => observer.disconnect()
-    }, [])
+    }, [observer, ref])
     if (resumeSection){
       if (ref.current && ref.current.classList.contains("hidden")) {
         if (isIntersecting) {

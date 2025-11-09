@@ -35,7 +35,6 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
   const [email, setEmail] = React.useState("");
   const [subject, setSubject] = React.useState<String>("");
   const [message, setMessage] = React.useState("");
-  const [formDone, setFormDone] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
@@ -43,7 +42,6 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
     setName("")
     setEmail("")
     setMessage("")
-    setFormDone(false)
   }, [subjectFilled]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -71,7 +69,6 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
         message
       });
 
-      setFormDone(true)
       alertCallback("Message sent successfully! I'll get back to you soon.", "success")
       setName("")
       setEmail("")

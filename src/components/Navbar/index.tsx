@@ -18,26 +18,36 @@ const Navbar = React.forwardRef<HTMLElement, NavbarProps>((props, ref) => {
     const theme = useTheme();
     const [page, setPage] = React.useState(0);
 
-    const currPage = [
-        useOnScreen(headerRef),
-        useOnScreen(aboutRef),
-        useOnScreen(resumeRef),
-        useOnScreen(serviceRef),
-        useOnScreen(portfolioRef),
-        useOnScreen(contactRef)
-    ]
+    const headerVisible = useOnScreen(headerRef);
+    const aboutVisible = useOnScreen(aboutRef);
+    const resumeVisible = useOnScreen(resumeRef);
+    const serviceVisible = useOnScreen(serviceRef);
+    const portfolioVisible = useOnScreen(portfolioRef);
+    const contactVisible = useOnScreen(contactRef);
+
+    const currPage = React.useMemo(() => [
+        headerVisible,
+        aboutVisible,
+        resumeVisible,
+        serviceVisible,
+        portfolioVisible,
+        contactVisible
+    ], [headerVisible, aboutVisible, resumeVisible, serviceVisible, portfolioVisible, contactVisible]);
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 100,
     });
 
+    // Track which page is visible
+    const currPageKey = currPage.join(',');
+
     React.useEffect(() => {
         const idx = currPage.indexOf("1")
         if (idx > -1) {
             setPage(idx)
         }
-    }, [currPage.join(',')])
+    }, [currPageKey, currPage])
 
     return (
         <AppBar

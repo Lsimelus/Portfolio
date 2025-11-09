@@ -6,7 +6,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import DescriptionIcon from '@mui/icons-material/Description';
 import WorkIcon from '@mui/icons-material/Work';
 import { contactLinks } from "../../data/data";
-import { downloadResume, handleClickScroll } from "../../utils/reusableFunctions";
+import { handleClickScroll } from "../../utils/reusableFunctions";
 import Navbar from "../Navbar";
 import ResumeModal from "../ResumeModal";
 
