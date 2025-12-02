@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Container, Typography, Card, CardContent, Chip, Stack, useTheme, Divider } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, Chip, Stack, useTheme } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
-import { resumeData, technologies, TechCategory } from "../../data/data"
+import { resumeData, technologies } from "../../data/data"
 
 const Resume = React.forwardRef<HTMLElement>((props, ref) => {
   const theme = useTheme();
@@ -147,42 +147,31 @@ const Resume = React.forwardRef<HTMLElement>((props, ref) => {
             Technical Skills
           </Typography>
 
-          {Object.values(TechCategory).map((category) => {
-            const categoryTechs = technologies.filter(t => t.category === category);
-            return (
-              <Box key={category} sx={{ mb: 5 }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3, textAlign: 'left' }}>
-                  {category}
-                </Typography>
-                <Divider sx={{ mb: 3 }} />
-                <Stack direction="row" flexWrap="wrap" gap={1.5}>
-                  {categoryTechs.map((tech) => (
-                    <Chip
-                      key={tech.name}
-                      label={tech.name}
-                      sx={{
-                        bgcolor: `${tech.primaryColor}15`,
-                        color: tech.primaryColor,
-                        borderColor: tech.primaryColor,
-                        border: `1.5px solid`,
-                        fontWeight: 500,
-                        fontSize: '0.9rem',
-                        py: 2.5,
-                        px: 1,
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          bgcolor: tech.primaryColor,
-                          color: '#fff',
-                          transform: 'translateY(-2px)',
-                          boxShadow: theme.shadows[3],
-                        }
-                      }}
-                    />
-                  ))}
-                </Stack>
-              </Box>
-            );
-          })}
+          <Stack direction="row" flexWrap="wrap" gap={1.5}>
+            {technologies.map((tech) => (
+              <Chip
+                key={tech.name}
+                label={tech.name}
+                sx={{
+                  bgcolor: `${tech.primaryColor}15`,
+                  color: tech.primaryColor,
+                  borderColor: tech.primaryColor,
+                  border: `1.5px solid`,
+                  fontWeight: 500,
+                  fontSize: '0.9rem',
+                  py: 2.5,
+                  px: 1,
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    bgcolor: tech.primaryColor,
+                    color: '#fff',
+                    transform: 'translateY(-2px)',
+                    boxShadow: theme.shadows[3],
+                  }
+                }}
+              />
+            ))}
+          </Stack>
         </Box>
       </Container>
     </Box>

@@ -26,9 +26,8 @@ export interface ServicePlan {
 }
 
 export enum TechCategory {
-  FRONTEND = 'Frontend',
-  BACKEND = 'Backend',
-  TOOLS = 'Tools & Services'
+  DEVELOPMENT = 'Languages & Frameworks',
+  INFRASTRUCTURE = 'Tools & Infrastructure'
 }
 
 export interface Technology {

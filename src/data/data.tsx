@@ -10,6 +10,7 @@ import marhaban from "../assets/workImages/marhaban.png"
 import techPic from "../assets/workImages/tech.png"
 import realEstateVid from "../assets/workVids/realEstateVid.mp4"
 import realEstate from "../assets/workImages/realEstate.png"
+import abc from "../assets/workImages/abc.png"
 import {
   AboutData,
   ServicePlan,
@@ -129,34 +130,37 @@ export const resume = {
 export const servicesData: ServicePlan[] = [
   {
     title: "Explore Plan",
-    price: "$499",
+    price: "$1,250",
     features: [
       "Custom coded website or platform",
       "3 page layout website",
       "Responsive design for mobile",
-      "1 round of revision"
+      "1 round of revision",
+      "$5/month maintenance & hosting"
     ],
     accentColor: "#2DC85D"
   },
   {
     title: "Premium Plan",
-    price: "$999",
+    price: "$2,500",
     features: [
       "Custom coded website or platform",
       "5 page responsive website",
       "Up to 5 revisions",
-      "Social media integration"
+      "Social media integration",
+      "$10/month maintenance & hosting"
     ],
     accentColor: "#3380FF"
   },
   {
     title: "Immersive Plan",
-    price: "$1999",
+    price: "$5,000",
     features: [
       "Unlimited pages",
       "Unlimited revisions",
       "Social media campaigns",
-      "Brand messaging and logos"
+      "Brand messaging and logos",
+      "$20/month maintenance & hosting"
     ],
     accentColor: "#BE33FF"
   }
@@ -177,39 +181,35 @@ export const service = services
 // ============================================================================
 
 export const technologies: Technology[] = [
-  { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.FRONTEND },
-  { name: "JavaScript", primaryColor: "#F99D28", secondaryColor: "#FFCA3F", proficiencyLevel: 9, category: TechCategory.FRONTEND },
-  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.FRONTEND },
-  { name: "HTML", primaryColor: "#FF3337", secondaryColor: "#FD7A63", proficiencyLevel: 10, category: TechCategory.FRONTEND },
-  { name: "CSS", primaryColor: "#047CB6", secondaryColor: "#0399E7", proficiencyLevel: 9, category: TechCategory.FRONTEND },
-  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.FRONTEND },
-  { name: "Bootstrap", primaryColor: "#8411F5", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.FRONTEND },
-  { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.FRONTEND },
-  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  // Languages & Frameworks
+  { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
+  { name: "Next.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "JavaScript", primaryColor: "#F99D28", secondaryColor: "#FFCA3F", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
+  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
+  { name: "HTML", primaryColor: "#FF3337", secondaryColor: "#FD7A63", proficiencyLevel: 10, category: TechCategory.DEVELOPMENT },
+  { name: "CSS", primaryColor: "#047CB6", secondaryColor: "#0399E7", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
+  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "Bootstrap", primaryColor: "#8411F5", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.DEVELOPMENT },
+  { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "Express.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.DEVELOPMENT },
+  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.DEVELOPMENT },
+  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
+  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
 
-  { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.BACKEND },
-  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Java", primaryColor: "#f89820", secondaryColor: "#5382a1", proficiencyLevel: 6, category: TechCategory.BACKEND },
-  { name: "GraphQL", primaryColor: "#DE33A6", secondaryColor: "white", proficiencyLevel: 7, category: TechCategory.BACKEND },
-  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
-  { name: "Processing", primaryColor: "#1E30A2", secondaryColor: "#7EA5F2", proficiencyLevel: 5, category: TechCategory.BACKEND },
-
-  { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.TOOLS },
-  { name: "Azure", primaryColor: "#0B58A1", secondaryColor: "#3AC2F1", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "Github", primaryColor: "#7241C8", secondaryColor: "", proficiencyLevel: 9, category: TechCategory.TOOLS },
-  { name: "Postman", primaryColor: "#FC6C35", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.TOOLS },
-  { name: "Yarn", primaryColor: "#2987B2", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.TOOLS },
-  { name: "Visual Studio Code", primaryColor: "#249FE6", secondaryColor: "#0569AA", proficiencyLevel: 9, category: TechCategory.TOOLS },
-  { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.TOOLS },
-  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLS },
-  { name: "Jira", primaryColor: "#0052CC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.TOOLS },
-  {name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLS }
+  // Tools & Infrastructure
+  { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
+    { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Github", primaryColor: "#7241C8", secondaryColor: "", proficiencyLevel: 9, category: TechCategory.INFRASTRUCTURE },
+    { name: "Postman", primaryColor: "#FC6C35", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
+    { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
+    { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE }
 ]
 
 // For backwards compatibility - map to old format
@@ -219,7 +219,7 @@ technologies.forEach(t => {
     color: t.primaryColor,
     color2: t.secondaryColor,
     skill: t.proficiencyLevel,
-    cat: t.category === TechCategory.FRONTEND ? 0 : t.category === TechCategory.BACKEND ? 1 : 2
+    cat: t.category === TechCategory.DEVELOPMENT ? 0 : 1
   }
 })
 
@@ -229,6 +229,17 @@ technologies.forEach(t => {
 
 export const portfolioData: PortfolioData = {
   projects: [
+    {
+      title: "ABChealth",
+      description: "A modern, responsive landing page for ABChealth - a revolutionary social media platform combining goal setting, blogging, and community engagement for personal growth. Features include progress analytics, accountability partners, achievement systems, learning paths, and discussion forums.",
+      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+      type: [ProjectType.FRONTEND],
+      githubUrl: "https://github.com/Lsimelus/abchealth-expressjs",
+      liveUrl: "https://abchealth-expressjs.vercel.app/",
+      date: "2025",
+      media: { image: abc },
+      featured: true
+    },
     {
       title: "REAL Estate Calculator",
       description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
@@ -241,21 +252,12 @@ export const portfolioData: PortfolioData = {
       featured: true
     },
     {
-      title: "Tech Interview Prep",
-      description: "A technical assignment for a software engineering position. This is front-end application.",
-      technologies: ["JavaScript", "JavaScript", "HTML", "CSS"],
-      type: [ProjectType.FRONTEND],
-      githubUrl: "https://github.com/Lsimelus/TechAssessment",
-      date: "Feb 2023",
-      media: { image: techPic },
-      featured: true
-    },
-    {
       title: "Web Portfolio",
       description: "The system is built on a modern, full-stack architecture: the interactive frontend uses React and TypeScript, while the robust backend is powered by Python FastAPI. All user input is securely managed in a PostgreSQL database, and the entire application is seamlessly hosted on Vercel.",
       technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript", "Vercel"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/portfolio",
+      liveUrl: "https://www.lyndbergh.net/",
       date: "Feb 2023",
       media: { image: port },
       featured: true
@@ -266,35 +268,19 @@ export const portfolioData: PortfolioData = {
       technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/Marhaban",
+      liveUrl: "https://marhaban.vercel.app/",
       date: "April 2023",
       media: { image: marhaban, video: marhabanVid }
     },
     {
-      title: "Royal Fitness",
-      description: "An iOS mobile fitness application built with Swift. Features user login and authentication, tracks user movement while running (returning mph and average mile speed), and includes built-in suggested workouts and videos.",
-      technologies: ["Firebase", "Swift"],
-      type: [ProjectType.FULLSTACK],
-      githubUrl: "https://github.com/Lsimelus/RoyalFitness",
-      date: "Feb 2021",
-      media: { image: royal, video: royalVid }
-    },
-    {
-      title: "Cookie Recipe Generator",
-      description: "A system that successfully generates unique cookie recipes by analyzing molecular similarities, combining different recipes for numerous generations, and allowing mutations. Molecular data sourced from FlavorDB.",
-      technologies: ["Python"],
-      type: [ProjectType.BACKEND],
-      githubUrl: "https://github.com/Lsimelus/Genetic-Algorithm-Cookie-recipe-builder",
-      date: "Feb 2021",
-      media: { image: cookie, video: cookieVid }
-    },
-    {
-      title: "Neural Networks Python",
-      description: "A Neural Network that processes movie scripts between 2 actors, then uses the knowledge base to classify actor dialogue and predict who is speaking.",
-      technologies: ["Python"],
-      type: [ProjectType.BACKEND],
-      githubUrl: "https://github.com/Lsimelus/Neural_Networks",
-      date: "Jan 2020",
-      media: { image: neural, video: neuralVid }
+      title: "Tech Interview Prep",
+      description: "A technical assignment for a software engineering position. This is front-end application.",
+      technologies: ["JavaScript", "JavaScript", "HTML", "CSS"],
+      type: [ProjectType.FRONTEND],
+      githubUrl: "https://github.com/Lsimelus/TechAssessment",
+      date: "Feb 2023",
+      media: { image: techPic },
+      featured: true
     }
   ]
 }
