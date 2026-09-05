@@ -13,7 +13,6 @@ import ResumeModal from "../ResumeModal";
 export interface HeaderProps {
   aboutRef: RefObject<HTMLElement>,
   resumeRef: RefObject<HTMLElement>,
-  serviceRef: RefObject<HTMLElement>,
   portfolioRef: RefObject<HTMLElement>,
   contactRef: RefObject<HTMLElement>
 }
@@ -21,7 +20,7 @@ export interface HeaderProps {
 const newestProjectLink = "https://real-calc-client-blush.vercel.app/"
 
 const Header = (props: HeaderProps) => {
-  const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef } = props;
+  const { aboutRef, resumeRef, portfolioRef, contactRef } = props;
   const theme = useTheme();
   const headerRef = React.useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -46,7 +45,6 @@ const Header = (props: HeaderProps) => {
       <Navbar
         aboutRef={aboutRef}
         resumeRef={resumeRef}
-        serviceRef={serviceRef}
         portfolioRef={portfolioRef}
         contactRef={contactRef}
         headerRef={headerRef}
@@ -142,7 +140,7 @@ const Header = (props: HeaderProps) => {
               variant="contained"
               size="large"
               startIcon={<WorkIcon />}
-              onClick={() => handleClickScroll("Service")}
+              onClick={() => handleClickScroll("Contact")}
               sx={{
                 background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                 '&:hover': {

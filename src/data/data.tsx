@@ -13,7 +13,6 @@ import realEstate from "../assets/workImages/realEstate.png"
 import abc from "../assets/workImages/abc.png"
 import {
   AboutData,
-  ServicePlan,
   Technology,
   TechCategory,
   ProjectType,
@@ -124,59 +123,6 @@ export const resume = {
 }
 
 // ============================================================================
-// SERVICE SECTION
-// ============================================================================
-
-export const servicesData: ServicePlan[] = [
-  {
-    title: "Explore Plan",
-    price: "$1,250",
-    features: [
-      "Custom coded website or platform",
-      "3 page layout website",
-      "Responsive design for mobile",
-      "1 round of revision",
-      "$5/month maintenance & hosting"
-    ],
-    accentColor: "#2DC85D"
-  },
-  {
-    title: "Premium Plan",
-    price: "$2,500",
-    features: [
-      "Custom coded website or platform",
-      "5 page responsive website",
-      "Up to 5 revisions",
-      "Social media integration",
-      "$10/month maintenance & hosting"
-    ],
-    accentColor: "#3380FF"
-  },
-  {
-    title: "Immersive Plan",
-    price: "$5,000",
-    features: [
-      "Unlimited pages",
-      "Unlimited revisions",
-      "Social media campaigns",
-      "Brand messaging and logos",
-      "$20/month maintenance & hosting"
-    ],
-    accentColor: "#BE33FF"
-  }
-]
-
-// For backwards compatibility - map to old property names
-export const services = servicesData.map(s => ({
-  title: s.title,
-  price: s.price,
-  desc: s.features,
-  color: s.accentColor
-}))
-
-export const service = services
-
-// ============================================================================
 // TECHNOLOGIES / SKILLS SECTION
 // ============================================================================
 
@@ -231,9 +177,9 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "ABChealth",
-      description: "A modern, responsive landing page for ABChealth - a revolutionary social media platform combining goal setting, blogging, and community engagement for personal growth. Features include progress analytics, accountability partners, achievement systems, learning paths, and discussion forums.",
-      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-      type: [ProjectType.FRONTEND],
+      description: "A waitlist/landing page for ABChealth - a social media platform combining goal setting, blogging, and community engagement for personal growth - backed by a full Express + PostgreSQL application. Includes Google OAuth signup, founding-member numbering, referral tracking, and a role-gated publisher dashboard.",
+      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Node.js", "Express.js", "SQL"],
+      type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/abchealth-expressjs",
       liveUrl: "https://abchealth-expressjs.vercel.app/",
       date: "2025",
@@ -242,8 +188,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "REAL Estate Calculator",
-      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home.",
-      technologies: ["React", "TypeScript", "Python"],
+      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home. Backend pre-joins 7 external data APIs and 15+ government/Zillow datasets into PostgreSQL for sub-200ms location ranking.",
+      technologies: ["Next.js", "TypeScript", "Redux", "Python", "SQL"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/real-calc-client",
       liveUrl: "https://real-calc-client-blush.vercel.app/",

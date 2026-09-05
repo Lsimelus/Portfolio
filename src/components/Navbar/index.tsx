@@ -6,22 +6,20 @@ export interface NavbarProps {
     aboutRef: RefObject<HTMLElement>
     resumeRef: RefObject<HTMLElement>,
     portfolioRef: RefObject<HTMLElement>,
-    serviceRef: RefObject<HTMLElement>,
     contactRef: RefObject<HTMLElement>,
     headerRef: RefObject<HTMLElement>
 }
 
-const navPages: string[] = ["Home", "About", "Resume", "Service", "Portfolio", "Contact"]
+const navPages: string[] = ["Home", "About", "Resume", "Portfolio", "Contact"]
 
 const Navbar = React.forwardRef<HTMLElement, NavbarProps>((props, ref) => {
-    const { aboutRef, resumeRef, serviceRef, portfolioRef, contactRef, headerRef } = props;
+    const { aboutRef, resumeRef, portfolioRef, contactRef, headerRef } = props;
     const theme = useTheme();
     const [page, setPage] = React.useState(0);
 
     const headerVisible = useOnScreen(headerRef);
     const aboutVisible = useOnScreen(aboutRef);
     const resumeVisible = useOnScreen(resumeRef);
-    const serviceVisible = useOnScreen(serviceRef);
     const portfolioVisible = useOnScreen(portfolioRef);
     const contactVisible = useOnScreen(contactRef);
 
@@ -29,10 +27,9 @@ const Navbar = React.forwardRef<HTMLElement, NavbarProps>((props, ref) => {
         headerVisible,
         aboutVisible,
         resumeVisible,
-        serviceVisible,
         portfolioVisible,
         contactVisible
-    ], [headerVisible, aboutVisible, resumeVisible, serviceVisible, portfolioVisible, contactVisible]);
+    ], [headerVisible, aboutVisible, resumeVisible, portfolioVisible, contactVisible]);
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,

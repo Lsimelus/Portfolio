@@ -18,13 +18,6 @@ export interface WorkExperience {
   achievements: string[];
 }
 
-export interface ServicePlan {
-  title: string;
-  price: string;
-  features: string[];
-  accentColor: string;
-}
-
 export enum TechCategory {
   DEVELOPMENT = 'Languages & Frameworks',
   INFRASTRUCTURE = 'Tools & Infrastructure'
