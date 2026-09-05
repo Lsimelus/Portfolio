@@ -67,6 +67,46 @@ function ProjectPage() {
             )}
           </div>
         </header>
+
+        <div className="docs-overview">
+          <p className="docs-overview-kicker">Technical overview</p>
+
+          <div className="docs-overview-metrics">
+            {project.overview.metrics.map((m) => (
+              <div className="docs-metric" key={m.label}>
+                <span className="docs-metric-value">{m.value}</span>
+                <span className="docs-metric-label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="docs-overview-grid">
+            <div>
+              <p className="docs-overview-heading">Stack</p>
+              <div className="docs-stack-pills">
+                {project.overview.stack.map((s) => (
+                  <span
+                    className="docs-stack-pill"
+                    key={s}
+                    style={{ borderColor: `${project.color}55`, color: project.color }}
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="docs-overview-heading">Key decisions</p>
+              <ul className="docs-decisions">
+                {project.overview.decisions.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <MarkdownView content={project.content} />
       </div>
     </div>
