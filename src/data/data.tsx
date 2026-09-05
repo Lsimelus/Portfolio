@@ -124,12 +124,8 @@ export const technologies: Technology[] = [
   // Languages & Frameworks
   { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
   { name: "Next.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "JavaScript", primaryColor: "#F99D28", secondaryColor: "#FFCA3F", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
   { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
-  { name: "HTML", primaryColor: "#FF3337", secondaryColor: "#FD7A63", proficiencyLevel: 10, category: TechCategory.DEVELOPMENT },
-  { name: "CSS", primaryColor: "#047CB6", secondaryColor: "#0399E7", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
   { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Bootstrap", primaryColor: "#8411F5", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.DEVELOPMENT },
   { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
   { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
   { name: "Express.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
@@ -145,8 +141,6 @@ export const technologies: Technology[] = [
   { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Github", primaryColor: "#7241C8", secondaryColor: "", proficiencyLevel: 9, category: TechCategory.INFRASTRUCTURE },
-    { name: "Postman", primaryColor: "#FC6C35", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
     { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
     { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE }
