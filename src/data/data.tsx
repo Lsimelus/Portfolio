@@ -142,7 +142,11 @@ export const technologies: Technology[] = [
 
   // Tools & Infrastructure
   { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
-    { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "AWS Cognito", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
+  { name: "IAM", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Terraform", primaryColor: "#7B42BC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
+  { name: "Okta", primaryColor: "#007DC1", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
+  { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
   { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
