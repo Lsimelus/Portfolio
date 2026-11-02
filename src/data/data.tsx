@@ -23,7 +23,7 @@ export { TechCategory, ProjectType }
 // ============================================================================
 
 export const about: AboutData = {
-  description: "I am a full-stack Software Engineer based in Boston, Massachusetts  with a deep specialization in secure, high-value systems like payments and enterprise data platforms. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. At Simply Business, I directly supported $1.4 Million in average monthly policy premium sold by engineering the full-stack, PCI-compliant checkout architecture from the ground up. My expertise includes leveraging frameworks like React for user interfaces, and Ruby on Rails and Python for scalable backends. \n In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
+  description: "I am a full-stack Software Engineer based in Boston, Massachusetts  with a deep specialization in secure, high-value systems like payments and enterprise data platforms. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. At Simply Business, I built the first online checkout for partner insurers from the ground up, a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. My expertise includes leveraging frameworks like React for user interfaces, and Ruby on Rails and Python for scalable backends. \n In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
 }
 
 // ============================================================================
@@ -51,16 +51,18 @@ export const resumeData: ResumeData = {
 
   work: [
     {
-      company: "Simply Business",
-      position: "Mid Level Software Engineer",
+      company: "Simply Business (acquired by Travelers)",
+      position: "Software Engineer II",
       period: "2023 - Present",
       achievements: [
+        "Built the data, tracing and secure access for an AWS Bedrock multi-agent AI assistant that answers staff questions about insurers' rules, routing each question to a specialist agent per insurer.",
+        "Moved a legacy pricing engine's rules into versioned PostgreSQL within a Packwerk-modularised Rails monolith, turning rule changes from code releases into byte-for-byte-verified data updates, and built quote-replay simulation that cut third-party pricing API costs.",
         "Ruby on Rails modular monolith — 7,280 application files, 3,239 spec files — backed by MongoDB, Sidekiq and Kafka change-data-capture into Snowflake, with package boundaries enforced by Packwerk.",
         "Designed and delivered the authentication and authorisation layer for an internal insurance product portal: authored the architecture decision record (Okta federated into AWS Cognito, stateless JWTs, Cedar policy-based role access), then built every layer it specified — Cognito pools and a V2 pre-token-generation Lambda in Terraform, multi-issuer JWT support contributed to the company's shared authentication gem, a Rails engine exposing the authorisation context, and the React SPA's OIDC/PKCE integration.",
         "Selected the portal's OIDC library by building two working prototypes and testing them against a nine-point checklist with token exposure as the deciding axis; recorded the strongest option as needing InfoSec approval rather than adopting it unreviewed, then migrated to service-worker token isolation once approved and removed the fallback path so unsupported browsers fail closed.",
         "Decomposed a monolithic Ruby rating-engine gem into nine published gems across 73 pull requests, landing each move as an independently reviewable slice with the matching changes in both consuming Rails applications in the same slice, so neither repository was ever left broken.",
         "Replaced five session booleans governing multi-product quoting — roughly sixty references, none persisted or queryable — with a Mongoid domain model published to Snowflake via Kafka change-data-capture, migrating readers in slices that each left production working. Detected, diagnosed and reverted a regression from my own merge in 85 minutes, choosing revert-then-fix over fixing forward on customer-facing routing, and relanded it with the fix.",
-        "Designed and implemented a PCI-compliant full-stack checkout system in React and Ruby on Rails, processing an average of $1.4 million in monthly policy premiums. Replaced the legacy payment iframe with vendor-hosted card tokenisation proxied to a third-party vault so card data never reached application storage, integrated Stripe for policy binding, and bound each submission to its session and cart with CSRF, journey-token and cart-digest fields.",
+        "Designed and implemented a PCI-compliant full-stack checkout system in React and Ruby on Rails, the first online checkout for partner insurers that price on their own systems, scaling to 5+ partners and $2.4M+ in monthly premiums through a repeatable rating, binding and payment adapter pattern. Replaced the legacy payment iframe with vendor-hosted card tokenisation proxied to a third-party vault so card data never reached application storage, integrated Stripe for policy binding, and bound each submission to its session and cart with CSRF, journey-token and cart-digest fields.",
         "Reduced application drop-off by 10% on the Workers' Compensation application by performing exploratory analysis and setting up A/B tests for a pre-quote FEIN/SSN bypass, enabling 65% of applicants to receive an immediate quote indication.",
         "Defined service levels in Terraform with fast-burn and slow-burn alert conditions; retired an alert I had authored after it produced false positives against natural traffic swing, replacing it with a scheduled EventBridge job comparing daily volume against the same-weekday average over the preceding four weeks.",
         "Integrated or extended seven insurance carriers (Cerity, Employers, Liberty Mutual, biberk, Coterie, Harborway, SolePro) across four repositories — quote-request mapping, OAuth clients, pricing and installment logic, per-partner secrets and whitelisting — and coordinated breaking contract changes across producer and consumer services and with data teams through the shared schema registry.",
@@ -70,8 +72,8 @@ export const resumeData: ResumeData = {
     },
     {
       company: "Recorded Future Inc",
-      position: "Software Engineer",
-      period: "2021 - 2022",
+      position: "Software Engineer I",
+      period: "2021 - 2023",
       achievements: [
         "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
         "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
