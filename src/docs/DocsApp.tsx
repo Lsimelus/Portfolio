@@ -3,6 +3,7 @@ import { Routes, Route, Link, useParams, Navigate } from "react-router-dom";
 import { projects } from "./data/projects";
 import { MarkdownView } from "./MarkdownView";
 import "./docs.css";
+import "./markdown.css";
 
 function DocsHome() {
   return (

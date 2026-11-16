@@ -1,7 +1,24 @@
 // Type definitions for portfolio data
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
+export interface ProfileData {
+  name: string;
+  title: string;
+  location: string;
+  /** One-line pitch shown under the title in the hero */
+  pitch: string;
+  /** Short availability line, e.g. "Open to full-time roles" */
+  availability: string;
+  stats: HeroStat[];
+}
+
 export interface AboutData {
-  description: string;
+  /** Paragraphs rendered in the About section */
+  paragraphs: string[];
 }
 
 export interface EducationItem {
@@ -19,8 +36,10 @@ export interface WorkExperience {
 }
 
 export enum TechCategory {
-  DEVELOPMENT = 'Languages & Frameworks',
-  INFRASTRUCTURE = 'Tools & Infrastructure'
+  FRONTEND = 'Frontend & Mobile',
+  BACKEND = 'Backend & Data',
+  CLOUD = 'Cloud & Infrastructure',
+  TOOLING = 'Observability & Tooling'
 }
 
 export interface Technology {
@@ -52,6 +71,8 @@ export interface PortfolioProject {
   date: string;
   media: ProjectMedia;
   featured?: boolean;
+  /** Slug of the public case-study page at /projects/:slug, if one exists */
+  caseStudySlug?: string;
 }
 
 export interface ContactLinks {

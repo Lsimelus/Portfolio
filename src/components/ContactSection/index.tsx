@@ -7,6 +7,7 @@ import {
   Typography,
   Grid,
   Stack,
+  Chip,
   CircularProgress,
   useTheme,
 } from '@mui/material';
@@ -18,12 +19,15 @@ import SendIcon from '@mui/icons-material/Send';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { contactLinks } from "../../data/data"
 import { gradients } from "../../theme"
+import SectionHeader from "../SectionHeader";
 import axios from 'axios';
 
 export interface ContactProps {
   alertCallback: Function,
-  subjectFilled: String
 }
+
+/** Quick-pick reasons that prefill the subject line. */
+const inquiryTypes = ["Job opportunity", "Freelance project", "Just saying hi"];
 
 function formatPhone(digits: string): string {
   const match = digits.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -49,21 +53,14 @@ const inputSx = {
   },
 };
 
-const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
-  const { alertCallback, subjectFilled = "" } = props;
+const Contact = (props: ContactProps) => {
+  const { alertCallback } = props;
   const theme = useTheme();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [subject, setSubject] = React.useState<String>("");
+  const [subject, setSubject] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    setSubject(subjectFilled)
-    setName("")
-    setEmail("")
-    setMessage("")
-  }, [subjectFilled]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -106,10 +103,10 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
   return (
     <Box
       component="section"
-      ref={ref}
       id="Contact"
       sx={{
-        py: 12,
+        minHeight: 'auto',
+        py: { xs: 10, md: 12 },
         position: 'relative',
         overflow: 'hidden',
         bgcolor: theme.palette.background.default,
@@ -126,15 +123,11 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
-        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
-          Get In Touch
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ textAlign: 'center', color: theme.palette.text.secondary, mb: 8 }}
-        >
-          Let's work together on your next project
-        </Typography>
+        <SectionHeader
+          eyebrow="Contact"
+          title="Let's talk"
+          subtitle="Hiring for a role or have a project in mind? Send a note and I'll reply within a couple of days."
+        />
 
         <Grid container spacing={4}>
           {/* Contact Form */}
@@ -150,6 +143,20 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
             >
               <Box component="form" onSubmit={handleSubmit}>
                 <Stack spacing={3}>
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {inquiryTypes.map((type) => (
+                      <Chip
+                        key={type}
+                        label={type}
+                        clickable
+                        color={subject === type ? 'primary' : 'default'}
+                        variant={subject === type ? 'filled' : 'outlined'}
+                        onClick={() => setSubject(type)}
+                        disabled={loading}
+                      />
+                    ))}
+                  </Stack>
+
                   <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
                     <TextField
                       fullWidth
@@ -372,6 +379,6 @@ const Contact = React.forwardRef<HTMLElement, ContactProps>((props, ref) => {
       </Container>
     </Box>
   );
-});
+};
 
 export default Contact;

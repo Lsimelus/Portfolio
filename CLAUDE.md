@@ -30,37 +30,30 @@ npm run build
 
 The main source code lives in `/src/` with the following organization:
 
-- **`/components/`** - Feature-based React components (14 components total)
-  - Each major section (Header, About, Resume, Portfolio, Contact) has dedicated components
-  - Reusable components include Button and Alert
+- **`/components/`** - One folder per section, styled with MUI `sx` props
+  - Page sections, in order: HeaderSection (hero + Navbar) → ResumeSection → PortfolioSection → SkillsSection → AboutSection → ContactSection
+  - Shared: SectionHeader (eyebrow/title/subtitle), Alert
+  - CaseStudyPage - public `/projects/:slug` page, reusing `src/docs/data/projects.ts` content
 
-- **`/styles/`** - Styled components using styled-components and @emotion/styled
-  - `commonUIComponents/` contains shared styled components (ItemStyled, ButtonStyled)
-  - Section-specific styles are organized by feature (headerSection/, aboutSection/, etc.)
-
-- **`/data/data.tsx`** - Central data file containing all content
-  - About information, resume/education data, portfolio projects, contact links
+- **`/data/data.tsx`** - Central content file: `profile` (hero + stats), `about`, `resumeData`, `technologies`, `portfolioData`, `contactLinks`
   - **To update portfolio content, modify this file**
+  - A project with `caseStudySlug` gets a "Case study" button; the slug must exist in `src/docs/data/projects.ts`
 
-- **`/utils/reusableFunctions.tsx`** - Shared utilities
-  - `useOnScreen()` - Intersection observer hook for scroll animations
-  - `handleClickScroll()` - Smooth scroll navigation
-  - `downloadResume()` - Resume PDF download handler
+- **`/utils/reusableFunctions.tsx`** - `handleClickScroll()`, `downloadResume()`, `viewResume()`, `RESUME_URL`
 
-- **`/assets/`** - Static media files
-  - Profile images, resume PDF, portfolio work images (18), and videos (12)
+- **`/assets/`** - Profile and project images as WebP (resize to ≤1200px wide before adding)
+- **`/public/`** - `Lyndbergh-Simelus-Resume.pdf` (stable public URL), `og-image.png` (link preview, 1200×630), icons
+- **`/docs/`** - `/docs` route is dev-only study notes; its markdown styles live in `markdown.css` and are shared with CaseStudyPage
 
 ### Technology Stack
 
 - **UI Framework:** React 18.3.1 with TypeScript 4.9.5
-- **Styling:** Material-UI 5.18.0 + styled-components 5.3.11
+- **Styling:** Material-UI 5 (emotion) — `sx` props, theme in `src/theme`
 - **HTTP Client:** axios 1.12.2 (for backend API calls)
-- **Testing:** Jest + @testing-library/react
+- **Routing:** react-router-dom 6 (`/`, `/projects/:slug`, dev-only `/docs/*`); `vercel.json` rewrites deep links to `index.html`
+- **Testing:** Jest + @testing-library/react (`CI=true npx react-scripts test --watchAll=false`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.
 - **Build Tool:** Create React App (react-scripts 5.0.1)
-- **Special Libraries:**
-  - react-player - Video/media playback
-  - @react-pdf-viewer - PDF resume viewing
-  - particles-bg - Animated particle backgrounds
+- **Other:** marked (markdown for case studies)
 
 ### Backend Integration
 
@@ -77,18 +70,16 @@ The backend is NOT part of this repository. It stores form submissions in Postgr
 
 This is a single-page application (SPA) with scroll-based navigation:
 
-1. **App.tsx** - Root component that composes all sections
-2. **Navbar** - Sticky navigation with smooth scroll to sections
-3. **Section Components** - Full-height sections (Header, About, Resume, Portfolio, Contact)
-4. **Card Components** - Reusable cards for portfolio items
-5. **Modal Components** - Resume viewer modal with PDF display
+1. **App.tsx** - Root component that composes all sections (recruiter-first order)
+2. **Navbar** - Fixed nav; active section tracked by an IntersectionObserver over section ids
+3. **Section Components** - Each renders a `section` with an `id` used by the nav
 
-All components use TypeScript with proper type definitions in `/src/global`.
+Types live in `src/types/index.ts`. SEO/link-preview tags and JSON-LD are in `public/index.html`.
 
 ### Data Management
 
 Static content is managed in `/src/data/data.tsx`. To add/update:
-- **Portfolio projects:** Modify the projects array (includes title, description, images/videos, links)
+- **Portfolio projects:** Modify the projects array (title, description, image, links, optional `featured` and `caseStudySlug`)
 - **Resume data:** Update education, experience, and skills arrays
 - **Contact info:** Update social links and contact details
 
@@ -98,7 +89,6 @@ No state management library is used (React hooks only).
 
 The project uses a hybrid styling approach:
 - **Material-UI components** for base UI elements (Grid, Paper, Typography, etc.)
-- **styled-components** for custom component styling
 - **CSS files** (App.css, index.css) for global styles
 - Theme customization is possible through MUI's theming system
 
@@ -106,7 +96,6 @@ The project uses a hybrid styling approach:
 
 From README.md, planned improvements include:
 - Update technologies used for repositories
-- Add comprehensive tests
 - Remove some old projects from College
 
 ## Deployment

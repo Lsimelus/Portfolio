@@ -15,129 +15,90 @@ import {
 } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
+import ArticleIcon from '@mui/icons-material/Article';
+import { Link as RouterLink } from "react-router-dom";
 import { portfolioData } from "../../data/data"
+import { PortfolioProject } from "../../types";
+import SectionHeader from "../SectionHeader";
 
-const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
+const TechChips = ({ technologies }: { technologies: string[] }) => (
+  <Stack direction="row" flexWrap="wrap" gap={1}>
+    {technologies.map((tech) => (
+      <Chip key={tech} label={tech} size="small" variant="outlined" sx={{ fontSize: '0.75rem' }} />
+    ))}
+  </Stack>
+);
+
+const ProjectLinks = ({ project }: { project: PortfolioProject }) => (
+  <>
+    {project.liveUrl && (
+      <Button
+        size="small"
+        variant="contained"
+        startIcon={<LaunchIcon />}
+        href={project.liveUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Live demo
+      </Button>
+    )}
+    {project.caseStudySlug && (
+      <Button size="small" variant="outlined" startIcon={<ArticleIcon />} component={RouterLink} to={`/projects/${project.caseStudySlug}`}>
+        Case study
+      </Button>
+    )}
+    <Button size="small" startIcon={<GitHubIcon />} href={project.githubUrl} target="_blank" rel="noreferrer">
+      Code
+    </Button>
+  </>
+);
+
+const Portfolio = () => {
   const theme = useTheme();
+  const featured = portfolioData.projects.filter((p) => p.featured);
 
   return (
     <Box
       component="section"
-      ref={ref}
-      id="Portfolio"
-      sx={{
-        minHeight: '100vh',
-        py: 12,
-        bgcolor: theme.palette.background.default,
-      }}
+      id="Projects"
+      sx={{ minHeight: 'auto', py: { xs: 10, md: 12 }, bgcolor: theme.palette.background.default }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
-          Featured Projects
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ textAlign: 'center', color: theme.palette.text.secondary, mb: 6 }}
-        >
-          Explore some of my recent work
-        </Typography>
+        <SectionHeader
+          eyebrow="Recent work"
+          title="Projects"
+          subtitle="Full-stack applications I've designed, built, and deployed — each with a live demo and source code."
+        />
 
-        {/* Projects Grid */}
         <Grid container spacing={4}>
-          {portfolioData.projects.map((project, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card
-                className="hover-lift"
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'relative',
-                }}
-              >
-                {project.featured && (
-                  <Chip
-                    label="Featured"
-                    size="small"
-                    sx={{
-                      position: 'absolute',
-                      top: 16,
-                      right: 16,
-                      zIndex: 1,
-                      bgcolor: theme.palette.primary.main,
-                      color: '#fff',
-                      fontWeight: 600,
-                    }}
-                  />
-                )}
-
+          {featured.map((project) => (
+            <Grid item xs={12} md={6} key={project.title}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <CardMedia
                   component="img"
                   height="240"
                   image={project.media.image}
-                  alt={project.title}
-                  sx={{
-                    objectFit: 'cover',
-                    bgcolor: theme.palette.grey[100],
-                  }}
+                  alt={`${project.title} screenshot`}
+                  loading="lazy"
+                  sx={{ objectFit: 'cover', objectPosition: 'top', bgcolor: theme.palette.grey[100] }}
                 />
-
-                <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, textAlign: 'left' }}>
-                    {project.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mb: 2, lineHeight: 1.7, textAlign: 'left' }}
-                  >
+                <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'left' }}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="baseline" spacing={2} sx={{ mb: 1 }}>
+                    <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>
+                      {project.type.join(' · ')} · {project.date}
+                    </Typography>
+                  </Stack>
+                  <Typography variant="body2" sx={{ mb: 2.5, lineHeight: 1.7 }}>
                     {project.description}
                   </Typography>
-
-                  <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 2 }}>
-                    {project.technologies.slice(0, 4).map((tech, idx) => (
-                      <Chip
-                        key={idx}
-                        label={tech}
-                        size="small"
-                        variant="outlined"
-                        sx={{ fontSize: '0.75rem' }}
-                      />
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <Chip
-                        label={`+${project.technologies.length - 4}`}
-                        size="small"
-                        variant="outlined"
-                        sx={{ fontSize: '0.75rem' }}
-                      />
-                    )}
-                  </Stack>
-
-                  <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'left' }}>
-                    {project.date}
-                  </Typography>
+                  <TechChips technologies={project.technologies} />
                 </CardContent>
-
-                <CardActions sx={{ p: 3, pt: 0 }}>
-                  <Button
-                    size="small"
-                    startIcon={<GitHubIcon />}
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    Code
-                  </Button>
-                  {project.liveUrl && (
-                    <Button
-                      size="small"
-                      startIcon={<LaunchIcon />}
-                      onClick={() => window.open(project.liveUrl, '_blank')}
-                      variant="contained"
-                    >
-                      Live Demo
-                    </Button>
-                  )}
+                <CardActions sx={{ px: 3, pb: 3, pt: 0, gap: 1 }}>
+                  <ProjectLinks project={project} />
                 </CardActions>
               </Card>
             </Grid>
@@ -146,6 +107,6 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       </Container>
     </Box>
   );
-});
+};
 
 export default Portfolio;

@@ -1,12 +1,11 @@
-import port from "../assets/workImages/portfolio.png"
-import marhabanVid from "../assets/workVids/marhabanVid.mp4"
-import marhaban from "../assets/workImages/marhaban.png"
-import techPic from "../assets/workImages/tech.png"
-import realEstateVid from "../assets/workVids/realEstateVid.mp4"
-import realEstate from "../assets/workImages/realEstate.png"
-import abc from "../assets/workImages/abc.png"
+import port from "../assets/workImages/portfolio.webp"
+import marhaban from "../assets/workImages/marhaban.webp"
+import techPic from "../assets/workImages/tech.webp"
+import realEstate from "../assets/workImages/realEstate.webp"
+import abc from "../assets/workImages/abc.webp"
 import {
   AboutData,
+  ProfileData,
   Technology,
   TechCategory,
   ProjectType,
@@ -22,8 +21,27 @@ export { TechCategory, ProjectType }
 // ABOUT SECTION
 // ============================================================================
 
+export const profile: ProfileData = {
+  name: "Lyndbergh Simelus",
+  title: "Full-Stack Software Engineer",
+  location: "Boston, MA",
+  pitch: "I build secure, high-value systems — payments, auth, and data platforms — end to end with React, Ruby on Rails, Python, and AWS.",
+  availability: "Open to new opportunities",
+  stats: [
+    { value: "5+", label: "years shipping production software" },
+    { value: "PCI checkout", label: "compliant payment experience — card data never touches app storage" },
+    { value: "Quote → checkout", label: "customer-facing flow, built end to end" },
+    { value: "Large-scale migrations", label: "broke a legacy pricing library into 9 reusable packages, in small steps that never broke the apps using it" },
+    { value: "Rules as data", label: "moved insurance pricing rules out of code into a versioned database, so changes ship without a code release" },
+    { value: "500+", label: "pull requests reviewed" },
+  ],
+}
+
 export const about: AboutData = {
-  description: "I am a full-stack Software Engineer based in Boston, Massachusetts  with a deep specialization in secure, high-value systems like payments and enterprise data platforms. I enjoy developing complex and scalable web applications with modern technologies, which contributes to the overall success of a product. At Simply Business, I built the first online checkout for partner insurers from the ground up, a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. My expertise includes leveraging frameworks like React for user interfaces, and Ruby on Rails and Python for scalable backends. \n In my spare time, I work on freelance projects, primarily designing static user interfaces for my clients. In addition to coding, as a Haitian-American, I find great joy in exploring and learning about diverse cultures, languages, traditions, and histories. Having devoted four years to the sport of track and field, running and practicing martial arts are two of my favorite ways to stay active. Please find below my professional resume, which showcases my skills and achievements as a software engineer."
+  paragraphs: [
+    "I'm a full-stack Software Engineer based in Boston with a deep specialization in secure, high-value systems like payments and enterprise data platforms. At Simply Business, I built the first online checkout for partner insurers from the ground up — a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. I'm most at home with React on the frontend and Ruby on Rails or Python on the backend, and I care about shipping changes in small, reviewable slices that never leave production broken.",
+    "Outside of work, I take on freelance projects, mostly designing and building user interfaces for clients. As a Haitian-American, I love exploring diverse cultures, languages, traditions, and histories. After four years of track and field, running and martial arts are still my favorite ways to stay active.",
+  ],
 }
 
 // ============================================================================
@@ -55,19 +73,19 @@ export const resumeData: ResumeData = {
       position: "Software Engineer II",
       period: "2023 - Present",
       achievements: [
+        "Designed and implemented a PCI-compliant full-stack checkout system in React and Ruby on Rails, the first online checkout for partner insurers that price on their own systems, scaling to 5+ partners and $2.4M+ in monthly premiums through a repeatable rating, binding and payment adapter pattern. Replaced the legacy payment iframe with vendor-hosted card tokenisation proxied to a third-party vault so card data never reached application storage, integrated Stripe for policy binding, and bound each submission to its session and cart with CSRF, journey-token and cart-digest fields.",
         "Built the data, tracing and secure access for an AWS Bedrock multi-agent AI assistant that answers staff questions about insurers' rules, routing each question to a specialist agent per insurer.",
         "Moved a legacy pricing engine's rules into versioned PostgreSQL within a Packwerk-modularised Rails monolith, turning rule changes from code releases into byte-for-byte-verified data updates, and built quote-replay simulation that cut third-party pricing API costs.",
-        "Ruby on Rails modular monolith — 7,280 application files, 3,239 spec files — backed by MongoDB, Sidekiq and Kafka change-data-capture into Snowflake, with package boundaries enforced by Packwerk.",
         "Designed and delivered the authentication and authorisation layer for an internal insurance product portal: authored the architecture decision record (Okta federated into AWS Cognito, stateless JWTs, Cedar policy-based role access), then built every layer it specified — Cognito pools and a V2 pre-token-generation Lambda in Terraform, multi-issuer JWT support contributed to the company's shared authentication gem, a Rails engine exposing the authorisation context, and the React SPA's OIDC/PKCE integration.",
         "Selected the portal's OIDC library by building two working prototypes and testing them against a nine-point checklist with token exposure as the deciding axis; recorded the strongest option as needing InfoSec approval rather than adopting it unreviewed, then migrated to service-worker token isolation once approved and removed the fallback path so unsupported browsers fail closed.",
         "Decomposed a monolithic Ruby rating-engine gem into nine published gems across 73 pull requests, landing each move as an independently reviewable slice with the matching changes in both consuming Rails applications in the same slice, so neither repository was ever left broken.",
         "Replaced five session booleans governing multi-product quoting — roughly sixty references, none persisted or queryable — with a Mongoid domain model published to Snowflake via Kafka change-data-capture, migrating readers in slices that each left production working. Detected, diagnosed and reverted a regression from my own merge in 85 minutes, choosing revert-then-fix over fixing forward on customer-facing routing, and relanded it with the fix.",
-        "Designed and implemented a PCI-compliant full-stack checkout system in React and Ruby on Rails, the first online checkout for partner insurers that price on their own systems, scaling to 5+ partners and $2.4M+ in monthly premiums through a repeatable rating, binding and payment adapter pattern. Replaced the legacy payment iframe with vendor-hosted card tokenisation proxied to a third-party vault so card data never reached application storage, integrated Stripe for policy binding, and bound each submission to its session and cart with CSRF, journey-token and cart-digest fields.",
         "Reduced application drop-off by 10% on the Workers' Compensation application by performing exploratory analysis and setting up A/B tests for a pre-quote FEIN/SSN bypass, enabling 65% of applicants to receive an immediate quote indication.",
         "Defined service levels in Terraform with fast-burn and slow-burn alert conditions; retired an alert I had authored after it produced false positives against natural traffic swing, replacing it with a scheduled EventBridge job comparing daily volume against the same-weekday average over the preceding four weeks.",
         "Integrated or extended seven insurance carriers (Cerity, Employers, Liberty Mutual, biberk, Coterie, Harborway, SolePro) across four repositories — quote-request mapping, OAuth clients, pricing and installment logic, per-partner secrets and whitelisting — and coordinated breaking contract changes across producer and consumer services and with data teams through the shared schema registry.",
         "Contributed reusable components to the company's internal React design system, including conditional badge rendering and pricing display used across customer-facing quote and checkout pages.",
-        "Reviewed 500+ pull requests across 12 repositories, and served as formal onboarding buddy for two engineering hires and two interns."
+        "Reviewed 500+ pull requests across 12 repositories, and served as formal onboarding buddy for two engineering hires and two interns.",
+        "Ruby on Rails modular monolith — 7,280 application files, 3,239 spec files — backed by MongoDB, Sidekiq and Kafka change-data-capture into Snowflake, with package boundaries enforced by Packwerk."
       ]
     },
     {
@@ -107,66 +125,42 @@ export const resumeData: ResumeData = {
   ]
 }
 
-// For backwards compatibility - map to old property names
-export const resume = {
-  education: resumeData.education.map(edu => ({
-    location: edu.institution,
-    title: edu.degree,
-    time: edu.year,
-    info: edu.details
-  })),
-  work: resumeData.work.map(job => ({
-    location: job.company,
-    title: job.position,
-    time: job.period,
-    info: job.achievements
-  }))
-}
-
 // ============================================================================
 // TECHNOLOGIES / SKILLS SECTION
 // ============================================================================
 
 export const technologies: Technology[] = [
-  // Languages & Frameworks
-  { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
-  { name: "Next.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
-  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Express.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.DEVELOPMENT },
-  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
-  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.DEVELOPMENT },
-  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.DEVELOPMENT },
-  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.DEVELOPMENT },
+  { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "Next.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.FRONTEND },
+  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Express.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.FRONTEND },
+  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.BACKEND },
+  { name: "PostgreSQL", primaryColor: "#336791", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
+  { name: "Kafka", primaryColor: "#231F20", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Snowflake", primaryColor: "#29B5E8", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
+  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.BACKEND },
 
-  // Tools & Infrastructure
-  { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
-  { name: "AWS Cognito", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
-  { name: "IAM", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Terraform", primaryColor: "#7B42BC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
-  { name: "Okta", primaryColor: "#007DC1", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-    { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.INFRASTRUCTURE },
-    { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE },
-  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.INFRASTRUCTURE }
+  { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.CLOUD },
+  { name: "AWS Cognito", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 8, category: TechCategory.CLOUD },
+  { name: "IAM", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Terraform", primaryColor: "#7B42BC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.CLOUD },
+  { name: "AWS Lambda", primaryColor: "#FF9900", secondaryColor: "#232F3E", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "AWS Bedrock", primaryColor: "#01A88D", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.CLOUD },
+  { name: "Okta", primaryColor: "#007DC1", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLING },
+  { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLING },
+  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.TOOLING }
 ]
-
-// For backwards compatibility - map to old format
-export const tech: Record<string, any> = {}
-technologies.forEach(t => {
-  tech[t.name] = {
-    color: t.primaryColor,
-    color2: t.secondaryColor,
-    skill: t.proficiencyLevel,
-    cat: t.category === TechCategory.DEVELOPMENT ? 0 : 1
-  }
-})
 
 // ============================================================================
 // PORTFOLIO SECTION
@@ -181,6 +175,7 @@ export const portfolioData: PortfolioData = {
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/abchealth-expressjs",
       liveUrl: "https://abchealth-expressjs.vercel.app/",
+      caseStudySlug: "abchealth",
       date: "2025",
       media: { image: abc },
       featured: true
@@ -192,14 +187,15 @@ export const portfolioData: PortfolioData = {
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/real-calc-client",
       liveUrl: "https://real-calc-client-blush.vercel.app/",
+      caseStudySlug: "real-calc",
       date: "2025",
-      media: { image: realEstate, video: realEstateVid },
+      media: { image: realEstate },
       featured: true
     },
     {
       title: "Web Portfolio",
       description: "The system is built on a modern, full-stack architecture: the interactive frontend uses React and TypeScript, while the robust backend is powered by Python FastAPI. All user input is securely managed in a PostgreSQL database, and the entire application is seamlessly hosted on Vercel.",
-      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript", "Vercel"],
+      technologies: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Vercel"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/portfolio",
       liveUrl: "https://www.lyndbergh.net/",
@@ -215,34 +211,18 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/Lsimelus/Marhaban",
       liveUrl: "https://marhaban.vercel.app/",
       date: "April 2023",
-      media: { image: marhaban, video: marhabanVid }
+      media: { image: marhaban }
     },
     {
       title: "Tech Interview Prep",
       description: "A technical assignment for a software engineering position. This is front-end application.",
-      technologies: ["JavaScript", "JavaScript", "HTML", "CSS"],
+      technologies: ["JavaScript", "HTML", "CSS"],
       type: [ProjectType.FRONTEND],
       githubUrl: "https://github.com/Lsimelus/TechAssessment",
       date: "Feb 2023",
-      media: { image: techPic },
-      featured: true
+      media: { image: techPic }
     }
   ]
-}
-
-// For backwards compatibility
-export const portfolio = {
-  tech: ["FrontEnd", "BackEnd"],
-  projects: portfolioData.projects.map(p => ({
-    name: p.title,
-    stack: p.technologies,
-    end: p.type.includes(ProjectType.FULLSTACK) ? [0, 1] :
-         p.type.includes(ProjectType.FRONTEND) ? [0] : [1],
-    link: p.githubUrl,
-    blurb: p.description,
-    date: p.date,
-    media: p.media
-  }))
 }
 
 // ============================================================================
@@ -257,15 +237,4 @@ export const contactLinks: ContactLinks = {
   linkedin: "https://www.linkedin.com/in/lyndbergh-simelus/",
   phone: "7813508711",
   phoneLink: "tel:+7813508711"
-}
-
-// For backwards compatibility
-export const links = {
-  main: contactLinks.github,
-  site: contactLinks.githubRepo,
-  mail: contactLinks.email,
-  mailto: contactLinks.emailLink,
-  linkedin: contactLinks.linkedin,
-  phone: contactLinks.phone,
-  tel: contactLinks.phoneLink
 }

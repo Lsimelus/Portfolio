@@ -3,14 +3,14 @@ import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import { theme } from './theme';
 import "./App.css";
 import Header from "./components/HeaderSection"
-import About from "./components/AboutSection";
 import Resume from "./components/ResumeSection";
-import Contact from "./components/ContactSection";
 import Portfolio from "./components/PortfolioSection";
+import Skills from "./components/SkillsSection";
+import About from "./components/AboutSection";
+import Contact from "./components/ContactSection";
 import { AlertDiv, alertType } from "./components/Alert"
 
 const App = () => {
-  // Alert hooks and function caller
   const [alertText, setAlertText] = React.useState("")
   const [alertSeverity, setAlertSeverity] = React.useState<alertType>("success")
   const [alertOpen, setAlertOpen] = React.useState(false)
@@ -21,11 +21,10 @@ const App = () => {
     setAlertOpen(true)
   }
 
-  // Section refs for navigation
-  const aboutRef = React.useRef<HTMLElement>(null);
-  const resumeRef = React.useRef<HTMLElement>(null);
-  const portfolioRef = React.useRef<HTMLElement>(null);
-  const contactRef = React.useRef<HTMLElement>(null);
+  React.useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -37,16 +36,13 @@ const App = () => {
           alertText={alertText}
           parentCallback={setAlertOpen}
         />
-        <Header
-          aboutRef={aboutRef}
-          resumeRef={resumeRef}
-          portfolioRef={portfolioRef}
-          contactRef={contactRef}
-        />
-        <About ref={aboutRef} />
-        <Resume ref={resumeRef} />
-        <Portfolio ref={portfolioRef} />
-        <Contact alertCallback={openAlert} ref={contactRef} subjectFilled="" />
+        {/* Page order is recruiter-first: resume → projects → skills → about → contact */}
+        <Header />
+        <Resume />
+        <Portfolio />
+        <Skills />
+        <About />
+        <Contact alertCallback={openAlert} />
       </Box>
     </ThemeProvider>
   );

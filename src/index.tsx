@@ -9,9 +9,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const CaseStudyPage = React.lazy(() => import('./components/CaseStudyPage'));
+
 const routes = (
   <Routes>
     <Route path="/" element={<App />} />
+    <Route path="/projects/:slug" element={<CaseStudyPage />} />
     {process.env.NODE_ENV !== 'production' && (
       <Route
         path="/docs/*"
@@ -23,7 +26,7 @@ const routes = (
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <React.Suspense fallback={null}>{routes}</React.Suspense>
     </BrowserRouter>
   </React.StrictMode>

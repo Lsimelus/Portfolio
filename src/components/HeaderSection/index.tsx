@@ -1,37 +1,30 @@
-import React, { RefObject } from "react";
-import { Box, Container, Typography, Stack, Button, IconButton, useTheme } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import React from "react";
+import { Box, Container, Typography, Stack, Button, IconButton, Chip, Grid, Tooltip, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import CodeIcon from '@mui/icons-material/Code';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import DownloadIcon from '@mui/icons-material/Download';
 import DescriptionIcon from '@mui/icons-material/Description';
-import WorkIcon from '@mui/icons-material/Work';
-import { contactLinks } from "../../data/data";
-import { handleClickScroll } from "../../utils/reusableFunctions";
+import PlaceIcon from '@mui/icons-material/Place';
+import { contactLinks, profile } from "../../data/data";
+import { handleClickScroll, downloadResume, viewResume } from "../../utils/reusableFunctions";
 import Navbar from "../Navbar";
-import ResumeModal from "../ResumeModal";
 
-export interface HeaderProps {
-  aboutRef: RefObject<HTMLElement>,
-  resumeRef: RefObject<HTMLElement>,
-  portfolioRef: RefObject<HTMLElement>,
-  contactRef: RefObject<HTMLElement>
-}
+const quickLinks = [
+  { icon: LinkedInIcon, href: contactLinks.linkedin, label: "LinkedIn" },
+  { icon: GitHubIcon, href: contactLinks.github, label: "GitHub" },
+  { icon: EmailIcon, href: contactLinks.emailLink, label: "Email" },
+];
 
-const newestProjectLink = "https://real-calc-client-blush.vercel.app/"
-
-const Header = (props: HeaderProps) => {
-  const { aboutRef, resumeRef, portfolioRef, contactRef } = props;
+const Header = () => {
   const theme = useTheme();
-  const headerRef = React.useRef<HTMLElement>(null);
-  const [modalOpen, setModalOpen] = React.useState(false);
 
   return (
     <Box
       component="header"
-      ref={headerRef}
       id="Home"
       sx={{
-        minHeight: '100vh',
+        minHeight: { xs: 'auto', md: '92vh' },
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
@@ -39,18 +32,9 @@ const Header = (props: HeaderProps) => {
         background: `linear-gradient(135deg, ${theme.palette.background.default} 0%, ${theme.palette.background.paper} 100%)`,
       }}
     >
-      {/* Modern gradient mesh background */}
       <Box className="gradient-mesh-bg" />
 
-      <Navbar
-        aboutRef={aboutRef}
-        resumeRef={resumeRef}
-        portfolioRef={portfolioRef}
-        contactRef={contactRef}
-        headerRef={headerRef}
-      />
-
-      <ResumeModal getModal={modalOpen} setModal={setModalOpen} />
+      <Navbar />
 
       <Container
         maxWidth="lg"
@@ -59,117 +43,118 @@ const Header = (props: HeaderProps) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
           position: 'relative',
           zIndex: 1,
-          textAlign: 'center',
-          py: { xs: 8, md: 12 },
+          textAlign: 'left',
+          pt: { xs: 14, md: 16 },
+          pb: { xs: 8, md: 10 },
         }}
       >
         <Box className="fade-in">
-          <Typography
-            variant="h1"
-            sx={{
-              mb: 2,
-              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontWeight: 800,
-            }}
-          >
-            Hi, I'm Lyndbergh
+          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
+            <Chip
+              size="small"
+              label={profile.availability}
+              sx={{
+                bgcolor: `${theme.palette.success.main}1A`,
+                color: theme.palette.success.main,
+                fontWeight: 600,
+                '&::before': {
+                  content: '""',
+                  width: 8,
+                  height: 8,
+                  ml: 1.25,
+                  borderRadius: '50%',
+                  bgcolor: theme.palette.success.main,
+                },
+              }}
+            />
+            <Chip size="small" icon={<PlaceIcon />} label={profile.location} variant="outlined" />
+          </Stack>
+
+          <Typography variant="h1" sx={{ fontWeight: 800, mb: 1 }}>
+            {profile.name}
           </Typography>
 
           <Typography
             variant="h3"
-            className="fade-in-delay-1"
             sx={{
-              mb: 6,
-              color: theme.palette.text.secondary,
-              fontWeight: 500,
+              mb: 3,
+              fontWeight: 600,
+              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            Full-Stack Software Engineer
+            {profile.title}
+          </Typography>
+
+          <Typography
+            variant="body1"
+            className="fade-in-delay-1"
+            sx={{ fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'text.secondary', maxWidth: 720, mb: 5 }}
+          >
+            {profile.pitch}
           </Typography>
 
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={2}
+            alignItems={{ xs: 'stretch', sm: 'center' }}
             className="fade-in-delay-2"
-            sx={{
-              mb: 4,
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
+            sx={{ mb: 7 }}
           >
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<GitHubIcon />}
-              onClick={() => window.open(contactLinks.github, "_blank")}
-            >
-              GitHub
+            <Button variant="contained" size="large" startIcon={<DownloadIcon />} onClick={downloadResume}>
+              Download Resume
             </Button>
-
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<CodeIcon />}
-              onClick={() => window.open(newestProjectLink, "_blank")}
-              sx={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #5568d3 0%, #64408a 100%)',
-                },
-              }}
-            >
-              Latest Project
-            </Button>
-
-            <Button
-              variant="outlined"
-              size="large"
-              startIcon={<DescriptionIcon />}
-              onClick={() => setModalOpen(true)}
-            >
+            <Button variant="outlined" size="large" startIcon={<DescriptionIcon />} onClick={viewResume}>
               View Resume
             </Button>
-
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<WorkIcon />}
-              onClick={() => handleClickScroll("Contact")}
-              sx={{
-                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #3d8fd3 0%, #00c9d4 100%)',
-                },
-              }}
-            >
-              Hire Me
+            <Button variant="text" size="large" onClick={() => handleClickScroll("Contact")}>
+              Get in touch →
             </Button>
+            <Stack direction="row" spacing={0.5} sx={{ pl: { sm: 1 } }}>
+              {quickLinks.map(({ icon: Icon, href, label }) => (
+                <Tooltip title={label} key={label}>
+                  <IconButton
+                    component="a"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    sx={{ color: 'text.primary' }}
+                  >
+                    <Icon />
+                  </IconButton>
+                </Tooltip>
+              ))}
+            </Stack>
           </Stack>
 
-          <IconButton
-            className="fade-in-delay-3"
-            onClick={() => handleClickScroll("About")}
-            sx={{
-              mt: 4,
-              animation: 'bounce 2s infinite',
-              '@keyframes bounce': {
-                '0%, 100%': {
-                  transform: 'translateY(0)',
-                },
-                '50%': {
-                  transform: 'translateY(-10px)',
-                },
-              },
-            }}
-          >
-            <KeyboardArrowDownIcon fontSize="large" />
-          </IconButton>
+          <Grid container spacing={2} className="fade-in-delay-3">
+            {profile.stats.map((stat) => (
+              <Grid item xs={12} sm={6} md={4} key={stat.label}>
+                <Box
+                  sx={{
+                    p: 2.5,
+                    height: '100%',
+                    borderRadius: 3,
+                    bgcolor: 'rgba(255,255,255,0.7)',
+                    border: `1px solid ${theme.palette.divider}`,
+                    backdropFilter: 'blur(6px)',
+                  }}
+                >
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: 'primary.main' }}>
+                    {stat.value}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {stat.label}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </Container>
     </Box>
