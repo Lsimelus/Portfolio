@@ -30,10 +30,9 @@ export const profile: ProfileData = {
   stats: [
     { value: "5+", label: "years shipping production software" },
     { value: "PCI checkout", label: "compliant payment experience — card data never touches app storage" },
-    { value: "Quote → checkout", label: "customer-facing flow, built end to end" },
-    { value: "Large-scale migrations", label: "broke a legacy pricing library into 9 reusable packages, in small steps that never broke the apps using it" },
-    { value: "Rules as data", label: "moved insurance pricing rules out of code into a versioned database, so changes ship without a code release" },
-    { value: "500+", label: "pull requests reviewed" },
+    { value: "Quote → checkout", label: "5+ third-party insurer integrations, quoting and selling their products end to end" },
+    { value: "Large-scale migrations", label: "broke a legacy pricing library into 10+ reusable packages, in small steps that never broke the apps using it" },
+    { value: "Rules as data + AI", label: "moved insurance pricing rules out of code into a versioned database, then built an AWS Bedrock AI agent that answers questions about them" },
   ],
 }
 
