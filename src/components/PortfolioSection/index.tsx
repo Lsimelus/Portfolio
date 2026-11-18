@@ -70,7 +70,7 @@ const Portfolio = () => {
         <SectionHeader
           eyebrow="Recent work"
           title="Projects"
-          subtitle="Full-stack applications I've designed, built, and deployed — each with a live demo and source code."
+          subtitle="Full-stack applications I've designed, built, and shipped."
         />
 
         <Grid container spacing={4}>

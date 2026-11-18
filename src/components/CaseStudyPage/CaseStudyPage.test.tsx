@@ -23,10 +23,18 @@ describe('CaseStudyPage', () => {
   it.each(projects.map((p) => [p.slug, p]))('renders the %s case study', (slug, project) => {
     renderAt(`/projects/${slug}`);
     expect(screen.getByRole('heading', { level: 1, name: project.name })).toBeInTheDocument();
-    project.overview.decisions.forEach((d) => expect(screen.getByText(d)).toBeInTheDocument());
-    expect(screen.getByTestId('markdown')).toBeInTheDocument();
+    const decisions = project.caseStudy?.decisions ?? project.overview.decisions;
+    decisions.forEach((d) => expect(screen.getByText(d)).toBeInTheDocument());
+    // The public page shows the short case study, not the full study notes
+    const publicContent = project.caseStudy?.content ?? project.content;
+    expect(screen.getByTestId('markdown')).toHaveTextContent(String(publicContent.length));
     expect(screen.getByRole('link', { name: /back to portfolio/i })).toHaveAttribute('href', '/#Projects');
     expect(document.title).toContain(project.name);
+  });
+
+  it('keeps the AWS account-approval story off the public Real Calc page', () => {
+    renderAt('/projects/real-calc');
+    expect(document.body.textContent).not.toMatch(/rejected|Anthropic/i);
   });
 
   it('restores the page title when leaving', () => {

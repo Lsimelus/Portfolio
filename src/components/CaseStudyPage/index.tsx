@@ -84,7 +84,7 @@ const CaseStudyPage = () => {
             Key decisions
           </Typography>
           <Box component="ul" sx={{ pl: 3, mb: 6, '& li': { mb: 1.5 } }}>
-            {project.overview.decisions.map((d) => (
+            {(project.caseStudy?.decisions ?? project.overview.decisions).map((d) => (
               <Typography component="li" key={d} variant="body1" color="text.secondary">
                 {d}
               </Typography>
@@ -92,9 +92,9 @@ const CaseStudyPage = () => {
           </Box>
 
           <Typography variant="h5" component="h2" sx={{ fontWeight: 700, mb: 2 }}>
-            Architecture notes
+            {project.caseStudy ? 'How it works' : 'Architecture notes'}
           </Typography>
-          <MarkdownView content={project.content} />
+          <MarkdownView content={project.caseStudy?.content ?? project.content} />
         </Container>
       </Box>
     </ThemeProvider>

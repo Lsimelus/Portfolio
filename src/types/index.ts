@@ -19,6 +19,11 @@ export interface ProfileData {
 export interface AboutData {
   /** Paragraphs rendered in the About section */
   paragraphs: string[];
+  /** "What I'm looking for" callout for recruiters */
+  lookingFor: {
+    summary: string;
+    points: string[];
+  };
 }
 
 export interface EducationItem {

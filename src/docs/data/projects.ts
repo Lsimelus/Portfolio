@@ -1,4 +1,4 @@
-import { content as realCalcContent } from "../content/real-calc";
+import { content as realCalcContent, caseStudy as realCalcCaseStudy } from "../content/real-calc";
 import { content as abchealthContent } from "../content/abchealth";
 
 export interface ProjectOverview {
@@ -16,7 +16,13 @@ export interface ProjectDoc {
   repoUrl?: string;
   liveUrl?: string;
   overview: ProjectOverview;
+  /** Full study notes, shown on the dev-only /docs page */
   content: string;
+  /** Short recruiter-facing version for the public /projects/:slug page */
+  caseStudy?: {
+    decisions: string[];
+    content: string;
+  };
 }
 
 export const projects: ProjectDoc[] = [
@@ -27,7 +33,6 @@ export const projects: ProjectDoc[] = [
     color: "#3380FF",
     summary:
       "Mortgage/affordability calculator and location explorer. Redux-driven questionnaire, a FastAPI backend that ranks ~29,700 US towns by a weighted multi-factor score (affordability, growth, rent yield, taxes, safety, FEMA disaster risk), and a county→metro crosswalk that fixed real data coverage from ~3% to ~47%.",
-    repoUrl: "https://github.com/Lsimelus/real-calc-client",
     liveUrl: "https://real-calc-client-blush.vercel.app/",
     overview: {
       stack: ["Next.js (App Router)", "Redux Toolkit", "FastAPI", "PostgreSQL (Neon)", "Vercel"],
@@ -45,6 +50,14 @@ export const projects: ProjectDoc[] = [
       ],
     },
     content: realCalcContent,
+    caseStudy: {
+      decisions: [
+        "Matched towns to Zillow's metro-only data through a county → metro crosswalk built from official Census files, instead of by town name — raising real growth-data coverage from ~3% to ~47% of towns",
+        "Made missing data visible: each factor reports whether real data exists, the UI shows \"N/A\" instead of a made-up percentage, and towns missing data on a factor the user prioritized rank lower",
+        "Removed features that weren't pulling their weight (an AI chat and a saved-calculations sign-in) instead of leaving them half-working — after first locking down an endpoint that could expose saved data",
+      ],
+      content: realCalcCaseStudy,
+    },
   },
   {
     slug: "abchealth",
@@ -53,7 +66,6 @@ export const projects: ProjectDoc[] = [
     color: "#2DC85D",
     summary:
       "Waitlist/landing page backed by a real full-stack app: Google OAuth signup, founding-member numbering, referral attribution, and a role-gated publisher dashboard with a scheduled email job.",
-    repoUrl: "https://github.com/Lsimelus/abchealth-expressjs",
     liveUrl: "https://abchealth-expressjs.vercel.app/",
     overview: {
       stack: ["Express.js", "Passport.js (Google OAuth)", "PostgreSQL", "node-cron", "Vercel"],

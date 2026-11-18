@@ -39,10 +39,16 @@ export const profile: ProfileData = {
 }
 
 export const about: AboutData = {
-  paragraphs: [
-    "I'm a full-stack Software Engineer based in Boston with a deep specialization in secure, high-value systems like payments and enterprise data platforms. At Simply Business, I built the first online checkout for partner insurers from the ground up — a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. I'm most at home with React on the frontend and Ruby on Rails or Python on the backend, and I care about shipping changes in small, reviewable slices that never leave production broken. I'm looking for my next senior full-stack role — I'm based in Boston and open to relocating.",
-    "Outside of work, I take on freelance projects, mostly designing and building user interfaces for clients. As a Haitian-American, I love exploring diverse cultures, languages, traditions, and histories. After four years of track and field, running and martial arts are still my favorite ways to stay active.",
-  ],
+  paragraphs: [],
+  lookingFor: {
+    summary: "A senior full-stack engineering role where I own features end to end — from the database and APIs to the React UI customers use. I'm based in Boston and open to relocating.",
+    points: [
+      "Products where correctness and trust matter: payments, identity and access, and data platforms",
+      "Turning complex business rules and legacy systems into clean, well-tested services",
+      "Applying AI to real workflows, with people kept in the loop",
+      "A team that ships in small, reviewable steps and values mentoring and code review",
+    ],
+  },
 }
 
 // ============================================================================
@@ -194,6 +200,17 @@ export const technologies: Technology[] = [
 export const portfolioData: PortfolioData = {
   projects: [
     {
+      title: "REAL Estate Calculator",
+      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home. Backend pre-joins 7 external data APIs and 15+ government/Zillow datasets into PostgreSQL for sub-200ms location ranking.",
+      technologies: ["Next.js", "TypeScript", "Redux", "Python", "SQL"],
+      type: [ProjectType.FULLSTACK],
+      liveUrl: "https://real-calc-client-blush.vercel.app/",
+      caseStudySlug: "real-calc",
+      date: "2025",
+      media: { image: realEstate },
+      featured: true
+    },
+    {
       title: "Music Video Playlist",
       description: "Turns an Apple Music playlist into a YouTube Music playlist of official music videos. A Python matching engine scores search results to reject lyric videos, remixes and live versions, handling 300 songs in about 45 seconds; a Rails front end previews matches, then saves through Google OAuth and the YouTube Data API.",
       technologies: ["Python", "Ruby on Rails", "YouTube Data API", "OAuth 2.0", "Docker", "Caddy"],
@@ -211,17 +228,6 @@ export const portfolioData: PortfolioData = {
       caseStudySlug: "abchealth",
       date: "2025",
       media: { image: abc },
-      featured: true
-    },
-    {
-      title: "REAL Estate Calculator",
-      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of affordability and profitability. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home. Backend pre-joins 7 external data APIs and 15+ government/Zillow datasets into PostgreSQL for sub-200ms location ranking.",
-      technologies: ["Next.js", "TypeScript", "Redux", "Python", "SQL"],
-      type: [ProjectType.FULLSTACK],
-      liveUrl: "https://real-calc-client-blush.vercel.app/",
-      caseStudySlug: "real-calc",
-      date: "2025",
-      media: { image: realEstate },
       featured: true
     },
     {
