@@ -9,6 +9,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import { contactLinks, profile } from "../../data/data";
 import { handleClickScroll, downloadResume, viewResume } from "../../utils/reusableFunctions";
 import Navbar from "../Navbar";
+import profilepic from "../../assets/profile.webp";
 
 const quickLinks = [
   { icon: LinkedInIcon, href: contactLinks.linkedin, label: "LinkedIn" },
@@ -51,86 +52,111 @@ const Header = () => {
         }}
       >
         <Box className="fade-in">
-          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
-            <Chip
-              size="small"
-              label={profile.availability}
-              sx={{
-                bgcolor: `${theme.palette.success.main}1A`,
-                color: theme.palette.success.main,
-                fontWeight: 600,
-                '&::before': {
-                  content: '""',
-                  width: 8,
-                  height: 8,
-                  ml: 1.25,
-                  borderRadius: '50%',
-                  bgcolor: theme.palette.success.main,
-                },
-              }}
-            />
-            <Chip size="small" icon={<PlaceIcon />} label={profile.location} variant="outlined" />
-          </Stack>
+          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center" sx={{ mb: 7 }}>
+            <Grid item xs={12} md={8}>
+              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
+                <Chip
+                  size="small"
+                  label={profile.availability}
+                  sx={{
+                    height: 'auto',
+                    py: 0.5,
+                    maxWidth: '100%',
+                    '& .MuiChip-label': { whiteSpace: 'normal' },
+                    bgcolor: `${theme.palette.success.main}1A`,
+                    color: theme.palette.success.main,
+                    fontWeight: 600,
+                    '&::before': {
+                      content: '""',
+                      width: 8,
+                      height: 8,
+                      ml: 1.25,
+                      borderRadius: '50%',
+                      bgcolor: theme.palette.success.main,
+                    },
+                  }}
+                />
+                <Chip size="small" icon={<PlaceIcon />} label={profile.location} variant="outlined" />
+              </Stack>
 
-          <Typography variant="h1" sx={{ fontWeight: 800, mb: 1 }}>
-            {profile.name}
-          </Typography>
+              <Typography variant="h1" sx={{ fontWeight: 800, mb: 1 }}>
+                {profile.name}
+              </Typography>
 
-          <Typography
-            variant="h3"
-            sx={{
-              mb: 3,
-              fontWeight: 600,
-              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {profile.title}
-          </Typography>
+              <Typography
+                variant="h3"
+                sx={{
+                  mb: 3,
+                  fontWeight: 600,
+                  background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                {profile.title}
+              </Typography>
 
-          <Typography
-            variant="body1"
-            className="fade-in-delay-1"
-            sx={{ fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'text.secondary', maxWidth: 720, mb: 5 }}
-          >
-            {profile.pitch}
-          </Typography>
+              <Typography
+                variant="body1"
+                className="fade-in-delay-1"
+                sx={{ fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'text.secondary', maxWidth: 720, mb: 5 }}
+              >
+                {profile.pitch}
+              </Typography>
 
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={2}
-            alignItems={{ xs: 'stretch', sm: 'center' }}
-            className="fade-in-delay-2"
-            sx={{ mb: 7 }}
-          >
-            <Button variant="contained" size="large" startIcon={<DownloadIcon />} onClick={downloadResume}>
-              Download Resume
-            </Button>
-            <Button variant="outlined" size="large" startIcon={<DescriptionIcon />} onClick={viewResume}>
-              View Resume
-            </Button>
-            <Button variant="text" size="large" onClick={() => handleClickScroll("Contact")}>
-              Get in touch →
-            </Button>
-            <Stack direction="row" spacing={0.5} sx={{ pl: { sm: 1 } }}>
-              {quickLinks.map(({ icon: Icon, href, label }) => (
-                <Tooltip title={label} key={label}>
-                  <IconButton
-                    component="a"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    sx={{ color: 'text.primary' }}
-                  >
-                    <Icon />
-                  </IconButton>
-                </Tooltip>
-              ))}
-            </Stack>
-          </Stack>
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={2}
+                alignItems={{ xs: 'stretch', sm: 'center' }}
+                className="fade-in-delay-2"
+              >
+                <Button variant="contained" size="large" startIcon={<DownloadIcon />} onClick={downloadResume}>
+                  Download Resume
+                </Button>
+                <Button variant="outlined" size="large" startIcon={<DescriptionIcon />} onClick={viewResume}>
+                  View Resume
+                </Button>
+                <Button variant="text" size="large" onClick={() => handleClickScroll("Contact")}>
+                  Get in touch →
+                </Button>
+                <Stack direction="row" spacing={0.5} sx={{ pl: { sm: 1 } }}>
+                  {quickLinks.map(({ icon: Icon, href, label }) => (
+                    <Tooltip title={label} key={label}>
+                      <IconButton
+                        component="a"
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={label}
+                        sx={{ color: 'text.primary' }}
+                      >
+                        <Icon />
+                      </IconButton>
+                    </Tooltip>
+                  ))}
+                </Stack>
+              </Stack>
+            </Grid>
+
+            <Grid item md={4} sx={{ display: { xs: 'none', md: 'block' } }}>
+              <Box
+                component="img"
+                src={profilepic}
+                alt={profile.name}
+                sx={{
+                  width: '100%',
+                  maxWidth: 340,
+                  aspectRatio: '4 / 5',
+                  objectFit: 'cover',
+                  display: 'block',
+                  mx: 'auto',
+                  borderRadius: 4,
+                  boxShadow: theme.shadows[6],
+                }}
+              />
+            </Grid>
+          </Grid>
 
           <Grid container spacing={2} className="fade-in-delay-3">
             {profile.stats.map((stat) => (

@@ -20,6 +20,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { portfolioData } from "../../data/data"
 import { PortfolioProject } from "../../types";
 import SectionHeader from "../SectionHeader";
+import RichText from "../RichText";
 
 const TechChips = ({ technologies }: { technologies: string[] }) => (
   <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -64,7 +65,7 @@ const Portfolio = () => {
     <Box
       component="section"
       id="Projects"
-      sx={{ minHeight: 'auto', py: { xs: 10, md: 12 }, bgcolor: theme.palette.background.default }}
+      sx={{ minHeight: 'auto', py: { xs: 7, md: 12 }, bgcolor: theme.palette.background.default }}
     >
       <Container maxWidth="lg">
         <SectionHeader
@@ -85,7 +86,7 @@ const Portfolio = () => {
                   loading="lazy"
                   sx={{ objectFit: 'cover', objectPosition: 'top', bgcolor: theme.palette.grey[100] }}
                 />
-                <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'left' }}>
+                <CardContent sx={{ flexGrow: 1, p: { xs: 2.5, sm: 3 }, textAlign: 'left' }}>
                   <Stack direction="row" justifyContent="space-between" alignItems="baseline" spacing={2} sx={{ mb: 1 }}>
                     <Typography variant="h5" sx={{ fontWeight: 700 }}>
                       {project.title}
@@ -95,11 +96,11 @@ const Portfolio = () => {
                     </Typography>
                   </Stack>
                   <Typography variant="body2" sx={{ mb: 2.5, lineHeight: 1.7 }}>
-                    {project.description}
+                    <RichText text={project.description} />
                   </Typography>
                   <TechChips technologies={project.technologies} />
                 </CardContent>
-                <CardActions sx={{ px: 3, pb: 3, pt: 0, gap: 1 }}>
+                <CardActions disableSpacing sx={{ px: { xs: 2.5, sm: 3 }, pb: 3, pt: 0, gap: 1, flexWrap: 'wrap', '& .MuiButton-root': { whiteSpace: 'nowrap' } }}>
                   <ProjectLinks project={project} />
                 </CardActions>
               </Card>

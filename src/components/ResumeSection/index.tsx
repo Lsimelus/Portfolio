@@ -8,6 +8,7 @@ import { resumeData } from "../../data/data"
 import { WorkExperience } from "../../types";
 import { downloadResume } from "../../utils/reusableFunctions";
 import SectionHeader from "../SectionHeader";
+import RichText from "../RichText";
 
 /** Number of bullets shown per role before "Show more". */
 const VISIBLE_BULLETS = 4;
@@ -25,7 +26,7 @@ const JobCard = ({ job, isCurrent }: { job: WorkExperience; isCurrent: boolean }
         '&:hover': { transform: 'none' },
       }}
     >
-      <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+      <CardContent sx={{ p: { xs: 2.5, sm: 3, md: 4 } }}>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           justifyContent="space-between"
@@ -45,10 +46,10 @@ const JobCard = ({ job, isCurrent }: { job: WorkExperience; isCurrent: boolean }
           </Typography>
         </Stack>
 
-        <Box component="ul" sx={{ pl: 3, m: 0, textAlign: 'left', '& li': { mb: 1.25 } }}>
+        <Box component="ul" sx={{ pl: { xs: 2.5, sm: 3 }, m: 0, textAlign: 'left', '& li': { mb: 1.25 } }}>
           {bullets.map((achievement, idx) => (
             <Typography component="li" key={idx} variant="body1" color="text.secondary">
-              {achievement}
+              <RichText text={achievement} />
             </Typography>
           ))}
         </Box>
@@ -82,7 +83,7 @@ const Resume = () => {
     <Box
       component="section"
       id="Resume"
-      sx={{ minHeight: 'auto', py: { xs: 10, md: 12 }, bgcolor: theme.palette.background.paper }}
+      sx={{ minHeight: 'auto', py: { xs: 7, md: 12 }, bgcolor: theme.palette.background.paper }}
     >
       <Container maxWidth="lg">
         <SectionHeader

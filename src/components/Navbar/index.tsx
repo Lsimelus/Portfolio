@@ -1,5 +1,7 @@
 import React from "react";
-import { AppBar, Toolbar, Box, Button, Container, Typography, useScrollTrigger, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, Container, Typography, IconButton, Drawer, List, ListItemButton, ListItemText, useScrollTrigger, useTheme } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import DownloadIcon from '@mui/icons-material/Download';
 import { handleClickScroll, downloadResume } from "../../utils/reusableFunctions"
 import { profile } from "../../data/data";
@@ -42,6 +44,12 @@ const Navbar = () => {
   const theme = useTheme();
   const active = useActiveSection(sectionIds);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const goTo = (id: string) => {
+    setMenuOpen(false);
+    handleClickScroll(id);
+  };
 
   return (
     <AppBar
@@ -61,7 +69,8 @@ const Navbar = () => {
             component="button"
             onClick={() => handleClickScroll("Home")}
             sx={{
-              display: { xs: 'none', md: 'block' },
+              display: 'block',
+              p: 0,
               border: 0,
               background: 'none',
               cursor: 'pointer',
@@ -76,14 +85,11 @@ const Navbar = () => {
 
           <Box
             component="nav"
+            aria-label="Sections"
             sx={{
-              display: 'flex',
+              display: { xs: 'none', md: 'flex' },
               gap: 0.5,
-              mx: { xs: 0, md: 'auto' },
-              flex: { xs: 1, md: 'none' },
-              overflowX: 'auto',
-              scrollbarWidth: 'none',
-              '&::-webkit-scrollbar': { display: 'none' },
+              mx: 'auto',
             }}
           >
             {navSections.map(({ id, label }) => (
@@ -95,7 +101,7 @@ const Navbar = () => {
                   color: active === id ? theme.palette.primary.main : theme.palette.text.primary,
                   fontWeight: active === id ? 600 : 500,
                   fontSize: '0.9375rem',
-                  px: { xs: 1.25, sm: 2 },
+                  px: 2,
                   py: 1,
                   minWidth: 0,
                   flexShrink: 0,
@@ -132,8 +138,52 @@ const Navbar = () => {
           >
             Resume
           </Button>
+
+          <IconButton
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+            sx={{ display: { xs: 'inline-flex', md: 'none' }, ml: 'auto', color: 'inherit' }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </Container>
+
+      <Drawer
+        anchor="right"
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        PaperProps={{ sx: { width: 'min(80vw, 300px)', p: 2 } }}
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <IconButton aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <List component="nav" aria-label="Sections">
+          {navSections.map(({ id, label }) => (
+            <ListItemButton
+              key={id}
+              selected={active === id}
+              onClick={() => goTo(id)}
+              sx={{ borderRadius: 2, py: 1.5 }}
+            >
+              <ListItemText
+                primary={label}
+                primaryTypographyProps={{ fontWeight: active === id ? 700 : 500, fontSize: '1.1rem' }}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+        <Button
+          variant="contained"
+          startIcon={<DownloadIcon />}
+          onClick={() => { setMenuOpen(false); downloadResume(); }}
+          sx={{ mt: 2 }}
+        >
+          Download Resume
+        </Button>
+      </Drawer>
     </AppBar>
   );
 };

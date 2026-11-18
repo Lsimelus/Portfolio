@@ -99,7 +99,7 @@ const Contact = (props: ContactProps) => {
       id="Contact"
       sx={{
         minHeight: 'auto',
-        py: { xs: 10, md: 12 },
+        py: { xs: 7, md: 12 },
         position: 'relative',
         overflow: 'hidden',
         bgcolor: theme.palette.background.default,

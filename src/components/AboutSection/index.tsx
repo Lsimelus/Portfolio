@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Container, Grid, Typography, Button, useTheme } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import profilepic from "../../assets/profile.webp"
-import { about, profile } from "../../data/data"
+import { about } from "../../data/data"
 import SectionHeader from "../SectionHeader";
+import RichText from "../RichText";
 import { handleClickScroll } from "../../utils/reusableFunctions";
 
 const About = () => {
@@ -13,28 +13,11 @@ const About = () => {
     <Box
       component="section"
       id="About"
-      sx={{ minHeight: 'auto', py: { xs: 10, md: 12 }, bgcolor: theme.palette.background.default }}
+      sx={{ minHeight: 'auto', py: { xs: 7, md: 12 }, bgcolor: theme.palette.background.default }}
     >
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
-          <Grid item xs={12} md={4}>
-            <Box
-              component="img"
-              src={profilepic}
-              alt={profile.name}
-              loading="lazy"
-              sx={{
-                width: '100%',
-                maxWidth: 360,
-                display: 'block',
-                mx: 'auto',
-                borderRadius: 4,
-                boxShadow: theme.shadows[4],
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12}>
             <SectionHeader eyebrow="About me" title="What I'm looking for" />
             {about.paragraphs.map((paragraph, idx) => (
               <Typography
@@ -59,12 +42,12 @@ const About = () => {
               }}
             >
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.7, mb: 2 }}>
-                {about.lookingFor.summary}
+                <RichText text={about.lookingFor.summary} />
               </Typography>
               <Box component="ul" sx={{ pl: 3, m: 0, '& li': { mb: 1 } }}>
                 {about.lookingFor.points.map((point) => (
                   <Typography component="li" key={point} variant="body1" color="text.secondary">
-                    {point}
+                    <RichText text={point} />
                   </Typography>
                 ))}
               </Box>
