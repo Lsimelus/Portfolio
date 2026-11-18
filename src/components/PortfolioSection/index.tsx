@@ -48,9 +48,11 @@ const ProjectLinks = ({ project }: { project: PortfolioProject }) => (
         Case study
       </Button>
     )}
-    <Button size="small" startIcon={<GitHubIcon />} href={project.githubUrl} target="_blank" rel="noreferrer">
-      Code
-    </Button>
+    {project.githubUrl && (
+      <Button size="small" startIcon={<GitHubIcon />} href={project.githubUrl} target="_blank" rel="noreferrer">
+        Code
+      </Button>
+    )}
   </>
 );
 

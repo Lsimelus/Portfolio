@@ -70,7 +70,8 @@ export interface PortfolioProject {
   description: string;
   technologies: string[];
   type: ProjectType[];
-  githubUrl: string;
+  /** Omit for private repositories */
+  githubUrl?: string;
   liveUrl?: string;
   date: string;
   media: ProjectMedia;

@@ -3,6 +3,7 @@ import marhaban from "../assets/workImages/marhaban.webp"
 import techPic from "../assets/workImages/tech.webp"
 import realEstate from "../assets/workImages/realEstate.webp"
 import abc from "../assets/workImages/abc.webp"
+import playlistVideo from "../assets/workImages/playlistVideo.webp"
 import {
   AboutData,
   ProfileData,
@@ -28,12 +29,12 @@ export const profile: ProfileData = {
   pitch: "I build secure, high-value systems — payments, auth, and data platforms — end to end with React, Ruby on Rails, Python, and AWS.",
   availability: "Open to senior full-stack roles · Boston or relocation",
   stats: [
-    { value: "5+", label: "years shipping production software" },
-    { value: "PCI checkout", label: "on-site and phone checkout — card data kept out of our systems and out of PCI scope" },
-    { value: "Quote → checkout", label: "5+ third-party insurer integrations, quoting and selling their products end to end" },
-    { value: "Large-scale migrations", label: "broke a legacy pricing library into 10+ reusable packages, in small steps that never broke the apps using it" },
-    { value: "Rules as data + AI", label: "moved insurance pricing rules out of code into a versioned database, then built an AI assistant on AWS Bedrock that answers questions about them and tests changes against real past quotes" },
-    { value: "10% less drop-off", label: "A/B-tested a price-first flow — 65% of workers' comp applicants see a price right away" },
+    { value: "5 years", label: "shipping production software at companies acquired by S&P 500 firms — Travelers and Mastercard" },
+    { value: "Payments & checkout", label: "built an on-site and phone checkout integrating third-party partner APIs end to end — card data kept out of PCI scope, no duplicate charges against slow partner systems" },
+    { value: "SSO + role-based access", label: "designed sign-in and permissions end to end — Okta, AWS Cognito, OIDC/PKCE and policy-based roles, provisioned with Terraform" },
+    { value: "Business logic as data + AI", label: "moved hard-coded business rules into a versioned database, then built an AI assistant that explains them and safely tests changes against real historical data" },
+    { value: "Large-scale refactoring", label: "split a legacy monolithic library into 10+ reusable packages with zero downtime for the apps that depend on it" },
+    { value: "Retiring legacy apps", label: "rebuilt a legacy platform used daily by 50+ operations staff, redesigning its workflows through user observation, prototyping and usability testing" },
   ],
 }
 
@@ -192,6 +193,15 @@ export const technologies: Technology[] = [
 
 export const portfolioData: PortfolioData = {
   projects: [
+    {
+      title: "Music Video Playlist",
+      description: "Turns an Apple Music playlist into a YouTube Music playlist of official music videos. A Python matching engine scores search results to reject lyric videos, remixes and live versions, handling 300 songs in about 45 seconds; a Rails front end previews matches, then saves through Google OAuth and the YouTube Data API.",
+      technologies: ["Python", "Ruby on Rails", "YouTube Data API", "OAuth 2.0", "Docker", "Caddy"],
+      type: [ProjectType.FULLSTACK],
+      date: "2026",
+      media: { image: playlistVideo },
+      featured: true
+    },
     {
       title: "ABChealth",
       description: "A waitlist/landing page for ABChealth - a social media platform combining goal setting, blogging, and community engagement for personal growth - backed by a full Express + PostgreSQL application. Includes Google OAuth signup, founding-member numbering, referral tracking, and a role-gated publisher dashboard.",
