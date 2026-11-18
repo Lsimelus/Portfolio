@@ -231,7 +231,7 @@ const Contact = (props: ContactProps) => {
                   boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.15)',
                 }}
               >
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 3 }}>
+                <Typography variant="h6" component="h3" sx={{ fontWeight: 700, mb: 3 }}>
                   Contact Information
                 </Typography>
 
@@ -283,7 +283,7 @@ const Contact = (props: ContactProps) => {
                   border: `1px solid ${theme.palette.divider}`,
                 }}
               >
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+                <Typography variant="h6" component="h3" sx={{ fontWeight: 700, mb: 0.5 }}>
                   Connect With Me
                 </Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>

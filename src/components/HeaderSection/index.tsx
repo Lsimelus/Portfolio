@@ -85,6 +85,7 @@ const Header = () => {
 
               <Typography
                 variant="h3"
+                component="p"
                 sx={{
                   mb: 3,
                   fontWeight: 600,
@@ -171,7 +172,7 @@ const Header = () => {
                     backdropFilter: 'blur(6px)',
                   }}
                 >
-                  <Typography variant="h4" sx={{ fontWeight: 800, color: 'primary.main' }}>
+                  <Typography variant="h4" component="h2" sx={{ fontWeight: 800, color: 'primary.main' }}>
                     {stat.value}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">

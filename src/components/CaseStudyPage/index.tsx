@@ -61,7 +61,7 @@ const CaseStudyPage = () => {
               <Grid item xs={6} md={3} key={m.label}>
                 <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                   <CardContent>
-                    <Typography variant="h6" color="primary" sx={{ fontWeight: 800, lineHeight: 1.3 }}>
+                    <Typography variant="h6" component="p" color="primary" sx={{ fontWeight: 800, lineHeight: 1.3 }}>
                       {m.value}
                     </Typography>
                     <Typography variant="body2">{m.label}</Typography>
@@ -91,9 +91,11 @@ const CaseStudyPage = () => {
             ))}
           </Box>
 
-          <Typography variant="h5" component="h2" sx={{ fontWeight: 700, mb: 2 }}>
-            {project.caseStudy ? 'How it works' : 'Architecture notes'}
-          </Typography>
+          {!project.caseStudy && (
+            <Typography variant="h5" component="h2" sx={{ fontWeight: 700, mb: 2 }}>
+              Architecture notes
+            </Typography>
+          )}
           <MarkdownView content={project.caseStudy?.content ?? project.content} />
         </Container>
       </Box>

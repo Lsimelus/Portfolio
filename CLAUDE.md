@@ -32,7 +32,8 @@ The main source code lives in `/src/` with the following organization:
 
 - **`/components/`** - One folder per section, styled with MUI `sx` props
   - Page sections, in order: HeaderSection (hero + Navbar) → ResumeSection → PortfolioSection → SkillsSection → AboutSection → ContactSection
-  - Shared: SectionHeader (eyebrow/title/subtitle), Alert
+  - Shared: SectionHeader (eyebrow/title/subtitle), RichText (renders `**bold**` markup from data.tsx), Alert
+  - Navbar: desktop links + mobile drawer menu (`Open menu` button below `md`)
   - CaseStudyPage - public `/projects/:slug` page, reusing `src/docs/data/projects.ts` content
 
 - **`/data/data.tsx`** - Central content file: `profile` (hero + stats), `about`, `resumeData`, `technologies`, `portfolioData`, `contactLinks`
@@ -51,6 +52,8 @@ The main source code lives in `/src/` with the following organization:
 - **Styling:** Material-UI 5 (emotion) — `sx` props, theme in `src/theme`
 - **HTTP Client:** axios 1.12.2 (for backend API calls)
 - **Routing:** react-router-dom 6 (`/`, `/projects/:slug`, dev-only `/docs/*`); `vercel.json` rewrites deep links to `index.html`
+- **Analytics:** `@vercel/analytics` `<Analytics />` in `src/index.tsx` (enable Web Analytics in the Vercel dashboard)
+- **CI:** `.github/workflows/ci.yml` runs type check, tests and `CI=true` build (lint warnings fail the build) on push/PR
 - **Testing:** Jest + @testing-library/react (`CI=true npx react-scripts test --watchAll=false`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.
 - **Build Tool:** Create React App (react-scripts 5.0.1)
 - **Other:** marked (markdown for case studies)
@@ -92,11 +95,11 @@ The project uses a hybrid styling approach:
 - **CSS files** (App.css, index.css) for global styles
 - Theme customization is possible through MUI's theming system
 
-## Known Issues & Future Work
+## Conventions
 
-From README.md, planned improvements include:
-- Update technologies used for repositories
-- Remove some old projects from College
+- Commit messages use Conventional Commits (`feat:`, `fix:`, `docs:`, `ci:`, `chore:`…); squash each batch of work into one commit.
+- Headings: one `h1` per page, sections are `h2`; use `component` on Typography to keep visual size and semantic level separate.
+- Keep text colors at WCAG AA contrast (Lighthouse accessibility is 100).
 
 ## Deployment
 

@@ -88,7 +88,7 @@ const Portfolio = () => {
                 />
                 <CardContent sx={{ flexGrow: 1, p: { xs: 2.5, sm: 3 }, textAlign: 'left' }}>
                   <Stack direction="row" justifyContent="space-between" alignItems="baseline" spacing={2} sx={{ mb: 1 }}>
-                    <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                    <Typography variant="h5" component="h3" sx={{ fontWeight: 700 }}>
                       {project.title}
                     </Typography>
                     <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>

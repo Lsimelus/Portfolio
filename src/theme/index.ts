@@ -24,7 +24,7 @@ const colors = {
   },
   text: {
     primary: '#0F172A',   // Slate 900
-    secondary: '#64748B', // Slate 500
+    secondary: '#526077', // between Slate 500 and 600: meets WCAG AA on tinted backgrounds
     disabled: '#CBD5E1',  // Slate 300
   },
   // Accent colors
@@ -179,6 +179,12 @@ export const theme = createTheme({
     '0 25px 50px -12px rgb(0 0 0 / 0.25)',
   ],
   components: {
+    MuiTypography: {
+      defaultProps: {
+        // Subtitles are styling, not document headings
+        variantMapping: { subtitle1: 'p', subtitle2: 'p' },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

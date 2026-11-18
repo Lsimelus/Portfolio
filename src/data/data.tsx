@@ -1,6 +1,4 @@
 import port from "../assets/workImages/portfolio.webp"
-import marhaban from "../assets/workImages/marhaban.webp"
-import techPic from "../assets/workImages/tech.webp"
 import realEstate from "../assets/workImages/realEstate.webp"
 import abc from "../assets/workImages/abc.webp"
 import playlistVideo from "../assets/workImages/playlistVideo.webp"
@@ -201,8 +199,8 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "REAL Estate Calculator",
-      description: "This application is designed to provide users with insight into how U.S. real estate markets compare in terms of **affordability and profitability**. It also allows for easy comparison between locations and shows how a loan can be paid off over time, as well as how that affects the equity you build in your home. Backend pre-joins **7 external data APIs and 15+ government/Zillow datasets** into PostgreSQL for **sub-200ms location ranking**.",
-      technologies: ["Next.js", "TypeScript", "Redux", "Python", "SQL"],
+      description: "Answers “what can I afford?” and “where should I buy?” in one flow: a budget-first mortgage breakdown, then a ranking of **~29,700 US towns** on up to 9 weighted factors in **under 200 ms**. Matching towns to Zillow's metro data through Census county files raised real data coverage from **~3% to ~47%**.",
+      technologies: ["Next.js", "TypeScript", "Redux", "Python", "FastAPI", "PostgreSQL"],
       type: [ProjectType.FULLSTACK],
       liveUrl: "https://real-calc-client-blush.vercel.app/",
       caseStudySlug: "real-calc",
@@ -212,7 +210,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Music Video Playlist",
-      description: "Turns an Apple Music playlist into a YouTube Music playlist of **official music videos**. A **Python matching engine** scores search results to reject lyric videos, remixes and live versions, handling **300 songs in about 45 seconds**; a Rails front end previews matches, then saves through **Google OAuth and the YouTube Data API**.",
+      description: "Paste an Apple Music playlist, get back a YouTube Music playlist of the songs' **official music videos**. A **Python matching engine** scores each search result and rejects lyric videos, remixes and live versions, handling **300 songs in about 45 seconds**; a Rails front end previews the matches and saves through **Google OAuth and the YouTube Data API**.",
       technologies: ["Python", "Ruby on Rails", "YouTube Data API", "OAuth 2.0", "Docker", "Caddy"],
       type: [ProjectType.FULLSTACK],
       date: "2026",
@@ -221,8 +219,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "ABChealth",
-      description: "A waitlist/landing page for ABChealth - a social media platform combining goal setting, blogging, and community engagement for personal growth - backed by a full **Express + PostgreSQL** application. Includes **Google OAuth signup**, founding-member numbering, **referral tracking**, and a **role-gated publisher dashboard**.",
-      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Node.js", "Express.js", "SQL"],
+      description: "Launch site and waitlist for a goal-setting and community platform, built as a full **Express + PostgreSQL** app: **Google OAuth signup**, race-free founding-member numbering, **referral tracking** from link click to signup, and a **role-gated publisher dashboard** with scheduled email.",
+      technologies: ["JavaScript", "Tailwind CSS", "Node.js", "Express.js", "Passport.js", "PostgreSQL"],
       type: [ProjectType.FULLSTACK],
       liveUrl: "https://abchealth-expressjs.vercel.app/",
       caseStudySlug: "abchealth",
@@ -232,33 +230,14 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Web Portfolio",
-      description: "The system is built on a modern, full-stack architecture: the interactive frontend uses **React and TypeScript**, while the robust backend is powered by **Python FastAPI**. All user input is securely managed in a **PostgreSQL database**, and the entire application is seamlessly hosted on Vercel.",
-      technologies: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Vercel"],
+      description: "This site: a recruiter-first **React and TypeScript** portfolio with case-study pages, a mobile menu and link previews, covered by **Jest and React Testing Library** and checked by **CI on every push**. The contact form posts to a separate **Python FastAPI** service that stores messages in **PostgreSQL**.",
+      technologies: ["React", "TypeScript", "MUI", "Jest", "FastAPI", "PostgreSQL", "Vercel"],
       type: [ProjectType.FULLSTACK],
-      githubUrl: "https://github.com/Lsimelus/portfolio",
+      githubUrl: "https://github.com/Lsimelus/Portfolio",
       liveUrl: "https://www.lyndbergh.net/",
-      date: "Feb 2023",
+      date: "2026",
       media: { image: port },
       featured: true
-    },
-    {
-      title: "Marhaban",
-      description: "Marhaban is a non-profit organization website focused on expanding the beautiful religion of Islam. The frontend is TypeScript, the backend is Node.js, and contact form responses are saved in MongoDB. News articles are integrated using NewsAPI.",
-      technologies: ["React", "Node.js", "MongoDB", "Render.com", "TypeScript"],
-      type: [ProjectType.FULLSTACK],
-      githubUrl: "https://github.com/Lsimelus/Marhaban",
-      liveUrl: "https://marhaban.vercel.app/",
-      date: "April 2023",
-      media: { image: marhaban }
-    },
-    {
-      title: "Tech Interview Prep",
-      description: "A technical assignment for a software engineering position. This is front-end application.",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      type: [ProjectType.FRONTEND],
-      githubUrl: "https://github.com/Lsimelus/TechAssessment",
-      date: "Feb 2023",
-      media: { image: techPic }
     }
   ]
 }

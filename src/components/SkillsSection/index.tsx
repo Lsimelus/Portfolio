@@ -48,7 +48,7 @@ const Skills = () => {
                   <CardContent sx={{ p: { xs: 2.5, sm: 3 }, textAlign: 'left' }}>
                     <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 2 }}>
                       <Icon color="primary" />
-                      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
                         {category}
                       </Typography>
                     </Stack>

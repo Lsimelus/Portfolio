@@ -34,10 +34,10 @@ const JobCard = ({ job, isCurrent }: { job: WorkExperience; isCurrent: boolean }
           sx={{ mb: 2, textAlign: 'left' }}
         >
           <Box>
-            <Typography variant="h4" sx={{ fontWeight: 700 }}>
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 700 }}>
               {job.position}
             </Typography>
-            <Typography variant="h6" color="primary" sx={{ fontWeight: 500 }}>
+            <Typography variant="h6" component="p" color="primary" sx={{ fontWeight: 500 }}>
               {job.company}
             </Typography>
           </Box>
@@ -105,7 +105,7 @@ const Resume = () => {
 
         <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 3 }}>
           <SchoolIcon color="primary" />
-          <Typography variant="h4" sx={{ fontWeight: 700 }}>
+          <Typography variant="h4" component="h3" sx={{ fontWeight: 700 }}>
             Education
           </Typography>
         </Stack>
@@ -116,7 +116,7 @@ const Resume = () => {
               <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                 <CardContent sx={{ p: 3, textAlign: 'left' }}>
                   <Stack direction="row" justifyContent="space-between" spacing={2}>
-                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                    <Typography variant="h6" component="h4" sx={{ fontWeight: 700 }}>
                       {edu.institution}
                     </Typography>
                     {edu.year && (
