@@ -35,6 +35,6 @@ describe('App', () => {
   it('lists every job and featured project', () => {
     renderApp();
     resumeData.work.forEach((job) => expect(screen.getByText(job.company)).toBeInTheDocument());
-    portfolioData.projects.filter((p) => p.featured).forEach((p) => expect(screen.getByText(p.title)).toBeInTheDocument());
+    portfolioData.projects.filter((p) => p.featured).forEach((p) => expect(screen.getByRole('heading', { name: p.title })).toBeInTheDocument());
   });
 });

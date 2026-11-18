@@ -79,7 +79,10 @@ export interface PortfolioProject {
   githubUrl?: string;
   liveUrl?: string;
   date: string;
-  media: ProjectMedia;
+  /** Screenshot; projects without one get a branded placeholder */
+  media?: ProjectMedia;
+  /** Shows an "In progress" badge */
+  inProgress?: boolean;
   featured?: boolean;
   /** Slug of the public case-study page at /projects/:slug, if one exists */
   caseStudySlug?: string;

@@ -21,6 +21,7 @@ import { portfolioData } from "../../data/data"
 import { PortfolioProject } from "../../types";
 import SectionHeader from "../SectionHeader";
 import RichText from "../RichText";
+import { gradients } from "../../theme";
 
 const TechChips = ({ technologies }: { technologies: string[] }) => (
   <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -71,22 +72,47 @@ const Portfolio = () => {
         <SectionHeader
           eyebrow="Recent work"
           title="Projects"
-          subtitle="Full-stack applications I've designed, built, and shipped."
+          subtitle="Full-stack applications I've designed and built — shipped and in progress."
         />
 
         <Grid container spacing={4}>
           {featured.map((project) => (
             <Grid item xs={12} md={6} key={project.title}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <CardMedia
-                  component="img"
-                  height="240"
-                  image={project.media.image}
-                  alt={`${project.title} screenshot`}
-                  loading="lazy"
-                  sx={{ objectFit: 'cover', objectPosition: 'top', bgcolor: theme.palette.grey[100] }}
-                />
+                {project.media ? (
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={project.media.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                    sx={{ objectFit: 'cover', objectPosition: 'top', bgcolor: theme.palette.grey[100] }}
+                  />
+                ) : (
+                  <Box
+                    aria-hidden
+                    sx={{
+                      height: 240,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      background: gradients.primary,
+                    }}
+                  >
+                    <Typography variant="h4" component="span" sx={{ fontWeight: 800 }}>
+                      {project.title}
+                    </Typography>
+                  </Box>
+                )}
                 <CardContent sx={{ flexGrow: 1, p: { xs: 2.5, sm: 3 }, textAlign: 'left' }}>
+                  {project.inProgress && (
+                    <Chip
+                      label="In progress"
+                      size="small"
+                      sx={{ mb: 1.5, fontWeight: 600, bgcolor: `${theme.palette.warning.main}26`, color: '#92400E' }} // Amber 800: AA contrast on the tinted badge
+                    />
+                  )}
                   <Stack direction="row" justifyContent="space-between" alignItems="baseline" spacing={2} sx={{ mb: 1 }}>
                     <Typography variant="h5" component="h3" sx={{ fontWeight: 700 }}>
                       {project.title}

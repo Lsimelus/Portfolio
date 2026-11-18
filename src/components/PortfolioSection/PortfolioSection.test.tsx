@@ -25,8 +25,17 @@ describe('Projects section', () => {
   it('shows only featured projects, with no "More projects" list', () => {
     render(<MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}><Portfolio /></MemoryRouter>);
     portfolioData.projects.forEach((p) =>
-      expect(!!screen.queryByText(p.title)).toBe(!!p.featured)
+      expect(!!screen.queryByRole('heading', { name: p.title })).toBe(!!p.featured)
     );
     expect(screen.queryByText('More projects')).not.toBeInTheDocument();
+  });
+
+  it('badges in-progress projects and gives image-less projects a placeholder', () => {
+    render(<MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}><Portfolio /></MemoryRouter>);
+    const inProgress = portfolioData.projects.filter((p) => p.featured && p.inProgress);
+    expect(screen.getAllByText('In progress')).toHaveLength(inProgress.length);
+    portfolioData.projects
+      .filter((p) => p.featured && !p.media)
+      .forEach((p) => expect(screen.getAllByText(p.title)).toHaveLength(2)); // placeholder + heading
   });
 });

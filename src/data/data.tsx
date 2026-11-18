@@ -209,13 +209,25 @@ export const portfolioData: PortfolioData = {
       featured: true
     },
     {
+      title: "Web Portfolio",
+      description: "This site: a recruiter-first **React and TypeScript** portfolio with case-study pages, a mobile menu and link previews, covered by **Jest and React Testing Library** and checked by **CI on every push**. The contact form posts to a separate **Python FastAPI** service that stores messages in **PostgreSQL**.",
+      technologies: ["React", "TypeScript", "MUI", "Jest", "FastAPI", "PostgreSQL", "Vercel"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/Portfolio",
+      liveUrl: "https://www.lyndbergh.net/",
+      date: "2026",
+      media: { image: port },
+      featured: true
+    },
+    {
       title: "Music Video Playlist",
       description: "Paste an Apple Music playlist, get back a YouTube Music playlist of the songs' **official music videos**. A **Python matching engine** scores each search result and rejects lyric videos, remixes and live versions, handling **300 songs in about 45 seconds**; a Rails front end previews the matches and saves through **Google OAuth and the YouTube Data API**.",
       technologies: ["Python", "Ruby on Rails", "YouTube Data API", "OAuth 2.0", "Docker", "Caddy"],
       type: [ProjectType.FULLSTACK],
       date: "2026",
       media: { image: playlistVideo },
-      featured: true
+      featured: true,
+      inProgress: true
     },
     {
       title: "ABChealth",
@@ -226,18 +238,17 @@ export const portfolioData: PortfolioData = {
       caseStudySlug: "abchealth",
       date: "2025",
       media: { image: abc },
-      featured: true
+      featured: true,
+      inProgress: true
     },
     {
-      title: "Web Portfolio",
-      description: "This site: a recruiter-first **React and TypeScript** portfolio with case-study pages, a mobile menu and link previews, covered by **Jest and React Testing Library** and checked by **CI on every push**. The contact form posts to a separate **Python FastAPI** service that stores messages in **PostgreSQL**.",
-      technologies: ["React", "TypeScript", "MUI", "Jest", "FastAPI", "PostgreSQL", "Vercel"],
+      title: "Race Me",
+      description: "An iPhone app and API for racing friends on a run: **live distance and timed races** with everyone's position updating every few seconds, or **multi-day races** with a leaderboard of total distance and pace. Planned: SwiftUI with **CoreLocation and HealthKit**, and a **Rails API with Action Cable** pushing live positions over WebSockets, backed by PostgreSQL.",
+      technologies: ["Swift", "SwiftUI", "Ruby on Rails", "Action Cable", "PostgreSQL"],
       type: [ProjectType.FULLSTACK],
-      githubUrl: "https://github.com/Lsimelus/Portfolio",
-      liveUrl: "https://www.lyndbergh.net/",
       date: "2026",
-      media: { image: port },
-      featured: true
+      featured: true,
+      inProgress: true
     }
   ]
 }
