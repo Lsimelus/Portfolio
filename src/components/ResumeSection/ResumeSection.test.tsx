@@ -20,6 +20,6 @@ describe('Resume section', () => {
   });
 
   it('leads the current role with the checkout achievement', () => {
-    expect(job.achievements[0]).toMatch(/PCI-compliant full-stack checkout/);
+    expect(job.achievements[0]).toMatch(/on-site and phone checkout/);
   });
 });

@@ -33,13 +33,17 @@ export interface WorkExperience {
   position: string;
   period: string;
   achievements: string[];
+  /** Optional "Tech environment" line shown under the bullets */
+  environment?: string;
 }
 
 export enum TechCategory {
+  LANGUAGES = 'Languages',
   FRONTEND = 'Frontend & Mobile',
   BACKEND = 'Backend & Data',
+  SECURITY = 'Security & Auth',
   CLOUD = 'Cloud & Infrastructure',
-  TOOLING = 'Observability & Tooling'
+  PRACTICES = 'Practices, Testing & Tools'
 }
 
 export interface Technology {
@@ -81,8 +85,6 @@ export interface ContactLinks {
   email: string;
   emailLink: string;
   linkedin: string;
-  phone: string;
-  phoneLink: string;
 }
 
 export interface ResumeData {

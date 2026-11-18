@@ -63,6 +63,13 @@ const JobCard = ({ job, isCurrent }: { job: WorkExperience; isCurrent: boolean }
             {expanded ? 'Show less' : `Show ${hidden} more`}
           </Button>
         )}
+
+        {job.environment && (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2, textAlign: 'left' }}>
+            <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Tech environment: </Box>
+            {job.environment}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

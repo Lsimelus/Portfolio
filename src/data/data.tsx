@@ -26,19 +26,20 @@ export const profile: ProfileData = {
   title: "Full-Stack Software Engineer",
   location: "Boston, MA",
   pitch: "I build secure, high-value systems — payments, auth, and data platforms — end to end with React, Ruby on Rails, Python, and AWS.",
-  availability: "Open to new opportunities",
+  availability: "Open to senior full-stack roles · Boston or relocation",
   stats: [
     { value: "5+", label: "years shipping production software" },
-    { value: "PCI checkout", label: "compliant payment experience — card data never touches app storage" },
+    { value: "PCI checkout", label: "on-site and phone checkout — card data kept out of our systems and out of PCI scope" },
     { value: "Quote → checkout", label: "5+ third-party insurer integrations, quoting and selling their products end to end" },
     { value: "Large-scale migrations", label: "broke a legacy pricing library into 10+ reusable packages, in small steps that never broke the apps using it" },
-    { value: "Rules as data + AI", label: "moved insurance pricing rules out of code into a versioned database, then built an AWS Bedrock AI agent that answers questions about them" },
+    { value: "Rules as data + AI", label: "moved insurance pricing rules out of code into a versioned database, then built an AI assistant on AWS Bedrock that answers questions about them and tests changes against real past quotes" },
+    { value: "10% less drop-off", label: "A/B-tested a price-first flow — 65% of workers' comp applicants see a price right away" },
   ],
 }
 
 export const about: AboutData = {
   paragraphs: [
-    "I'm a full-stack Software Engineer based in Boston with a deep specialization in secure, high-value systems like payments and enterprise data platforms. At Simply Business, I built the first online checkout for partner insurers from the ground up — a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. I'm most at home with React on the frontend and Ruby on Rails or Python on the backend, and I care about shipping changes in small, reviewable slices that never leave production broken.",
+    "I'm a full-stack Software Engineer based in Boston with a deep specialization in secure, high-value systems like payments and enterprise data platforms. At Simply Business, I built the first online checkout for partner insurers from the ground up — a PCI-compliant, full-stack system that scaled to 5+ partners and $2.4M+ in monthly premiums. I'm most at home with React on the frontend and Ruby on Rails or Python on the backend, and I care about shipping changes in small, reviewable slices that never leave production broken. I'm looking for my next senior full-stack role — I'm based in Boston and open to relocating.",
     "Outside of work, I take on freelance projects, mostly designing and building user interfaces for clients. As a Haitian-American, I love exploring diverse cultures, languages, traditions, and histories. After four years of track and field, running and martial arts are still my favorite ways to stay active.",
   ],
 }
@@ -72,32 +73,31 @@ export const resumeData: ResumeData = {
       position: "Software Engineer II",
       period: "2023 - Present",
       achievements: [
-        "Designed and implemented a PCI-compliant full-stack checkout system in React and Ruby on Rails, the first online checkout for partner insurers that price on their own systems, scaling to 5+ partners and $2.4M+ in monthly premiums through a repeatable rating, binding and payment adapter pattern. Replaced the legacy payment iframe with vendor-hosted card tokenisation proxied to a third-party vault so card data never reached application storage, integrated Stripe for policy binding, and bound each submission to its session and cart with CSRF, journey-token and cart-digest fields.",
-        "Built the data, tracing and secure access for an AWS Bedrock multi-agent AI assistant that answers staff questions about insurers' rules, routing each question to a specialist agent per insurer.",
-        "Moved a legacy pricing engine's rules into versioned PostgreSQL within a Packwerk-modularised Rails monolith, turning rule changes from code releases into byte-for-byte-verified data updates, and built quote-replay simulation that cut third-party pricing API costs.",
-        "Designed and delivered the authentication and authorisation layer for an internal insurance product portal: authored the architecture decision record (Okta federated into AWS Cognito, stateless JWTs, Cedar policy-based role access), then built every layer it specified — Cognito pools and a V2 pre-token-generation Lambda in Terraform, multi-issuer JWT support contributed to the company's shared authentication gem, a Rails engine exposing the authorisation context, and the React SPA's OIDC/PKCE integration.",
-        "Selected the portal's OIDC library by building two working prototypes and testing them against a nine-point checklist with token exposure as the deciding axis; recorded the strongest option as needing InfoSec approval rather than adopting it unreviewed, then migrated to service-worker token isolation once approved and removed the fallback path so unsupported browsers fail closed.",
-        "Decomposed a monolithic Ruby rating-engine gem into nine published gems across 73 pull requests, landing each move as an independently reviewable slice with the matching changes in both consuming Rails applications in the same slice, so neither repository was ever left broken.",
-        "Replaced five session booleans governing multi-product quoting — roughly sixty references, none persisted or queryable — with a Mongoid domain model published to Snowflake via Kafka change-data-capture, migrating readers in slices that each left production working. Detected, diagnosed and reverted a regression from my own merge in 85 minutes, choosing revert-then-fix over fixing forward on customer-facing routing, and relanded it with the fix.",
-        "Reduced application drop-off by 10% on the Workers' Compensation application by performing exploratory analysis and setting up A/B tests for a pre-quote FEIN/SSN bypass, enabling 65% of applicants to receive an immediate quote indication.",
-        "Defined service levels in Terraform with fast-burn and slow-burn alert conditions; retired an alert I had authored after it produced false positives against natural traffic swing, replacing it with a scheduled EventBridge job comparing daily volume against the same-weekday average over the preceding four weeks.",
-        "Integrated or extended seven insurance carriers (Cerity, Employers, Liberty Mutual, biberk, Coterie, Harborway, SolePro) across four repositories — quote-request mapping, OAuth clients, pricing and installment logic, per-partner secrets and whitelisting — and coordinated breaking contract changes across producer and consumer services and with data teams through the shared schema registry.",
-        "Contributed reusable components to the company's internal React design system, including conditional badge rendering and pricing display used across customer-facing quote and checkout pages.",
-        "Reviewed 500+ pull requests across 12 repositories, and served as formal onboarding buddy for two engineering hires and two interns.",
-        "Ruby on Rails modular monolith — 7,280 application files, 3,239 spec files — backed by MongoDB, Sidekiq and Kafka change-data-capture into Snowflake, with package boundaries enforced by Packwerk."
-      ]
+        "Built an on-site and phone checkout in React and Ruby on Rails that lets customers buy policies from 5+ partner insurers without leaving our website, processing $2.4M+ in monthly premiums; cards are vaulted by TokenEx, keyed in over the phone through Twilio Pay and charged through processors like Stripe, keeping card data out of our systems and out of PCI DSS scope.",
+        "Built an AI assistant with RubyLLM on AWS Bedrock and ECS that answers questions about pricing rules and tests proposed changes by replaying real past quotes, with a person approving every change, traced in New Relic.",
+        "Split our pricing engine into 10+ Ruby gems without disrupting dependent apps, then moved its rules into a versioned PostgreSQL graph, so rules change and roll back without a code release.",
+        "Designed SSO and role-based permissions for a pricing-rules tool: Okta federated into AWS Cognito over SAML, roles added to tokens by an AWS Lambda provisioned with Terraform, a TypeScript frontend signing in with OIDC/PKCE, and Cedar policies, inside a Packwerk modular monolith.",
+        "Rebuilt our purchase process to work reliably with partner insurers' slow, unpredictable APIs over OAuth 2.0, preventing duplicate charges and drawing payment plans and fees from a payment options service I designed, covered by RSpec and Pact contract tests.",
+        "Cut workers' comp application drop-off 10% by A/B testing a price-first flow: partner insurer APIs return a provisional quote before the tax ID is asked, so 65% of applicants see a price right away.",
+        "Launched cross-selling that gives customers whose liability quote is held for review an instant business owner's policy quote from their existing answers, stored in MongoDB and streamed through Kafka.",
+        "Selected the pricing-rules tool's OIDC library by building two working prototypes and testing them against a nine-point checklist with token exposure as the deciding axis, then moved to service-worker token isolation once InfoSec approved it.",
+        "Replaced five session booleans governing multi-product quoting with a Mongoid domain model published to Snowflake via Kafka change-data-capture, migrating readers in slices that each left production working; caught and reverted a regression from my own merge in 85 minutes, then relanded it with the fix.",
+        "Defined service levels in Terraform with fast-burn and slow-burn alerts, and replaced a noisy volume alert with a scheduled EventBridge job comparing daily volume against the same weekday over the preceding four weeks.",
+        "Contributed reusable components to the company's internal React design system, including badge and pricing displays used across customer-facing quote and checkout pages.",
+        "Reviewed 500+ pull requests across 12 repositories, and served as onboarding buddy for two engineering hires and two interns."
+      ],
+      environment: "Ruby on Rails modular monolith (7,000+ application files) with Packwerk package boundaries, MongoDB, Sidekiq, and Kafka change-data-capture into Snowflake; React and TypeScript frontends; AWS (Cognito, Lambda, Bedrock, ECS) and Terraform; RSpec and Pact tests."
     },
     {
       company: "Recorded Future Inc",
       position: "Software Engineer I",
       period: "2021 - 2023",
       achievements: [
-        "Designed, implemented, and tested Python services that maintained the integrity of ontology graph, MongoDBs, and data pipelines",
-        "Developed a React Typescript (front-end) and Python Flask (back-end) web application, the primary focus being ease of maintenance and friendly to inexperienced developers through the inclusion of features such as built-in automated audit logging, user authentication, data monitoring, and analysis",
-        "Utilized Amazon S3 to store and retrieve data",
-        "Contributed to Agile ceremonies, led demos and presentations, and helped new engineers learn established norms",
-        "Conducted rounds of UX design prototyping and user observation/testing",
-        "Revamped an API-Centric JavaScript internal web application through research, user data and metrics. Ultimately increasing the application's capabilities and overall efficiency"
+        "Owned the end-to-end full-stack re-engineering of a company-wide internal data curation platform used daily by 50+ dedicated operations staff, modernizing legacy workflows with React, TypeScript and Python (Flask).",
+        "Designed features from direct user observation and testing with the operations team, resolving critical usability issues, increasing curation throughput and lowering operational overhead.",
+        "Built in automated audit logging, user authentication and data monitoring so the platform stayed easy to maintain for engineers new to the codebase.",
+        "Designed, implemented and tested Python services that maintained the integrity of the threat-intelligence ontology graph, MongoDB stores and data pipelines.",
+        "Rapidly diagnosed and resolved data pipeline failures and other critical issues in response to real-world incidents, including data leaks."
       ]
     },
     {
@@ -105,10 +105,8 @@ export const resumeData: ResumeData = {
       position: "Software Engineer Intern",
       period: "Summer 2020",
       achievements: [
-        "Researched, presented, and implemented telemetry into company's UI framework",
-        "Created React components that are used throughout the company and its customers",
-        "Practiced Agile programming methodology",
-        "Gained familiarity with various Azure services"
+        "Researched, presented and built full-stack telemetry into the company's UI framework with Python and React, improving system observability.",
+        "Built core React framework components used across the company's internal and customer-facing applications."
       ]
     },
     {
@@ -116,9 +114,8 @@ export const resumeData: ResumeData = {
       position: "Software Engineer Intern",
       period: "Summer 2019",
       achievements: [
-        "Created a REST API in C#/.NET that was implemented into company web applications",
-        "Developed & debugged action buttons on company websites using various technologies",
-        "Utilized ticketing system, navigated larger repositories, and refined SQL queries in company apps"
+        "Designed and implemented a custom C# logging framework supporting Info, Warning and Error levels.",
+        "Built a REST API in C#/.NET used by company web applications, and refined SQL queries in production apps."
       ]
     }
   ]
@@ -129,36 +126,64 @@ export const resumeData: ResumeData = {
 // ============================================================================
 
 export const technologies: Technology[] = [
+  // Languages
+  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.LANGUAGES },
+  { name: "JavaScript", primaryColor: "#F7DF1E", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.LANGUAGES },
+  { name: "Ruby", primaryColor: "#CC342D", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.LANGUAGES },
+  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.LANGUAGES },
+  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.LANGUAGES },
+  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.LANGUAGES },
+  // Frontend & Mobile
   { name: "React", primaryColor: "#61DAFB", secondaryColor: "#222222", proficiencyLevel: 9, category: TechCategory.FRONTEND },
   { name: "Next.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.FRONTEND },
-  { name: "TypeScript", primaryColor: "#2F71BB", secondaryColor: "white", proficiencyLevel: 9, category: TechCategory.FRONTEND },
-  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.FRONTEND },
   { name: "Redux", primaryColor: "#764ABC", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "Tailwind CSS", primaryColor: "#3ABDF7", secondaryColor: "", proficiencyLevel: 8, category: TechCategory.FRONTEND },
+  { name: "Design systems", primaryColor: "#7C4DFF", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.FRONTEND },
+  // Backend & Data
+  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
   { name: "Node.js", primaryColor: "#83CD29", secondaryColor: "#404137", proficiencyLevel: 8, category: TechCategory.BACKEND },
   { name: "Express.js", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Python", primaryColor: "#336998", secondaryColor: "#F1D55B", proficiencyLevel: 7, category: TechCategory.BACKEND },
-  { name: "Ruby on Rails", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Swift", primaryColor: "#FD6330", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.FRONTEND },
-  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.BACKEND },
+  { name: "FastAPI / Flask", primaryColor: "#009688", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
   { name: "PostgreSQL", primaryColor: "#336791", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.BACKEND },
-  { name: "Kafka", primaryColor: "#231F20", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "MongoDB", primaryColor: "#01EC64", secondaryColor: "#000000", proficiencyLevel: 9, category: TechCategory.BACKEND },
+  { name: "Sidekiq", primaryColor: "#B1003E", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Packwerk", primaryColor: "#D30002", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Stripe", primaryColor: "#635BFF", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Kafka (CDC)", primaryColor: "#231F20", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.BACKEND },
+  { name: "Twilio Pay", primaryColor: "#F22F46", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
+  { name: "RubyLLM", primaryColor: "#CC342D", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
   { name: "Snowflake", primaryColor: "#29B5E8", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.BACKEND },
-  { name: "SQL", primaryColor: "#0072CB", secondaryColor: "white", proficiencyLevel: 8, category: TechCategory.BACKEND },
-
+  // Security & Auth
+  { name: "PCI DSS", primaryColor: "#0B5394", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.SECURITY },
+  { name: "OAuth 2.0 / OIDC + PKCE", primaryColor: "#EB5424", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.SECURITY },
+  { name: "JWT", primaryColor: "#D63AFF", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.SECURITY },
+  { name: "AWS Cognito", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 8, category: TechCategory.SECURITY },
+  { name: "Okta", primaryColor: "#007DC1", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.SECURITY },
+  { name: "Cedar policies", primaryColor: "#FF9900", secondaryColor: "#232F3E", proficiencyLevel: 7, category: TechCategory.SECURITY },
+  { name: "IAM", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 7, category: TechCategory.SECURITY },
+  { name: "SAML", primaryColor: "#0B5394", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.SECURITY },
+  { name: "TokenEx", primaryColor: "#1A73E8", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.SECURITY },
+  // Cloud & Infrastructure
   { name: "AWS", primaryColor: "#FF9900", secondaryColor: "#146EB4", proficiencyLevel: 8, category: TechCategory.CLOUD },
-  { name: "AWS Cognito", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 8, category: TechCategory.CLOUD },
-  { name: "IAM", primaryColor: "#DD344C", secondaryColor: "#FF9900", proficiencyLevel: 7, category: TechCategory.CLOUD },
   { name: "Terraform", primaryColor: "#7B42BC", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.CLOUD },
   { name: "AWS Lambda", primaryColor: "#FF9900", secondaryColor: "#232F3E", proficiencyLevel: 7, category: TechCategory.CLOUD },
   { name: "AWS Bedrock", primaryColor: "#01A88D", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.CLOUD },
-  { name: "Okta", primaryColor: "#007DC1", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "AWS ECS", primaryColor: "#FF9900", secondaryColor: "#232F3E", proficiencyLevel: 6, category: TechCategory.CLOUD },
+  { name: "EventBridge", primaryColor: "#E7157B", secondaryColor: "#FFFFFF", proficiencyLevel: 6, category: TechCategory.CLOUD },
   { name: "Docker", primaryColor: "#218FE0", secondaryColor: "", proficiencyLevel: 7, category: TechCategory.CLOUD },
-  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.CLOUD },
   { name: "Vercel", primaryColor: "#000000", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.CLOUD },
+  { name: "Firebase", primaryColor: "#E87B09", secondaryColor: "#0393DA", proficiencyLevel: 7, category: TechCategory.CLOUD },
   { name: "Render.com", primaryColor: "#44DCB0", secondaryColor: "#3F4358", proficiencyLevel: 7, category: TechCategory.CLOUD },
-  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.TOOLING },
-  { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.TOOLING },
-  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.TOOLING }
+  // Practices, Testing & Tools
+  { name: "SLOs & burn-rate alerting", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "A/B testing", primaryColor: "#7C4DFF", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "Architecture decision records", primaryColor: "#455A64", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "RSpec", primaryColor: "#CC342D", secondaryColor: "#FFFFFF", proficiencyLevel: 8, category: TechCategory.PRACTICES },
+  { name: "Pact contract tests", primaryColor: "#2E7D32", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "Jest + React Testing Library", primaryColor: "#C21325", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "New Relic", primaryColor: "#1EE783", secondaryColor: "#1D252C", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "AirBrake", primaryColor: "#F3991D", secondaryColor: "#FFFFFF", proficiencyLevel: 7, category: TechCategory.PRACTICES },
+  { name: "Figma", primaryColor: "#EB4B1D", secondaryColor: "#19B6F6", proficiencyLevel: 8, category: TechCategory.PRACTICES }
 ]
 
 // ============================================================================
@@ -233,7 +258,5 @@ export const contactLinks: ContactLinks = {
   githubRepo: "https://github.com/Lsimelus/Portfolio",
   email: "lsimelus@gmail.com",
   emailLink: "mailto:lsimelus@gmail.com",
-  linkedin: "https://www.linkedin.com/in/lyndbergh-simelus/",
-  phone: "7813508711",
-  phoneLink: "tel:+7813508711"
+  linkedin: "https://www.linkedin.com/in/lyndbergh-simelus/"
 }

@@ -4,14 +4,18 @@ import WebIcon from '@mui/icons-material/Web';
 import StorageIcon from '@mui/icons-material/Storage';
 import CloudIcon from '@mui/icons-material/Cloud';
 import BuildIcon from '@mui/icons-material/Build';
+import CodeIcon from '@mui/icons-material/Code';
+import LockIcon from '@mui/icons-material/Lock';
 import { technologies, TechCategory } from "../../data/data"
 import SectionHeader from "../SectionHeader";
 
 const categoryIcons: Record<TechCategory, React.ElementType> = {
+  [TechCategory.LANGUAGES]: CodeIcon,
   [TechCategory.FRONTEND]: WebIcon,
   [TechCategory.BACKEND]: StorageIcon,
   [TechCategory.CLOUD]: CloudIcon,
-  [TechCategory.TOOLING]: BuildIcon,
+  [TechCategory.SECURITY]: LockIcon,
+  [TechCategory.PRACTICES]: BuildIcon,
 };
 
 const Skills = () => {

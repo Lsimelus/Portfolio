@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
@@ -29,15 +28,9 @@ export interface ContactProps {
 /** Quick-pick reasons that prefill the subject line. */
 const inquiryTypes = ["Job opportunity", "Freelance project", "Just saying hi"];
 
-function formatPhone(digits: string): string {
-  const match = digits.match(/^(\d{3})(\d{3})(\d{4})$/);
-  return match ? `(${match[1]}) ${match[2]}-${match[3]}` : digits;
-}
-
 const socialLinks = [
   { icon: EmailIcon, href: contactLinks.emailLink, label: "Email" },
   { icon: GitHubIcon, href: contactLinks.github, label: "GitHub" },
-  { icon: LocalPhoneIcon, href: contactLinks.phoneLink, label: "Phone" },
   { icon: LinkedInIcon, href: contactLinks.linkedin, label: "LinkedIn" },
 ];
 
@@ -278,40 +271,6 @@ const Contact = (props: ContactProps) => {
                     </Box>
                   </Box>
 
-                  <Box
-                    component="a"
-                    href={contactLinks.phoneLink}
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 2,
-                      textDecoration: 'none',
-                      color: 'inherit',
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 42,
-                        height: 42,
-                        borderRadius: 2,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        bgcolor: 'rgba(255,255,255,0.18)',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <LocalPhoneIcon fontSize="small" />
-                    </Box>
-                    <Box>
-                      <Typography variant="caption" sx={{ opacity: 0.8 }}>
-                        Phone
-                      </Typography>
-                      <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                        {formatPhone(contactLinks.phone)}
-                      </Typography>
-                    </Box>
-                  </Box>
                 </Stack>
               </Box>
 
