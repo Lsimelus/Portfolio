@@ -35,7 +35,7 @@ const About = () => {
           </Grid>
 
           <Grid item xs={12} md={8}>
-            <SectionHeader eyebrow="About me" title="What's next" />
+            <SectionHeader eyebrow="About me" title="What I'm looking for" />
             {about.paragraphs.map((paragraph, idx) => (
               <Typography
                 key={idx}
@@ -47,10 +47,9 @@ const About = () => {
             ))}
 
             <Box
-              aria-labelledby="looking-for-heading"
-              component="aside"
+              component="div"
               sx={{
-                mt: 4,
+                mt: 1,
                 p: { xs: 3, sm: 4 },
                 borderRadius: 3,
                 textAlign: 'left',
@@ -59,9 +58,6 @@ const About = () => {
                 borderLeft: `4px solid ${theme.palette.primary.main}`,
               }}
             >
-              <Typography id="looking-for-heading" variant="h6" component="h3" sx={{ fontWeight: 700, mb: 1 }}>
-                What I'm looking for
-              </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.7, mb: 2 }}>
                 {about.lookingFor.summary}
               </Typography>
