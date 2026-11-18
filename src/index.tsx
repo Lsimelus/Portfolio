@@ -16,12 +16,6 @@ const routes = (
   <Routes>
     <Route path="/" element={<App />} />
     <Route path="/projects/:slug" element={<CaseStudyPage />} />
-    {process.env.NODE_ENV !== 'production' && (
-      <Route
-        path="/docs/*"
-        element={React.createElement(React.lazy(() => import('./docs/DocsApp')))}
-      />
-    )}
   </Routes>
 );
 

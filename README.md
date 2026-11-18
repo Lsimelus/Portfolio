@@ -26,7 +26,7 @@ Case studies live at `/projects/:slug` (for example [`/projects/real-calc`](http
 | Area | Choice |
 |---|---|
 | UI | React 18, TypeScript, Material UI 5 (Emotion `sx` styling) |
-| Routing | React Router 6: `/`, `/projects/:slug`, and a dev-only `/docs` study area |
+| Routing | React Router 6: `/` and lazy-loaded `/projects/:slug` case studies |
 | Content | One typed data file (`src/data/data.tsx`) with lightweight `**bold**` markup |
 | Contact form | axios → [FastAPI + PostgreSQL service](https://fastapi-postgres-gamma.vercel.app) (separate repo) |
 | Testing | Jest + React Testing Library |
@@ -38,6 +38,31 @@ Case studies live at `/projects/:slug` (for example [`/projects/real-calc`](http
 **Lighthouse** (production build): accessibility 100, SEO 100, performance 95 mobile / 100 desktop.
 
 ## How it's built
+
+Content flows one way, from typed data files to components to the page. The only data that leaves the browser is a contact-form message and anonymous page views.
+
+```mermaid
+flowchart TD
+  subgraph Source["Source (this repo)"]
+    types["src/types<br/>content types"] -.type-checks.-> data
+    data["src/data/data.tsx<br/>profile · experience · projects · skills · contact"]
+    cs["src/caseStudies<br/>summary · metrics · decisions · Markdown"]
+  end
+
+  subgraph Page["Rendered in the browser"]
+    sections["Section components<br/>Hero → Experience → Projects → Skills → Looking for → Contact"]
+    rich["RichText<br/>**bold** → &lt;strong&gt;"]
+    csPage["CaseStudyPage<br/>/projects/:slug (lazy)"]
+    md["MarkdownView<br/>(marked)"]
+  end
+
+  data --> sections --> rich
+  cs --> csPage --> md
+  sections -- "Case study button" --> csPage
+
+  sections -- "POST /api/contact-form" --> api["FastAPI service"] --> pg[("PostgreSQL")]
+  sections -- "page views" --> va["Vercel Web Analytics"]
+```
 
 ```
 src/
@@ -56,7 +81,7 @@ src/
 │   ├── CaseStudyPage/       # /projects/:slug
 │   ├── RichText/            # Renders **bold** markup from the data file
 │   └── SectionHeader/       # Shared eyebrow / title / subtitle
-├── docs/                    # Case-study content and the dev-only /docs study notes
+├── caseStudies/             # Case-study pages: one typed list + a Markdown body per project
 ├── theme/                   # MUI theme (colors, type scale, component defaults)
 └── utils/                   # Scrolling and resume download/view helpers
 public/
@@ -68,7 +93,7 @@ public/
 Design choices worth noting:
 
 - **Content is data.** Changing a bullet, project or skill means editing `src/data/data.tsx`, not components. Wrap a phrase in `**…**` to bold it.
-- **Case studies reuse the docs content.** Each project in `src/docs/data/projects.ts` has full study notes (shown only in development at `/docs`) and an optional short `caseStudy` version for the public page.
+- **Case studies are data too.** Each one in `src/caseStudies/` has a summary, metrics, key decisions and a short Markdown body: the problem, what I built, the hard parts.
 - **Recruiter-first and mobile-first.** Phones get a menu drawer with every section and a resume download, and nothing scrolls sideways at 320px wide.
 - **Accessible structure.** Headings follow a strict outline (one `h1`, then `h2` sections), and text colors meet WCAG AA contrast.
 
@@ -79,7 +104,7 @@ Requires Node 20+.
 ```bash
 npm install
 cp .env.example .env    # optional: points the contact form at the FastAPI service
-npm start               # http://localhost:3000 (the /docs study area is available in dev only)
+npm start               # http://localhost:3002
 ```
 
 | Command | What it does |
@@ -98,14 +123,27 @@ npm start               # http://localhost:3000 (the /docs study area is availab
 | Hero text, tiles, availability | `profile` in `src/data/data.tsx` |
 | Experience, education | `resumeData` in `src/data/data.tsx` |
 | Projects | `portfolioData` in `src/data/data.tsx`; add `caseStudySlug` to link a case study |
-| A case study | `src/docs/data/projects.ts` and `src/docs/content/*` |
+| A case study | `src/caseStudies/index.ts` (data) and `src/caseStudies/<project>.ts` (Markdown body) |
 | Skills | `technologies` in `src/data/data.tsx` |
 | Resume PDF | Replace `public/Lyndbergh-Simelus-Resume.pdf` (keep the filename) |
 | Link preview | `public/og-image.png` and the meta tags in `public/index.html` |
 
 Project screenshots go in `src/assets/workImages/` as WebP, 1200px wide or less.
 
+## Architecture decisions
+
+Key decisions are written up as Architecture Decision Records in [`docs/`](docs/README.md): why the contact form uses a separate FastAPI service, and how testing, CI and deployment work.
+
 ## Deployment
+
+```mermaid
+flowchart LR
+  push["git push"] --> ci["GitHub Actions<br/>type check → tests → build"]
+  push --> v["Vercel build"]
+  v -- main --> prod["lyndbergh.net"]
+  v -- pull request --> prev["Preview URL"]
+```
+
 
 Every push to `main` deploys to production on Vercel. CI runs the same checks on GitHub, and pull requests get Vercel preview deployments. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `ci:`, `chore:` …).
 

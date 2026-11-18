@@ -5,14 +5,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { theme } from "../../theme";
-import { projects } from "../../docs/data/projects";
-import { MarkdownView } from "../../docs/MarkdownView";
-import "../../docs/markdown.css";
+import { caseStudies } from "../../caseStudies";
+import { MarkdownView } from "./MarkdownView";
+import "./markdown.css";
 
 /** Public case-study page for a project: overview, key decisions, and architecture notes. */
 const CaseStudyPage = () => {
   const { slug } = useParams();
-  const project = projects.find((p) => p.slug === slug);
+  const project = caseStudies.find((p) => p.slug === slug);
 
   React.useEffect(() => {
     if (!project) return;
@@ -57,7 +57,7 @@ const CaseStudyPage = () => {
           </Stack>
 
           <Grid container spacing={2} sx={{ mb: 5 }}>
-            {project.overview.metrics.map((m) => (
+            {project.metrics.map((m) => (
               <Grid item xs={6} md={3} key={m.label}>
                 <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                   <CardContent>
@@ -75,7 +75,7 @@ const CaseStudyPage = () => {
             Stack
           </Typography>
           <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 5 }}>
-            {project.overview.stack.map((s) => (
+            {project.stack.map((s) => (
               <Chip key={s} label={s} variant="outlined" />
             ))}
           </Stack>
@@ -84,19 +84,14 @@ const CaseStudyPage = () => {
             Key decisions
           </Typography>
           <Box component="ul" sx={{ pl: 3, mb: 6, '& li': { mb: 1.5 } }}>
-            {(project.caseStudy?.decisions ?? project.overview.decisions).map((d) => (
+            {project.decisions.map((d) => (
               <Typography component="li" key={d} variant="body1" color="text.secondary">
                 {d}
               </Typography>
             ))}
           </Box>
 
-          {!project.caseStudy && (
-            <Typography variant="h5" component="h2" sx={{ fontWeight: 700, mb: 2 }}>
-              Architecture notes
-            </Typography>
-          )}
-          <MarkdownView content={project.caseStudy?.content ?? project.content} />
+          <MarkdownView content={project.content} />
         </Container>
       </Box>
     </ThemeProvider>

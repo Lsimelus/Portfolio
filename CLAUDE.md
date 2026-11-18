@@ -11,7 +11,7 @@ This is a React 18 + TypeScript portfolio web application built with Create Reac
 All commands should be run from the repository root:
 
 ```bash
-# Start development server (http://localhost:3000)
+# Start development server (http://localhost:3002)
 npm start
 
 # Run tests in watch mode
@@ -34,24 +34,25 @@ The main source code lives in `/src/` with the following organization:
   - Page sections, in order: HeaderSection (hero + Navbar) → ResumeSection → PortfolioSection → SkillsSection → AboutSection → ContactSection
   - Shared: SectionHeader (eyebrow/title/subtitle), RichText (renders `**bold**` markup from data.tsx), Alert
   - Navbar: desktop links + mobile drawer menu (`Open menu` button below `md`)
-  - CaseStudyPage - public `/projects/:slug` page, reusing `src/docs/data/projects.ts` content
+  - CaseStudyPage - public `/projects/:slug` page; content in `src/caseStudies/` (typed list + Markdown body per project)
 
 - **`/data/data.tsx`** - Central content file: `profile` (hero + stats), `about`, `resumeData`, `technologies`, `portfolioData`, `contactLinks`
   - **To update portfolio content, modify this file**
-  - A project with `caseStudySlug` gets a "Case study" button; the slug must exist in `src/docs/data/projects.ts`
+  - A project with `caseStudySlug` gets a "Case study" button; the slug must exist in `src/caseStudies/index.ts`
 
 - **`/utils/reusableFunctions.tsx`** - `handleClickScroll()`, `downloadResume()`, `viewResume()`, `RESUME_URL`
 
 - **`/assets/`** - Profile and project images as WebP (resize to ≤1200px wide before adding)
 - **`/public/`** - `Lyndbergh-Simelus-Resume.pdf` (stable public URL), `og-image.png` (link preview, 1200×630), icons
-- **`/docs/`** - `/docs` route is dev-only study notes; its markdown styles live in `markdown.css` and are shared with CaseStudyPage
+- **`/caseStudies/`** - Case-study data and Markdown bodies
+- **`/docs/`** (repo root) - Architecture Decision Records, numbered in walk-through order; add new ADRs there
 
 ### Technology Stack
 
 - **UI Framework:** React 18.3.1 with TypeScript 4.9.5
 - **Styling:** Material-UI 5 (emotion) — `sx` props, theme in `src/theme`
 - **HTTP Client:** axios 1.12.2 (for backend API calls)
-- **Routing:** react-router-dom 6 (`/`, `/projects/:slug`, dev-only `/docs/*`); `vercel.json` rewrites deep links to `index.html`
+- **Routing:** react-router-dom 6 (`/`, lazy `/projects/:slug`); `vercel.json` rewrites deep links to `index.html`
 - **Analytics:** `@vercel/analytics` `<Analytics />` in `src/index.tsx` (enable Web Analytics in the Vercel dashboard)
 - **CI:** `.github/workflows/ci.yml` runs type check, tests and `CI=true` build (lint warnings fail the build) on push/PR
 - **Testing:** Jest + @testing-library/react (`CI=true npx react-scripts test --watchAll=false`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.

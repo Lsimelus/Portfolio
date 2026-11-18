@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Portfolio from '.';
 import { portfolioData } from '../../data/data';
-import { projects as caseStudies } from '../../docs/data/projects';
+import { caseStudies } from '../../caseStudies';
 
 describe('Projects section', () => {
   it('links each project with a case study to its page', () => {

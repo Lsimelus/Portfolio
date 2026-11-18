@@ -1,5 +1,5 @@
-/* Markdown body styles, shared by /docs and the public /projects case studies. */
-.docs-markdown {
+/* Markdown body styles for the /projects/:slug case-study pages. */
+.case-study-markdown {
   background: #ffffff;
   border: 1px solid #e4e6f0;
   border-radius: 14px;
@@ -9,12 +9,12 @@
 }
 
 @media (max-width: 600px) {
-  .docs-markdown {
+  .case-study-markdown {
     padding: 20px 18px;
   }
 }
 
-.docs-markdown h2 {
+.case-study-markdown h2 {
   font-size: 22px;
   font-weight: 800;
   color: #12122b;
@@ -23,46 +23,46 @@
   border-top: 1px solid #e4e6f0;
 }
 
-.docs-markdown h2:first-child {
+.case-study-markdown h2:first-child {
   margin-top: 0;
   padding-top: 0;
   border-top: none;
 }
 
-.docs-markdown h3 {
+.case-study-markdown h3 {
   font-size: 17px;
   font-weight: 700;
   color: #1c1d33;
   margin: 28px 0 10px;
 }
 
-.docs-markdown p {
+.case-study-markdown p {
   color: #333650;
   margin: 0 0 14px;
 }
 
-.docs-markdown strong {
+.case-study-markdown strong {
   color: #12122b;
 }
 
-.docs-markdown ul,
-.docs-markdown ol {
+.case-study-markdown ul,
+.case-study-markdown ol {
   margin: 0 0 14px;
   padding-left: 22px;
   color: #333650;
 }
 
-.docs-markdown li {
+.case-study-markdown li {
   margin-bottom: 4px;
 }
 
-.docs-markdown li > ul,
-.docs-markdown li > ol {
+.case-study-markdown li > ul,
+.case-study-markdown li > ol {
   margin-top: 4px;
   margin-bottom: 4px;
 }
 
-.docs-markdown code {
+.case-study-markdown code {
   font-family: "SF Mono", Menlo, monospace;
   font-size: 12.5px;
   background: rgba(91, 95, 206, 0.1);
@@ -71,7 +71,7 @@
   border-radius: 4px;
 }
 
-.docs-markdown pre {
+.case-study-markdown pre {
   background: #12122b;
   color: #e7e8f5;
   border-radius: 10px;
@@ -80,7 +80,7 @@
   margin: 0 0 18px;
 }
 
-.docs-markdown pre code {
+.case-study-markdown pre code {
   background: none;
   color: inherit;
   padding: 0;
@@ -88,21 +88,21 @@
   line-height: 1.6;
 }
 
-.docs-markdown table {
+.case-study-markdown table {
   width: 100%;
   border-collapse: collapse;
   margin: 0 0 20px;
   font-size: 13px;
 }
 
-.docs-markdown th,
-.docs-markdown td {
+.case-study-markdown th,
+.case-study-markdown td {
   text-align: left;
   padding: 8px 12px;
   border-bottom: 1px solid #e4e6f0;
 }
 
-.docs-markdown th {
+.case-study-markdown th {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -110,17 +110,17 @@
   font-weight: 700;
 }
 
-.docs-markdown td {
+.case-study-markdown td {
   color: #333650;
 }
 
-.docs-markdown hr {
+.case-study-markdown hr {
   border: none;
   border-top: 1px solid #e4e6f0;
   margin: 32px 0;
 }
 
-.docs-markdown blockquote {
+.case-study-markdown blockquote {
   margin: 0 0 16px;
   padding: 10px 16px;
   border-left: 3px solid #f0ad4e;
