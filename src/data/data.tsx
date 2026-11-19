@@ -210,8 +210,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Web Portfolio",
-      description: "This site: a recruiter-first **React and TypeScript** portfolio with case-study pages, a mobile menu and link previews, covered by **Jest and React Testing Library** and checked by **CI on every push**. The contact form posts to a separate **Python FastAPI** service that stores messages in **PostgreSQL**.",
-      technologies: ["React", "TypeScript", "MUI", "Jest", "FastAPI", "PostgreSQL", "Vercel"],
+      description: "This site: a recruiter-first **React and TypeScript** portfolio with case-study pages, a mobile menu and link previews, covered by **Jest and React Testing Library** and checked by **CI on every push**. The contact form posts to my **Rails ops platform** (below).",
+      technologies: ["React", "TypeScript", "MUI", "Jest", "Vercel"],
       type: [ProjectType.FULLSTACK],
       githubUrl: "https://github.com/Lsimelus/Portfolio",
       liveUrl: "https://www.lyndbergh.net/",
@@ -249,6 +249,15 @@ export const portfolioData: PortfolioData = {
       date: "2026",
       featured: true,
       inProgress: true
+    },
+    {
+      title: "Ops Platform",
+      description: "One small **Rails 8 + SQLite** app that watches all my sites: it checks every health URL **every 5 minutes**, keeps 30 days of uptime and latency, and **pushes an alert to my phone** when a site goes down or recovers, with a **heartbeat** so a dead server alerts me too. It also receives the **contact form and product feedback** from my other sites (rate limited, with a honeypot) and is deployed with **Kamal** to a Hetzner VPS.",
+      technologies: ["Ruby on Rails", "SQLite", "Solid Queue", "Kamal", "Docker", "Hetzner"],
+      type: [ProjectType.FULLSTACK],
+      githubUrl: "https://github.com/Lsimelus/lyndbergh-platform",
+      date: "2026",
+      featured: true
     }
   ]
 }
