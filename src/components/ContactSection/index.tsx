@@ -72,8 +72,8 @@ const Contact = (props: ContactProps) => {
     alertCallback("Sending message...", "info")
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'https://fastapi-postgres-gamma.vercel.app';
-      await axios.post(`${apiUrl}/api/contact-form`, {
+      // Base URL comes only from REACT_APP_API_URL (Vercel env / local .env), not the repo.
+      await axios.post(`${process.env.REACT_APP_API_URL ?? ""}/api/contact-form`, {
         name,
         email,
         subject,

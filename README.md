@@ -28,7 +28,7 @@ Case studies live at `/projects/:slug` (for example [`/projects/real-calc`](http
 | UI | React 18, TypeScript, Material UI 5 (Emotion `sx` styling) |
 | Routing | React Router 6: `/` and lazy-loaded `/projects/:slug` case studies |
 | Content | One typed data file (`src/data/data.tsx`) with lightweight `**bold**` markup |
-| Contact form | axios → [FastAPI + PostgreSQL service](https://fastapi-postgres-gamma.vercel.app) (separate repo) |
+| Contact form | axios → [lyndbergh-platform](https://github.com/Lsimelus/lyndbergh-platform) (Rails, separate repo) |
 | Testing | Jest + React Testing Library |
 | CI | GitHub Actions: type check, tests and production build on every push and pull request |
 | Hosting | Vercel (deploys `main`), with SPA rewrites for deep links |
@@ -114,7 +114,7 @@ npm start               # http://localhost:3002
 | `CI=true npm test -- --watchAll=false` | Tests once, as CI runs them |
 | `npm run build` | Production build into `build/` |
 
-**Environment:** `REACT_APP_API_URL` is the base URL of the contact-form API. It defaults to the deployed FastAPI service.
+**Environment:** `REACT_APP_API_URL` is the base URL of the contact-form API (lyndbergh-platform). It has no default: production's value lives in Vercel, and `.env.example` points at a local platform.
 
 ## Updating the site
 

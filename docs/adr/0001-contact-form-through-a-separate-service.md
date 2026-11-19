@@ -2,6 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2023, kept in 2026-11
+- **Update (2026-11-18):** The service is now `lyndbergh-platform` (Rails + SQLite); its 39 old messages were imported and the FastAPI service retired. `REACT_APP_API_URL` has no fallback any more, so the production URL stays out of this repo.
 
 ## Context
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React 18 + TypeScript portfolio web application built with Create React App. The frontend is deployed to Vercel at https://www.lyndbergh.net. The backend is a separate FastAPI application (`https://fastapi-postgres-gamma.vercel.app`) that handles contact form submissions and stores data in Postgres.
+This is a React 18 + TypeScript portfolio web application built with Create React App. The frontend is deployed to Vercel at https://www.lyndbergh.net. Contact form submissions go to a separate Rails app, `lyndbergh-platform`, whose URL is set only in Vercel (`REACT_APP_API_URL`).
 
 ## Development Commands
 
@@ -61,14 +61,14 @@ The main source code lives in `/src/` with the following organization:
 
 ### Backend Integration
 
-The frontend communicates with a separate FastAPI backend:
+The frontend communicates with `lyndbergh-platform` (Rails, separate public repo):
 
-- **Backend API:** `https://fastapi-postgres-gamma.vercel.app` (overridable via `REACT_APP_API_URL`)
+- **Backend API:** `REACT_APP_API_URL` only (Vercel env; locally `http://localhost:3004`). Don't hardcode the production URL in this public repo.
 - **Contact Form Endpoint:** POST to `/api/contact-form`
 - **Integration Point:** `ContactSection` component
 - **Payload:** `{ name, email, subject, message }`
 
-The backend is NOT part of this repository. It stores form submissions in Postgres.
+The backend is NOT part of this repository. It stores form submissions in SQLite.
 
 ### Component Architecture
 
