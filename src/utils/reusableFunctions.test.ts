@@ -3,10 +3,9 @@ import { downloadResume, viewResume, RESUME_URL } from './reusableFunctions';
 describe('resume helpers', () => {
   it('downloads the resume with a readable filename', () => {
     const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
-    let anchor: HTMLAnchorElement | undefined;
-    click.mockImplementation(function (this: HTMLAnchorElement) { anchor = this; });
 
     downloadResume();
+    const anchor = click.mock.contexts[0] as HTMLAnchorElement | undefined; // the element click() was called on
 
     expect(anchor?.getAttribute('href')).toBe(RESUME_URL);
     expect(anchor?.download).toBe('Lyndbergh-Simelus-Resume.pdf');

@@ -10,35 +10,25 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   ) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
-  export type alertType = "success" | "warning" | "error";
+  export type alertType = "success" | "info" | "warning" | "error";
   
   export interface AlertDivProps {
     severity: alertType,
     alertText: string,
     openAlert: boolean,
-    parentCallback: Function
+    parentCallback: (open: boolean) => void
   }
   
   export const AlertDiv = (props: AlertDivProps) => {
     const {severity, alertText, parentCallback, openAlert } = props;
-    const [open, setOpen] = React.useState(openAlert);
-  
-    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-      parentCallback(false)
-      if (reason === 'clickaway') {
-        return;
-      }
-      setOpen(false);
-    };
-  
-    React.useEffect(() => {
-      setOpen(openAlert)
-    }, [openAlert])
+
+    // The parent owns whether it's open; closing (timeout, ×, or a click elsewhere) tells it.
+    const handleClose = () => parentCallback(false);
   
   
     return (
       <Stack spacing={2} sx={{ width: '100%' }}>
-        <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{
+        <Snackbar open={openAlert} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{
           vertical: "top",
           horizontal: "right"
         }}>
