@@ -199,8 +199,8 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "REAL Estate Calculator",
-      description: "Answers “what can I afford?” and “where should I buy?” in one flow: a budget-first mortgage breakdown, then a ranking of **~29,700 US towns** on up to 9 weighted factors in **under 200 ms**. Matching towns to Zillow's metro data through Census county files raised real data coverage from **~3% to ~47%**.",
-      technologies: ["Next.js", "TypeScript", "Redux", "Python", "FastAPI", "PostgreSQL"],
+      description: "Answers “what can I afford?” and “where should I look?” in one flow: a mortgage breakdown, then a ranking of **29,717 US places from 0 to 100 on ten factors** (affordability, growth, rental yield, tax, crime, disaster risk and more) built from Zillow, FRED, FEMA, FBI and Census data, with **every factor above 92% coverage**. Rebuilt from FastAPI + Next.js into one **Rails 8 modular monolith** (12 Packwerk-enforced components) serving a **React SPA**, deployed with **Kamal**.",
+      technologies: ["Ruby on Rails", "React", "TypeScript", "PostgreSQL", "Packwerk", "Kamal"],
       type: [ProjectType.FULLSTACK],
       liveUrl: "https://realcalc.lyndbergh.net/",
       caseStudySlug: "real-calc",
