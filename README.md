@@ -29,7 +29,7 @@ Case studies live at `/projects/:slug` (for example [`/projects/real-calc`](http
 | Routing | React Router 6: `/` and lazy-loaded `/projects/:slug` case studies |
 | Content | One typed data file (`src/data/data.tsx`) with lightweight `**bold**` markup |
 | Contact form | axios → [lyndbergh-platform](https://github.com/Lsimelus/lyndbergh-platform) (Rails, separate repo) |
-| Testing | Jest + React Testing Library |
+| Build and tests | Vite, Vitest + React Testing Library |
 | CI | GitHub Actions: type check, tests and production build on every push and pull request |
 | Hosting | Vercel (deploys `main`), with SPA rewrites for deep links |
 | Analytics | Vercel Web Analytics (page views, no cookies) |
@@ -103,16 +103,16 @@ Requires Node 20+.
 
 ```bash
 npm install
-cp .env.example .env    # optional: points the contact form at the FastAPI service
+cp .env.example .env    # optional: points the contact form at a local lyndbergh-platform
 npm start               # http://localhost:3002
 ```
 
 | Command | What it does |
 |---|---|
 | `npm start` | Dev server with hot reload |
-| `npm test` | Tests in watch mode |
-| `CI=true npm test -- --watchAll=false` | Tests once, as CI runs them |
-| `npm run build` | Production build into `build/` |
+| `npm test` | Tests once, as CI runs them |
+| `npm run test:watch` | Tests in watch mode |
+| `npm run build` | Type check, then production build into `build/` |
 
 **Environment:** `REACT_APP_API_URL` is the base URL of the contact-form API (lyndbergh-platform). It has no default: production's value lives in Vercel, and `.env.example` points at a local platform.
 
@@ -126,7 +126,7 @@ npm start               # http://localhost:3002
 | A case study | `src/caseStudies/index.ts` (data) and `src/caseStudies/<project>.ts` (Markdown body) |
 | Skills | `technologies` in `src/data/data.tsx` |
 | Resume PDF | Replace `public/Lyndbergh-Simelus-Resume.pdf` (keep the filename) |
-| Link preview | `public/og-image.png` and the meta tags in `public/index.html` |
+| Link preview | `public/og-image.png` and the meta tags in `index.html` |
 
 Project screenshots go in `src/assets/workImages/` as WebP, 1200px wide or less.
 

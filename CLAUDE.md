@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React 18 + TypeScript portfolio web application built with Create React App. The frontend is deployed to Vercel at https://www.lyndbergh.net. Contact form submissions go to a separate Rails app, `lyndbergh-platform`, whose URL is set only in Vercel (`REACT_APP_API_URL`).
+This is a React 18 + TypeScript portfolio web application built with Vite. The frontend is deployed to Vercel at https://www.lyndbergh.net. Contact form submissions go to a separate Rails app, `lyndbergh-platform`, whose URL is set only in Vercel (`REACT_APP_API_URL`).
 
 ## Development Commands
 
@@ -14,14 +14,11 @@ All commands should be run from the repository root:
 # Start development server (http://localhost:3002)
 npm start
 
-# Run tests in watch mode
+# Run tests once (Vitest); `npm run test:watch` for watch mode
 npm test
 
-# Create production build
+# Type check + production build into build/
 npm run build
-
-# Lint code (configured via ESLint with react-app preset)
-# ESLint runs automatically with react-scripts
 ```
 
 ## Architecture
@@ -49,14 +46,14 @@ The main source code lives in `/src/` with the following organization:
 
 ### Technology Stack
 
-- **UI Framework:** React 18.3.1 with TypeScript 4.9.5
+- **UI Framework:** React 18.3.1 with TypeScript 5.6
 - **Styling:** Material-UI 5 (emotion) — `sx` props, theme in `src/theme`
 - **HTTP Client:** axios 1.12.2 (for backend API calls)
 - **Routing:** react-router-dom 6 (`/`, lazy `/projects/:slug`); `vercel.json` rewrites deep links to `index.html`
 - **Analytics:** `@vercel/analytics` `<Analytics />` in `src/index.tsx` (enable Web Analytics in the Vercel dashboard)
-- **CI:** `.github/workflows/ci.yml` runs type check, tests and `CI=true` build (lint warnings fail the build) on push/PR
-- **Testing:** Jest + @testing-library/react (`CI=true npx react-scripts test --watchAll=false`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.
-- **Build Tool:** Create React App (react-scripts 5.0.1)
+- **CI:** `.github/workflows/ci.yml` runs type check, tests and build on push/PR
+- **Testing:** Vitest (jsdom, globals: `vi`, `describe`, `it`) + @testing-library/react (`npm test`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. A `beforeEach` must not return a function (Vitest runs it as cleanup), so use braces. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.
+- **Build Tool:** Vite 5 (`vite.config.ts`; dev server on 3002, output in `build/`). Env vars keep the `REACT_APP_` prefix (`envPrefix`) and are read via `import.meta.env`.
 - **Other:** marked (markdown for case studies)
 
 ### Backend Integration
@@ -78,7 +75,7 @@ This is a single-page application (SPA) with scroll-based navigation:
 2. **Navbar** - Fixed nav; active section tracked by an IntersectionObserver over section ids
 3. **Section Components** - Each renders a `section` with an `id` used by the nav
 
-Types live in `src/types/index.ts`. SEO/link-preview tags and JSON-LD are in `public/index.html`.
+Types live in `src/types/index.ts`. SEO/link-preview tags and JSON-LD are in `index.html` (repo root).
 
 ### Data Management
 

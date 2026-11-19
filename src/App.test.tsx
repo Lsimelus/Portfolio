@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import { profile, resumeData, portfolioData } from './data/data';
 
-jest.mock('axios', () => ({ __esModule: true, default: { post: jest.fn() } }));
+vi.mock('axios', () => ({ __esModule: true, default: { post: vi.fn() } }));
 
 const renderApp = () => render(<MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}><App /></MemoryRouter>);
 

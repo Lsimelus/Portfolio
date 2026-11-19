@@ -1,5 +1,5 @@
-// Jest setup (picked up automatically by react-scripts).
-import '@testing-library/jest-dom';
+// Vitest setup (vite.config.ts → test.setupFiles).
+import '@testing-library/jest-dom/vitest';
 
 // jsdom has no IntersectionObserver; the navbar's active-section tracking needs one.
 class MockIntersectionObserver {
@@ -11,5 +11,5 @@ class MockIntersectionObserver {
 Object.defineProperty(window, 'IntersectionObserver', { writable: true, value: MockIntersectionObserver });
 
 // jsdom doesn't implement scrolling.
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
-window.scrollTo = jest.fn() as unknown as typeof window.scrollTo;
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
+window.scrollTo = vi.fn() as unknown as typeof window.scrollTo;

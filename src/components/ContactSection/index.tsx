@@ -73,7 +73,7 @@ const Contact = (props: ContactProps) => {
 
     try {
       // Base URL comes only from REACT_APP_API_URL (Vercel env / local .env), not the repo.
-      await axios.post(`${process.env.REACT_APP_API_URL ?? ""}/api/contact-form`, {
+      await axios.post(`${import.meta.env.REACT_APP_API_URL ?? ""}/api/contact-form`, {
         name,
         email,
         subject,

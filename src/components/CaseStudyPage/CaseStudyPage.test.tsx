@@ -5,7 +5,7 @@ import CaseStudyPage from '.';
 import { caseStudies } from '../../caseStudies';
 
 // `marked` ships as ESM only, which Jest (CRA config) can't transform; the renderer itself isn't under test.
-jest.mock('./MarkdownView', () => ({
+vi.mock('./MarkdownView', () => ({
   MarkdownView: ({ content }: { content: string }) => <div data-testid="markdown">{content.length}</div>,
 }));
 

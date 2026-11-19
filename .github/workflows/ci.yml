@@ -32,11 +32,7 @@ jobs:
         run: npx tsc --noEmit -p .
 
       - name: Unit tests
-        run: npm test -- --watchAll=false
-        env:
-          CI: true
+        run: npm test
 
       - name: Production build
-        run: npm run build
-        env:
-          CI: true
+        run: npx vite build
