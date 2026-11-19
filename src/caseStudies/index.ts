@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Next.js + FastAPI + Postgres",
     summary:
       "Mortgage and location explorer: a budget-first questionnaire, then a FastAPI backend that ranks ~29,700 US towns on affordability, growth, rental yield, taxes, safety and disaster risk.",
-    liveUrl: "https://real-calc-client-blush.vercel.app/",
+    liveUrl: "https://realcalc.lyndbergh.net/",
     stack: ["Next.js (App Router)", "Redux Toolkit", "FastAPI", "PostgreSQL (Neon)", "Vercel"],
     decisions: [
       "Matched towns to Zillow's metro-only data through a county → metro crosswalk built from official Census files, instead of by town name — raising real growth-data coverage from ~3% to ~47% of towns",

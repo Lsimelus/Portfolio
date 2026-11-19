@@ -202,7 +202,7 @@ export const portfolioData: PortfolioData = {
       description: "Answers “what can I afford?” and “where should I buy?” in one flow: a budget-first mortgage breakdown, then a ranking of **~29,700 US towns** on up to 9 weighted factors in **under 200 ms**. Matching towns to Zillow's metro data through Census county files raised real data coverage from **~3% to ~47%**.",
       technologies: ["Next.js", "TypeScript", "Redux", "Python", "FastAPI", "PostgreSQL"],
       type: [ProjectType.FULLSTACK],
-      liveUrl: "https://real-calc-client-blush.vercel.app/",
+      liveUrl: "https://realcalc.lyndbergh.net/",
       caseStudySlug: "real-calc",
       date: "2025",
       media: { image: realEstate },
