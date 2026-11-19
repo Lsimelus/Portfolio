@@ -19,10 +19,11 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { contactLinks } from "../../data/data"
 import { gradients } from "../../theme"
 import SectionHeader from "../SectionHeader";
+import type { alertType } from "../Alert";
 import axios from 'axios';
 
 export interface ContactProps {
-  alertCallback: Function,
+  alertCallback: (text: string, severity: alertType) => void,
 }
 
 /** Quick-pick reasons that prefill the subject line. */

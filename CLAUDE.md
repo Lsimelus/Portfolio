@@ -19,6 +19,9 @@ npm test
 
 # Type check + production build into build/
 npm run build
+
+# Lint (ESLint; CI fails on any warning)
+npm run lint
 ```
 
 ## Architecture
@@ -51,7 +54,7 @@ The main source code lives in `/src/` with the following organization:
 - **HTTP Client:** axios 1.12.2 (for backend API calls)
 - **Routing:** react-router-dom 6 (`/`, lazy `/projects/:slug`); `vercel.json` rewrites deep links to `index.html`
 - **Analytics:** `@vercel/analytics` `<Analytics />` in `src/index.tsx` (enable Web Analytics in the Vercel dashboard)
-- **CI:** `.github/workflows/ci.yml` runs type check, tests and build on push/PR
+- **CI:** `.github/workflows/ci.yml` runs type check, lint (`npm run lint`, ESLint, zero warnings), an audit of shipped dependencies, tests and build on push/PR; Dependabot (`.github/dependabot.yml`) keeps npm packages and actions current
 - **Testing:** Vitest (jsdom, globals: `vi`, `describe`, `it`) + @testing-library/react (`npm test`); `src/setupTests.ts` mocks IntersectionObserver/scrolling. A `beforeEach` must not return a function (Vitest runs it as cleanup), so use braces. Components using router links must be rendered inside a `MemoryRouter`. `marked` is ESM-only, so tests mock `MarkdownView`.
 - **Build Tool:** Vite 5 (`vite.config.ts`; dev server on 3002, output in `build/`). Env vars keep the `REACT_APP_` prefix (`envPrefix`) and are read via `import.meta.env`.
 - **Other:** marked (markdown for case studies)
