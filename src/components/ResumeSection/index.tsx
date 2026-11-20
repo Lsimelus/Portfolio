@@ -29,10 +29,8 @@ const JobCard = ({ job, isCurrent }: { job: WorkExperience; isCurrent: boolean }
       <CardContent sx={{ p: { xs: 2.5, sm: 3, md: 4 } }}>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
-          justifyContent="space-between"
           spacing={1}
-          sx={{ mb: 2, textAlign: 'left' }}
-        >
+          sx={{ justifyContent: 'space-between', mb: 2, textAlign: 'left' }}>
           <Box>
             <Typography variant="h4" component="h3" sx={{ fontWeight: 700 }}>
               {job.position}
@@ -103,7 +101,7 @@ const Resume = () => {
           ))}
         </Stack>
 
-        <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 3 }}>
+        <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 3 }}>
           <SchoolIcon color="primary" />
           <Typography variant="h4" component="h3" sx={{ fontWeight: 700 }}>
             Education
@@ -112,10 +110,10 @@ const Resume = () => {
 
         <Grid container spacing={3}>
           {resumeData.education.map((edu) => (
-            <Grid item xs={12} md={6} key={edu.institution}>
+            <Grid key={edu.institution} size={{ xs: 12, md: 6 }}>
               <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                 <CardContent sx={{ p: 3, textAlign: 'left' }}>
-                  <Stack direction="row" justifyContent="space-between" spacing={2}>
+                  <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-between' }}>
                     <Typography variant="h6" component="h4" sx={{ fontWeight: 700 }}>
                       {edu.institution}
                     </Typography>

@@ -125,7 +125,7 @@ const Contact = (props: ContactProps) => {
 
         <Grid container spacing={4}>
           {/* Contact Form */}
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Box
               sx={{
                 p: { xs: 3, sm: 5 },
@@ -137,7 +137,7 @@ const Contact = (props: ContactProps) => {
             >
               <Box component="form" onSubmit={handleSubmit}>
                 <Stack spacing={3}>
-                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                  <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
                     {inquiryTypes.map((type) => (
                       <Chip
                         key={type}
@@ -221,7 +221,7 @@ const Contact = (props: ContactProps) => {
           </Grid>
 
           {/* Contact Info */}
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Stack spacing={3} sx={{ height: '100%' }}>
               <Box
                 sx={{

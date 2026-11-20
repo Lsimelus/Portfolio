@@ -58,7 +58,7 @@ const CaseStudyPage = () => {
 
           <Grid container spacing={2} sx={{ mb: 5 }}>
             {project.metrics.map((m) => (
-              <Grid item xs={6} md={3} key={m.label}>
+              <Grid key={m.label} size={{ xs: 6, md: 3 }}>
                 <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                   <CardContent>
                     <Typography variant="h6" component="p" color="primary" sx={{ fontWeight: 800, lineHeight: 1.3 }}>
@@ -74,7 +74,7 @@ const CaseStudyPage = () => {
           <Typography variant="h5" component="h2" sx={{ fontWeight: 700, mb: 1.5 }}>
             Stack
           </Typography>
-          <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 5 }}>
+          <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap', mb: 5 }}>
             {project.stack.map((s) => (
               <Chip key={s} label={s} variant="outlined" />
             ))}

@@ -16,8 +16,8 @@ const About = () => {
       sx={{ minHeight: 'auto', py: { xs: 7, md: 12 }, bgcolor: theme.palette.background.default }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
-          <Grid item xs={12}>
+        <Grid container spacing={{ xs: 6, md: 8 }} sx={{ alignItems: 'center' }}>
+          <Grid size={{ xs: 12 }}>
             <SectionHeader eyebrow="About me" title="What I'm looking for" />
             {about.paragraphs.map((paragraph, idx) => (
               <Typography
