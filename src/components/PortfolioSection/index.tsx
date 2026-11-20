@@ -24,7 +24,7 @@ import RichText from "../RichText";
 import { gradients } from "../../theme";
 
 const TechChips = ({ technologies }: { technologies: string[] }) => (
-  <Stack direction="row" flexWrap="wrap" gap={1}>
+  <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
     {technologies.map((tech) => (
       <Chip key={tech} label={tech} size="small" variant="outlined" sx={{ fontSize: '0.75rem' }} />
     ))}
@@ -77,7 +77,7 @@ const Portfolio = () => {
 
         <Grid container spacing={4}>
           {featured.map((project) => (
-            <Grid item xs={12} md={6} key={project.title}>
+            <Grid key={project.title} size={{ xs: 12, md: 6 }}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 {project.media ? (
                   <CardMedia
@@ -113,7 +113,7 @@ const Portfolio = () => {
                       sx={{ mb: 1.5, fontWeight: 600, bgcolor: `${theme.palette.warning.main}26`, color: '#92400E' }} // Amber 800: AA contrast on the tinted badge
                     />
                   )}
-                  <Stack direction="row" justifyContent="space-between" alignItems="baseline" spacing={2} sx={{ mb: 1 }}>
+                  <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-between', alignItems: 'baseline', mb: 1 }}>
                     <Typography variant="h5" component="h3" sx={{ fontWeight: 700 }}>
                       {project.title}
                     </Typography>

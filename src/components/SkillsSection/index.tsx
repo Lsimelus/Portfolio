@@ -43,16 +43,16 @@ const Skills = () => {
           {categories.map(({ category, items }) => {
             const Icon = categoryIcons[category];
             return (
-              <Grid item xs={12} sm={6} key={category}>
+              <Grid key={category} size={{ xs: 12, sm: 6 }}>
                 <Card sx={{ height: '100%', '&:hover': { transform: 'none' } }}>
                   <CardContent sx={{ p: { xs: 2.5, sm: 3 }, textAlign: 'left' }}>
-                    <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 2 }}>
+                    <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 2 }}>
                       <Icon color="primary" />
                       <Typography variant="h6" component="h3" sx={{ fontWeight: 700 }}>
                         {category}
                       </Typography>
                     </Stack>
-                    <Stack direction="row" flexWrap="wrap" gap={1}>
+                    <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
                       {items.map((tech) => (
                         <Chip
                           key={tech.name}

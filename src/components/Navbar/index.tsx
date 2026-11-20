@@ -153,7 +153,7 @@ const Navbar = () => {
         anchor="right"
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
-        PaperProps={{ sx: { width: 'min(80vw, 300px)', p: 2 } }}
+        slotProps={{ paper: { sx: { width: 'min(80vw, 300px)', p: 2 } } }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <IconButton aria-label="Close menu" onClick={() => setMenuOpen(false)}>
@@ -170,7 +170,7 @@ const Navbar = () => {
             >
               <ListItemText
                 primary={label}
-                primaryTypographyProps={{ fontWeight: active === id ? 700 : 500, fontSize: '1.1rem' }}
+                slotProps={{ primary: { sx: { fontWeight: active === id ? 700 : 500, fontSize: '1.1rem' } } }}
               />
             </ListItemButton>
           ))}

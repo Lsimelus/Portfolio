@@ -12,11 +12,8 @@ export interface SectionHeaderProps {
 const SectionHeader = ({ eyebrow, title, subtitle, action }: SectionHeaderProps) => (
   <Stack
     direction={{ xs: 'column', sm: 'row' }}
-    justifyContent="space-between"
-    alignItems={{ xs: 'flex-start', sm: 'flex-end' }}
     spacing={2}
-    sx={{ mb: 6, textAlign: 'left' }}
-  >
+    sx={{ justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'flex-end' }, mb: 6, textAlign: 'left' }}>
     <Box>
       <Typography
         variant="overline"

@@ -52,9 +52,9 @@ const Header = () => {
         }}
       >
         <Box className="fade-in">
-          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center" sx={{ mb: 7 }}>
-            <Grid item xs={12} md={8}>
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
+          <Grid container spacing={{ xs: 4, md: 6 }} sx={{ alignItems: 'center', mb: 7 }}>
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mb: 3 }}>
                 <Chip
                   size="small"
                   label={profile.availability}
@@ -109,9 +109,7 @@ const Header = () => {
               <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={2}
-                alignItems={{ xs: 'stretch', sm: 'center' }}
-                className="fade-in-delay-2"
-              >
+                className="fade-in-delay-2" sx={{ alignItems: { xs: 'stretch', sm: 'center' } }}>
                 <Button variant="contained" size="large" startIcon={<DownloadIcon />} onClick={downloadResume}>
                   Download Resume
                 </Button>
@@ -140,7 +138,7 @@ const Header = () => {
               </Stack>
             </Grid>
 
-            <Grid item md={4} sx={{ display: { xs: 'none', md: 'block' } }}>
+            <Grid sx={{ display: { xs: 'none', md: 'block' } }} size={{ md: 4 }}>
               <Box
                 component="img"
                 src={profilepic}
@@ -161,7 +159,7 @@ const Header = () => {
 
           <Grid container spacing={2} className="fade-in-delay-3">
             {profile.stats.map((stat) => (
-              <Grid item xs={12} sm={6} md={4} key={stat.label}>
+              <Grid key={stat.label} size={{ xs: 12, sm: 6, md: 4 }}>
                 <Box
                   sx={{
                     p: 2.5,
