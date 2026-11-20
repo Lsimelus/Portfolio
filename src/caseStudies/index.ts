@@ -47,7 +47,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Express + Passport + Postgres",
     summary:
       "Launch site and waitlist backed by a full Express app: Google sign-in, founding-member numbers, referral tracking, and a role-gated publisher dashboard with a scheduled email job.",
-    liveUrl: "https://abchealth-expressjs.vercel.app/",
+    liveUrl: "https://abchealth.lyndbergh.net/",
     stack: ["Express.js", "Passport.js (Google OAuth)", "PostgreSQL", "node-cron", "Vercel"],
     decisions: [
       "Stored sessions in PostgreSQL instead of server memory, so sign-ins survive restarts and redeploys",

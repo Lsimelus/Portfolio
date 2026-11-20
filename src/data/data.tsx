@@ -234,7 +234,7 @@ export const portfolioData: PortfolioData = {
       description: "Launch site and waitlist for a goal-setting and community platform, built as a full **Express + PostgreSQL** app: **Google OAuth signup**, race-free founding-member numbering, **referral tracking** from link click to signup, and a **role-gated publisher dashboard** with scheduled email.",
       technologies: ["JavaScript", "Tailwind CSS", "Node.js", "Express.js", "Passport.js", "PostgreSQL"],
       type: [ProjectType.FULLSTACK],
-      liveUrl: "https://abchealth-expressjs.vercel.app/",
+      liveUrl: "https://abchealth.lyndbergh.net/",
       caseStudySlug: "abchealth",
       date: "2025",
       media: { image: abc },
